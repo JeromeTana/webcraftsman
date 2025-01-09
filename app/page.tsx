@@ -14,7 +14,7 @@ export default function Home() {
         <motion.small
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="text-center font-medium font-mono w-full"
+          className="text-sm md:text-xl text-center font-medium font-mono w-full"
         >
           Coming soon
         </motion.small>
