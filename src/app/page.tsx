@@ -53,9 +53,10 @@ export default function Home() {
           <AnimatedContent
             distance={100}
             direction="vertical"
-            config={{ tension: 80, friction: 30 }}
             initialOpacity={0.05}
             animateOpacity
+            damping={10}
+            stiffness={40}
             scale={0.9}
             threshold={0.2}
           >

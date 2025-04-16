@@ -1,20 +1,18 @@
 "use client";
-/*
-	Installed from https://reactbits.dev/ts/tailwind/
-*/
 
 import { useRef, useEffect, useState, ReactNode } from "react";
-import { useSpring, animated, SpringConfig } from "@react-spring/web";
+import { motion } from "framer-motion";
 
 interface AnimatedContentProps {
   children: ReactNode;
   distance?: number;
   direction?: "vertical" | "horizontal";
   reverse?: boolean;
-  config?: SpringConfig;
   initialOpacity?: number;
   animateOpacity?: boolean;
   scale?: number;
+  stiffness?: number;
+  damping?: number;
   threshold?: number;
   delay?: number;
 }
@@ -24,10 +22,11 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
   distance = 100,
   direction = "vertical",
   reverse = false,
-  config = { tension: 50, friction: 25 },
   initialOpacity = 0,
   animateOpacity = true,
   scale = 1,
+  stiffness = 80,
+  damping = 30,
   threshold = 0.1,
   delay = 0,
 }) => {
@@ -60,26 +59,34 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
     horizontal: "X",
   };
 
-  const springProps = useSpring({
-    from: {
+  const variants = {
+    hidden: {
+      opacity: animateOpacity ? initialOpacity : 1,
       transform: `translate${directions[direction]}(${
         reverse ? `-${distance}px` : `${distance}px`
       }) scale(${scale})`,
-      opacity: animateOpacity ? initialOpacity : 1,
     },
-    to: inView
-      ? {
-          transform: `translate${directions[direction]}(0px) scale(1)`,
-          opacity: 1,
-        }
-      : undefined,
-    config,
-  });
+    visible: {
+      opacity: 1,
+      transform: `translate${directions[direction]}(0px) scale(1)`,
+      transition: {
+        type: "spring",
+        stiffness: stiffness, // Equivalent to tension
+        damping: damping, // Equivalent to friction
+        delay: delay / 1000, // Convert delay to seconds
+      },
+    },
+  };
 
   return (
-    <animated.div ref={ref} style={springProps}>
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      variants={variants}
+    >
       {children}
-    </animated.div>
+    </motion.div>
   );
 };
 
