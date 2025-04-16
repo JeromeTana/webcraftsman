@@ -1,26 +1,117 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #0e0e0e;
+  --primary: #1e40d7;
+  --accent-green: #00ffb7;
+  --border: #323232;
+}
+
+@keyframes star-movement-bottom {
+  0% {
+    transform: translate(0%, 0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-100%, 0%);
+    opacity: 0;
+  }
+}
+@keyframes star-movement-top {
+  0% {
+    transform: translate(0%, 0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(100%, 0%);
+    opacity: 0;
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-accent-green: var(--accent-green);
+  --color-border: var(--border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --animate-star-movement-bottom: star-movement-bottom linear infinite alternate;
+  --animate-star-movement-top: star-movement-top linear infinite alternate;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--color-white);
+  font-family: Poppins, Helvetica, sans-serif;
 }
+
+.pill {
+  background: var(--foreground);
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  border: var(--border) 1px solid;
+  width: fit-content;
+}
+
+.card {
+  background: var(--foreground);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  border: var(--border) 1px solid;
+  overflow: clip;
+}
+
+.cta {
+  background: var(--primary);
+  color: var(--color-white);
+  font-weight: 500;
+  padding: 0.7rem 1.4rem;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cta:hover {
+  background: #172f99;
+  transform: scale(0.98);
+}
+
+section {
+  padding: 2rem;
+  margin: auto;
+  max-width: 64rem;
+  padding-top: 6rem;
+}
+
+p {
+  color: #cacaca;
+}
+
+input,
+textarea {
+  border: var(--border) 1px solid;
+  border-radius: 0.6rem;
+  padding: 0.6rem 1.2rem;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border: var(--primary) 1px solid;
+}
+
+label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* keyframe */
