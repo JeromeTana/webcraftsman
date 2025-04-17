@@ -6,9 +6,14 @@ import Image from "next/image";
 import ContactForm from "@/Components/ContactForm";
 import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import StarBorder from "@/Animations/StarBorder/StarBorder";
-import SpotlightCard from "@/Components/SpotlightCard/SpotlightCard";
 import Magnet from "@/Animations/Magnet/Magnet";
 import { RevealLink } from "@/Components/RevealLink";
+import ProcessItem from "@/Components/ProcessItem";
+import { LucideCheck } from "@/Components/Icons/LucideCheck";
+import { LucideX } from "@/Components/Icons/LucideX";
+import PricingItem from "@/Components/PricingItem";
+import LightRay from "@/Components/LightRay";
+import WorkCarousel from "@/Components/WorkCarousel";
 
 export default function Home() {
   return (
@@ -36,13 +41,7 @@ export default function Home() {
       </nav>
       <main>
         <section id="hero" className="flex flex-col items-center gap-8">
-          {/* <Image
-            src="/light_ray.svg"
-            alt="light ray"
-            width={180}
-            height={38}
-            className="absolute top-0 left-0 w-1/2 -z-10"
-          /> */}
+          <LightRay />
           <p className="pill text-accent-green flex items-center gap-2">
             <span className="relative flex items-center">
               <span className="w-2 h-2 rounded-full bg-accent-green" />
@@ -76,7 +75,7 @@ export default function Home() {
             direction="top"
             className="w-lg justify-center mb-8"
           />
-          <div className="flex flex-col items-center gap-2 scale-125">
+          <div className="flex flex-col items-center gap-3 scale-125">
             <Magnet padding={50} magnetStrength={10}>
               <button className="cta">
                 <a href="#contact">Get Started Now</a>
@@ -85,15 +84,17 @@ export default function Home() {
             <p className="text-xs">Only 3 simple steps</p>
           </div>
         </section>
+        <WorkCarousel />
+
         <section id="comparison" className="flex flex-col items-center gap-8">
           <p className="pill">Comparison</p>
-          <h1 className="text-6xl text-center font-medium ">
-            <span className={`${poltawski.className} italic`}>Unlike </span>
-            Others Agencies
+          <h1 className="text-6xl text-center font-medium mb-16">
+            What Made Us{" "}
+            <span className={`${poltawski.className} italic`}>Different</span>
           </h1>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-16 sm:gap-6 w-full">
             <div className="flex flex-col items-center gap-6">
-              <p>Other agencies</p>
+              <h2 className="text-2xl">Other agencies</h2>
               <ComparisonItem
                 item={[
                   "Slow communication",
@@ -102,10 +103,15 @@ export default function Home() {
                   "Lack of industry research",
                   "Outsourced to mediocre talent",
                 ]}
+                Icon={<LucideX />}
+                className="text-neutral-500"
               />
             </div>
             <div className="flex flex-col items-center gap-6">
-              <p>Webcraftsman</p>
+              <div className="flex items-center gap-2">
+                <img src="/logo.svg" alt="logo" className="w-10 mx-2" />
+                <h2 className="text-2xl">Webcraftsman</h2>
+              </div>
               <ComparisonItem
                 item={[
                   "Fast communication",
@@ -114,20 +120,23 @@ export default function Home() {
                   "In-depth industry research",
                   "In-house team of experts",
                 ]}
+                Icon={<LucideCheck className="text-accent-green" />}
+                isHighlighted
+                className="!bg-black"
               />
             </div>
           </div>
         </section>
         <section id="work" className="flex flex-col items-center gap-8">
           <p className="pill">Our Work</p>
-          <h1 className="text-6xl text-center font-medium">
+          <h1 className="text-6xl text-center font-medium mb-16">
             Modern and <br />
             <span className={`${poltawski.className} italic`}>
               High Converting
             </span>{" "}
             Design
           </h1>
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-12">
             <WorkItem
               img="/work.png"
               pills={["Concept", "Design & Development"]}
@@ -150,51 +159,94 @@ export default function Home() {
         </section>
         <section id="process" className="flex flex-col gap-8">
           <p className="pill">Our Process</p>
-          <h1 className="text-6xl font-medium ">
+          <h1 className="text-6xl font-medium mb-16">
             <span className={`${poltawski.className} italic`}>3 Steps </span>
             Simple Process
           </h1>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="grid grid-cols-1 gap-6">
-              <SpotlightCard className="card hover:border-primary">
-                <h2>Submit your Brief</h2>
-                <p>Tell us your goals, your brand, and what you're building.</p>
-              </SpotlightCard>
-              <div className="card hover:border-primary">
-                <h2>Pick your favorite concepts</h2>
-                <p>We’ll send over 3 designs to choose from.</p>
-              </div>
-              <div className="card hover:border-primary">
-                <h2>Launch in 3–5 days</h2>
-                <p>
-                  We deliver your site. You review. We tweak it if needed. Done.
-                </p>
-              </div>
+              <ProcessItem
+                index={1}
+                title="Submit your Brief"
+                description="Tell us your goals, your brand, and what you're building."
+              />
+              <ProcessItem
+                index={2}
+                title="Pick your favorite concepts"
+                description="We’ll send over 3 designs to choose from."
+              />
+              <ProcessItem
+                index={3}
+                title="Launch in 5-7 days"
+                description="We deliver your site. You review. We tweak it if needed. Done."
+              />
             </div>
             <div className="card aspect-video md:aspect-auto !bg-primary"></div>
           </div>
         </section>
         <section id="plan" className="flex flex-col items-center gap-8">
           <p className="pill">Plans</p>
-          <h1 className="text-6xl text-center font-medium">
+          <h1 className="text-6xl text-center font-medium mb-16">
             Choose Package That <br />
             <span className={`${poltawski.className} italic`}>
               Fits Your Needs
             </span>
           </h1>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+            <PricingItem
+              plan={{
+                title: "Landing",
+                price: 499,
+                description: "For small projects",
+                features: [
+                  "1 Page",
+                  "1 Revision",
+                  "1 Week Delivery",
+                  "Email Support",
+                ],
+              }}
+            />
+            <PricingItem
+              plan={{
+                title: "Website",
+                price: 499,
+                description: "For small projects",
+                features: [
+                  "1 Page",
+                  "1 Revision",
+                  "1 Week Delivery",
+                  "Email Support",
+                ],
+              }}
+              isHighlighted
+            />
+            <PricingItem
+              plan={{
+                title: "Landing",
+                price: 499,
+                description: "For small projects",
+                features: [
+                  "1 Page",
+                  "1 Revision",
+                  "1 Week Delivery",
+                  "Email Support",
+                ],
+              }}
+            />
+          </div>
         </section>
         <section id="contact" className="!max-w-3xl w-full">
           <div className="card relative">
-            {/* <Image
-              src="/large-comet.svg"
-              alt="work"
-              width={400}
-              height={400}
-              className="absolute top-0 left-0"
-            /> */}
+            <Image
+              src="/large-comet-l.png"
+              alt="large comet"
+              width={300}
+              height={200}
+              className="absolute -top-32 -left-24 w-2/3"
+            />
             <div className="relative flex flex-col items-center gap-8">
               <p className="pill">Contact</p>
-              <h1 className="text-6xl text-center font-medium">
+              <h1 className="text-6xl text-center font-medium mb-16">
                 Ready to{" "}
                 <span className={`${poltawski.className} italic`}>
                   Get Started
@@ -206,9 +258,7 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        WEBCRAFTSMAN.CO
-      </footer>
+      
     </div>
   );
 }

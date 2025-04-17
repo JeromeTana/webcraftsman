@@ -77,7 +77,7 @@ export default function ContactForm() {
           required
         />
       </div>
-      <div className="flex flex-col items-center space-y-2">
+      <div className="flex flex-col items-center space-y-3">
         <button type="submit" className="cta w-full">
           Send project request
         </button>

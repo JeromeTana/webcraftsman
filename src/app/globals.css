@@ -3,7 +3,7 @@
 :root {
   --background: #000000;
   --foreground: #0e0e0e;
-  --primary: #1e40d7;
+  --primary: rgb(29, 63, 215);
   --accent-green: #00ffb7;
   --border: #323232;
 }
@@ -63,7 +63,7 @@ body {
 .card {
   background: var(--foreground);
   border-radius: 1.5rem;
-  padding: 1.5rem;
+  padding: 2rem;
   border: var(--border) 1px solid;
   overflow: clip;
 }
@@ -71,7 +71,7 @@ body {
 .cta {
   background: var(--primary);
   color: var(--color-white);
-  font-weight: 500;
+  font-weight: 600;
   padding: 0.7rem 1.4rem;
   border-radius: 0.75rem;
   font-size: 0.875rem;
@@ -86,21 +86,21 @@ body {
 }
 
 section {
-  padding: 2rem;
   margin: auto;
   max-width: 64rem;
-  padding-top: 6rem;
+  padding: 6rem 2rem;
 }
 
 p {
-  color: #cacaca;
+  color: #bfbfbf;
 }
 
 input,
 textarea {
+  background: var(--background);
   border: var(--border) 1px solid;
-  border-radius: 0.6rem;
-  padding: 0.6rem 1.2rem;
+  padding: 0.7rem;
+  border-radius: 0.75rem;
 }
 
 input:focus,
@@ -114,4 +114,6 @@ label {
   font-weight: 600;
 }
 
-/* keyframe */
+.swiper-free-mode > .swiper-wrapper {
+  transition-timing-function: linear !important;
+}

@@ -6,7 +6,7 @@ interface FollowCursorProps {
   color?: string;
 }
 
-const FollowCursor: React.FC<FollowCursorProps> = ({ color = "#323232a6" }) => {
+const FollowCursor: React.FC<FollowCursorProps> = ({ color = "#ffffff" }) => {
   useEffect(() => {
     let canvas: HTMLCanvasElement;
     let context: CanvasRenderingContext2D | null;
@@ -46,7 +46,7 @@ const FollowCursor: React.FC<FollowCursorProps> = ({ color = "#323232a6" }) => {
       }
     }
 
-    const dot = new Dot(width / 2, height / 2, 16, 16);
+    const dot = new Dot(width / 2, height / 2, 10, 10);
 
     const onMouseMove = (e: MouseEvent) => {
       cursor.x = e.clientX;
@@ -85,6 +85,8 @@ const FollowCursor: React.FC<FollowCursorProps> = ({ color = "#323232a6" }) => {
       canvas.style.position = "fixed";
       canvas.style.top = "0";
       canvas.style.left = "0";
+      canvas.style.zIndex = "100";
+      canvas.style.mixBlendMode = "difference";
       canvas.style.pointerEvents = "none";
       canvas.width = width;
       canvas.height = height;
