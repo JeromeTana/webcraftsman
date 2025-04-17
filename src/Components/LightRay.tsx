@@ -18,6 +18,8 @@ export default function LightRay() {
         width={600}
         height={487}
         className="absolute top-0 left-0 w-1/2 -z-10"
+        fetchPriority="high"
+        priority={true}
       />
     </motion.div>
   );

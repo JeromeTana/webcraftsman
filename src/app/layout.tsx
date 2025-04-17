@@ -4,6 +4,7 @@ import { poppins } from "./fonts";
 import LenisScrollProvider from "./providers/lenis-provider";
 import FollowCursor from "@/Components/FollowCursor";
 import Footer from "@/Components/Footer";
+import Header from "@/Components/Header";
 
 export const metadata: Metadata = {
   title: "Webcraftsman",
@@ -20,6 +21,7 @@ export default function RootLayout({
       <body className={`${poppins.variable} antialiased`}>
         <FollowCursor />
         <LenisScrollProvider>
+          <Header />
           {children}
           <Footer />
         </LenisScrollProvider>

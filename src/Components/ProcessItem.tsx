@@ -3,15 +3,14 @@ import SpotlightCard from "./SpotlightCard/SpotlightCard";
 
 interface ProcessItemProps {
   index: number;
-  title: string;
-  description: string;
+  process: {
+    title: string;
+    description: string;
+  };
 }
 
-export default function ProcessItem({
-  index,
-  title,
-  description,
-}: ProcessItemProps) {
+export default function ProcessItem({ index, process }: ProcessItemProps) {
+  const { title, description } = process;
   return (
     <SpotlightCard className="card relative duration-200 hover:!border-white/30">
       <h2 className="text-xl mb-4">{title}</h2>

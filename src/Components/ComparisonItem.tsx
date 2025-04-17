@@ -36,10 +36,10 @@ export default function ComparisonCard({
       )}
       <ul className="flex flex-col gap-4">
         {item.map((i, index) => (
-          <div key={index} className="flex items-center gap-2">
+          <li key={index} className="flex items-center gap-2">
             {Icon}
-            <li key={index}>{i}</li>
-          </div>
+            <p key={index}>{i}</p>
+          </li>
         ))}
       </ul>
     </SpotlightCard>

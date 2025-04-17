@@ -1,13 +1,16 @@
 import React from "react";
 
 interface Props {
-  img: string;
-  pills: string[];
-  title: string;
-  description: string;
+  work: {
+    img: string;
+    pills: string[];
+    title: string;
+    description: string;
+  };
 }
 
-export default function WorkItem({ img, pills, title, description }: Props) {
+export default function WorkItem({ work }: Props) {
+  const { img, pills, title, description } = work;
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
       <div className="aspect-video rounded-3xl bg-primary"></div>

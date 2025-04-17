@@ -24,7 +24,7 @@ export default function ContactForm() {
         />
       </div>
       <div className="flex flex-col gap-4">
-        <label htmlFor="website">Current Website (Optional)</label>
+        <label htmlFor="website">Current website (Optional)</label>
         <input
           type="text"
           id="website"
