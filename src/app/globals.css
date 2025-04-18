@@ -101,7 +101,7 @@ body {
 section {
   margin: auto;
   max-width: 64rem;
-  padding: 6rem 2rem;
+  padding: 6rem 1rem;
 }
 
 p {
@@ -138,7 +138,7 @@ label {
   background: linear-gradient(
     90deg,
     var(--color-white),
-    var(--color-slate-500)
+    var(--color-slate-300)
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
