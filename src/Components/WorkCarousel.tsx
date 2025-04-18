@@ -51,7 +51,7 @@ export default () => {
     return controls?.stop;
   }, [xTranslation, width, duration, rerender]);
   return (
-    <div className="relative w-full h-96">
+    <div className="relative w-full h-96 overflow-clip">
       <motion.div
         className="absolute left-0 flex gap-4"
         ref={ref}
