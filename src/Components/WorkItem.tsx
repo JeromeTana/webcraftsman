@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 interface Props {
@@ -12,8 +13,16 @@ interface Props {
 export default function WorkItem({ work }: Props) {
   const { img, pills, title, description } = work;
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-      <div className="aspect-video rounded-3xl bg-primary"></div>
+    <div className="group grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+      <div className="rounded-3xl overflow-hidden">
+        <Image
+          src={img}
+          alt="work"
+          width={1000}
+          height={1000}
+          className="w-full h-full object-cover object-top group-hover:scale-105 duration-300"
+        />
+      </div>
       <div className="flex flex-col gap-6">
         <div className="flex gap-2">
           {pills.map((pill, index) => (

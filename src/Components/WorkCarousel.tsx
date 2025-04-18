@@ -1,16 +1,17 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
-// import proj1 from "@/assets/proj1.webp";
-// import proj2 from "@/assets/proj2.webp";
-// import proj3 from "@/assets/proj3.webp";
-
-// Import Swiper styles
 import "swiper/css";
 
 import { Autoplay } from "swiper/modules";
+import Image from "next/image";
 
 export default () => {
-  const slides = ["", "", "", "", "", "", "", ""];
+  const slidesImg = [
+    "/DevWhoLifts.png",
+    "/IronLift.png",
+    "/JeromeTana.png",
+    "/FitDad.png",
+  ];
   return (
     <Swiper
       modules={[Autoplay]}
@@ -19,36 +20,24 @@ export default () => {
         delay: 0,
         disableOnInteraction: false,
       }}
-      speed={5000}
+      speed={10000}
       spaceBetween={24}
-      breakpoints={{
-        0: {
-          slidesPerView: 0.8,
-          spaceBetween: 16,
-        },
-        768: {
-          slidesPerView: 1.2,
-          spaceBetween: 16,
-        },
-        1024: {
-          slidesPerView: 3.2,
-          spaceBetween: 16,
-        },
-      }}
+      slidesPerView={3}
       grabCursor={true}
+      draggable={false}
       className="swiper-free-mode"
     >
-      {slides.map((slide, index) => (
+      {slidesImg.map((slide, index) => (
         <SwiperSlide key={index}>
-          <div className="bg-foreground w-full h-64 rounded-3xl overflow-clip">
-            {/* <img
-              src={slide.src}
-              alt={`Slide ${index}`}
-              loading="eager"
-              width={700}
-              height={467}
-              className="object-cover w-full h-full"
-            /> */}
+          <div className="bg-foreground w-full h-80 rounded-3xl overflow-clip">
+            <Image
+              src={slide}
+              alt="work"
+              width={1000}
+              height={1000}
+              className="w-full h-full object-cover object-top"
+              priority
+            />
           </div>
         </SwiperSlide>
       ))}

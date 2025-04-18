@@ -84,6 +84,7 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
       variants={variants}
+      className="w-full h-full"
     >
       {children}
     </motion.div>

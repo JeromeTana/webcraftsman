@@ -71,21 +71,21 @@ const HERO_ROASTING_PLAN = {
 
 const WORKS = [
   {
-    img: "/work.png",
+    img: "/DevWhoLifts.png",
     pills: ["Concept", "Design & Development"],
     title: "Webcraftsman.co",
     description:
       "We design and build beautiful Framer websites in 5-7 days. Faster than most people schedule a meeting.",
   },
   {
-    img: "/work.png",
+    img: "/IronLift.png",
     pills: ["Concept", "Design & Development"],
     title: "Webcraftsman.co",
     description:
       "We design and build beautiful Framer websites in 5-7 days. Faster than most people schedule a meeting.",
   },
   {
-    img: "/work.png",
+    img: "/JeromeTana.png",
     pills: ["Concept", "Design & Development"],
     title: "Webcraftsman.co",
     description:
@@ -117,13 +117,34 @@ export default function Home() {
       <main>
         <section id="hero" className="flex flex-col items-center gap-8">
           <LightRay />
-          <div className="pill text-accent-green flex items-center gap-2">
-            <div className="relative flex items-center">
-              <div className="w-2 h-2 rounded-full bg-accent-green" />
-              <div className="w-2 h-2 rounded-full bg-accent-green animate-ping absolute" />
+          <AnimatedContent
+            distance={100}
+            direction="vertical"
+            initialOpacity={0.05}
+            animateOpacity
+            damping={10}
+            stiffness={50}
+            scale={0.9}
+            delay={400}
+            threshold={0.2}
+          >
+            <div className="pill text-accent-green flex items-center gap-2 m-auto">
+              <div className="relative flex items-center">
+                <div className="w-2 h-2 rounded-full bg-accent-green" />
+                <div className="w-2 h-2 rounded-full bg-accent-green animate-ping absolute" />
+              </div>
+              <ShinyText
+                text={
+                  "2 spots left for " +
+                  new Date().toLocaleString("default", {
+                    month: "long",
+                  })
+                }
+                speed={5}
+                className="text-accent-green"
+              />
             </div>
-            <ShinyText text="2 spots left for April" speed={5} />
-          </div>
+          </AnimatedContent>
           <AnimatedContent
             distance={100}
             direction="vertical"
@@ -377,7 +398,7 @@ export default function Home() {
             </a>
           </div> */}
         </section>
-        <section id="free" className="!max-w-3xl w-full">
+        <section id="free" className="!max-w-2xl w-full">
           <div className="card relative">
             <Image
               src="/large-comet-l.png"
