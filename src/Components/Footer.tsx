@@ -3,13 +3,12 @@ import { poltawski } from "@/app/fonts";
 import Image from "next/image";
 import React from "react";
 import { LucideCheck } from "./Icons/LucideCheck";
-import ShinyText from "./ShinyText/ShinyText";
 import Magnet from "@/Animations/Magnet/Magnet";
 import { LucideArrowRight } from "./Icons/LucideArrowRight";
 
 const features = [
   "Turn your visitors into buyers.",
-  "Complete in 5 days.",
+  "Completed in 5 days.",
   "No meetings.",
 ];
 
@@ -48,7 +47,7 @@ export default function Footer() {
             <div className="flex flex-col items-center gap-3 scale-125 mt-6">
               <Magnet padding={50} magnetStrength={10}>
                 <a href="/#plan">
-                  <button className="cta flex items-center gap-2 !bg-white !text-primary">
+                  <button className="cta flex items-center gap-2 !bg-white !text-primary animate-bounce">
                     Get Started Now <LucideArrowRight />
                   </button>
                 </a>

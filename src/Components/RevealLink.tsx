@@ -18,9 +18,6 @@ export const RevealLink = ({ children, href }: Props) => {
       whileHover="hovered"
       href={href}
       className="relative block overflow-hidden whitespace-nowrap"
-      style={{
-        lineHeight: 0.75,
-      }}
     >
       <div>
         {children.split("").map((l, i) => (

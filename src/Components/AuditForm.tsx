@@ -70,12 +70,16 @@ export default function AuditForm() {
 
       {state?.success ? (
         <a href="https://www.instagram.com/webcraftsman.co/" target="_blank">
-          <div className="w-full p-4 bg-green-500/20 border border-green-500/70 rounded-xl flex items-center justify-center gap-2 hover:scale-95 duration-200">
-            <LucideCheck />
-            We've received your request!
-            <span className="underline">
-              Follow us on Instagram to see your roast.
-            </span>
+          <div className="w-full p-4 bg-green-500/20 border border-green-500/70 rounded-xl gap-2 hover:scale-95 duration-200">
+            <p className="!text-white text-lg">
+              <span className="flex items-center gap-2 font-semibold">
+                <LucideCheck />
+                We've received your request!
+              </span>
+              <span className="underline text-base">
+                Follow us on Instagram to see your roast.
+              </span>
+            </p>
           </div>
         </a>
       ) : (

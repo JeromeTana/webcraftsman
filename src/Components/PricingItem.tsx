@@ -8,6 +8,7 @@ import { LucideArrowRight } from "./Icons/LucideArrowRight";
 interface PricingItemProps {
   plan: {
     title: string;
+    price_from?: number;
     price: number;
     description: string;
     features: string[];
@@ -22,7 +23,7 @@ export default function PricingItem({
   isHighlighted = false,
   className,
 }: PricingItemProps) {
-  const { title, price, description, features, paymentUrl } = plan;
+  const { title, price_from, price, description, features, paymentUrl } = plan;
   return (
     <SpotlightCard
       spotlightColor={isHighlighted ? undefined : "rgba(255, 255, 255, 0)"}
@@ -44,9 +45,16 @@ export default function PricingItem({
       <div>
         <div className="flex flex-col gap-6 z-10">
           <h2 className="text-2xl text-center font-semibold">{title}</h2>
-          <p className="text-6xl text-center font-medium !text-white">
-            ${price}
-          </p>
+          <div>
+            {price_from && (
+              <p className="text-3xl text-center font-medium line-through">
+                ${price_from}
+              </p>
+            )}
+            <p className="text-6xl text-center font-medium !text-white !leading-normal">
+              ${price}
+            </p>
+          </div>
           <p className="text-center">{description}</p>
         </div>
         <div className="flex flex-col gap-4 mt-8">

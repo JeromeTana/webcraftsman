@@ -23,6 +23,11 @@ export default function RootLayout({
           <FollowCursor />
         </div>
         <LenisScrollProvider>
+          <div className="p-1 bg-primary mb-2 text-center text-sm underline">
+            <a href="/free" target="_blank">
+              Get your free audit here
+            </a>
+          </div>
           <Header />
           {children}
           <Footer />

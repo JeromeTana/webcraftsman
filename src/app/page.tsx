@@ -13,58 +13,72 @@ import LightRay from "@/Components/LightRay";
 import WorkCarousel from "@/Components/WorkCarousel";
 import { LucideArrowRight } from "@/Components/Icons/LucideArrowRight";
 import ShinyText from "@/Components/ShinyText/ShinyText";
+import Accordion from "@/Components/Accordion";
 
-const LANDING_PLAN = {
-  title: "Landing",
-  price: 1200,
-  description: "For small projects",
-  features: [
-    "1 landing page",
-    "High-conversion design",
-    "Copywriting",
-    "SEO optimized",
-    "High-performance score",
-    "Mobile responsive",
-    "Launched in 5 days",
-  ],
-  paymentUrl: "https://buy.stripe.com/14k3fe7y6g4K4qk7st",
-};
-
-const WEBSITE_PLAN = {
-  title: "Website",
-  price: 4590,
-  description: "For scaling businesses",
-  features: [
-    "5 pages",
-    "CMS integrated",
-    "High-conversion design",
-    "Copywriting",
-    "SEO optimized",
-    "High-performance score",
-    "Mobile responsive",
-    "Launched in 7 days",
-  ],
-  paymentUrl: "https://buy.stripe.com/00gdTSg4Cg4K3mg288",
-};
-
-const ROAST_PLAN = {
-  title: "Roast",
-  price: 89,
-  description: "For better landing page",
-  features: ["Landing page roast", "Audit report", "Actionable fixes list"],
-  paymentUrl: "https://buy.stripe.com/fZeeXW5pY9Gm0a4fZ0",
-};
-
-const HERO_ROASTING_PLAN = {
-  title: "Free Hero Roast",
-  price: 0,
-  description: "For conversion rate optimization",
-  features: [
-    "Roast your hero section",
-    "Audit report published on Instagram",
-    "Actionable Fixes List",
-  ],
-};
+const PLANS = [
+  {
+    title: "Website",
+    price_from: 5590,
+    price: 4590,
+    description: "For scaling businesses",
+    features: [
+      "5 pages",
+      "CMS integrated",
+      "High-conversion design",
+      "Copywriting",
+      "SEO optimized",
+      "High-performance score",
+      "Mobile responsive",
+      "Launched in 7 days",
+    ],
+    paymentUrl: "https://buy.stripe.com/00gdTSg4Cg4K3mg288",
+    isHighlighted: false,
+  },
+  {
+    title: "Landing",
+    price_from: 1590,
+    price: 1200,
+    description: "For simple projects",
+    features: [
+      "1 landing page",
+      "High-conversion design",
+      "Copywriting",
+      "SEO optimized",
+      "High-performance score",
+      "Mobile responsive",
+      "Launched in 5 days",
+    ],
+    paymentUrl: "https://buy.stripe.com/14k3fe7y6g4K4qk7st",
+    isHighlighted: true,
+  },
+  // {
+  //   title: "Custom",
+  //   price: 5000,
+  //   description: "For better landing page",
+  //   features: ["Landing page roast", "Audit report", "Actionable fixes list"],
+  //   paymentUrl: "https://buy.stripe.com/fZeeXW5pY9Gm0a4fZ0",
+  //   isHighlighted: false,
+  // },
+  {
+    title: "Roast",
+    price: 89,
+    description: "For better landing page",
+    features: ["Landing page roast", "Audit report", "Actionable fixes list"],
+    paymentUrl: "https://buy.stripe.com/fZeeXW5pY9Gm0a4fZ0",
+    isHighlighted: false,
+  },
+  // {
+  //   title: "Free Hero Roast",
+  //   price: 0,
+  //   description: "For conversion rate optimization",
+  //   features: [
+  //     "Roast your hero section",
+  //     "Audit report published on Instagram",
+  //     "Actionable Fixes List",
+  //   ],
+  //   isHighlighted: false,
+  // },
+];
 
 const WORKS = [
   {
@@ -113,8 +127,33 @@ const PROCESS = [
   },
 ];
 
-const FAQS = [];
-
+const FAQS = [
+  {
+    question: "How quickly can I expect my website to be completed?",
+    answer:
+      "Your landing page will be delivered in 5 days, and full websites in 7 days from brief submission. If there's a delay, we will notify you immediately.",
+  },
+  {
+    question: "What information do you need from me to get started?",
+    answer:
+      "We'll need your brand guidelines (if available), content preferences, target audience information, and any specific features you want included. ",
+  },
+  {
+    question: "Why is payment required upfront?",
+    answer:
+      "The upfront payment secures your place in our limited schedule and allows us to dedicate full resources to your project immediately.",
+  },
+  {
+    question: "Do you offer ongoing maintenance?",
+    answer:
+      "While our packages don't include ongoing maintenance, we offer support packages that can be purchased separately after your project is completed.",
+  },
+  {
+    question: "How do I get started?",
+    answer:
+      "Simply click the 'Get Started Now' button on our homepage, select your package, and complete the payment process. We'll reach out to you within 24 hours to kick off your project.",
+  },
+];
 export default function Home() {
   return (
     <div>
@@ -165,7 +204,6 @@ export default function Home() {
               </span>
             </h1>
           </AnimatedContent>
-
           <BlurText
             text="We design and build beautiful Framer websites in 5-7 days. Faster than
           most people schedule a meeting."
@@ -284,21 +322,11 @@ export default function Home() {
                 Design
               </h1>
             </AnimatedContent>
-            <AnimatedContent
-              distance={100}
-              direction="vertical"
-              animateOpacity
-              damping={10}
-              stiffness={50}
-              threshold={0.2}
-              delay={100}
-            >
-              <div className="flex flex-col gap-12">
-                {WORKS.map((work, index) => (
-                  <WorkItem key={index} work={work} />
-                ))}
-              </div>
-            </AnimatedContent>
+            <div className="flex flex-col gap-12">
+              {WORKS.map((work, index) => (
+                <WorkItem key={index} work={work} />
+              ))}
+            </div>
           </section>
         </div>
         <section id="process" className="flex flex-col gap-8">
@@ -354,7 +382,7 @@ export default function Home() {
         <div className="wrapper">
           <section id="plan" className="flex flex-col items-center gap-8">
             <div className="pill">
-              <ShinyText text="Plans" speed={5} />
+              <ShinyText text="Plan" speed={5} />
             </div>
             <AnimatedContent
               distance={100}
@@ -383,9 +411,13 @@ export default function Home() {
               delay={100}
             >
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-md md:max-w-full m-auto">
-                <PricingItem plan={LANDING_PLAN} />
-                <PricingItem plan={WEBSITE_PLAN} isHighlighted />
-                <PricingItem plan={ROAST_PLAN} />
+                {PLANS.map((plan, index) => (
+                  <PricingItem
+                    key={index}
+                    plan={plan}
+                    isHighlighted={plan.isHighlighted}
+                  />
+                ))}
               </div>
             </AnimatedContent>
             {/* <div className="card w-full flex justify-between">
@@ -413,7 +445,7 @@ export default function Home() {
           </div> */}
           </section>
         </div>
-        {/* <section
+        <section
           id="faq"
           className="flex flex-col items-center gap-8 !max-w-4xl"
         >
@@ -430,15 +462,22 @@ export default function Home() {
             scale={0.9}
             threshold={0.2}
           >
-            <h1 className= text-4xl sm:text-5xl"lg:text-6xl text-center font-medium mb-6 md:mb-16">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl text-center font-medium mb-6 md:mb-16">
               <span className={`${poltawski.className} italic`}>Questions</span>{" "}
               You Might Have
             </h1>
           </AnimatedContent>
-          <div className="grid grid-cols-1 gap-6 w-full">
-            <div className="card w-full"></div>
+          <div className="grid grid-cols-1 gap-6 w-full max-w-2xl">
+            {/* <div className="card w-full"></div> */}
+            {FAQS.map((faq, index) => (
+              <Accordion
+                key={index}
+                question={faq.question}
+                answer={faq.answer}
+              />
+            ))}
           </div>
-        </section> */}
+        </section>
       </main>
     </div>
   );
