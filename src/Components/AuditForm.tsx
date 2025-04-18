@@ -1,11 +1,21 @@
 "use client";
 
+import { submitAuditForm } from "@/app/action";
 import React from "react";
+import { twMerge } from "tailwind-merge";
+import { Spinner } from "./Icons/Spinner";
+import { LucideCheck } from "./Icons/LucideCheck";
+import { LucideX } from "./Icons/LucideX";
 
 export default function AuditForm() {
+  const [state, formAction, pending] = React.useActionState(
+    submitAuditForm,
+    null
+  );
+
   return (
-    <form className="flex flex-col gap-8 w-full">
-      <div className="flex flex-col gap-4">
+    <form action={formAction} className="flex flex-col gap-8 w-full">
+      <fieldset className="flex flex-col gap-4">
         <label htmlFor="website">Landing page url</label>
         <input
           type="text"
@@ -14,8 +24,8 @@ export default function AuditForm() {
           placeholder="https://yourwebsite.com"
           required
         />
-      </div>
-      <div className="flex flex-col gap-4">
+      </fieldset>
+      <fieldset className="flex flex-col gap-4">
         <label htmlFor="name">Full name</label>
         <input
           type="text"
@@ -24,9 +34,19 @@ export default function AuditForm() {
           placeholder="Jerome Tana"
           required
         />
-      </div>
-      <div className="flex flex-col gap-4">
-        <label htmlFor="email">Email for contact</label>
+      </fieldset>
+      <fieldset className="flex flex-col gap-4">
+        <label htmlFor="instagram">Instagram handle</label>
+        <input
+          type="text"
+          id="instagram"
+          name="instagram"
+          placeholder="jerometanaa"
+          required
+        />
+      </fieldset>
+      <fieldset className="flex flex-col gap-4">
+        <label htmlFor="email">Contact email</label>
         <input
           type="email"
           id="email"
@@ -34,22 +54,60 @@ export default function AuditForm() {
           placeholder="example@mail.com"
           required
         />
-      </div>
-      <div className="flex flex-col items-center space-y-3">
-        <button type="submit" className="cta w-full">
-          Send My Roast Request
-        </button>
-        <p className="text-xs">
-          We will post your audit on{" "}
+      </fieldset>
+      {state?.error && (
+        <div className="w-full p-4 bg-red-500/20 border border-red-500/70 rounded-xl flex items-center justify-center gap-2">
+          <LucideX />
           <a
             href="https://www.instagram.com/webcraftsman.co/"
             target="_blank"
             className="underline"
           >
-            Instagram
+            {state.error}
           </a>
-        </p>
-      </div>
+        </div>
+      )}
+
+      {state?.success ? (
+        <a href="https://www.instagram.com/webcraftsman.co/" target="_blank">
+          <div className="w-full p-4 bg-green-500/20 border border-green-500/70 rounded-xl flex items-center justify-center gap-2 hover:scale-95 duration-200">
+            <LucideCheck />
+            We've received your request!
+            <span className="underline">
+              Follow us on Instagram to see your roast.
+            </span>
+          </div>
+        </a>
+      ) : (
+        <div className="flex flex-col items-center space-y-3">
+          <button
+            type="submit"
+            disabled={pending}
+            className={twMerge(
+              "cta w-full",
+              pending ? "opacity-50 !cursor-not-allowed" : ""
+            )}
+          >
+            {pending ? (
+              <span className="flex items-center justify-center gap-2">
+                <Spinner /> Sending...
+              </span>
+            ) : (
+              <span>Send my roast request</span>
+            )}
+          </button>
+          <p className="text-xs">
+            We will post your audit on{" "}
+            <a
+              href="https://www.instagram.com/webcraftsman.co/"
+              target="_blank"
+              className="underline"
+            >
+              Instagram
+            </a>
+          </p>
+        </div>
+      )}
     </form>
   );
 }
