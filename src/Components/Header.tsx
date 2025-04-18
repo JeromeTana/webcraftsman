@@ -19,7 +19,7 @@ export default function Header() {
             <RevealLink href="/#plan">Plans</RevealLink>
           </li>
         </ul>
-        <a href="#plan">
+        <a href="/#plan">
           <button className="cta">Get Started</button>
         </a>
       </div>

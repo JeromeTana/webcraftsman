@@ -47,7 +47,7 @@ export default function Footer() {
             </ul>
             <div className="flex flex-col items-center gap-3 scale-125 mt-6">
               <Magnet padding={50} magnetStrength={10}>
-                <a href="#plan">
+                <a href="/#plan">
                   <button className="cta flex items-center gap-2 !bg-white !text-primary">
                     Get Started Now <LucideArrowRight />
                   </button>
