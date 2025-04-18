@@ -73,23 +73,30 @@ const WORKS = [
   {
     img: "/DevWhoLifts.png",
     pills: ["Concept", "Design & Development"],
-    title: "Webcraftsman.co",
+    title: "DevWhoLifts",
     description:
-      "We design and build beautiful Framer websites in 5-7 days. Faster than most people schedule a meeting.",
+      "DevWhoLifts is a web design agency that specializes in creating high-converting websites for fitness professionals.",
   },
   {
     img: "/IronLift.png",
     pills: ["Concept", "Design & Development"],
-    title: "Webcraftsman.co",
+    title: "IronLift",
     description:
-      "We design and build beautiful Framer websites in 5-7 days. Faster than most people schedule a meeting.",
+      "IronLift is a gym and fitness center in Bangkok that focuses on providing a unique and personalized experience for its members.",
   },
   {
     img: "/JeromeTana.png",
     pills: ["Concept", "Design & Development"],
-    title: "Webcraftsman.co",
+    title: "Jerome Tana",
     description:
-      "We design and build beautiful Framer websites in 5-7 days. Faster than most people schedule a meeting.",
+      "Jerome Tana is a Content Creator specializing in designing and building high-converting websites",
+  },
+  {
+    img: "/FitDad.png",
+    pills: ["Concept", "Design & Development"],
+    title: "FitDad",
+    description:
+      "FitDad is a fitness coaching program that helps busy dads get in shape and stay healthy.",
   },
 ];
 
@@ -155,7 +162,7 @@ export default function Home() {
             scale={0.9}
             threshold={0.2}
           >
-            <h1 className="text-6xl text-center font-medium ">
+            <h1 className="shaded text-6xl text-center font-medium ">
               Build Modern High Converting Website in{" "}
               <span className={`${poltawski.className} italic`}>
                 5 Days, No Calls
@@ -198,7 +205,7 @@ export default function Home() {
             scale={0.9}
             threshold={0.2}
           >
-            <h1 className="text-6xl text-center font-medium mb-16">
+            <h1 className="shaded text-6xl text-center font-medium mb-16">
               What Made Us{" "}
               <span className={`${poltawski.className} italic`}>Different</span>
             </h1>
@@ -272,7 +279,7 @@ export default function Home() {
             scale={0.9}
             threshold={0.2}
           >
-            <h1 className="text-6xl text-center font-medium mb-16">
+            <h1 className="shaded text-6xl text-center font-medium mb-16">
               Modern and <br />
               <span className={`${poltawski.className} italic`}>
                 High Converting
@@ -310,7 +317,7 @@ export default function Home() {
             scale={0.9}
             threshold={0.2}
           >
-            <h1 className="text-6xl font-medium mb-16">
+            <h1 className="shaded text-6xl font-medium mb-16">
               <span className={`${poltawski.className} italic`}>3 Steps </span>
               Simple Process
             </h1>
@@ -334,7 +341,13 @@ export default function Home() {
                   />
                 ))}
               </div>
-              <div className="card aspect-video md:aspect-auto !bg-primary"></div>
+              <Image
+                src="/workstation.jpg"
+                alt="workstation"
+                width={500}
+                height={500}
+                className="card !p-0 aspect-video md:aspect-auto !bg-primary object-cover w-full"
+              />
             </div>
           </AnimatedContent>
         </section>
@@ -352,7 +365,7 @@ export default function Home() {
             scale={0.9}
             threshold={0.2}
           >
-            <h1 className="text-6xl text-center font-medium mb-16">
+            <h1 className="shaded text-6xl text-center font-medium mb-16">
               Choose Package That <br />
               <span className={`${poltawski.className} italic`}>
                 Fits Your Needs
@@ -411,7 +424,7 @@ export default function Home() {
               <div className="pill">
                 <ShinyText text="Free" speed={5} />
               </div>
-              <h1 className="text-6xl text-center font-medium mb-16">
+              <h1 className="shaded text-6xl text-center font-medium mb-16">
                 Free{" "}
                 <span className={`${poltawski.className} italic`}>
                   Hero Roasting

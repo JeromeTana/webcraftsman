@@ -129,3 +129,17 @@ label {
 .swiper-free-mode > .swiper-wrapper {
   transition-timing-function: linear !important;
 }
+
+/* gradient text for h1*/
+
+.shaded {
+  background: linear-gradient(
+    90deg,
+    var(--color-white),
+    var(--color-slate-400)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  padding-bottom: 0.5rem;
+}
