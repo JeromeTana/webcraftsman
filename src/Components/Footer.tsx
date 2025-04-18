@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="relative bg-white h-72 flex justify-center items-center -z-20 overflow-clip">
         <div className="absolute top-0 bg-background rounded-b-3xl w-full p-8 shadow-2xl">
           <div className="flex flex-col gap-6 md:flex-row md:justify-between">
-            <p> Copyright ©Webcraftsman </p>
+            <p> Copyright ©Webcraftsman.co </p>
             <p> jerome@webcraftsman.co</p>
             <p> Follow on instagram </p>
           </div>

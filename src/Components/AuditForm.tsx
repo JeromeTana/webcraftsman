@@ -12,6 +12,7 @@ export default function AuditForm() {
           id="website"
           name="website"
           placeholder="https://yourwebsite.com"
+          required
         />
       </div>
       <div className="flex flex-col gap-4">
@@ -36,11 +37,15 @@ export default function AuditForm() {
       </div>
       <div className="flex flex-col items-center space-y-3">
         <button type="submit" className="cta w-full">
-          Claim my free audit
+          Send My Roast Request
         </button>
         <p className="text-xs">
           We will post your audit on{" "}
-          <a href="https://www.instagram.com/webcraftsman.co/" target="_blank" className="underline">
+          <a
+            href="https://www.instagram.com/webcraftsman.co/"
+            target="_blank"
+            className="underline"
+          >
             Instagram
           </a>
         </p>

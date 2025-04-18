@@ -3,6 +3,7 @@ import { LucideCheck } from "./Icons/LucideCheck";
 import { twMerge } from "tailwind-merge";
 import Image from "next/image";
 import SpotlightCard from "./SpotlightCard/SpotlightCard";
+import { LucideArrowRight } from "./Icons/LucideArrowRight";
 
 interface PricingItemProps {
   plan: {
@@ -28,7 +29,7 @@ export default function PricingItem({
       className={twMerge(
         "custom-spotlight-card card relative flex flex-col justify-between",
         className,
-        isHighlighted && "!bg-transparent"
+        isHighlighted && "!bg-transparent !border-primary"
       )}
     >
       {isHighlighted && (
@@ -42,7 +43,7 @@ export default function PricingItem({
       )}
       <div>
         <div className="flex flex-col gap-6 z-10">
-          <h2 className="text-2xl text-center">{title}</h2>
+          <h2 className="text-2xl text-center font-semibold">{title}</h2>
           <p className="text-6xl text-center font-medium !text-white">
             ${price}
           </p>
@@ -50,11 +51,11 @@ export default function PricingItem({
         </div>
         <div className="flex flex-col gap-4 mt-8">
           <p className="font-semibold">Includes:</p>
-          <ul className="flex flex-col gap-4">
+          <ul className="flex flex-col gap-2">
             {features.map((feature, index) => (
               <li key={index} className="flex items-center gap-2">
                 <LucideCheck className="text-accent-green" />
-                <p className="!text-white">{feature}</p>
+                <p className={isHighlighted ? "!text-white" : ""}>{feature}</p>
               </li>
             ))}
           </ul>
@@ -63,11 +64,11 @@ export default function PricingItem({
       <a href={paymentUrl} target="_blank">
         <button
           className={twMerge(
-            "cta mt-16 w-full",
+            "cta mt-16 w-full flex items-center justify-center gap-2",
             !isHighlighted && "!bg-white !text-primary"
           )}
         >
-          Get Started
+          Get Started <LucideArrowRight />
         </button>
       </a>
     </SpotlightCard>

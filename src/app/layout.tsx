@@ -7,7 +7,7 @@ import Footer from "@/Components/Footer";
 import Header from "@/Components/Header";
 
 export const metadata: Metadata = {
-  title: "Webcraftsman",
+  title: "Webcraftsman.co",
   description: "Build Modern High Converting Website in 5 days, No calls",
 };
 

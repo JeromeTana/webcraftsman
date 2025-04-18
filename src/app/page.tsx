@@ -14,6 +14,8 @@ import PricingItem from "@/Components/PricingItem";
 import LightRay from "@/Components/LightRay";
 import WorkCarousel from "@/Components/WorkCarousel";
 import AuditForm from "@/Components/AuditForm";
+import { LucideArrowRight } from "@/Components/Icons/LucideArrowRight";
+import ShinyText from "@/Components/ShinyText/ShinyText";
 
 const LANDING_PLAN = {
   title: "Landing",
@@ -48,12 +50,23 @@ const WEBSITE_PLAN = {
   paymentUrl: "https://buy.stripe.com/00gdTSg4Cg4K3mg288",
 };
 
-const ROASTING_PLAN = {
-  title: "Roasting",
+const ROAST_PLAN = {
+  title: "Roast",
   price: 89,
-  description: "For conversion rate optimization",
-  features: ["Audit report", "Actionable Fixes List", "Actionable Fixes List"],
+  description: "For better landing page",
+  features: ["Landing page roast", "Audit report", "Actionable fixes list"],
   paymentUrl: "https://buy.stripe.com/fZeeXW5pY9Gm0a4fZ0",
+};
+
+const HERO_ROASTING_PLAN = {
+  title: "Free Hero Roast",
+  price: 0,
+  description: "For conversion rate optimization",
+  features: [
+    "Roast your hero section",
+    "Audit report published on Instagram",
+    "Actionable Fixes List",
+  ],
 };
 
 const WORKS = [
@@ -96,26 +109,28 @@ const PROCESS = [
   },
 ];
 
+const FAQS = [];
+
 export default function Home() {
   return (
     <div>
       <main>
         <section id="hero" className="flex flex-col items-center gap-8">
           <LightRay />
-          <p className="pill text-accent-green flex items-center gap-2">
-            <span className="relative flex items-center">
-              <span className="w-2 h-2 rounded-full bg-accent-green" />
-              <span className="w-2 h-2 rounded-full bg-accent-green animate-ping absolute" />
-            </span>
-            2 spots left for April
-          </p>
+          <div className="pill text-accent-green flex items-center gap-2">
+            <div className="relative flex items-center">
+              <div className="w-2 h-2 rounded-full bg-accent-green" />
+              <div className="w-2 h-2 rounded-full bg-accent-green animate-ping absolute" />
+            </div>
+            <ShinyText text="2 spots left for April" speed={5} />
+          </div>
           <AnimatedContent
             distance={100}
             direction="vertical"
             initialOpacity={0.05}
             animateOpacity
             damping={10}
-            stiffness={40}
+            stiffness={50}
             scale={0.9}
             threshold={0.2}
           >
@@ -138,7 +153,9 @@ export default function Home() {
           <div className="flex flex-col items-center gap-3 scale-125">
             <Magnet padding={50} magnetStrength={10}>
               <a href="#plan">
-                <button className="cta">Get Started Now</button>
+                <button className="cta flex items-center gap-2">
+                  Get Started Now <LucideArrowRight />
+                </button>
               </a>
             </Magnet>
             <p className="text-xs">Only 3 simple steps</p>
@@ -147,14 +164,16 @@ export default function Home() {
         <WorkCarousel />
 
         <section id="comparison" className="flex flex-col items-center gap-8">
-          <p className="pill">Comparison</p>
+          <div className="pill">
+            <ShinyText text="Comparison" speed={5} />
+          </div>
           <AnimatedContent
             distance={100}
             direction="vertical"
             initialOpacity={0.05}
             animateOpacity
             damping={10}
-            stiffness={40}
+            stiffness={50}
             scale={0.9}
             threshold={0.2}
           >
@@ -164,49 +183,71 @@ export default function Home() {
             </h1>
           </AnimatedContent>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-16 sm:gap-6 w-full">
-            <div className="flex flex-col items-center gap-6">
-              <h2 className="text-2xl">Other agencies</h2>
-              <ComparisonItem
-                item={[
-                  "Slow communication",
-                  "Single channel approach",
-                  "Outdated growth strategies",
-                  "Lack of industry research",
-                  "Outsourced to mediocre talent",
-                ]}
-                Icon={<LucideX />}
-                className="text-neutral-500"
-              />
-            </div>
-            <div className="flex flex-col items-center gap-6">
-              <div className="flex items-center gap-2">
-                <img src="/logo.svg" alt="logo" className="w-10 mx-2" />
-                <h2 className="text-2xl">Webcraftsman</h2>
+            <AnimatedContent
+              distance={100}
+              direction="vertical"
+              animateOpacity
+              damping={10}
+              stiffness={50}
+              threshold={0.2}
+              delay={100}
+            >
+              <div className="flex flex-col items-center gap-6">
+                <h2 className="text-2xl">Other agencies</h2>
+                <ComparisonItem
+                  item={[
+                    "Slow communication",
+                    "Single channel approach",
+                    "Outdated growth strategies",
+                    "Lack of industry research",
+                    "Outsourced to mediocre talent",
+                  ]}
+                  Icon={<LucideX />}
+                  className="text-neutral-500"
+                />
               </div>
-              <ComparisonItem
-                item={[
-                  "Fast communication",
-                  "Conversion focused",
-                  "Modern growth strategies",
-                  "In-depth industry research",
-                  "In-house team of experts",
-                ]}
-                Icon={<LucideCheck className="text-accent-green" />}
-                isHighlighted
-                className="!bg-black"
-              />
-            </div>
+            </AnimatedContent>
+            <AnimatedContent
+              distance={100}
+              direction="vertical"
+              animateOpacity
+              damping={10}
+              stiffness={50}
+              threshold={0.2}
+              delay={200}
+            >
+              <div className="flex flex-col items-center gap-6">
+                <div className="flex items-center gap-2">
+                  <img src="/logo.svg" alt="logo" className="w-10 mx-2" />
+                  <h2 className="text-2xl">Webcraftsman</h2>
+                </div>
+                <ComparisonItem
+                  item={[
+                    "Fast communication",
+                    "Conversion focused",
+                    "Modern growth strategies",
+                    "In-depth industry research",
+                    "In-house team of experts",
+                  ]}
+                  Icon={<LucideCheck className="text-accent-green" />}
+                  isHighlighted
+                  className="!bg-black"
+                />
+              </div>
+            </AnimatedContent>
           </div>
         </section>
         <section id="work" className="flex flex-col items-center gap-8">
-          <p className="pill">Our Work</p>
+          <div className="pill">
+            <ShinyText text="Our Work" speed={5} />
+          </div>
           <AnimatedContent
             distance={100}
             direction="vertical"
             initialOpacity={0.05}
             animateOpacity
             damping={10}
-            stiffness={40}
+            stiffness={50}
             scale={0.9}
             threshold={0.2}
           >
@@ -218,21 +259,33 @@ export default function Home() {
               Design
             </h1>
           </AnimatedContent>
-          <div className="flex flex-col gap-12">
-            {WORKS.map((work, index) => (
-              <WorkItem key={index} work={work} />
-            ))}
-          </div>
+          <AnimatedContent
+            distance={100}
+            direction="vertical"
+            animateOpacity
+            damping={10}
+            stiffness={50}
+            threshold={0.2}
+            delay={100}
+          >
+            <div className="flex flex-col gap-12">
+              {WORKS.map((work, index) => (
+                <WorkItem key={index} work={work} />
+              ))}
+            </div>
+          </AnimatedContent>
         </section>
         <section id="process" className="flex flex-col gap-8">
-          <p className="pill">Our Process</p>
+          <div className="pill">
+            <ShinyText text="Process" speed={5} />
+          </div>
           <AnimatedContent
             distance={100}
             direction="vertical"
             initialOpacity={0.05}
             animateOpacity
             damping={10}
-            stiffness={40}
+            stiffness={50}
             scale={0.9}
             threshold={0.2}
           >
@@ -241,24 +294,40 @@ export default function Home() {
               Simple Process
             </h1>
           </AnimatedContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="grid grid-cols-1 gap-6">
-              {PROCESS.map((process, index) => (
-                <ProcessItem key={index} index={index + 1} process={process} />
-              ))}
+          <AnimatedContent
+            distance={100}
+            direction="vertical"
+            animateOpacity
+            damping={10}
+            stiffness={50}
+            threshold={0.2}
+            delay={100}
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 gap-6">
+                {PROCESS.map((process, index) => (
+                  <ProcessItem
+                    key={index}
+                    index={index + 1}
+                    process={process}
+                  />
+                ))}
+              </div>
+              <div className="card aspect-video md:aspect-auto !bg-primary"></div>
             </div>
-            <div className="card aspect-video md:aspect-auto !bg-primary"></div>
-          </div>
+          </AnimatedContent>
         </section>
         <section id="plan" className="flex flex-col items-center gap-8">
-          <p className="pill">Plans</p>
+          <div className="pill">
+            <ShinyText text="Plans" speed={5} />
+          </div>
           <AnimatedContent
             distance={100}
             direction="vertical"
             initialOpacity={0.05}
             animateOpacity
             damping={10}
-            stiffness={40}
+            stiffness={50}
             scale={0.9}
             threshold={0.2}
           >
@@ -269,13 +338,46 @@ export default function Home() {
               </span>
             </h1>
           </AnimatedContent>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
-            <PricingItem plan={LANDING_PLAN} />
-            <PricingItem plan={WEBSITE_PLAN} isHighlighted />
-            <PricingItem plan={ROASTING_PLAN} />
-          </div>
+          <AnimatedContent
+            distance={100}
+            direction="vertical"
+            animateOpacity
+            damping={10}
+            stiffness={50}
+            threshold={0.2}
+            delay={100}
+          >
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+              <PricingItem plan={LANDING_PLAN} />
+              <PricingItem plan={WEBSITE_PLAN} isHighlighted />
+              <PricingItem plan={ROAST_PLAN} />
+            </div>
+          </AnimatedContent>
+          {/* <div className="card w-full flex justify-between">
+            <div>
+              <h2 className="text-2xl font-semibold">
+                {HERO_ROASTING_PLAN.title}
+              </h2>
+              <p className="text-4xl font-medium !text-white">
+                ${HERO_ROASTING_PLAN.price}
+              </p>
+            </div>
+            <ul className="flex flex-col gap-2">
+              {HERO_ROASTING_PLAN.features.map((feature, index) => (
+                <li key={index} className="flex items-center gap-2">
+                  <LucideCheck className="text-accent-green" />
+                  <p>{feature}</p>
+                </li>
+              ))}
+            </ul>
+            <a href="/#free">
+              <button className="cta mt-16 w-full flex items-center justify-center gap-2">
+                Roast me
+              </button>
+            </a>
+          </div> */}
         </section>
-        <section id="freebies" className="!max-w-3xl w-full">
+        <section id="free" className="!max-w-3xl w-full">
           <div className="card relative">
             <Image
               src="/large-comet-l.png"
@@ -285,7 +387,9 @@ export default function Home() {
               className="absolute -top-32 -left-24 w-2/3"
             />
             <div className="relative flex flex-col items-center gap-8">
-              <p className="pill">Freebies</p>
+              <div className="pill">
+                <ShinyText text="Free" speed={5} />
+              </div>
               <h1 className="text-6xl text-center font-medium mb-16">
                 Free{" "}
                 <span className={`${poltawski.className} italic`}>
@@ -296,6 +400,32 @@ export default function Home() {
             </div>
           </div>
         </section>
+        {/* <section
+          id="faq"
+          className="flex flex-col items-center gap-8 !max-w-4xl"
+        >
+          <div className="pill">
+            <ShinyText text="FAQ" speed={5} />
+          </div>
+          <AnimatedContent
+            distance={100}
+            direction="vertical"
+            initialOpacity={0.05}
+            animateOpacity
+            damping={10}
+            stiffness={50}
+            scale={0.9}
+            threshold={0.2}
+          >
+            <h1 className="text-6xl text-center font-medium mb-16">
+              <span className={`${poltawski.className} italic`}>Questions</span>{" "}
+              You Might Have
+            </h1>
+          </AnimatedContent>
+          <div className="grid grid-cols-1 gap-6 w-full">
+            <div className="card w-full"></div>
+          </div>
+        </section> */}
       </main>
     </div>
   );
