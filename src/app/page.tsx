@@ -3,9 +3,7 @@ import { poltawski } from "./fonts";
 import ComparisonItem from "@/Components/ComparisonItem";
 import WorkItem from "@/Components/WorkItem";
 import Image from "next/image";
-import ContactForm from "@/Components/ContactForm";
 import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
-import StarBorder from "@/Animations/StarBorder/StarBorder";
 import Magnet from "@/Animations/Magnet/Magnet";
 import ProcessItem from "@/Components/ProcessItem";
 import { LucideCheck } from "@/Components/Icons/LucideCheck";
@@ -13,7 +11,6 @@ import { LucideX } from "@/Components/Icons/LucideX";
 import PricingItem from "@/Components/PricingItem";
 import LightRay from "@/Components/LightRay";
 import WorkCarousel from "@/Components/WorkCarousel";
-import AuditForm from "@/Components/AuditForm";
 import { LucideArrowRight } from "@/Components/Icons/LucideArrowRight";
 import ShinyText from "@/Components/ShinyText/ShinyText";
 
