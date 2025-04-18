@@ -63,7 +63,7 @@ const PLANS = [
     title: "Roast",
     price: 89,
     description: "For better landing page",
-    features: ["Landing page roast", "Audit report", "Actionable fixes list"],
+    features: ["Full landing page roast", "Audit report", "Actionable fixes list"],
     paymentUrl: "https://buy.stripe.com/fZeeXW5pY9Gm0a4fZ0",
     isHighlighted: false,
   },
