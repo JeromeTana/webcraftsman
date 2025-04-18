@@ -175,7 +175,7 @@ export default function Home() {
             delay={50}
             animateBy="words"
             direction="top"
-            className="w-lg justify-center mb-8"
+            className="max-w-lg justify-center mb-8"
           />
           <div className="flex flex-col items-center gap-3 scale-125">
             <Magnet padding={50} magnetStrength={10}>
