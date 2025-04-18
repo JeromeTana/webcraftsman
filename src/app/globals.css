@@ -6,6 +6,7 @@
   --primary: rgb(29, 63, 215);
   --accent-green: #00ffb7;
   --border: #323232;
+  --border-highlight: #3d5de8;
 }
 
 @keyframes star-movement-bottom {
@@ -45,6 +46,7 @@
   --color-primary: var(--primary);
   --color-accent-green: var(--accent-green);
   --color-border: var(--border);
+  --color-border-highlight: var(--border-highlight);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --animate-star-movement-bottom: star-movement-bottom linear infinite alternate;
@@ -136,10 +138,14 @@ label {
   background: linear-gradient(
     90deg,
     var(--color-white),
-    var(--color-slate-400)
+    var(--color-slate-500)
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   padding-bottom: 0.5rem;
+}
+
+.wrapper {
+  background: #080808;
 }

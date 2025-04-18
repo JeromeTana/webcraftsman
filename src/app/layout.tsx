@@ -19,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.variable} antialiased`}>
-        <FollowCursor />
+        <div className="hidden lg:block">
+          <FollowCursor />
+        </div>
         <LenisScrollProvider>
           <Header />
           {children}

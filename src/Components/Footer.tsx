@@ -27,15 +27,15 @@ export default function Footer() {
           scale={0.9}
           threshold={0.2}
         >
-          <div className="bg-gradient-to-b from-primary to-primary/20 p-12 rounded-3xl flex flex-col gap-8 items-center justify-center">
+          <div className="bg-gradient-to-b from-primary to-primary/50 p-12 rounded-3xl flex flex-col gap-8 items-center justify-center">
             <div className="pill !bg-black/80">Last Chance</div>
-            <h1 className="text-6xl text-center font-medium">
+            <h1 className="text-3xl md:text-6xl text-center font-medium">
               Get a{" "}
               <span className={`${poltawski.className} italic`}>
                 Website that Sales
               </span>
               <br />
-              Within Days
+              Built in Days
             </h1>
             <ul className="flex flex-col gap-2">
               {features.map((feature, index) => (

@@ -29,7 +29,7 @@ export default function PricingItem({
       className={twMerge(
         "custom-spotlight-card card relative flex flex-col justify-between",
         className,
-        isHighlighted && "!bg-transparent !border-primary"
+        isHighlighted && "!bg-transparent !border-border-highlight"
       )}
     >
       {isHighlighted && (

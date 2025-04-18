@@ -22,14 +22,26 @@ export default () => {
       }}
       speed={10000}
       spaceBetween={24}
-      slidesPerView={3}
+      breakpoints={
+        {
+          640: {
+            slidesPerView: 1.2,
+          },
+          768: {
+            slidesPerView: 2.5,
+          },
+          1024: {
+            slidesPerView: 3.5,
+          },
+        }
+      }
       grabCursor={true}
       draggable={false}
       className="swiper-free-mode"
     >
       {slidesImg.map((slide, index) => (
         <SwiperSlide key={index}>
-          <div className="bg-foreground w-full h-80 rounded-3xl overflow-clip">
+          <div className="bg-foreground w-full aspect-video rounded-3xl overflow-clip">
             <Image
               src={slide}
               alt="work"

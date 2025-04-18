@@ -127,7 +127,6 @@ export default function Home() {
           <AnimatedContent
             distance={100}
             direction="vertical"
-            initialOpacity={0.05}
             animateOpacity
             damping={10}
             stiffness={50}
@@ -162,7 +161,7 @@ export default function Home() {
             scale={0.9}
             threshold={0.2}
           >
-            <h1 className="shaded text-6xl text-center font-medium ">
+            <h1 className="shaded text-4xl sm:text-5xl lg:text-6xl text-center font-medium ">
               Build Modern High Converting Website in{" "}
               <span className={`${poltawski.className} italic`}>
                 5 Days, No Calls
@@ -205,7 +204,7 @@ export default function Home() {
             scale={0.9}
             threshold={0.2}
           >
-            <h1 className="shaded text-6xl text-center font-medium mb-16">
+            <h1 className="shaded text-4xl sm:text-5xl lg:text-6xl text-center font-medium mb-6 md:mb-16">
               What Made Us{" "}
               <span className={`${poltawski.className} italic`}>Different</span>
             </h1>
@@ -265,44 +264,46 @@ export default function Home() {
             </AnimatedContent>
           </div>
         </section>
-        <section id="work" className="flex flex-col items-center gap-8">
-          <div className="pill">
-            <ShinyText text="Our Work" speed={5} />
-          </div>
-          <AnimatedContent
-            distance={100}
-            direction="vertical"
-            initialOpacity={0.05}
-            animateOpacity
-            damping={10}
-            stiffness={50}
-            scale={0.9}
-            threshold={0.2}
-          >
-            <h1 className="shaded text-6xl text-center font-medium mb-16">
-              Modern and <br />
-              <span className={`${poltawski.className} italic`}>
-                High Converting
-              </span>{" "}
-              Design
-            </h1>
-          </AnimatedContent>
-          <AnimatedContent
-            distance={100}
-            direction="vertical"
-            animateOpacity
-            damping={10}
-            stiffness={50}
-            threshold={0.2}
-            delay={100}
-          >
-            <div className="flex flex-col gap-12">
-              {WORKS.map((work, index) => (
-                <WorkItem key={index} work={work} />
-              ))}
+        <div className="wrapper">
+          <section id="work" className="flex flex-col items-center gap-8">
+            <div className="pill">
+              <ShinyText text="Our Work" speed={5} />
             </div>
-          </AnimatedContent>
-        </section>
+            <AnimatedContent
+              distance={100}
+              direction="vertical"
+              initialOpacity={0.05}
+              animateOpacity
+              damping={10}
+              stiffness={50}
+              scale={0.9}
+              threshold={0.2}
+            >
+              <h1 className="shaded text-4xl sm:text-5xl lg:text-6xl text-center font-medium mb-6 md:mb-16">
+                Modern and <br />
+                <span className={`${poltawski.className} italic`}>
+                  High Converting
+                </span>{" "}
+                Design
+              </h1>
+            </AnimatedContent>
+            <AnimatedContent
+              distance={100}
+              direction="vertical"
+              animateOpacity
+              damping={10}
+              stiffness={50}
+              threshold={0.2}
+              delay={100}
+            >
+              <div className="flex flex-col gap-12">
+                {WORKS.map((work, index) => (
+                  <WorkItem key={index} work={work} />
+                ))}
+              </div>
+            </AnimatedContent>
+          </section>
+        </div>
         <section id="process" className="flex flex-col gap-8">
           <div className="pill">
             <ShinyText text="Process" speed={5} />
@@ -317,7 +318,7 @@ export default function Home() {
             scale={0.9}
             threshold={0.2}
           >
-            <h1 className="shaded text-6xl font-medium mb-16">
+            <h1 className="shaded text-4xl sm:text-5xl lg:text-6xl font-medium mb-6 md:mb-16">
               <span className={`${poltawski.className} italic`}>3 Steps </span>
               Simple Process
             </h1>
@@ -341,53 +342,56 @@ export default function Home() {
                   />
                 ))}
               </div>
-              <Image
-                src="/workstation.jpg"
-                alt="workstation"
-                width={500}
-                height={500}
-                className="card !p-0 aspect-video md:aspect-auto !bg-primary object-cover w-full"
-              />
+              <div className="card !p-0 aspect-video md:h-full w-full !bg-primary rounded-3xl overflow-hidden">
+                <Image
+                  src="/workstation.jpg"
+                  alt="workstation"
+                  width={500}
+                  height={500}
+                  className=" object-cover w-full h-full"
+                />
+              </div>
             </div>
           </AnimatedContent>
         </section>
-        <section id="plan" className="flex flex-col items-center gap-8">
-          <div className="pill">
-            <ShinyText text="Plans" speed={5} />
-          </div>
-          <AnimatedContent
-            distance={100}
-            direction="vertical"
-            initialOpacity={0.05}
-            animateOpacity
-            damping={10}
-            stiffness={50}
-            scale={0.9}
-            threshold={0.2}
-          >
-            <h1 className="shaded text-6xl text-center font-medium mb-16">
-              Choose Package That <br />
-              <span className={`${poltawski.className} italic`}>
-                Fits Your Needs
-              </span>
-            </h1>
-          </AnimatedContent>
-          <AnimatedContent
-            distance={100}
-            direction="vertical"
-            animateOpacity
-            damping={10}
-            stiffness={50}
-            threshold={0.2}
-            delay={100}
-          >
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
-              <PricingItem plan={LANDING_PLAN} />
-              <PricingItem plan={WEBSITE_PLAN} isHighlighted />
-              <PricingItem plan={ROAST_PLAN} />
+        <div className="wrapper">
+          <section id="plan" className="flex flex-col items-center gap-8">
+            <div className="pill">
+              <ShinyText text="Plans" speed={5} />
             </div>
-          </AnimatedContent>
-          {/* <div className="card w-full flex justify-between">
+            <AnimatedContent
+              distance={100}
+              direction="vertical"
+              initialOpacity={0.05}
+              animateOpacity
+              damping={10}
+              stiffness={50}
+              scale={0.9}
+              threshold={0.2}
+            >
+              <h1 className="shaded text-4xl sm:text-5xl lg:text-6xl text-center font-medium mb-6 md:mb-16">
+                Choose Package That <br />
+                <span className={`${poltawski.className} italic`}>
+                  Fits Your Needs
+                </span>
+              </h1>
+            </AnimatedContent>
+            <AnimatedContent
+              distance={100}
+              direction="vertical"
+              animateOpacity
+              damping={10}
+              stiffness={50}
+              threshold={0.2}
+              delay={100}
+            >
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-md md:max-w-full m-auto">
+                <PricingItem plan={LANDING_PLAN} />
+                <PricingItem plan={WEBSITE_PLAN} isHighlighted />
+                <PricingItem plan={ROAST_PLAN} />
+              </div>
+            </AnimatedContent>
+            {/* <div className="card w-full flex justify-between">
             <div>
               <h2 className="text-2xl font-semibold">
                 {HERO_ROASTING_PLAN.title}
@@ -410,8 +414,9 @@ export default function Home() {
               </button>
             </a>
           </div> */}
-        </section>
-        <section id="free" className="!max-w-2xl w-full">
+          </section>
+        </div>
+        <section id="offer" className="!max-w-2xl w-full">
           <div className="card relative">
             <Image
               src="/large-comet-l.png"
@@ -422,9 +427,9 @@ export default function Home() {
             />
             <div className="relative flex flex-col items-center gap-8">
               <div className="pill">
-                <ShinyText text="Free" speed={5} />
+                <ShinyText text="Offer" speed={5} />
               </div>
-              <h1 className="shaded text-6xl text-center font-medium mb-16">
+              <h1 className="shaded text-3xl sm:text-5xl lg:text-6xl text-center font-medium mb-6 md:mb-16">
                 Free{" "}
                 <span className={`${poltawski.className} italic`}>
                   Hero Roasting
@@ -451,7 +456,7 @@ export default function Home() {
             scale={0.9}
             threshold={0.2}
           >
-            <h1 className="text-6xl text-center font-medium mb-16">
+            <h1 className= text-4xl sm:text-5xl"lg:text-6xl text-center font-medium mb-6 md:mb-16">
               <span className={`${poltawski.className} italic`}>Questions</span>{" "}
               You Might Have
             </h1>
