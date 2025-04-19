@@ -217,8 +217,7 @@ export default function Home() {
             </h1>
           </AnimatedContent>
           <BlurText
-            text="We design and build beautiful Framer websites in 5-7 days. Faster than
-          most people schedule a meeting."
+            text="Modern and high-converting design that turns visitors into buyers. Made in 5-7 days. No meetings."
             delay={50}
             animateBy="words"
             direction="top"
