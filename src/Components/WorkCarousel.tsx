@@ -70,14 +70,14 @@ export default () => {
         {[...slidesImg, ...slidesImg].map((img, index) => (
           <div
             key={index}
-            className="relative aspect-video w-80 md:w-xl rounded-3xl overflow-hidden"
+            className="relative aspect-video w-80 md:w-xl rounded-3xl overflow-hidden border border-border p-2"
           >
             <Image
               src={img}
               alt="work"
               width={1000}
               height={1000}
-              className="w-full h-full object-cover object-top group-hover:scale-105 duration-300"
+              className="w-full h-full object-cover object-top group-hover:scale-105 duration-300 rounded-2xl  hover:scale-105"
             />
           </div>
         ))}
