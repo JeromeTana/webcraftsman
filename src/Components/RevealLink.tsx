@@ -3,8 +3,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const DURATION = 0.25;
-const STAGGER = 0;
+const DURATION = 0.5;
+const STAGGER = 0.01;
 
 interface Props {
   children: string;
@@ -17,7 +17,7 @@ export const RevealLink = ({ children, href }: Props) => {
       initial="initial"
       whileHover="hovered"
       href={href}
-      className="relative block overflow-hidden whitespace-nowrap"
+      className="relative block overflow-hidden whitespace-nowrap font-medium"
     >
       <div>
         {children.split("").map((l, i) => (
@@ -32,8 +32,10 @@ export const RevealLink = ({ children, href }: Props) => {
             }}
             transition={{
               duration: DURATION,
-              ease: "easeInOut",
               delay: STAGGER * i,
+              type: "spring",
+              stiffness: 500,
+              damping: 50,
             }}
             className="inline-block"
             key={i}
@@ -57,6 +59,9 @@ export const RevealLink = ({ children, href }: Props) => {
               duration: DURATION,
               ease: "easeInOut",
               delay: STAGGER * i,
+              type: "spring",
+              stiffness: 500,
+              damping: 50,
             }}
             className="inline-block"
             key={i}
