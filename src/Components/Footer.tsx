@@ -16,18 +16,18 @@ export default function Footer() {
   return (
     <>
       <section id="cta">
-        <AnimatedContent
-          distance={100}
-          direction="vertical"
-          initialOpacity={0.05}
-          animateOpacity
-          damping={10}
-          stiffness={50}
-          scale={0.9}
-          threshold={0.2}
-        >
-          <div className="bg-gradient-to-b from-primary to-primary/50 p-8 rounded-3xl flex flex-col gap-8 items-center justify-center">
-            <div className="pill !bg-black/80">Last Chance</div>
+        <div className="bg-gradient-to-b from-primary to-primary/50 p-8 rounded-3xl flex flex-col gap-8 items-center justify-center">
+          <div className="pill !bg-black/80">Last Chance</div>
+          <AnimatedContent
+            distance={100}
+            direction="vertical"
+            initialOpacity={0.05}
+            animateOpacity
+            damping={10}
+            stiffness={50}
+            scale={0.9}
+            threshold={0.2}
+          >
             <h1 className="text-3xl md:text-6xl text-center font-medium">
               Get a{" "}
               <span className={`${poltawski.className} italic`}>
@@ -36,32 +36,32 @@ export default function Footer() {
               <br />
               Built in Days
             </h1>
-            <ul className="flex flex-col gap-2">
-              {features.map((feature, index) => (
-                <li key={index} className="flex items-center gap-2">
-                  <LucideCheck />
-                  <p className="!text-white font-medium">{feature}</p>
-                </li>
-              ))}
-            </ul>
-            <div className="flex flex-col items-center gap-3 scale-125 mt-6">
-              <Magnet padding={50} magnetStrength={10}>
-                <a href="/#plan">
-                  <button className="cta flex items-center gap-2 !bg-white !text-primary animate-bounce">
-                    Get Started Now <LucideArrowRight />
-                  </button>
-                </a>
-              </Magnet>
-              <p className="text-xs ">
-                Only 2 spots left for{" "}
-                {new Date().toLocaleString("default", {
-                  month: "long",
-                })}
-                .
-              </p>
-            </div>
+          </AnimatedContent>
+          <ul className="flex flex-col gap-2">
+            {features.map((feature, index) => (
+              <li key={index} className="flex items-center gap-2">
+                <LucideCheck />
+                <p className="!text-white font-medium">{feature}</p>
+              </li>
+            ))}
+          </ul>
+          <div className="flex flex-col items-center gap-3 scale-125 mt-6">
+            <Magnet padding={50} magnetStrength={10}>
+              <a href="/#plan">
+                <button className="cta flex items-center gap-2 !bg-white !text-primary animate-bounce">
+                  Get Started Now <LucideArrowRight />
+                </button>
+              </a>
+            </Magnet>
+            <p className="text-xs ">
+              Only 2 spots left for{" "}
+              {new Date().toLocaleString("default", {
+                month: "long",
+              })}
+              .
+            </p>
           </div>
-        </AnimatedContent>
+        </div>
       </section>
       <footer>
         <div className="relative bg-white h-[26vh] flex justify-center items-center -z-20 overflow-clip">
