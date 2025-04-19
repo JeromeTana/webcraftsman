@@ -251,9 +251,9 @@ export default function Home() {
           ))}
         </Marquee>
 
-        <section id="comparison" className="flex flex-col items-center gap-8">
+        <section id="Why Us" className="flex flex-col items-center gap-8">
           <div className="pill">
-            <ShinyText text="Comparison" speed={5} />
+            <ShinyText text="Why Us" speed={5} />
           </div>
           <AnimatedContent
             distance={100}
@@ -315,7 +315,7 @@ export default function Home() {
                     "Conversion focused",
                     "Modern growth strategies",
                     "In-depth industry research",
-                    "In-house team of experts",
+                    "Predictable price, no hidden fees",
                   ]}
                   Icon={<LucideCheck className="text-accent-green" />}
                   isHighlighted
