@@ -26,6 +26,16 @@ export default function AuditForm() {
         />
       </fieldset>
       <fieldset className="flex flex-col gap-4">
+        <label htmlFor="goal">What's the main action goal?</label>
+        <input
+          type="text"
+          id="goal"
+          name="goal"
+          placeholder="Get more leads"
+          required
+        />
+      </fieldset>
+      <fieldset className="flex flex-col gap-4">
         <label htmlFor="name">Full name</label>
         <input
           type="text"
