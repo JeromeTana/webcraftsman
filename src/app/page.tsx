@@ -217,7 +217,7 @@ export default function Home() {
             </h1>
           </AnimatedContent>
           <BlurText
-            text="Modern and high-converting design that turns visitors into buyers. Made in 5-7 days. No meetings."
+            text="Website that improve branding turns visitors into customers. Made in 5-7 days. No meetings."
             delay={50}
             animateBy="words"
             direction="top"
