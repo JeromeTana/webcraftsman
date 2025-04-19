@@ -46,6 +46,8 @@ const FollowCursor: React.FC<FollowCursorProps> = ({ color = "#ffffff" }) => {
       }
     }
 
+    if (width < 1024) return;
+
     const dot = new Dot(width / 2, height / 2, 10, 10);
 
     const onMouseMove = (e: MouseEvent) => {
