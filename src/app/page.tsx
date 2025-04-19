@@ -14,6 +14,7 @@ import WorkCarousel from "@/Components/WorkCarousel";
 import { LucideArrowRight } from "@/Components/Icons/LucideArrowRight";
 import ShinyText from "@/Components/ShinyText/ShinyText";
 import Accordion from "@/Components/Accordion";
+import Marquee from "@/Components/WorkCarousel";
 
 const PLANS = [
   {
@@ -63,7 +64,11 @@ const PLANS = [
     title: "Roast",
     price: 89,
     description: "For better landing page",
-    features: ["Full landing page roast", "Audit report", "Actionable fixes list"],
+    features: [
+      "Full landing page roast",
+      "Audit report",
+      "Actionable fixes list",
+    ],
     paymentUrl: "https://buy.stripe.com/fZeeXW5pY9Gm0a4fZ0",
     isHighlighted: false,
   },
@@ -78,6 +83,13 @@ const PLANS = [
   //   ],
   //   isHighlighted: false,
   // },
+];
+
+const WORK_MARQUEE = [
+  "/DevWhoLifts.png",
+  "/IronLift.png",
+  "/JeromeTana.png",
+  "/FitDad.png",
 ];
 
 const WORKS = [
@@ -223,7 +235,22 @@ export default function Home() {
             <p className="text-xs">Only 3 simple steps</p>
           </div>
         </section>
-        <WorkCarousel />
+        <Marquee fastDuration={20} slowDuration={40}>
+          {[...WORK_MARQUEE, ...WORK_MARQUEE].map((img, index) => (
+            <div
+              key={index}
+              className="relative aspect-video w-80 md:w-xl rounded-3xl overflow-hidden border border-border p-2"
+            >
+              <Image
+                src={img}
+                alt="work"
+                width={1000}
+                height={1000}
+                className="w-full h-full object-cover object-top group-hover:scale-105 duration-300 rounded-2xl  hover:scale-105"
+              />
+            </div>
+          ))}
+        </Marquee>
 
         <section id="comparison" className="flex flex-col items-center gap-8">
           <div className="pill">
