@@ -266,7 +266,7 @@ export default function Home() {
               alt="work"
               width={1000}
               height={1000}
-              className="w-full h-full object-cover object-top border border-neutral-200 group-hover:scale-105 duration-300 rounded md:rounded-lg scale-150 md:scale-100 md:hover:-rotate-1 md:hover:scale-105"
+              className="w-full h-full object-cover object-top border border-neutral-200 group-hover:scale-105 duration-300 rounded md:rounded-lg scale-150 md:scale-100 -rotate-1 md:hover:scale-105"
             />
             <Image
               src="/showcase1.png"
@@ -280,7 +280,7 @@ export default function Home() {
               alt="work"
               width={1000}
               height={1000}
-              className="w-full h-full object-cover object-top border border-neutral-200 group-hover:scale-105 duration-300 rounded md:rounded-lg scale-150 md:scale-100 md:hover:-rotate-1 md:hover:scale-105"
+              className="w-full h-full object-cover object-top border border-neutral-200 group-hover:scale-105 duration-300 rounded md:rounded-lg scale-150 md:scale-100 rotate-1 md:hover:scale-105"
             />
           </div>
         </div>
@@ -350,7 +350,7 @@ export default function Home() {
                   ]}
                   Icon={<LucideCheck className="text-primary" />}
                   isHighlighted
-                  className="!border !border-primary !bg-primary/5"
+                  className="!bg-primary/10"
                 />
               </div>
             </AnimatedContent>
