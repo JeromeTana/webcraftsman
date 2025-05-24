@@ -5,6 +5,7 @@ import LenisScrollProvider from "./providers/lenis-provider";
 import FollowCursor from "@/Components/FollowCursor";
 import Header from "@/Components/Header";
 import { description, tagline } from "./global";
+import Hotjar from "@/Components/Hotjar";
 
 export const metadata: Metadata = {
   title: tagline,
@@ -34,6 +35,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <script src="https://cdn.lordicon.com/lordicon.js"></script>
+        <Hotjar />
       </head>
       <body className={`${manrope.className} antialiased`}>
         <FollowCursor />
