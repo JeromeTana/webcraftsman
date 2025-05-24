@@ -1,26 +1,31 @@
-"use client";
-
 import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import AvailableSpots from "@/Components/AvailableSpots";
 import AnimatedArrowIcon from "@/Components/Icons/AnimatedArrowIcon";
 import AnimatedCalendarIcon from "@/Components/Icons/AnimatedCalendarIcon";
-/* First make sure that you have installed the package */
+import { Metadata } from "next";
+import { description } from "../global";
+import Calcom from "@/Components/Calcom";
 
-/* If you are using yarn */
-// yarn add @calcom/embed-react
+export const metadata: Metadata = {
+  title: "Book Your 30-min Intro Call",
+  description: description,
+  openGraph: {
+    title: "Book a 30-min Intro Call",
+    description: description,
+    url: "https://www.webcraftsman.co",
+    siteName: "Webcraftsman",
+    images: [
+      {
+        url: "https://www.webcraftsman.co/OG_Booking.png",
+        alt: "Open Graph Image",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+};
 
-/* If you are using npm */
-// npm install @calcom/embed-react
-
-import Cal, { getCalApi } from "@calcom/embed-react";
-import { useEffect } from "react";
 export default function BookingPage() {
-  useEffect(() => {
-    (async function () {
-      const cal = await getCalApi({ namespace: "quick-chat" });
-      cal("ui", { hideEventTypeDetails: false, layout: "month_view" });
-    })();
-  }, []);
   return (
     <section>
       <div className="relative space-y-8 py-16 text-center">
@@ -48,12 +53,7 @@ export default function BookingPage() {
         </p>
         <AnimatedArrowIcon className="absolute -rotate-129 opacity-40 right-1/12 bottom-10 md:scale-150" />
       </div>
-      <Cal
-        namespace="quick-chat"
-        calLink="jerometana/quick-chat"
-        style={{ width: "100%", height: "100%", overflow: "scroll" }}
-        config={{ layout: "month_view", theme: "light" }}
-      />
+      <Calcom />
     </section>
   );
 }

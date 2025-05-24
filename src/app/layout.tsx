@@ -1,14 +1,28 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { manrope, poppins } from "./fonts";
+import { manrope } from "./fonts";
 import LenisScrollProvider from "./providers/lenis-provider";
 import FollowCursor from "@/Components/FollowCursor";
 import Header from "@/Components/Header";
-import { tagline } from "./global";
+import { description, tagline } from "./global";
 
 export const metadata: Metadata = {
   title: tagline,
-  description: tagline,
+  description: description,
+  openGraph: {
+    title: tagline,
+    description: description,
+    url: "https://www.webcraftsman.co",
+    siteName: "Webcraftsman",
+    images: [
+      {
+        url: "https://www.webcraftsman.co/OG_Home.png",
+        alt: "Open Graph Image",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -24,11 +38,6 @@ export default function RootLayout({
       <body className={`${manrope.className} antialiased`}>
         <FollowCursor />
         <LenisScrollProvider>
-          {/* <div className="py-2 bg-primary mb-2 text-center text-sm underline">
-            <a href="/free" target="_blank" className="text-white">
-              Get your free audit here
-            </a>
-          </div> */}
           <Header />
           {children}
         </LenisScrollProvider>

@@ -96,7 +96,7 @@ export default function Footer() {
       </section>
 
       <footer>
-        <div className="max-w-6xl m-auto py-20 px-4 border-t border-neutral-200">
+        <div className="max-w-6xl m-auto py-20 pb-5 px-4 border-t border-neutral-200">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-16 mb-32">
             <div>
               <Logo className="w-40 h-20 mb-10 fill-primary text-primary" />
@@ -130,7 +130,7 @@ export default function Footer() {
               </ul>
             </div>
           </div>
-          <div className="flex justify-between">
+          <div className="flex flex-col md:flex-row gap-8 justify-between">
             <div>
               <p className="!text-sm">
                 Copyright
