@@ -19,16 +19,6 @@ export const poltawski = Poltawski_Nowy({
   style: ["normal", "italic"],
 });
 
-export const instrumentSans = Instrument_Sans({
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
-});
-
-export const instrumentSerif = Instrument_Serif({
-  weight: ["400"],
-  style: ["normal", "italic"],
-});
-
 export const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],

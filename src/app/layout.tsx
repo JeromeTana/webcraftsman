@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { instrumentSans, manrope, poppins } from "./fonts";
+import { manrope, poppins } from "./fonts";
 import LenisScrollProvider from "./providers/lenis-provider";
 import FollowCursor from "@/Components/FollowCursor";
 import Header from "@/Components/Header";
