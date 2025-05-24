@@ -1,20 +1,25 @@
 import BlurText from "@/TextAnimations/BlurText/BlurText";
-import { poltawski } from "./fonts";
 import ComparisonItem from "@/Components/ComparisonItem";
 import WorkItem from "@/Components/WorkItem";
 import Image from "next/image";
 import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
-import Magnet from "@/Animations/Magnet/Magnet";
 import ProcessItem from "@/Components/ProcessItem";
 import { LucideCheck } from "@/Components/Icons/LucideCheck";
 import { LucideX } from "@/Components/Icons/LucideX";
 import PricingItem from "@/Components/PricingItem";
-import LightRay from "@/Components/LightRay";
-import WorkCarousel from "@/Components/WorkCarousel";
-import { LucideArrowRight } from "@/Components/Icons/LucideArrowRight";
 import ShinyText from "@/Components/ShinyText/ShinyText";
 import Accordion from "@/Components/Accordion";
-import Marquee from "@/Components/WorkCarousel";
+import { MaterialSymbolsStarRounded } from "@/Components/Icons/MaterialStar";
+import Footer from "@/Components/Footer";
+import AvailableSpots from "@/Components/AvailableSpots";
+import { CtaButton } from "@/Components/CtaButton";
+import Logo from "@/Components/Icons/Logo";
+import AnimatedQuestionIcon from "@/Components/Icons/AnimatedQuestionIcon";
+import AnimatedTrendUpIcon from "@/Components/Icons/AnimatedTrendUpIcon";
+import AnimatedCartIcon from "@/Components/Icons/AnimatedCartIcon";
+import AnimatedCategoryIcon from "@/Components/Icons/AnimatedCategoryIcon";
+import AnimatedCheckIcon from "@/Components/Icons/AnimatedCheckIcon";
+import AnimatedSuccessIcon from "@/Components/Icons/AnimatedSeccessIcon";
 
 const PLANS = [
   {
@@ -42,12 +47,11 @@ const PLANS = [
     description: "For simple projects",
     features: [
       "1 landing page",
-      "High-conversion design",
-      "Copywriting",
-      "SEO optimized",
-      "High-performance score",
-      "Mobile responsive",
-      "Launched in 5 days",
+      "Built in Framer (or Wordpress)",
+      "Conversion focused design",
+      "Full copywriting",
+      "Performance optimized",
+      "5 days delivery",
     ],
     paymentUrl: "https://buy.stripe.com/14k3fe7y6g4K4qk7st",
     isHighlighted: true,
@@ -86,56 +90,81 @@ const PLANS = [
 ];
 
 const WORK_MARQUEE = [
-  "/DevWhoLifts.png",
-  "/IronLift.png",
-  "/JeromeTana.png",
-  "/FitDad.png",
+  "/DevWhoLifts.webp",
+  "/contentcreatorcom.webp",
+  "/whatsyourdream.webp",
+  "/dataechooo.webp",
 ];
 
 const WORKS = [
   {
-    img: "/DevWhoLifts.png",
+    img: "/showcase1.png",
+    pills: ["Concept", "Online Course"],
+    title: "ContentCreator.com",
+    description:
+      "ContentCreator.com is a filmmaking course that teaches you how to create high-quality content for your audience.",
+  },
+  {
+    img: "/showcase2.png",
+    pills: ["Web blog"],
+    title: "Data Echooo",
+    description:
+      "Data Echooo is a data web blog that provides insights and analysis on the latest trends in data science and analytics.",
+  },
+  {
+    img: "/showcase3.png",
+    pills: ["Concept", "Design & Development"],
+    title: "What's Your Dream Book",
+    description:
+      "Simon Squibb's book, 'What's Your Dream', is a guide to help you discover your true purpose and achieve your dreams.",
+  },
+  {
+    img: "/showcase4.png",
     pills: ["Concept", "Design & Development"],
     title: "DevWhoLifts",
     description:
       "DevWhoLifts is a web design agency that specializes in creating high-converting websites for fitness professionals.",
   },
-  {
-    img: "/IronLift.png",
-    pills: ["Concept", "Design & Development"],
-    title: "IronLift",
-    description:
-      "IronLift is a gym and fitness center in Bangkok that focuses on providing a unique and personalized experience for its members.",
-  },
-  {
-    img: "/JeromeTana.png",
-    pills: ["Concept", "Design & Development"],
-    title: "Jerome Tana",
-    description:
-      "Jerome Tana is a Content Creator specializing in designing and building high-converting websites",
-  },
-  {
-    img: "/FitDad.png",
-    pills: ["Concept", "Design & Development"],
-    title: "FitDad",
-    description:
-      "FitDad is a fitness coaching program that helps busy dads get in shape and stay healthy.",
-  },
 ];
 
 const PROCESS = [
   {
-    title: "Submit your Brief",
-    description: "Tell us your goals, your brand, and what you're building.",
+    title: "Book an Intro Call",
+    description: "We’ll discuss your project, goals, and how we can help.",
+    block: (
+      <Image
+        src="/DE_Call.png"
+        alt="intro call"
+        width={500}
+        height={500}
+        className="rounded-xl object-cover border border-neutral-200"
+      />
+    ),
   },
   {
-    title: "Pick your favorite concepts",
-    description: "We’ll send over 3 designs to choose from.",
-  },
-  {
-    title: "Launch in 5-7 days",
+    title: "Let Us Craft",
     description:
-      "We deliver your site. You review. We tweak it if needed. Done.",
+      "We’ll build your site based on your brief after payment is done",
+    block: (
+      <Image
+        src="/DE_figma_shot.png"
+        alt="intro call"
+        width={500}
+        height={500}
+        className="rounded-xl object-cover border border-neutral-200"
+      />
+    ),
+  },
+  {
+    title: "Ready To Grow",
+    description:
+      "After review and revisions, your site will be ready to launch",
+    block: (
+      <div className="bg-background  rounded-2xl px-8 py-4 text-center flex flex-col gap-4 items-center justify-center">
+        <AnimatedSuccessIcon size={80} />
+        <p>Your site has been published</p>
+      </div>
+    ),
   },
 ];
 
@@ -163,15 +192,15 @@ const FAQS = [
   {
     question: "How do I get started?",
     answer:
-      "Simply click the 'Get Started Now' button on our homepage, select your package, and complete the payment process. We'll reach out to you within 24 hours to kick off your project.",
+      "Simply click the 'Book an Intro Call' button on our homepage, select your package, and complete the payment process. We'll reach out to you within 24 hours to kick off your project.",
   },
 ];
 export default function Home() {
   return (
     <div>
       <main>
-        <section id="hero" className="flex flex-col items-center gap-8">
-          <LightRay />
+        <section id="hero" className="flex flex-col items-center gap-8 !py-16">
+          {/* <LightRay /> */}
           <AnimatedContent
             distance={100}
             direction="vertical"
@@ -182,22 +211,7 @@ export default function Home() {
             delay={400}
             threshold={0.2}
           >
-            <div className="pill text-accent-green flex items-center gap-2 m-auto">
-              <div className="relative flex items-center">
-                <div className="w-2 h-2 rounded-full bg-accent-green" />
-                <div className="w-2 h-2 rounded-full bg-accent-green animate-ping absolute" />
-              </div>
-              <ShinyText
-                text={
-                  "2 spots left for " +
-                  new Date().toLocaleString("default", {
-                    month: "long",
-                  })
-                }
-                speed={5}
-                className="text-accent-green"
-              />
-            </div>
+            <AvailableSpots />
           </AnimatedContent>
           <AnimatedContent
             distance={100}
@@ -209,51 +223,70 @@ export default function Home() {
             scale={0.9}
             threshold={0.2}
           >
-            <h1 className="shaded text-4xl sm:text-5xl lg:text-6xl text-center font-medium ">
-              Build Modern High Converting Website in{" "}
-              <span className={`${poltawski.className} italic`}>
-                5 Days, No Calls
+            <h1 className="text-center ">
+              Get More Paying Customers <br /> For Your{" "}
+              <span className="inline-flex items-center gap-4">
+                <AnimatedCartIcon className="hidden md:block bg-primary rounded-full p-2" />
+                <span className={`highlight_text`}>
+                  {/* <Underline className="absolute w-56 -bottom-6 -right-4 fill-primary" /> */}
+                  Digital Product
+                </span>{" "}
               </span>
             </h1>
           </AnimatedContent>
           <BlurText
-            text="Website that improve branding turns visitors into customers. Made in 5-7 days. No meetings."
+            text="We help creators increase their digital products, online courses and membership programs sales with high-converting websites."
             delay={50}
             animateBy="words"
             direction="top"
-            className="max-w-lg justify-center mb-8"
+            className="max-w-2xl md:text-xl justify-center mb-8 text-center"
           />
-          <div className="flex flex-col items-center gap-3 scale-125">
-            <Magnet padding={50} magnetStrength={10}>
-              <a href="#plan">
-                <button className="cta flex items-center gap-2">
-                  Get Started Now <LucideArrowRight />
-                </button>
-              </a>
-            </Magnet>
-            <p className="text-xs">Only 3 simple steps</p>
-          </div>
+          <CtaButton />
         </section>
-        <Marquee fastDuration={20} slowDuration={40}>
-          {[...WORK_MARQUEE, ...WORK_MARQUEE].map((img, index) => (
-            <div
-              key={index}
-              className="relative aspect-video w-80 md:w-xl rounded-3xl overflow-hidden border border-border p-2"
-            >
-              <Image
-                src={img}
-                alt="work"
-                width={1000}
-                height={1000}
-                className="w-full h-full object-cover object-top group-hover:scale-105 duration-300 rounded-2xl  hover:scale-105"
-              />
-            </div>
-          ))}
-        </Marquee>
-
+        <div className="mt-24">
+          {/* <Marquee fastDuration={20} slowDuration={40}>
+            {[...WORK_MARQUEE, ...WORK_MARQUEE].map((img, index) => (
+              <div
+                key={index}
+                className="relative aspect-video w-80 md:w-xl rounded-3xl overflow-hidden border border-border p-2 shadow-2xl"
+              >
+                <Image
+                  src={img}
+                  alt="work"
+                  width={1000}
+                  height={1000}
+                  className="w-full h-full object-cover object-top group-hover:scale-105 duration-300 rounded-2xl  hover:scale-105"
+                />
+              </div>
+            ))}
+          </Marquee> */}
+          <div className="grid grid-cols-3 gap-4 max-w-7xl m-auto mb-32 px-4 overflow-x-clip">
+            <Image
+              src="/showcase2.png"
+              alt="work"
+              width={1000}
+              height={1000}
+              className="w-full h-full object-cover object-top border border-neutral-200 group-hover:scale-105 duration-300 rounded md:rounded-lg scale-150 md:scale-100 md:hover:-rotate-1 md:hover:scale-105"
+            />
+            <Image
+              src="/showcase1.png"
+              alt="work"
+              width={1000}
+              height={1000}
+              className="w-full h-full object-cover object-top border border-neutral-200 group-hover:scale-105 duration-300 rounded md:rounded-lg scale-200 md:scale-125 md:hover:-rotate-1 md:hover:scale-[1.3] z-10"
+            />
+            <Image
+              src="/showcase3.png"
+              alt="work"
+              width={1000}
+              height={1000}
+              className="w-full h-full object-cover object-top border border-neutral-200 group-hover:scale-105 duration-300 rounded md:rounded-lg scale-150 md:scale-100 md:hover:-rotate-1 md:hover:scale-105"
+            />
+          </div>
+        </div>
         <section id="Why Us" className="flex flex-col items-center gap-8">
           <div className="pill">
-            <ShinyText text="Why Us" speed={5} />
+            <ShinyText text="We're Who You Looking For" speed={5} />
           </div>
           <AnimatedContent
             distance={100}
@@ -265,12 +298,11 @@ export default function Home() {
             scale={0.9}
             threshold={0.2}
           >
-            <h1 className="shaded text-4xl sm:text-5xl lg:text-6xl text-center font-medium mb-6 md:mb-16">
-              What Made Us{" "}
-              <span className={`${poltawski.className} italic`}>Different</span>
-            </h1>
+            <h2 className="shaded text-center">
+              Why <span className={`highlight_text`}>Creators</span> Choose Us
+            </h2>
           </AnimatedContent>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-16 sm:gap-6 w-full">
+          <div className="flex flex-col md:flex-row items-end gap-16 sm:gap-6 w-full">
             <AnimatedContent
               distance={100}
               direction="vertical"
@@ -281,14 +313,13 @@ export default function Home() {
               delay={100}
             >
               <div className="flex flex-col items-center gap-6">
-                <h2 className="text-2xl">Other agencies</h2>
+                <h3 className="text-2xl">Others</h3>
                 <ComparisonItem
                   item={[
                     "Slow communication",
-                    "Single channel approach",
                     "Outdated growth strategies",
-                    "Lack of industry research",
-                    "Outsourced to mediocre talent",
+                    "No industry research",
+                    "Unpredictable pricing",
                   ]}
                   Icon={<LucideX />}
                   className="text-neutral-500"
@@ -305,57 +336,58 @@ export default function Home() {
               delay={200}
             >
               <div className="flex flex-col items-center gap-6">
-                <div className="flex items-center gap-2">
-                  <img src="/logo.svg" alt="logo" className="w-10 mx-2" />
-                  <h2 className="text-2xl">Webcraftsman</h2>
+                <div className="flex items-center gap-4">
+                  <Logo className="w-16 h-16 fill-primary text-primary" />
+                  <h3 className="text-2xl">Webcraftsman</h3>
                 </div>
                 <ComparisonItem
                   item={[
                     "Fast communication",
                     "Conversion focused",
-                    "Modern growth strategies",
-                    "In-depth industry research",
+                    "Proven growth strategies",
+                    "Specialized in the industry",
                     "Predictable price, no hidden fees",
                   ]}
-                  Icon={<LucideCheck className="text-accent-green" />}
+                  Icon={<LucideCheck className="text-primary" />}
                   isHighlighted
-                  className="!bg-black"
+                  className="!border !border-primary !bg-primary/5"
                 />
               </div>
             </AnimatedContent>
           </div>
         </section>
-        <div className="wrapper">
-          <section id="work" className="flex flex-col items-center gap-8">
-            <div className="pill">
-              <ShinyText text="Our Work" speed={5} />
-            </div>
-            <AnimatedContent
-              distance={100}
-              direction="vertical"
-              initialOpacity={0.05}
-              animateOpacity
-              damping={10}
-              stiffness={50}
-              scale={0.9}
-              threshold={0.2}
-            >
-              <h1 className="shaded text-4xl sm:text-5xl lg:text-6xl text-center font-medium mb-6 md:mb-16">
-                Modern and <br />
-                <span className={`${poltawski.className} italic`}>
-                  High Converting
-                </span>{" "}
-                Design
-              </h1>
-            </AnimatedContent>
-            <div className="flex flex-col gap-12">
-              {WORKS.map((work, index) => (
-                <WorkItem key={index} work={work} />
-              ))}
-            </div>
-          </section>
-        </div>
-        <section id="process" className="flex flex-col gap-8">
+        <section id="showcase" className="flex flex-col items-center gap-8">
+          <div className="pill">
+            <ShinyText text="Our Work" speed={5} />
+          </div>
+          <AnimatedContent
+            distance={100}
+            direction="vertical"
+            initialOpacity={0.05}
+            animateOpacity
+            damping={10}
+            stiffness={50}
+            scale={0.9}
+            threshold={0.2}
+          >
+            <h2 className="shaded text-center">
+              See Our{" "}
+              <span className="inline-flex items-center gap-4">
+                <AnimatedCategoryIcon className="bg-primary rounded-full p-2" />
+                <span className={`highlight_text`}>Recent Works</span>
+              </span>
+            </h2>
+          </AnimatedContent>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {WORKS.map((work, index) => (
+              <WorkItem key={index} work={work} />
+            ))}
+          </div>
+          <div className="mt-20">
+            <CtaButton />
+          </div>
+        </section>
+        <section id="process" className="flex flex-col items-center gap-8">
           <div className="pill">
             <ShinyText text="Process" speed={5} />
           </div>
@@ -369,10 +401,16 @@ export default function Home() {
             scale={0.9}
             threshold={0.2}
           >
-            <h1 className="shaded text-4xl sm:text-5xl lg:text-6xl font-medium mb-6 md:mb-16">
-              <span className={`${poltawski.className} italic`}>3 Steps </span>
-              Simple Process
-            </h1>
+            <h2 className="shaded text-center">
+              <span className={`highlight_text`}>3 Easy Steps</span> To <br />
+              <span className="inline-flex flex-col sm:flex-row items-center gap-4">
+                Get Your{" "}
+                <span className="inline-flex items-center gap-4">
+                  <AnimatedTrendUpIcon className="bg-primary rounded-full p-2" />{" "}
+                  Growth
+                </span>
+              </span>
+            </h2>
           </AnimatedContent>
           <AnimatedContent
             distance={100}
@@ -383,17 +421,15 @@ export default function Home() {
             threshold={0.2}
             delay={100}
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="grid grid-cols-1 gap-6">
-                {PROCESS.map((process, index) => (
-                  <ProcessItem
-                    key={index}
-                    index={index + 1}
-                    process={process}
-                  />
-                ))}
-              </div>
-              <div className="card !p-0 aspect-video md:h-full w-full !bg-primary rounded-3xl overflow-hidden">
+            {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6"> */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {PROCESS.map((process, index) => (
+                <ProcessItem key={index} index={index + 1} process={process}>
+                  {process.block}
+                </ProcessItem>
+              ))}
+            </div>
+            {/* <div className="card !p-0 aspect-video md:h-full w-full !bg-primary rounded-3xl overflow-hidden">
                 <Image
                   src="/workstation.jpg"
                   alt="workstation"
@@ -401,52 +437,97 @@ export default function Home() {
                   height={500}
                   className=" object-cover w-full h-full"
                 />
-              </div>
-            </div>
+              </div> */}
+            {/* </div> */}
           </AnimatedContent>
         </section>
-        <div className="wrapper">
-          <section id="plan" className="flex flex-col items-center gap-8">
-            <div className="pill">
-              <ShinyText text="Plan" speed={5} />
+        <section className="flex flex-col items-center gap-8 !max-w-5xl">
+          <Image
+            src="/DE_comparison.png"
+            alt="Data Echooo Comparison"
+            width={1000}
+            height={1000}
+            className="w-full h-full object-cover rounded-3xl mb-16 border border-neutral-200"
+          />
+          <div className="flex scale-150">
+            <MaterialSymbolsStarRounded className="text-(--accent-yellow)" />
+            <MaterialSymbolsStarRounded className="text-(--accent-yellow)" />
+            <MaterialSymbolsStarRounded className="text-(--accent-yellow)" />
+            <MaterialSymbolsStarRounded className="text-(--accent-yellow)" />
+            <MaterialSymbolsStarRounded className="text-(--accent-yellow)" />
+          </div>
+          <h2 className="text-center md:!text-5xl leading-snug">
+            <span className="highlight_text">
+              They truly understood our branding
+            </span>
+            , making it not just beautiful but also clearly reflecting our
+            brand's identity
+          </h2>
+          <div className="flex items-center gap-6">
+            <div className="relative">
+              <Image
+                src="/Jatawat_Xie.png"
+                alt="Jerome pfp"
+                width={64}
+                height={64}
+                className="rounded-full"
+              />
+              <Image
+                src="/dataechooo.png"
+                alt="Jerome pfp"
+                width={40}
+                height={40}
+                className="rounded-full absolute -bottom-2 -right-4 border-2 border-background"
+              />
             </div>
-            <AnimatedContent
-              distance={100}
-              direction="vertical"
-              initialOpacity={0.05}
-              animateOpacity
-              damping={10}
-              stiffness={50}
-              scale={0.9}
-              threshold={0.2}
-            >
-              <h1 className="shaded text-4xl sm:text-5xl lg:text-6xl text-center font-medium mb-6 md:mb-16">
-                Choose Package That <br />
-                <span className={`${poltawski.className} italic`}>
-                  Fits Your Needs
-                </span>
-              </h1>
-            </AnimatedContent>
-            <AnimatedContent
-              distance={100}
-              direction="vertical"
-              animateOpacity
-              damping={10}
-              stiffness={50}
-              threshold={0.2}
-              delay={100}
-            >
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-md md:max-w-full m-auto">
-                {PLANS.map((plan, index) => (
-                  <PricingItem
-                    key={index}
-                    plan={plan}
-                    isHighlighted={plan.isHighlighted}
-                  />
-                ))}
-              </div>
-            </AnimatedContent>
-            {/* <div className="card w-full flex justify-between">
+            <div className="flex flex-col gap-1">
+              <p className="!text-black">Jatawat Xie</p>
+              <p className="text-sm">Founder of Data Echooo</p>
+            </div>
+          </div>
+        </section>
+        <section id="plan" className="flex flex-col items-center gap-8">
+          <div className="pill">
+            <ShinyText text="Plan" speed={5} />
+          </div>
+          <AnimatedContent
+            distance={100}
+            direction="vertical"
+            initialOpacity={0.05}
+            animateOpacity
+            damping={10}
+            stiffness={50}
+            scale={0.9}
+            threshold={0.2}
+          >
+            <h2 className="shaded text-center">
+              <span className="inline-flex items-center gap-4">
+                <AnimatedCheckIcon className="hidden md:block" /> Choose a
+                Package That
+              </span>
+              <br /> <span className={`highlight_text`}>Fits Your Needs</span>
+            </h2>
+          </AnimatedContent>
+          <AnimatedContent
+            distance={100}
+            direction="vertical"
+            animateOpacity
+            damping={10}
+            stiffness={50}
+            threshold={0.2}
+            delay={100}
+          >
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-md md:max-w-full m-auto">
+              {PLANS.map((plan, index) => (
+                <PricingItem
+                  key={index}
+                  plan={plan}
+                  isHighlighted={plan.isHighlighted}
+                />
+              ))}
+            </div>
+          </AnimatedContent>
+          {/* <div className="card w-full flex justify-between">
             <div>
               <h2 className="text-2xl font-semibold">
                 {HERO_ROASTING_PLAN.title}
@@ -469,30 +550,31 @@ export default function Home() {
               </button>
             </a>
           </div> */}
-          </section>
-        </div>
-        <section
-          id="faq"
-          className="flex flex-col items-center gap-8 !max-w-4xl"
-        >
-          <div className="pill">
-            <ShinyText text="FAQ" speed={5} />
+        </section>
+        <section id="faq" className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="flex flex-col gap-8">
+            <div className="pill">
+              <ShinyText text="FAQ" speed={5} />
+            </div>
+            <AnimatedContent
+              distance={100}
+              direction="vertical"
+              initialOpacity={0.05}
+              animateOpacity
+              damping={10}
+              stiffness={50}
+              scale={0.9}
+              threshold={0.2}
+            >
+              <h2>
+                <span className={`highlight_text`}>Answers</span> to Your
+                <span className="flex items-center gap-4">
+                  <AnimatedQuestionIcon className="animate-bounce" />
+                  Questions
+                </span>
+              </h2>
+            </AnimatedContent>
           </div>
-          <AnimatedContent
-            distance={100}
-            direction="vertical"
-            initialOpacity={0.05}
-            animateOpacity
-            damping={10}
-            stiffness={50}
-            scale={0.9}
-            threshold={0.2}
-          >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl text-center font-medium mb-6 md:mb-16">
-              <span className={`${poltawski.className} italic`}>Questions</span>{" "}
-              You Might Have
-            </h1>
-          </AnimatedContent>
           <div className="grid grid-cols-1 gap-6 w-full max-w-2xl">
             {/* <div className="card w-full"></div> */}
             {FAQS.map((faq, index) => (
@@ -505,6 +587,7 @@ export default function Home() {
           </div>
         </section>
       </main>
+      <Footer />
     </div>
   );
 }

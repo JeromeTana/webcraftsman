@@ -25,7 +25,7 @@ export default function ComparisonCard({
         className
       )}
     >
-      {isHighlighted && (
+      {/* {isHighlighted && (
         <Image
           src="/large-comet-r.png"
           alt="large comet"
@@ -33,7 +33,7 @@ export default function ComparisonCard({
           height={200}
           className="absolute top-0 right-0 "
         />
-      )}
+      )} */}
       <ul className="flex flex-col gap-4">
         {item.map((i, index) => (
           <li key={index} className="flex items-center gap-2">

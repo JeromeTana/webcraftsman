@@ -69,7 +69,7 @@ export default function AuditForm() {
         <div className="w-full p-4 bg-red-500/20 border border-red-500/70 rounded-xl flex items-center justify-center gap-2">
           <LucideX />
           <a
-            href="https://www.instagram.com/webcraftsman.co/"
+            href="https://www.instagram.com/Webcraftsman.co/"
             target="_blank"
             className="underline"
           >
@@ -79,7 +79,7 @@ export default function AuditForm() {
       )}
 
       {state?.success ? (
-        <a href="https://www.instagram.com/webcraftsman.co/" target="_blank">
+        <a href="https://www.instagram.com/Webcraftsman.co/" target="_blank">
           <div className="w-full p-4 bg-green-500/20 border border-green-500/70 rounded-xl gap-2 hover:scale-95 duration-200">
             <p className="!text-white text-lg">
               <span className="flex items-center gap-2 font-semibold">
@@ -113,7 +113,7 @@ export default function AuditForm() {
           <p className="text-xs">
             We will post your audit on{" "}
             <a
-              href="https://www.instagram.com/webcraftsman.co/"
+              href="https://www.instagram.com/Webcraftsman.co/"
               target="_blank"
               className="underline"
             >

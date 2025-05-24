@@ -1,11 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --background: #000000;
-  --foreground: #0e0e0e;
-  --primary: rgb(29, 63, 215);
-  --accent-green: #00ffb7;
-  --border: #323232;
+  --background: #ffffff;
+  --foreground: #f1f5f9;
+  --background-dark: #000000;
+  --foreground-dark: #0e0e0e;
+  --primary: #3058ea;
+  --primary-dark: rgb(29, 63, 215);
+  --accent-green: #01d3ad;
+  --accent-yellow: #ed9a1c;
+  --paragraph: #737373;
+  --border: #e4e4e4;
+  --border-dark: #323232;
   --border-highlight: #3d5de8;
 }
 
@@ -57,39 +63,116 @@
 * {
 }
 
+.highlight_text {
+  /* font-family: "instrument serif"; */
+  /* font-weight: 400; */
+  /* font-style: italic; */
+  color: var(--color-primary);
+  position: relative;
+  /* letter-spacing: -0.025em; */
+}
+
+.highlight_text::after {
+  content: "";
+  position: absolute;
+  bottom: 7%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 102%;
+  opacity: 0.2;
+  height: 30%;
+  background: var(--color-primary);
+}
+
+h1 {
+  /* text-5xl sm:text-6xl lg:text-7xl tracking-tighter font-semibold */
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 1.2;
+  word-spacing: 0.05em;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  margin-bottom: 1.5rem;
+  word-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 3.75rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 4.5rem;
+  }
+
+  h2 {
+    font-size: 3.75rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+}
+
 body {
   background: var(--background);
-  color: var(--color-white);
+  color: var(--color-black);
   font-family: Poppins, Helvetica, sans-serif;
 }
 
 .pill {
   background: var(--foreground);
+  color: var(--primary);
   padding: 0.5rem 1rem;
   border-radius: 9999px;
-  font-size: 0.875rem;
-  border: var(--border) 1px solid;
   width: fit-content;
+  font-weight: 700;
+  letter-spacing: -0.025em;
 }
 
 .card {
   background: var(--foreground);
   border-radius: 1.5rem;
   padding: 2rem;
-  border: var(--border) 1px solid;
+  border: none;
   overflow: clip;
 }
 
-.cta {
+button.cta {
   background: var(--primary);
   color: var(--color-white);
   font-weight: 600;
   padding: 0.7rem 1.4rem;
-  border-radius: 0.75rem;
-  font-size: 0.875rem;
-  border: none;
+  border-radius: 9999px;
+  border: solid #899fff;
+  border-width: 1px 0 0 1px;
   cursor: pointer;
   transition: all 0.2s ease;
+  box-shadow: 0 0px 16px #3058ea74;
 }
 
 .cta:hover {
@@ -99,13 +182,15 @@ body {
 
 section {
   margin: auto;
-  max-width: 64rem;
+  max-width: 72rem;
   padding: 6rem 1rem;
 }
 
 p {
-  color: #bfbfbf;
-  line-height: 2;
+  color: var(--paragraph);
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1.5;
 }
 
 input,
@@ -131,9 +216,9 @@ label {
   transition-timing-function: linear !important;
 }
 
-/* gradient text for h1*/
+/* gradient text for h2*/
 
-.shaded {
+/* .shaded {
   background: linear-gradient(
     90deg,
     var(--color-white),
@@ -143,8 +228,8 @@ label {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   padding-bottom: 0.5rem;
-}
+} */
 
 .wrapper {
-  background: #080808;
+  background: var(--foreground);
 }

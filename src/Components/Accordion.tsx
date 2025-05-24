@@ -14,7 +14,7 @@ const Accordion = ({ question, answer }: AccordionProps) => {
 
   return (
     <motion.button
-      className="card !py-2 !rounded-2xl cursor-pointer duration-200"
+      className="card !py-2 !rounded-[3rem] cursor-pointer duration-200 !shadow-none"
       onClick={() => setIsOpen(!isOpen)}
       initial={false}
     >

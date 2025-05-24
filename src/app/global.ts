@@ -1,0 +1,1 @@
+export const tagline = "Get More Paying Customers For Your Digital Product"
