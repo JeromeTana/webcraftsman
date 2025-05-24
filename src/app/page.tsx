@@ -456,13 +456,13 @@ export default function Home() {
             <MaterialSymbolsStarRounded className="text-(--accent-yellow)" />
             <MaterialSymbolsStarRounded className="text-(--accent-yellow)" />
           </div>
-          <h2 className="text-center md:!text-5xl leading-snug">
+          <h3 className="text-center md:!text-5xl leading-snug">
             <span className="highlight_text">
               They truly understood our branding
             </span>
             , making it not just beautiful but also clearly reflecting our
             brand's identity
-          </h2>
+          </h3>
           <div className="flex items-center gap-6">
             <div className="relative">
               <Image

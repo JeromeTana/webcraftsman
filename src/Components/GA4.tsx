@@ -5,7 +5,7 @@ import React from "react";
 
 export default function GA4() {
   return (
-    <div>
+    <>
       <Script
         async
         src="https://www.googletagmanager.com/gtag/js?id=G-H98Z69VQWL"
@@ -20,6 +20,6 @@ export default function GA4() {
           gtag('config', 'G-H98Z69VQWL');
       `}
       </Script>
-    </div>
+    </>
   );
 }

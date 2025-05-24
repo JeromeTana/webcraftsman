@@ -4,9 +4,8 @@ import React from "react";
 
 export default function Hotjar() {
   return (
-    <div>
-      <Script id="hotjar-script">
-        {`
+    <Script id="hotjar-script">
+      {`
           (function(h,o,t,j,a,r){
               h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
               h._hjSettings={hjid:6414553,hjsv:6};
@@ -16,7 +15,6 @@ export default function Hotjar() {
               a.appendChild(r);
           })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
         `}
-      </Script>
-    </div>
+    </Script>
   );
 }
