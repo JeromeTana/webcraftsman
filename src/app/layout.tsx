@@ -6,6 +6,7 @@ import FollowCursor from "@/Components/FollowCursor";
 import Header from "@/Components/Header";
 import { description, tagline } from "./global";
 import Hotjar from "@/Components/Hotjar";
+import GA4 from "@/Components/GA4";
 
 export const metadata: Metadata = {
   title: tagline,
@@ -36,6 +37,7 @@ export default function RootLayout({
       <head>
         <script src="https://cdn.lordicon.com/lordicon.js"></script>
         <Hotjar />
+        <GA4 />
       </head>
       <body className={`${manrope.className} antialiased`}>
         <FollowCursor />
