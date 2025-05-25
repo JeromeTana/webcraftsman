@@ -6,7 +6,7 @@ import AnimatedCalendarIcon from "./Icons/AnimatedCalendarIcon";
 import Logo from "./Icons/Logo";
 import { RevealLink } from "./RevealLink";
 
-const tagline = "Get More Paying Customers For Your Digital Product ";
+const tagline = "Get More Buying Customers For Your Digital Product ";
 
 export default function Footer() {
   return (
@@ -20,7 +20,7 @@ export default function Footer() {
             </div>
             Let's Get Started
           </div>
-          <div className="flex flex-col gap-4 px-16">
+          <div className="flex flex-col gap-4 px-8">
             <AnimatedContent
               distance={100}
               direction="vertical"
@@ -33,10 +33,12 @@ export default function Footer() {
             >
               <h2 className="!mb-0 !text-white text-center">
                 <span className="inline-flex items-center gap-4">
-                  <span className="inline-flex items-center gap-4">
-                    Book Your 30-min
-                    <AnimatedCalendarIcon className="hidden md:block" />
-                    Intro Call
+                  <span className="inline-flex flex-col md:flex-row items-center gap-2 md:gap-4">
+                    Book Your <span>30-min </span>
+                    <span className="inline-flex items-center gap-2 md:gap-4">
+                      <AnimatedCalendarIcon />
+                      Intro Call
+                    </span>
                   </span>
                 </span>
                 <span className="hidden md:inline-flex items-center gap-4">

@@ -20,6 +20,7 @@ import AnimatedCartIcon from "@/Components/Icons/AnimatedCartIcon";
 import AnimatedCategoryIcon from "@/Components/Icons/AnimatedCategoryIcon";
 import AnimatedCheckIcon from "@/Components/Icons/AnimatedCheckIcon";
 import AnimatedSuccessIcon from "@/Components/Icons/AnimatedSeccessIcon";
+import AnimatedQuoteIcon from "@/Components/Icons/AnimatedQuoteIcon";
 
 const PLANS = [
   {
@@ -224,7 +225,7 @@ export default function Home() {
             threshold={0.2}
           >
             <h1 className="text-center ">
-              Get More Paying Customers <br /> For Your{" "}
+              Get More Buying Customers <br /> For Your{" "}
               <span className="inline-flex items-center gap-4">
                 <AnimatedCartIcon className="hidden md:block bg-primary rounded-full p-2" />
                 <span className={`highlight_text`}>
@@ -266,21 +267,21 @@ export default function Home() {
               alt="work"
               width={1000}
               height={1000}
-              className="w-full h-full object-cover object-top border border-neutral-200 group-hover:scale-105 duration-300 rounded md:rounded-lg scale-150 md:scale-100 -rotate-1 md:hover:scale-105"
+              className="w-full h-full object-cover object-top shadow group-hover:scale-105 duration-300 rounded md:rounded-lg scale-150 md:scale-100 -rotate-1 md:hover:scale-105"
             />
             <Image
               src="/showcase1.png"
               alt="work"
               width={1000}
               height={1000}
-              className="w-full h-full object-cover object-top border border-neutral-200 group-hover:scale-105 duration-300 rounded md:rounded-lg scale-200 md:scale-125 md:hover:-rotate-1 md:hover:scale-[1.3] z-10"
+              className="w-full h-full object-cover object-top shadow group-hover:scale-105 duration-300 rounded md:rounded-lg scale-200 md:scale-125 md:hover:-rotate-1 md:hover:scale-[1.3] z-10"
             />
             <Image
               src="/showcase3.png"
               alt="work"
               width={1000}
               height={1000}
-              className="w-full h-full object-cover object-top border border-neutral-200 group-hover:scale-105 duration-300 rounded md:rounded-lg scale-150 md:scale-100 rotate-1 md:hover:scale-105"
+              className="w-full h-full object-cover object-top shadow group-hover:scale-105 duration-300 rounded md:rounded-lg scale-150 md:scale-100 rotate-1 md:hover:scale-105"
             />
           </div>
         </div>
@@ -370,11 +371,11 @@ export default function Home() {
             scale={0.9}
             threshold={0.2}
           >
-            <h2 className="shaded text-center">
-              See Our{" "}
-              <span className="inline-flex items-center gap-4">
+            <h2 className="shaded text-center w-full inline-flex flex-col sm:flex-row items-center justify-center gap-4">
+              <span>See Our Recent</span>
+              <span className="inline-flex items-center gap-2 md:gap-4">
                 <AnimatedCategoryIcon className="bg-primary rounded-full p-2" />
-                <span className={`highlight_text`}>Recent Works</span>
+                <span className={`highlight_text`}>Projects</span>
               </span>
             </h2>
           </AnimatedContent>
@@ -401,14 +402,14 @@ export default function Home() {
             scale={0.9}
             threshold={0.2}
           >
-            <h2 className="shaded text-center">
-              <span className={`highlight_text`}>3 Easy Steps</span> To <br />
-              <span className="inline-flex flex-col sm:flex-row items-center gap-4">
-                Get Your{" "}
-                <span className="inline-flex items-center gap-4">
-                  <AnimatedTrendUpIcon className="bg-primary rounded-full p-2" />{" "}
-                  Growth
-                </span>
+            <h2 className="shaded text-center w-full inline-flex flex-col sm:flex-row items-center justify-center gap-4">
+              <span>
+                <span className={`highlight_text`}>3 Easy Steps</span> For{" "}
+              </span>
+              <span className="inline-flex items-center gap-2 md:gap-4">
+                Your{" "}
+                <AnimatedTrendUpIcon className="bg-primary rounded-full p-2" />{" "}
+                Growth
               </span>
             </h2>
           </AnimatedContent>
@@ -429,19 +430,32 @@ export default function Home() {
                 </ProcessItem>
               ))}
             </div>
-            {/* <div className="card !p-0 aspect-video md:h-full w-full !bg-primary rounded-3xl overflow-hidden">
-                <Image
-                  src="/workstation.jpg"
-                  alt="workstation"
-                  width={500}
-                  height={500}
-                  className=" object-cover w-full h-full"
-                />
-              </div> */}
-            {/* </div> */}
           </AnimatedContent>
         </section>
         <section className="flex flex-col items-center gap-8 !max-w-5xl">
+          <div className="pill">
+            <ShinyText text="Testimonial" speed={5} />
+          </div>
+          <AnimatedContent
+            distance={100}
+            direction="vertical"
+            initialOpacity={0.05}
+            animateOpacity
+            damping={10}
+            stiffness={50}
+            scale={0.9}
+            threshold={0.2}
+          >
+            <h2 className="shaded text-center w-full inline-flex flex-col sm:flex-row items-center justify-center gap-4">
+              <span>
+                What <span className={`highlight_text`}>Our Clients</span>
+              </span>
+              <span className="inline-flex items-center gap-2 md:gap-4">
+                <AnimatedQuoteIcon className="bg-primary rounded-full p-2" />{" "}
+                Say
+              </span>
+            </h2>
+          </AnimatedContent>
           <Image
             src="/DE_comparison.png"
             alt="Data Echooo Comparison"
@@ -456,13 +470,16 @@ export default function Home() {
             <MaterialSymbolsStarRounded className="text-(--accent-yellow)" />
             <MaterialSymbolsStarRounded className="text-(--accent-yellow)" />
           </div>
-          <h3 className="text-center md:!text-5xl leading-snug">
-            <span className="highlight_text">
-              They truly understood our branding
-            </span>
-            , making it not just beautiful but also clearly reflecting our
-            brand's identity
-          </h3>
+          <div className="text-center mb-8">
+            <h3 className=" md:!text-5xl mb-2 leading-snug">
+              "They truly understood our{" "}
+              <span className="highlight_text">branding</span>"
+            </h3>
+            <p>
+              Making it not just beautiful but also clearly reflecting our
+              brand's identity
+            </p>
+          </div>
           <div className="flex items-center gap-6">
             <div className="relative">
               <Image
@@ -500,33 +517,26 @@ export default function Home() {
             scale={0.9}
             threshold={0.2}
           >
-            <h2 className="shaded text-center">
-              <span className="inline-flex items-center gap-4">
-                <AnimatedCheckIcon className="hidden md:block" /> Choose a
-                Package That
+            <h2 className="shaded text-center w-full inline-flex flex-col items-center justify-center gap-4">
+              <span>
+                Choose a <span className={`highlight_text`}>Package</span>
               </span>
-              <br /> <span className={`highlight_text`}>Fits Your Needs</span>
+              <span className="inline-flex items-center gap-2 md:gap-4">
+                That
+                <AnimatedCheckIcon />
+                Right For You
+              </span>
             </h2>
           </AnimatedContent>
-          <AnimatedContent
-            distance={100}
-            direction="vertical"
-            animateOpacity
-            damping={10}
-            stiffness={50}
-            threshold={0.2}
-            delay={100}
-          >
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-md md:max-w-full m-auto">
-              {PLANS.map((plan, index) => (
-                <PricingItem
-                  key={index}
-                  plan={plan}
-                  isHighlighted={plan.isHighlighted}
-                />
-              ))}
-            </div>
-          </AnimatedContent>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-md md:max-w-full m-auto">
+            {PLANS.map((plan, index) => (
+              <PricingItem
+                key={index}
+                plan={plan}
+                isHighlighted={plan.isHighlighted}
+              />
+            ))}
+          </div>
           {/* <div className="card w-full flex justify-between">
             <div>
               <h2 className="text-2xl font-semibold">
@@ -568,7 +578,7 @@ export default function Home() {
             >
               <h2>
                 <span className={`highlight_text`}>Answers</span> to Your
-                <span className="flex items-center gap-4">
+                <span className="flex items-center gap-2 md:gap-4">
                   <AnimatedQuestionIcon className="animate-bounce" />
                   Questions
                 </span>
