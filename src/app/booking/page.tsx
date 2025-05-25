@@ -29,25 +29,27 @@ export default function BookingPage() {
   return (
     <section>
       <div className="relative space-y-8 py-16 text-center">
+        <div>
+          <AvailableSpots />
+        </div>
         <AnimatedContent
           distance={100}
           direction="vertical"
+          initialOpacity={0.05}
           animateOpacity
           damping={10}
           stiffness={50}
           scale={0.9}
-          delay={400}
           threshold={0.2}
         >
-          <AvailableSpots />
+          <h1 className="text-center">
+            Book Your{" "}
+            <span className="inline-flex  items-center gap-4">
+              <AnimatedCalendarIcon className="hidden md:inline-flex items-center gap-4 bg-primary p-3 rounded-full" />
+              <span className="highlight_text">30-min Intro Call</span>
+            </span>
+          </h1>
         </AnimatedContent>
-        <h1 className="text-center">
-          Book Your{" "}
-          <span className="inline-flex  items-center gap-4">
-            <AnimatedCalendarIcon className="hidden md:inline-flex items-center gap-4 bg-primary p-3 rounded-full" />
-            <span className="highlight_text">30-min Intro Call</span>
-          </span>
-        </h1>
         <p className="!text-xl font-medium text-center">
           Just a 30-minute chill call to see if we are a good fit!
         </p>

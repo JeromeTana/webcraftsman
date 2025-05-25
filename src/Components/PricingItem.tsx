@@ -117,7 +117,7 @@ function HighlightedPricingCard({
           </h3>
           <div>
             {price_from && (
-              <p className="!text-3xl text-center font-medium line-through !text-neutral-400">
+              <p className="!text-3xl text-center font-medium line-through !text-neutral-300">
                 ${price_from}
               </p>
             )}
@@ -125,10 +125,10 @@ function HighlightedPricingCard({
               ${price}
             </p>
           </div>
-          <p className="text-center !text-neutral-400">{description}</p>
+          <p className="text-center !text-neutral-300">{description}</p>
         </div>
         <div className="flex flex-col gap-4 mt-8">
-          <p className="font-semibold !text-neutral-400">Includes:</p>
+          <p className="font-semibold !text-neutral-300">Includes:</p>
           <ul className="flex flex-col gap-2">
             {features.map((feature, index) => (
               <li key={index} className="flex items-center gap-2">

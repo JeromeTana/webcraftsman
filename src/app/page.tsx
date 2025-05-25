@@ -126,6 +126,13 @@ const WORKS = [
     description:
       "DevWhoLifts is a web design agency that specializes in creating high-converting websites for fitness professionals.",
   },
+  {
+    img: "/showcase4.png",
+    pills: ["Concept", "Design & Development"],
+    title: "DevWhoLifts",
+    description:
+      "DevWhoLifts is a web design agency that specializes in creating high-converting websites for fitness professionals.",
+  },
 ];
 
 const PROCESS = [
@@ -138,21 +145,21 @@ const PROCESS = [
         alt="intro call"
         width={500}
         height={500}
-        className="rounded-xl object-cover border border-neutral-200"
+        className="rounded-xl w-full object-cover border border-neutral-200"
       />
     ),
   },
   {
     title: "Let Us Craft",
     description:
-      "We’ll build your site based on your brief after payment is done",
+      "We’ll build your site based on our discussion after payment is done",
     block: (
       <Image
         src="/DE_figma_shot.png"
         alt="intro call"
         width={500}
         height={500}
-        className="rounded-xl object-cover border border-neutral-200"
+        className="rounded-xl w-full object-cover border border-neutral-200"
       />
     ),
   },
@@ -161,7 +168,7 @@ const PROCESS = [
     description:
       "After review and revisions, your site will be ready to launch",
     block: (
-      <div className="bg-background  rounded-2xl px-8 py-4 text-center flex flex-col gap-4 items-center justify-center">
+      <div className="bg-background  rounded-2xl px-8 py-16 md:py-4 text-center flex flex-col gap-4 items-center justify-center">
         <AnimatedSuccessIcon size={80} />
         <p>Your site has been published</p>
       </div>
@@ -202,7 +209,7 @@ export default function Home() {
       <main>
         <section id="hero" className="flex flex-col items-center gap-8 !py-16">
           {/* <LightRay /> */}
-          <AnimatedContent
+          {/* <AnimatedContent
             distance={100}
             direction="vertical"
             animateOpacity
@@ -211,9 +218,9 @@ export default function Home() {
             scale={0.9}
             delay={400}
             threshold={0.2}
-          >
-            <AvailableSpots />
-          </AnimatedContent>
+          > */}
+          <AvailableSpots />
+          {/* </AnimatedContent> */}
           <AnimatedContent
             distance={100}
             direction="vertical"
@@ -245,22 +252,6 @@ export default function Home() {
           <CtaButton />
         </section>
         <div className="mt-24">
-          {/* <Marquee fastDuration={20} slowDuration={40}>
-            {[...WORK_MARQUEE, ...WORK_MARQUEE].map((img, index) => (
-              <div
-                key={index}
-                className="relative aspect-video w-80 md:w-xl rounded-3xl overflow-hidden border border-border p-2 shadow-2xl"
-              >
-                <Image
-                  src={img}
-                  alt="work"
-                  width={1000}
-                  height={1000}
-                  className="w-full h-full object-cover object-top group-hover:scale-105 duration-300 rounded-2xl  hover:scale-105"
-                />
-              </div>
-            ))}
-          </Marquee> */}
           <div className="grid grid-cols-3 gap-4 max-w-7xl m-auto mb-32 px-4 overflow-x-clip">
             <Image
               src="/showcase2.png"
@@ -383,14 +374,20 @@ export default function Home() {
             {WORKS.map((work, index) => (
               <WorkItem key={index} work={work} />
             ))}
-          </div>
-          <div className="mt-20">
-            <CtaButton />
+            <a
+              href="/booking"
+              className="group min-h-[36rem] gap-6 w-full bg-foreground p-2 rounded-4xl shadow-lg"
+            >
+              <div className="relative h-full rounded-3xl overflow-hidden p-4 bg-background/50 group-hover:bg-background">
+                <div className="absolute top-1/2 left-1/2 -translate-1/2 w-8 h-36 bg-slate-200"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-1/2 w-8 h-36 bg-slate-200 rotate-90"></div>
+              </div>
+            </a>
           </div>
         </section>
         <section id="process" className="flex flex-col items-center gap-8">
           <div className="pill">
-            <ShinyText text="Process" speed={5} />
+            <ShinyText text="How We Work" speed={5} />
           </div>
           <AnimatedContent
             distance={100}
@@ -423,7 +420,7 @@ export default function Home() {
             delay={100}
           >
             {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6"> */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {PROCESS.map((process, index) => (
                 <ProcessItem key={index} index={index + 1} process={process}>
                   {process.block}
@@ -431,6 +428,9 @@ export default function Home() {
               ))}
             </div>
           </AnimatedContent>
+          <div className="mt-20">
+            <CtaButton />
+          </div>
         </section>
         <section className="flex flex-col items-center gap-8 !max-w-5xl">
           <div className="pill">
@@ -524,7 +524,7 @@ export default function Home() {
               <span className="inline-flex items-center gap-2 md:gap-4">
                 That
                 <AnimatedCheckIcon />
-                Right For You
+                Fits You
               </span>
             </h2>
           </AnimatedContent>
