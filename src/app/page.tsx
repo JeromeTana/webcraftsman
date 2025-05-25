@@ -127,7 +127,7 @@ const WORKS = [
       "DevWhoLifts is a web design agency that specializes in creating high-converting websites for fitness professionals.",
   },
   {
-    img: "/showcase4.png",
+    img: "/showcase5.png",
     pills: ["Concept", "Design & Development"],
     title: "DevWhoLifts",
     description:
