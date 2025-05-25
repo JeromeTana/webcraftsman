@@ -528,7 +528,7 @@ export default function Home() {
               </span>
             </h2>
           </AnimatedContent>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-md md:max-w-full m-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-6 max-w-md md:max-w-full m-auto">
             {PLANS.map((plan, index) => (
               <PricingItem
                 key={index}

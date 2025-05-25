@@ -1,7 +1,6 @@
 import React from "react";
 import { LucideCheck } from "./Icons/LucideCheck";
 import { twMerge } from "tailwind-merge";
-import Image from "next/image";
 import SpotlightCard from "./SpotlightCard/SpotlightCard";
 import { LucideArrowRight } from "./Icons/LucideArrowRight";
 
@@ -97,7 +96,7 @@ function HighlightedPricingCard({
   return (
     <SpotlightCard
       className={twMerge(
-        "custom-spotlight-card card relative flex flex-col justify-between !bg-primary !border !border-border-highlight",
+        "custom-spotlight-card card relative flex flex-col justify-between !bg-primary !border !border-border-highlight md:scale-105 z-10",
         className
       )}
     >
@@ -139,7 +138,7 @@ function HighlightedPricingCard({
           </ul>
         </div>
       </div>
-      <a href={paymentUrl} target="_blank">
+      <a href="/booking">
         <button className="cta mt-16 w-full flex items-center justify-center gap-2 !shadow-none !bg-white !text-primary">
           Get Started <LucideArrowRight />
         </button>
