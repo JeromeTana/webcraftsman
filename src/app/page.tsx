@@ -503,7 +503,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section id="plan" className="flex flex-col items-center gap-8">
+        {/* <section id="plan" className="flex flex-col items-center gap-8">
           <div className="pill">
             <ShinyText text="Plan" speed={5} />
           </div>
@@ -537,30 +537,7 @@ export default function Home() {
               />
             ))}
           </div>
-          {/* <div className="card w-full flex justify-between">
-            <div>
-              <h2 className="text-2xl font-semibold">
-                {HERO_ROASTING_PLAN.title}
-              </h2>
-              <p className="text-4xl font-medium !text-white">
-                ${HERO_ROASTING_PLAN.price}
-              </p>
-            </div>
-            <ul className="flex flex-col gap-2">
-              {HERO_ROASTING_PLAN.features.map((feature, index) => (
-                <li key={index} className="flex items-center gap-2">
-                  <LucideCheck className="text-accent-green" />
-                  <p>{feature}</p>
-                </li>
-              ))}
-            </ul>
-            <a href="/#free">
-              <button className="cta mt-16 w-full flex items-center justify-center gap-2">
-                Roast me
-              </button>
-            </a>
-          </div> */}
-        </section>
+        </section> */}
         <section id="faq" className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="flex flex-col gap-8">
             <div className="pill">
