@@ -12,7 +12,7 @@ export default function Header() {
           className="inline-flex gap-4 items-center md:text-2xl font-semibold tracking-tight"
         >
           <Logo className="w-14 h-14 fill-primary text-primary ml-4" />
-          <span className="hidden md:inline">Webcraftsman</span>
+          <span className="hidden md:inline">WEBCRAFTSMAN</span>
         </a>
         <nav className="flex items-center gap-8">
           <ul className="gap-8 hidden sm:flex text-(--paragraph)">

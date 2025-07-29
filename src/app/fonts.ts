@@ -6,6 +6,9 @@ import {
   Manrope,
   Grape_Nuts,
   Bricolage_Grotesque,
+  Kanit,
+  IBM_Plex_Sans_Thai,
+  Sarabun,
 } from "next/font/google";
 
 export const poppins = Poppins({
@@ -37,4 +40,25 @@ export const bricolageGrotesque = Bricolage_Grotesque({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   style: ["normal"],
+});
+
+export const kanit = Kanit({
+  variable: "--font-kanit",
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
+});
+
+export const ibmPlexSansThai = IBM_Plex_Sans_Thai({
+  variable: "--font-ibm-plex-sans-thai",
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  style: ["normal"],
+});
+
+export const sarabun = Sarabun({
+  variable: "--font-sarabun",
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
 });

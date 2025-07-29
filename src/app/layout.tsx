@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { manrope } from "./fonts";
+import { ibmPlexSansThai, kanit, manrope, sarabun } from "./fonts";
 import LenisScrollProvider from "./providers/lenis-provider";
 import FollowCursor from "@/Components/FollowCursor";
 import Header from "@/Components/Header";
@@ -39,7 +39,7 @@ export default function RootLayout({
         <Hotjar />
         <GA4 />
       </head>
-      <body className={`${manrope.className} antialiased`}>
+      <body className={`${ibmPlexSansThai.variable} ${sarabun.variable} antialiased`}>
         <FollowCursor />
         <LenisScrollProvider>
           <Header />

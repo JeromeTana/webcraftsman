@@ -232,22 +232,22 @@ export default function Home() {
             threshold={0.2}
           >
             <h1 className="text-center ">
-              Get More Buying Customers <br /> For Your{" "}
+              รับทำเว็บไซต์ และการตลาดออนไลน์ <br /> สำหรับ{" "}
               <span className="inline-flex items-center gap-4">
                 <AnimatedCartIcon className="hidden md:block bg-primary rounded-full p-2" />
                 <span className={`highlight_text`}>
                   {/* <Underline className="absolute w-56 -bottom-6 -right-4 fill-primary" /> */}
-                  Digital Product
+                  ธุรกิจท้องถิ่น
                 </span>{" "}
               </span>
             </h1>
           </AnimatedContent>
           <BlurText
-            text="We help creators increase their digital products, online courses and membership programs sales with high-converting websites."
+            text="เพิ่มช่องทางให้ลูกค้าหาใหม่เจอผ่าน Google ได้ง่าย และปิดยอดขายได้มากขึ้น"
             delay={50}
             animateBy="words"
             direction="top"
-            className="max-w-2xl md:text-xl justify-center mb-8 text-center"
+            className="max-w-2xl md:text-xl! justify-center mb-8 text-center"
           />
           <CtaButton />
         </section>
@@ -291,7 +291,8 @@ export default function Home() {
             threshold={0.2}
           >
             <h2 className="shaded text-center">
-              Why <span className={`highlight_text`}>Creators</span> Choose Us
+              ทำไมเราถึง <span className={`highlight_text`}>ดีกว่า</span> Agency
+              ทั่วไป
             </h2>
           </AnimatedContent>
           <div className="flex flex-col md:flex-row items-end gap-16 sm:gap-6 w-full">
@@ -305,13 +306,13 @@ export default function Home() {
               delay={100}
             >
               <div className="flex flex-col items-center gap-6">
-                <h3 className="text-2xl">Others</h3>
+                <h3 className="text-2xl">Agency ทั่วไป</h3>
                 <ComparisonItem
                   item={[
-                    "Slow communication",
-                    "Outdated growth strategies",
-                    "No industry research",
-                    "Unpredictable pricing",
+                    "ใช้เวลานาน 4 - 6 สัปดาห์",
+                    "ไม่เข้าใจกลุ่มเป้าหมายและธุรกิจ",
+                    "ราคาสูงเกินหลักแสน",
+                    "ไม่ดูแลหลังส่งมอบ",
                   ]}
                   Icon={<LucideX />}
                   className="text-neutral-500"
@@ -330,15 +331,15 @@ export default function Home() {
               <div className="flex flex-col items-center gap-6">
                 <div className="flex items-center gap-4">
                   <Logo className="w-16 h-16 fill-primary text-primary" />
-                  <h3 className="text-2xl">Webcraftsman</h3>
+                  <h3 className="text-2xl !font-semibold">WEBCRAFTSMAN</h3>
                 </div>
                 <ComparisonItem
                   item={[
-                    "Fast communication",
-                    "Conversion focused",
-                    "Proven growth strategies",
-                    "Specialized in the industry",
-                    "Predictable price, no hidden fees",
+                    "จัดการทุกอย่างภายใน 7 วัน",
+                    "เน้นทำงานเฉพาะกลุ่มธุรกิจผู้รับเหมา",
+                    "ให้คำปรึกษาอย่างมืออาชีพ",
+                    "จ่ายเริ่มต้นหลักพันต่อเดือน",
+                    "ดูแลอย่างใกล้ชิด ไว้ใจได้ตลอด 24 ชั่วโมง",
                   ]}
                   Icon={<LucideCheck className="text-primary" />}
                   isHighlighted
@@ -363,10 +364,9 @@ export default function Home() {
             threshold={0.2}
           >
             <h2 className="shaded text-center w-full inline-flex flex-col sm:flex-row items-center justify-center gap-4">
-              <span>See Our Recent</span>
               <span className="inline-flex items-center gap-2 md:gap-4">
                 <AnimatedCategoryIcon className="bg-primary rounded-full p-2" />
-                <span className={`highlight_text`}>Projects</span>
+                <span className={`highlight_text`}>ผลงานล่าสุด</span>ของเรา
               </span>
             </h2>
           </AnimatedContent>
@@ -401,12 +401,8 @@ export default function Home() {
           >
             <h2 className="shaded text-center w-full inline-flex flex-col sm:flex-row items-center justify-center gap-4">
               <span>
-                <span className={`highlight_text`}>3 Easy Steps</span> For{" "}
-              </span>
-              <span className="inline-flex items-center gap-2 md:gap-4">
-                Your{" "}
-                <AnimatedTrendUpIcon className="bg-primary rounded-full p-2" />{" "}
-                Growth
+                <span className={`highlight_text`}>3 ขั้นตอน</span>{" "}
+                ในการร่วมงานกับเรา
               </span>
             </h2>
           </AnimatedContent>

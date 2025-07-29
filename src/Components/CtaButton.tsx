@@ -12,9 +12,9 @@ export function CtaButton() {
       <div className="absolute -top-4 -right-16 hidden lg:block">
         <AnimatedArrowIcon className="-rotate-90 opacity-40" />
         <p
-          className={`${grapeNuts.className} absolute top-4 -right-36 rotate-3 text-xl`}
+          className={`absolute top-4 -right-36 rotate-3 !text-base`}
         >
-          30-min friendly call
+          ปรึกษารายละเอียดฟรี
         </p>
       </div>
       <Magnet padding={50} magnetStrength={10}>
@@ -27,7 +27,7 @@ export function CtaButton() {
               height={32}
               className="rounded-full"
             />
-            Book an Intro Call <LucideArrowRight />
+            นัดคุยรายละเอียดเลย <LucideArrowRight />
           </button>
         </a>
       </Magnet>
@@ -39,7 +39,7 @@ export function CtaButton() {
           <MaterialSymbolsStarRounded className="text-(--accent-yellow)" />
           <MaterialSymbolsStarRounded className="text-(--accent-yellow)" />
         </div>
-        <p className="!text-sm">Limited spots left</p>
+        <p className="!text-sm">ผู้รับเหมาไว้ใจเรา</p>
       </div>
     </div>
   );
