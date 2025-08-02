@@ -3,8 +3,7 @@ import React from "react";
 import Logo from "./Icons/Logo";
 import { RevealLink } from "./RevealLink";
 import CtaSection from "./CtaSection";
-
-const tagline = "Get More Buying Customers For Your Digital Product ";
+import { tagline } from "@/app/global";
 
 export default function Footer() {
   return (

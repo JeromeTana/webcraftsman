@@ -35,7 +35,7 @@ export const FormStepComponent: React.FC<FormStepComponentProps> = ({
     </div>
   );
 
-  const renderContactStep = () => (
+  const renderBusinessStep = () => (
     <div className="space-y-4">
       <div>
         <label htmlFor="businessName" className="block text-sm font-medium text-gray-700 mb-2">
@@ -47,7 +47,7 @@ export const FormStepComponent: React.FC<FormStepComponentProps> = ({
           value={formData.businessName}
           onChange={(e) => onInputChange("businessName", e.target.value)}
           className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          placeholder="Business Name"
+          placeholder="Your Business Name"
           autoFocus
         />
       </div>
@@ -75,13 +75,18 @@ export const FormStepComponent: React.FC<FormStepComponentProps> = ({
             value={formData.currentWebsiteUrl}
             onChange={(e) => onInputChange("currentWebsiteUrl", e.target.value)}
             className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            placeholder="Current Website URL (https://yourwebsite.com)"
+            placeholder="https://yourwebsite.com"
           />
         </div>
       )}
+    </div>
+  );
+
+  const renderContactStep = () => (
+    <div className="space-y-4">
       <div>
         <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">
-          Your Full Name
+          Full Name
         </label>
         <input
           id="fullName"
@@ -94,7 +99,7 @@ export const FormStepComponent: React.FC<FormStepComponentProps> = ({
       </div>
       <div>
         <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-          Your Email Address
+          Email Address
         </label>
         <input
           id="email"
@@ -107,7 +112,7 @@ export const FormStepComponent: React.FC<FormStepComponentProps> = ({
       </div>
       <div>
         <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-          Your Phone Number
+          Phone Number
         </label>
         <input
           id="phone"
@@ -131,6 +136,7 @@ export const FormStepComponent: React.FC<FormStepComponentProps> = ({
         {step.question}
       </h3>
       {step.type === "select" && renderSelectStep()}
+      {step.type === "business" && renderBusinessStep()}
       {step.type === "contact" && renderContactStep()}
     </motion.div>
   );

@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
-import "../globals.css";
-import { ibmPlexSansThai, kanit, manrope, sarabun } from "../fonts";
-import LenisScrollProvider from "../providers/lenis-provider";
-import FollowCursor from "@/Components/FollowCursor";
 import Header from "@/Components/Header";
 import { description, tagline } from "../global";
-import Hotjar from "@/Components/Hotjar";
-import GA4 from "@/Components/GA4";
 import Footer from "@/Components/Footer";
 
 export const metadata: Metadata = {
@@ -34,21 +28,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-        <script src="https://cdn.lordicon.com/lordicon.js"></script>
-        <Hotjar />
-        <GA4 />
-      </head>
-      <body
-        className={`${ibmPlexSansThai.variable} ${sarabun.variable} antialiased`}
-      >
-        <LenisScrollProvider>
-          <Header />
-          {children}
-          <Footer />
-        </LenisScrollProvider>
-      </body>
-    </html>
+    <>
+      <Header />
+      {children}
+      <Footer />
+    </>
   );
 }

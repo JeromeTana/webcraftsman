@@ -5,6 +5,18 @@ export const validateEmail = (email: string): boolean => {
   return emailRegex.test(email);
 };
 
+export const validateStep7 = (formData: FormData): { isValid: boolean; message?: string } => {
+  if (!formData.businessName.trim()) {
+    return { isValid: false, message: "Please enter your business name" };
+  }
+  
+  if (!formData.businessDescription.trim()) {
+    return { isValid: false, message: "Please enter a brief description of your business" };
+  }
+  
+  return { isValid: true };
+};
+
 export const validateStep8 = (formData: FormData): { isValid: boolean; message?: string } => {
   if (!formData.fullName.trim()) {
     return { isValid: false, message: "Please enter your full name" };

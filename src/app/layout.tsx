@@ -44,11 +44,7 @@ export default function RootLayout({
         className={`${ibmPlexSansThai.variable} ${sarabun.variable} antialiased`}
       >
         <FollowCursor />
-        <LenisScrollProvider>
-          {/* <Header /> */}
-          {children}
-          {/* <Footer /> */}
-        </LenisScrollProvider>
+        <LenisScrollProvider>{children}</LenisScrollProvider>
       </body>
     </html>
   );

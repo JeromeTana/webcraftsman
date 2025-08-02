@@ -92,6 +92,13 @@ export const FORM_STEPS: FormStep[] = [
   // },
   {
     id: 7,
+    question: "Tell me about your business",
+    field: "businessName", // This step handles multiple business fields
+    type: "business",
+    helpText: "Understanding your business helps me create a more targeted strategy and recommendations."
+  },
+  {
+    id: 8,
     question: "Your website strategy is ready!",
     field: "fullName", // This step handles multiple fields
     type: "contact",

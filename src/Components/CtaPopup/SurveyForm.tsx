@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useState, useCallback } from "react";
-import { FormData } from './types';
-import { FORM_STEPS, INITIAL_FORM_DATA, TOTAL_STEPS } from './constants';
-import { validateStep8, submitFormData } from './utils';
-import { FormStepComponent } from './FormStepComponent';
-import { JeromeProfile } from './JeromeProfile';
+import { FormData } from "./types";
+import { FORM_STEPS, INITIAL_FORM_DATA, TOTAL_STEPS } from "./constants";
+import { validateStep7, validateStep8, submitFormData } from "./utils";
+import { FormStepComponent } from "./FormStepComponent";
+import { JeromeProfile } from "./JeromeProfile";
 import { BookingDemoSection } from "./BookingDemoSection";
 
 interface SurveyFormProps {
@@ -14,28 +14,36 @@ interface SurveyFormProps {
 
 export const SurveyForm: React.FC<SurveyFormProps> = ({ onSubmitted }) => {
   const [currentStep, setCurrentStep] = useState(1);
-  const [formData, setFormData] = useState<FormData>(INITIAL_FORM_DATA as FormData);
+  const [formData, setFormData] = useState<FormData>(
+    INITIAL_FORM_DATA as FormData
+  );
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleOptionSelect = useCallback((field: keyof FormData, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
+  const handleOptionSelect = useCallback(
+    (field: keyof FormData, value: string) => {
+      setFormData((prev) => ({ ...prev, [field]: value }));
 
-    // Auto advance to next step for all steps except contact info step
-    if (currentStep !== TOTAL_STEPS && currentStep < TOTAL_STEPS) {
-      setTimeout(() => {
-        setCurrentStep(currentStep + 1);
-      }, 300);
-    }
-  }, [currentStep]);
+      // Auto advance to next step for all steps except contact info step
+      if (currentStep !== TOTAL_STEPS && currentStep < TOTAL_STEPS) {
+        setTimeout(() => {
+          setCurrentStep(currentStep + 1);
+        }, 300);
+      }
+    },
+    [currentStep]
+  );
 
-  const handleInputChange = useCallback((field: keyof FormData, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
-  }, []);
+  const handleInputChange = useCallback(
+    (field: keyof FormData, value: string) => {
+      setFormData((prev) => ({ ...prev, [field]: value }));
+    },
+    []
+  );
 
   const handleSubmit = async () => {
     const validation = validateStep8(formData);
-    
+
     if (!validation.isValid) {
       alert(validation.message);
       return;
@@ -48,23 +56,42 @@ export const SurveyForm: React.FC<SurveyFormProps> = ({ onSubmitted }) => {
       setIsSubmitted(true);
       onSubmitted?.();
     } catch (error) {
-      console.error('Form submission failed:', error);
-      alert('There was an error submitting your form. Please try again.');
+      console.error("Form submission failed:", error);
+      alert("There was an error submitting your form. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
   };
 
+  const handleBusinessStepContinue = () => {
+    const validation = validateStep7(formData);
+
+    if (!validation.isValid) {
+      alert(validation.message);
+      return;
+    }
+
+    setCurrentStep(currentStep + 1);
+  };
+
   const isFormValid = () => {
-    return formData.businessName.trim() && 
-           formData.businessDescription.trim() && 
-           formData.fullName.trim() && 
-           formData.email.trim() && 
-           formData.phone.trim();
+    return (
+      formData.fullName.trim() && formData.email.trim() && formData.phone.trim()
+    );
+  };
+
+  const isBusinessStepValid = () => {
+    return (
+      formData.businessName.trim() && formData.businessDescription.trim()
+    );
   };
 
   if (isSubmitted) {
-    return <BookingDemoSection formData={{ fullName: formData.fullName, email: formData.email }} />;
+    return (
+      <BookingDemoSection
+        formData={{ fullName: formData.fullName, email: formData.email }}
+      />
+    );
   }
 
   const currentFormStep = FORM_STEPS[currentStep - 1];
@@ -90,6 +117,17 @@ export const SurveyForm: React.FC<SurveyFormProps> = ({ onSubmitted }) => {
           onInputChange={handleInputChange}
         />
 
+        {/* Continue Button for Business Step */}
+        {currentStep === TOTAL_STEPS - 1 && (
+          <button
+            onClick={handleBusinessStepContinue}
+            disabled={!isBusinessStepValid()}
+            className="cta w-full"
+          >
+            Continue
+          </button>
+        )}
+
         {/* Submit Button for Contact Step */}
         {currentStep === TOTAL_STEPS && (
           <button
@@ -110,7 +148,7 @@ export const SurveyForm: React.FC<SurveyFormProps> = ({ onSubmitted }) => {
       </div>
 
       {/* Jerome's Profile with Chat Box */}
-      <JeromeProfile 
+      <JeromeProfile
         currentStep={currentStep}
         helpText={currentFormStep.helpText}
       />

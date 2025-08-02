@@ -21,7 +21,7 @@ export interface FormStep {
   question: string;
   field: keyof FormData;
   options?: string[];
-  type: 'select' | 'input' | 'textarea' | 'contact';
+  type: 'select' | 'input' | 'textarea' | 'contact' | 'business';
   validation?: (value: string) => boolean;
   helpText: string;
 }
