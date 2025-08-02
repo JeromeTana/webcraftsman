@@ -1,3 +1,4 @@
-export const tagline = "Get More Buying Customers For Your Digital Product"
+export const tagline = "รับทำเว็บไซต์ และการตลาดออนไลน์สำหรับธุรกิจท้องถิ่น";
 export const description =
-  "We help creators increase their digital products, online courses and membership programs sales with high-converting websites.";
+  "รับทำเว็บไซต์ และการตลาดออนไลน์สำหรับธุรกิจท้องถิ่น เพื่อเพิ่มยอดขายและลูกค้าใหม่";
+export const siteUrl = "https://www.webcraftsman.co";

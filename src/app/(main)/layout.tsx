@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import "./globals.css";
-import { ibmPlexSansThai, kanit, manrope, sarabun } from "./fonts";
-import LenisScrollProvider from "./providers/lenis-provider";
+import "../globals.css";
+import { ibmPlexSansThai, kanit, manrope, sarabun } from "../fonts";
+import LenisScrollProvider from "../providers/lenis-provider";
 import FollowCursor from "@/Components/FollowCursor";
 import Header from "@/Components/Header";
-import { description, tagline } from "./global";
+import { description, tagline } from "../global";
 import Hotjar from "@/Components/Hotjar";
 import GA4 from "@/Components/GA4";
 import Footer from "@/Components/Footer";
@@ -43,11 +43,10 @@ export default function RootLayout({
       <body
         className={`${ibmPlexSansThai.variable} ${sarabun.variable} antialiased`}
       >
-        <FollowCursor />
         <LenisScrollProvider>
-          {/* <Header /> */}
+          <Header />
           {children}
-          {/* <Footer /> */}
+          <Footer />
         </LenisScrollProvider>
       </body>
     </html>

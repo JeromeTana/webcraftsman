@@ -53,11 +53,11 @@ function StandardPricingCard({
           <h3 className="text-2xl text-center font-semibold">{title}</h3>
           <div>
             {price_from && (
-              <p className="!text-3xl text-center font-medium line-through">
+              <p className="text-3xl text-center font-medium line-through">
                 ${price_from}
               </p>
             )}
-            <p className="!text-6xl text-center font-medium !text-primary !leading-normal">
+            <p className="text-6xl text-center font-medium text-primary !leading-normal">
               ${price}
             </p>
           </div>
@@ -76,7 +76,7 @@ function StandardPricingCard({
         </div>
       </div>
       <a href={paymentUrl} target="_blank">
-        <button className="cta mt-16 w-full flex items-center justify-center gap-2 !shadow-none !bg-neutral-100 !border-none !text-primary">
+        <button className="cta mt-16 w-full flex items-center justify-center gap-2 !shadow-none !bg-neutral-100 !border-none text-primary">
           Get Started <LucideArrowRight />
         </button>
       </a>
@@ -111,35 +111,35 @@ function HighlightedPricingCard({
       */}
       <div>
         <div className="flex flex-col gap-6 z-10">
-          <h3 className="text-2xl text-center font-semibold !text-white">
+          <h3 className="text-2xl text-center font-semibold text-white">
             {title}
           </h3>
           <div>
             {price_from && (
-              <p className="!text-3xl text-center font-medium line-through !text-neutral-300">
+              <p className="text-3xl text-center font-medium line-through text-neutral-300">
                 ${price_from}
               </p>
             )}
-            <p className="!text-6xl text-center font-medium !text-white !leading-normal">
+            <p className="text-6xl text-center font-medium text-white !leading-normal">
               ${price}
             </p>
           </div>
-          <p className="text-center !text-neutral-300">{description}</p>
+          <p className="text-center text-neutral-300">{description}</p>
         </div>
         <div className="flex flex-col gap-4 mt-8">
-          <p className="font-semibold !text-neutral-300">Includes:</p>
+          <p className="font-semibold text-neutral-300">Includes:</p>
           <ul className="flex flex-col gap-2">
             {features.map((feature, index) => (
               <li key={index} className="flex items-center gap-2">
                 <LucideCheck className="text-accent-green" />
-                <p className="!text-white">{feature}</p>
+                <p className="text-white">{feature}</p>
               </li>
             ))}
           </ul>
         </div>
       </div>
       <a href="/booking">
-        <button className="cta mt-16 w-full flex items-center justify-center gap-2 !shadow-none !bg-white !text-primary">
+        <button className="cta mt-16 w-full flex items-center justify-center gap-2 !shadow-none !bg-white text-primary">
           Get Started <LucideArrowRight />
         </button>
       </a>

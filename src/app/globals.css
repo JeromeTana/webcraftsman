@@ -8,7 +8,7 @@
   --primary: #3058ea;
   --primary-dark: rgb(29, 63, 215);
   --accent-green: #01d3ad;
-  --accent-yellow: #ed9a1c;
+  --accent-yellow: #FDB022;
   --paragraph: #737373;
   --border: #e4e4e4;
   --border-dark: #323232;
@@ -63,7 +63,7 @@
 * {
 }
 
-.highlight_text {
+.highlight {
   /* font-family: "instrument serif"; */
   /* font-weight: 400; */
   /* font-style: italic; */
@@ -72,7 +72,7 @@
   /* letter-spacing: -0.025em; */
 }
 
-.highlight_text::after {
+.highlight::after {
   content: "";
   position: absolute;
   bottom: 7%;
@@ -86,7 +86,7 @@
 
 h1 {
   /* text-5xl sm:text-6xl lg:text-7xl tracking-tighter font-semibold */
-  font-size: 3rem;
+  /* font-size: 3rem; */
   font-weight: 700;
   letter-spacing: -0.05em;
   line-height: 1.2;
@@ -95,7 +95,7 @@ h1 {
 }
 
 h2 {
-  font-size: 2.5rem;
+  /* font-size: 2.5rem; */
   font-weight: 700;
   letter-spacing: -0.05em;
   margin-bottom: 1.5rem;
@@ -105,7 +105,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.5rem;
+  /* font-size: 1.5rem; */
   font-weight: 700;
   letter-spacing: -0.025em;
   font-family: var(--font-ibm-plex-sans-thai);
@@ -113,38 +113,38 @@ h3 {
 
 @media (min-width: 768px) {
   h1 {
-    font-size: 3.75rem;
+    /* font-size: 3.75rem; */
   }
 
   h2 {
-    font-size: 3rem;
+    /* font-size: 3rem; */
     margin-bottom: 2rem;
   }
 
   h3 {
-    font-size: 2rem;
+    /* font-size: 2rem; */
     line-height: 1.2;
   }
 }
 
 @media (min-width: 1024px) {
   h1 {
-    font-size: 4.5rem;
+    /* font-size: 4.5rem; */
   }
 
   h2 {
-    font-size: 3.75rem;
+    /* font-size: 3.75rem; */
   }
 
   h3 {
-    font-size: 2rem;
+    /* font-size: 2rem; */
   }
 }
 
 body {
   background: var(--background);
   color: var(--color-black);
-  font-family: var(--font-sarabun);
+  font-family: var(--font-ibm-plex-sans-thai);
 }
 
 .pill {
@@ -168,8 +168,9 @@ body {
 button.cta {
   background: var(--primary);
   color: var(--color-white);
+  font-size: large;
   font-weight: 600;
-  padding: 0.7rem 1.4rem;
+  padding: 1rem 1.4rem;
   border-radius: 9999px;
   border: solid #899fff;
   border-width: 1px 0 0 1px;
@@ -190,11 +191,15 @@ section {
   padding: 6rem 1rem;
 }
 
-p {
+p, ol, li {
   color: var(--paragraph);
   font-weight: 500;
   font-size: 1.125rem;
-  line-height: 1.5;
+  line-height: 1.75;
+}
+
+input {
+  border-radius: 9999px !important;
 }
 
 input,
@@ -236,4 +241,57 @@ label {
 
 .wrapper {
   background: var(--foreground);
+}
+
+/* Blog post utilities */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Prose styles for blog content */
+.prose {
+  max-width: 65ch;
+  font-family: var(--font-sarabun);
+}
+
+.prose-lg {
+  font-size: 1.125rem;
+  line-height: 1.777;
+}
+
+.prose-lg h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.prose-lg h2 {
+  font-size: 2rem;
+  line-height: 1.3;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.prose-lg h3 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.max-w-none {
+  max-width: none;
 }

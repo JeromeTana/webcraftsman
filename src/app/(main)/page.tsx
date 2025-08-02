@@ -13,6 +13,7 @@ import { MaterialSymbolsStarRounded } from "@/Components/Icons/MaterialStar";
 import Footer from "@/Components/Footer";
 import AvailableSpots from "@/Components/AvailableSpots";
 import { CtaButton } from "@/Components/CtaButton";
+import { CtaPopup } from "@/Components/CtaPopup";
 import Logo from "@/Components/Icons/Logo";
 import AnimatedQuestionIcon from "@/Components/Icons/AnimatedQuestionIcon";
 import AnimatedTrendUpIcon from "@/Components/Icons/AnimatedTrendUpIcon";
@@ -137,8 +138,9 @@ const WORKS = [
 
 const PROCESS = [
   {
-    title: "Book an Intro Call",
-    description: "We’ll discuss your project, goals, and how we can help.",
+    title: "นัดรับคำแนะนำ",
+    description:
+      "เราจะพูดคุยเกี่ยวกับเป้าหมาย ให้คำแนะนำ และวิธีที่เราสามารถช่วยได้",
     block: (
       <Image
         src="/DE_Call.png"
@@ -150,9 +152,9 @@ const PROCESS = [
     ),
   },
   {
-    title: "Let Us Craft",
+    title: "ปล่อยให้เราจัดการ",
     description:
-      "We’ll build your site based on our discussion after payment is done",
+      "เราจะลงมือตามแผนให้คุณ ตามที่ได้พูดคุยกันหลังจากการชำระเงินเสร็จสิ้น",
     block: (
       <Image
         src="/DE_figma_shot.png"
@@ -164,9 +166,9 @@ const PROCESS = [
     ),
   },
   {
-    title: "Ready To Grow",
+    title: "เว็บสวยพร้อมใช้งาน",
     description:
-      "After review and revisions, your site will be ready to launch",
+      "เราจะส่งมอบเว็บไซต์ที่สวยงามและพร้อมใช้งานภายใน 7 วัน",
     block: (
       <div className="bg-background  rounded-2xl px-8 py-16 md:py-4 text-center flex flex-col gap-4 items-center justify-center">
         <AnimatedSuccessIcon size={80} />
@@ -208,19 +210,7 @@ export default function Home() {
     <div>
       <main>
         <section id="hero" className="flex flex-col items-center gap-8 !py-16">
-          {/* <LightRay /> */}
-          {/* <AnimatedContent
-            distance={100}
-            direction="vertical"
-            animateOpacity
-            damping={10}
-            stiffness={50}
-            scale={0.9}
-            delay={400}
-            threshold={0.2}
-          > */}
           <AvailableSpots />
-          {/* </AnimatedContent> */}
           <AnimatedContent
             distance={100}
             direction="vertical"
@@ -231,11 +221,11 @@ export default function Home() {
             scale={0.9}
             threshold={0.2}
           >
-            <h1 className="text-center ">
+            <h1 className="text-4xl md:text-7xl text-center ">
               รับทำเว็บไซต์ และการตลาดออนไลน์ <br /> สำหรับ{" "}
               <span className="inline-flex items-center gap-4">
                 <AnimatedCartIcon className="hidden md:block bg-primary rounded-full p-2" />
-                <span className={`highlight_text`}>
+                <span className={`highlight`}>
                   {/* <Underline className="absolute w-56 -bottom-6 -right-4 fill-primary" /> */}
                   ธุรกิจท้องถิ่น
                 </span>{" "}
@@ -290,8 +280,8 @@ export default function Home() {
             scale={0.9}
             threshold={0.2}
           >
-            <h2 className="shaded text-center">
-              ทำไมเราถึง <span className={`highlight_text`}>ดีกว่า</span> Agency
+            <h2 className="text-4xl md:text-6xl shaded text-center">
+              ทำไมเราถึง <span className={`highlight`}>ดีกว่า</span> Agency
               ทั่วไป
             </h2>
           </AnimatedContent>
@@ -336,9 +326,9 @@ export default function Home() {
                 <ComparisonItem
                   item={[
                     "จัดการทุกอย่างภายใน 7 วัน",
-                    "เน้นทำงานเฉพาะกลุ่มธุรกิจผู้รับเหมา",
+                    "เน้นทำงานเฉพาะกลุ่มธุรกิจท้องถิ่น",
                     "ให้คำปรึกษาอย่างมืออาชีพ",
-                    "จ่ายเริ่มต้นหลักพันต่อเดือน",
+                    "จ่ายเริ่มต้นหลักพัน",
                     "ดูแลอย่างใกล้ชิด ไว้ใจได้ตลอด 24 ชั่วโมง",
                   ]}
                   Icon={<LucideCheck className="text-primary" />}
@@ -363,10 +353,10 @@ export default function Home() {
             scale={0.9}
             threshold={0.2}
           >
-            <h2 className="shaded text-center w-full inline-flex flex-col sm:flex-row items-center justify-center gap-4">
+            <h2 className="text-4xl md:text-6xl shaded text-center w-full inline-flex flex-col sm:flex-row items-center justify-center gap-4">
               <span className="inline-flex items-center gap-2 md:gap-4">
                 <AnimatedCategoryIcon className="bg-primary rounded-full p-2" />
-                <span className={`highlight_text`}>ผลงานล่าสุด</span>ของเรา
+                <span className={`highlight`}>ผลงานล่าสุด</span>ของเรา
               </span>
             </h2>
           </AnimatedContent>
@@ -399,9 +389,9 @@ export default function Home() {
             scale={0.9}
             threshold={0.2}
           >
-            <h2 className="shaded text-center w-full inline-flex flex-col sm:flex-row items-center justify-center gap-4">
+            <h2 className="text-4xl md:text-6xl shaded text-center w-full inline-flex flex-col sm:flex-row items-center justify-center gap-4">
               <span>
-                <span className={`highlight_text`}>3 ขั้นตอน</span>{" "}
+                <span className={`highlight`}>3 ขั้นตอน</span>{" "}
                 ในการร่วมงานกับเรา
               </span>
             </h2>
@@ -442,9 +432,9 @@ export default function Home() {
             scale={0.9}
             threshold={0.2}
           >
-            <h2 className="shaded text-center w-full inline-flex flex-col sm:flex-row items-center justify-center gap-4">
+            <h2 className="text-4xl md:text-6xl shaded text-center w-full inline-flex flex-col sm:flex-row items-center justify-center gap-4">
               <span>
-                What <span className={`highlight_text`}>Our Clients</span>
+                What <span className={`highlight`}>Our Clients</span>
               </span>
               <span className="inline-flex items-center gap-2 md:gap-4">
                 <AnimatedQuoteIcon className="bg-primary rounded-full p-2" />{" "}
@@ -467,9 +457,9 @@ export default function Home() {
             <MaterialSymbolsStarRounded className="text-(--accent-yellow)" />
           </div>
           <div className="text-center mb-8">
-            <h3 className=" md:!text-5xl mb-2 leading-snug">
+            <h3 className="text-3xl md:text-5xl mb-2 leading-snug">
               "They truly understood our{" "}
-              <span className="highlight_text">branding</span>"
+              <span className="highlight">branding</span>"
             </h3>
             <p>
               Making it not just beautiful but also clearly reflecting our
@@ -495,45 +485,10 @@ export default function Home() {
             </div>
             <div className="flex flex-col gap-1">
               <p className="!text-black">Jatawat Xie</p>
-              <p className="text-sm">Founder of Data Echooo</p>
+              <p className="!text-sm">Founder of Data Echooo</p>
             </div>
           </div>
         </section>
-        {/* <section id="plan" className="flex flex-col items-center gap-8">
-          <div className="pill">
-            <ShinyText text="Plan" speed={5} />
-          </div>
-          <AnimatedContent
-            distance={100}
-            direction="vertical"
-            initialOpacity={0.05}
-            animateOpacity
-            damping={10}
-            stiffness={50}
-            scale={0.9}
-            threshold={0.2}
-          >
-            <h2 className="shaded text-center w-full inline-flex flex-col items-center justify-center gap-4">
-              <span>
-                Choose a <span className={`highlight_text`}>Package</span>
-              </span>
-              <span className="inline-flex items-center gap-2 md:gap-4">
-                That
-                <AnimatedCheckIcon />
-                Fits You
-              </span>
-            </h2>
-          </AnimatedContent>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-6 max-w-md md:max-w-full m-auto">
-            {PLANS.map((plan, index) => (
-              <PricingItem
-                key={index}
-                plan={plan}
-                isHighlighted={plan.isHighlighted}
-              />
-            ))}
-          </div>
-        </section> */}
         <section id="faq" className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="flex flex-col gap-8">
             <div className="pill">
@@ -549,8 +504,8 @@ export default function Home() {
               scale={0.9}
               threshold={0.2}
             >
-              <h2>
-                <span className={`highlight_text`}>Answers</span> to Your
+              <h2 className="text-4xl md:text-6xl">
+                <span className={`highlight`}>Answers</span> to Your
                 <span className="flex items-center gap-2 md:gap-4">
                   <AnimatedQuestionIcon className="animate-bounce" />
                   Questions
@@ -570,7 +525,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   );
 }

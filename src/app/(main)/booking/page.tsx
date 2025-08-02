@@ -3,8 +3,8 @@ import AvailableSpots from "@/Components/AvailableSpots";
 import AnimatedArrowIcon from "@/Components/Icons/AnimatedArrowIcon";
 import AnimatedCalendarIcon from "@/Components/Icons/AnimatedCalendarIcon";
 import { Metadata } from "next";
-import { description } from "../global";
-import Calcom from "@/Components/Calcom";
+import { description } from "../../global";
+import Calcom from "@/Components/Booking/DemoCall";
 
 export const metadata: Metadata = {
   title: "Book Your 30-min Intro Call",
@@ -46,11 +46,11 @@ export default function BookingPage() {
             Book Your{" "}
             <span className="inline-flex  items-center gap-4">
               <AnimatedCalendarIcon className="hidden md:inline-flex items-center gap-4 bg-primary p-3 rounded-full" />
-              <span className="highlight_text">30-min Intro Call</span>
+              <span className="highlight">30-min Intro Call</span>
             </span>
           </h1>
         </AnimatedContent>
-        <p className="!text-xl font-medium text-center">
+        <p className="text-xl font-medium text-center">
           Just a 30-minute chill call to see if we are a good fit!
         </p>
         <AnimatedArrowIcon className="absolute -rotate-129 opacity-40 right-1/12 bottom-10 md:scale-150" />

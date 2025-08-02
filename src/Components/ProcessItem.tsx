@@ -20,7 +20,7 @@ export default function ProcessItem({
     <SpotlightCard className="card relative duration-200 hover:!border-border-highlight flex flex-col justify-between">
       <div className="space-y-4">
         <p className="!text-primary text-sm">Step {index}</p>
-        <h3>{title}</h3>
+        <h3 className="text-3xl">{title}</h3>
         <p>{description}</p>
       </div>
       <div className="mt-10">{children}</div>

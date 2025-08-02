@@ -1,20 +1,299 @@
-import AuditForm from "@/Components/AuditForm";
-import ShinyText from "@/Components/ShinyText/ShinyText";
+"use client";
 
-export default function FreePage() {
+import React, { useState } from "react";
+import Logo from "@/Components/Icons/Logo";
+import { BookingRoastSection } from "@/Components/CtaPopup/BookingRoastSection";
+
+// Define the possible states
+type RoastPageState = "url-input" | "analyzing" | "contact-form" | "success";
+
+export default function RoastPage() {
+  const [currentState, setCurrentState] = useState<RoastPageState>("url-input");
+  const [websiteUrl, setWebsiteUrl] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Handle URL form submission
+  const handleUrlSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Validate URL
+    if (!websiteUrl.trim()) {
+      alert("Please enter a website URL");
+      return;
+    }
+
+    // Basic URL validation
+    try {
+      new URL(
+        websiteUrl.startsWith("http") ? websiteUrl : `https://${websiteUrl}`
+      );
+    } catch {
+      alert("Please enter a valid website URL");
+      return;
+    }
+
+    // Move to analyzing state
+    setCurrentState("analyzing");
+
+    // Simulate analysis process
+    setTimeout(() => {
+      // Store the URL for later use
+      sessionStorage.setItem("analysisWebsiteUrl", websiteUrl);
+      // Move to contact form state
+      setCurrentState("contact-form");
+    }, 2000);
+  };
+
+  // Handle contact form input changes
+  const handleInputChange = (field: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+  };
+
+  // Check if contact form is valid
+  const isContactFormValid = () => {
+    return (
+      formData.name.trim() && formData.email.trim() && formData.phone.trim()
+    );
+  };
+
+  // Handle contact form submission
+  const handleContactSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!isContactFormValid()) {
+      alert("Please fill in all fields");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      // Submit form data
+      const submissionData = {
+        ...formData,
+        websiteUrl,
+        source: "roast-analysis",
+        timestamp: new Date().toISOString(),
+      };
+
+      // For now, just log the data - replace with actual API call
+      console.log("Submitting contact form:", submissionData);
+
+      // Simulate API call
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      // Store contact info for booking flow
+      sessionStorage.setItem("contactInfo", JSON.stringify(formData));
+
+      // Move to success state
+      setCurrentState("success");
+    } catch (error) {
+      console.error("Form submission failed:", error);
+      alert(
+        "There was an error submitting your information. Please try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  // Render different content based on current state
+  const renderContent = () => {
+    switch (currentState) {
+      case "url-input":
+        return (
+          <>
+            <h1 className="text-4xl md:text-7xl !font-semibold text-gray-900 my-6 leading-tight">
+              Let's{" "}
+              <span className="highlight text-primary">Grow Your Revenue</span>
+              <br /> Through Better Design
+            </h1>
+
+            <div className="max-w-3xl mx-auto">
+              <div className="text-center mt-24">
+                <p className="!text-4xl !font-medium mb-8">
+                  Step 1: Fill in your website URL
+                </p>
+              </div>
+
+              {/* URL Analysis Form */}
+              <form onSubmit={handleUrlSubmit} className="space-y-4">
+                <div className="grid md:grid-cols-3 gap-4 p-2 rounded-full md:border border-gray-300">
+                  <input
+                    type="text"
+                    value={websiteUrl}
+                    onChange={(e) => setWebsiteUrl(e.target.value)}
+                    placeholder="https://yourwebsite.com"
+                    className="w-full md:col-span-2 !rounded-full md:!rounded-none text-lg border md:!border-none"
+                    autoFocus
+                  />
+                  <button
+                    type="submit"
+                    disabled={!websiteUrl.trim()}
+                    className="cta w-full"
+                  >
+                    Start My Analysis
+                  </button>
+                </div>
+                {/* Trust signal */}
+                <p className="text-center text-gray-500">
+                  Get your free website analysis within 24 hours.
+                </p>
+              </form>
+            </div>
+          </>
+        );
+
+      case "analyzing":
+        return (
+          <>
+            <h1 className="text-4xl md:text-7xl !font-semibold text-gray-900 my-6 leading-tight">
+              <span className="highlight text-primary">Analyzing</span> Your
+              Website
+            </h1>
+
+            <div className="max-w-3xl mx-auto">
+              <div className="text-center mt-24">
+                <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-8"></div>
+                <p className="!text-2xl !font-medium mb-4">
+                  We're analyzing your website...
+                </p>
+                <p className="text-gray-600">
+                  Checking design, user experience, and conversion opportunities
+                </p>
+              </div>
+            </div>
+          </>
+        );
+
+      case "contact-form":
+        return (
+          <>
+            <h1 className="text-4xl md:text-6xl !font-semibold text-gray-900 my-6 leading-tight">
+              Your{" "}
+              <span className="highlight text-primary">Analysis Result</span>
+              {" "}
+              is Ready!
+            </h1>
+            <p className="text-center text-gray-600">
+              Let's us know how we can get to you!
+            </p>
+
+            {/* Contact Form Section */}
+            <div className="max-w-lg mx-auto mt-16">
+              <form onSubmit={handleContactSubmit} className="space-y-6">
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-start text-sm font-medium text-gray-700 mb-2"
+                  >
+                    Full Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    value={formData.name}
+                    onChange={(e) => handleInputChange("name", e.target.value)}
+                    placeholder="Jerome Tana"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                    disabled={isSubmitting}
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-start text-sm font-medium text-gray-700 mb-2"
+                  >
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    value={formData.email}
+                    onChange={(e) => handleInputChange("email", e.target.value)}
+                    placeholder="you@example.com"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                    disabled={isSubmitting}
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="phone"
+                    className="block text-start text-sm font-medium text-gray-700 mb-2"
+                  >
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    value={formData.phone}
+                    onChange={(e) => handleInputChange("phone", e.target.value)}
+                    placeholder="+1 (555) 123-4567"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                    disabled={isSubmitting}
+                    required
+                  />
+                </div>
+
+                <div className="flex gap-4">
+                  <button
+                    type="submit"
+                    disabled={!isContactFormValid() || isSubmitting}
+                    className="cta flex-2"
+                    style={{ flex: 2 }}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                        Processing...
+                      </>
+                    ) : (
+                      "Continue"
+                    )}
+                  </button>
+                </div>
+              </form>
+            </div>
+          </>
+        );
+
+      case "success":
+        return (
+          <BookingRoastSection
+            formData={{
+              fullName: formData.name,
+              email: formData.email,
+              
+            }}
+          />
+        );
+
+      default:
+        return null;
+    }
+  };
+
   return (
-    <section id="roast" className="!max-w-2xl w-full">
-      <div className="card relative">
-        <div className="relative flex flex-col items-center gap-8">
-          <div className="pill">
-            <ShinyText text="Roast" speed={5} />
+    <div className="min-h-screen bg-white">
+      <section className="max-w-6xl mx-auto px-6 py-16 lg:py-24">
+        <div className="text-center mb-16">
+          <div className="inline-flex gap-4 mb-10 items-center text-2xl font-semibold tracking-tight">
+            <Logo className="w-14 h-14 fill-primary text-primary ml-4" />
+            <span>WEBCRAFTSMAN</span>
           </div>
-          <h1 className="shaded text-3xl sm:text-5xl lg:text-6xl text-center font-medium mb-6 md:mb-16">
-            Free Hero <span className={`highlight_text`}>Roasting</span>
-          </h1>
-          <AuditForm />
+
+          {renderContent()}
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }
