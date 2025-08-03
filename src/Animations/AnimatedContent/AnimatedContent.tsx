@@ -70,7 +70,7 @@ const AnimatedContent: React.FC<AnimatedContentProps> = ({
       opacity: 1,
       transform: `translate${directions[direction]}(0px) scale(1)`,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: stiffness, // Equivalent to tension
         damping: damping, // Equivalent to friction
         delay: delay / 1000, // Convert delay to seconds
