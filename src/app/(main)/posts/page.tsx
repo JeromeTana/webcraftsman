@@ -18,68 +18,64 @@ function BlogPostCard({ post }: { post: BlogPost }) {
   return (
     <article className="group cursor-pointer">
       <Link href={`/posts/${post.slug.current}`}>
-        <div className="overflow-hidden rounded-2xl transition-all duration-300">
+        <div className="overflow-hidden transition-all duration-300">
           {/* Image */}
-          <div className="relative h-64 w-full overflow-hidden">
+          <div className="relative w-full aspect-video border border-gray-300 rounded-2xl overflow-hidden">
             <Image
               src={imageUrl}
               alt={post.mainImage?.alt || post.title}
               fill
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
+              className="object-cover  transition-transform  duration-300 group-hover:scale-105"
             />
           </div>
-          
+
           {/* Content */}
-          <div className="p-6">
+          <div className="py-6">
             {/* Categories */}
             {post.categories && post.categories.length > 0 && (
               <div className="mb-3 flex flex-wrap gap-2">
                 {post.categories.map((category) => (
                   <span
                     key={category.slug.current}
-                    className="rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-800"
+                    className="rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-primary"
                   >
                     {category.title}
                   </span>
                 ))}
               </div>
             )}
-            
+
             {/* Title */}
-            <h2 className="mb-3 line-clamp-2 text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+            <h2 className="mb-3 line-clamp-2 !leading-8 text-2xl font-bold text-gray-900 group-hover:text-primary transition-colors">
               {post.title}
             </h2>
-            
+
             {/* Excerpt */}
             {post.excerpt && (
-              <p className="mb-4 line-clamp-3 text-gray-600">
-                {post.excerpt}
-              </p>
+              <p className="mb-4 line-clamp-3 text-gray-600">{post.excerpt}</p>
             )}
-            
+
             {/* Meta */}
             <div className="flex items-center justify-between text-sm text-gray-500">
               <div className="flex items-center">
                 {post.author?.image && (
                   <Image
-                    src={urlFor(post.author.image).width(32).height(32).url()}
+                    src={urlFor(post.author.image).width(100).height(100).url()}
                     alt={post.author.name}
                     width={32}
                     height={32}
                     className="mr-2 rounded-full"
                   />
                 )}
-                <span>{post.author?.name || 'Anonymous'}</span>
+                <span>{post.author?.name || "Anonymous"}</span>
               </div>
-              <time dateTime={post.publishedAt}>
-                {publishedDate}
-              </time>
+              <time dateTime={post.publishedAt}>{publishedDate}</time>
             </div>
           </div>
         </div>
       </Link>
     </article>
-  )
+  );
 }
 
 // Main Blog Posts Page
@@ -110,11 +106,12 @@ export default async function BlogPostsPage() {
               No blog posts found
             </h2>
             <p className="text-gray-600 mb-8">
-              It looks like there are no blog posts available yet. Check back soon!
+              It looks like there are no blog posts available yet. Check back
+              soon!
             </p>
             <Link
               href="/"
-              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary transition-colors"
             >
               Back to Home
             </Link>
@@ -128,5 +125,5 @@ export default async function BlogPostsPage() {
         )}
       </div>
     </div>
-  )
+  );
 }

@@ -117,7 +117,7 @@ export default function Header() {
           <span className="hidden md:inline">WEBCRAFTSMAN</span>
         </a>
         <nav className="flex items-center gap-8">
-          <ul className="gap-8 hidden sm:flex text-(--paragraph)">
+          <ul className="gap-8 hidden md:flex text-(--paragraph)">
             <li>
               <RevealLink href="/about">About</RevealLink>
             </li>

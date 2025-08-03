@@ -23,7 +23,7 @@ export const FormStepComponent: React.FC<FormStepComponentProps> = ({
         <button
           key={option}
           onClick={() => onOptionSelect(step.field, option)}
-          className={`p-4 rounded-xl border transition-all duration-200 text-center cursor-pointer ${
+          className={`p-4 rounded-full border transition-all duration-200 text-center cursor-pointer ${
             formData[step.field] === option
               ? "border-blue-500 bg-blue-50 text-blue-700"
               : "border-gray-200 hover:border-gray-300 text-gray-700"

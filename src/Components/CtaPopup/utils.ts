@@ -40,18 +40,22 @@ export const validateStep8 = (formData: FormData): { isValid: boolean; message?:
 export const submitFormData = async (formData: FormData): Promise<void> => {
   console.log("Survey Data:", formData);
   
-  // Simulate API call
-  await new Promise((resolve) => setTimeout(resolve, 2000));
-  
-  // Here you can integrate with your preferred backend/email service
-  // Example:
-  // const response = await fetch('/api/survey', {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify(formData)
-  // });
-  // 
-  // if (!response.ok) {
-  //   throw new Error('Failed to submit form');
-  // }
+  try {
+    const response = await fetch('/api/survey', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    });
+    
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error || 'Failed to submit form');
+    }
+    
+    const result = await response.json();
+    console.log("Form submitted successfully:", result);
+  } catch (error) {
+    console.error("Form submission error:", error);
+    throw error;
+  }
 };

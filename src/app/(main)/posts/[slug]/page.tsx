@@ -36,7 +36,7 @@ const portableTextComponents = {
       <h3 className="text-xl font-bold !mt-16 mb-3">{children}</h3>
     ),
     normal: ({ children }: any) => (
-      <p className="mb-4 !leading-12">{children}</p>
+      <p className="mb-4 !leading-10">{children}</p>
     ),
     blockquote: ({ children }: any) => (
       <blockquote className="border-l-4 border-blue-500 pl-6 my-6 italic text-gray-700">
@@ -67,7 +67,7 @@ const portableTextComponents = {
   },
   list: {
     bullet: ({ children }: any) => (
-    <ul className="list-disc pl-6 mb-4">{children}</ul>
+      <ul className="list-disc pl-6 mb-4">{children}</ul>
     ),
     number: ({ children }: any) => (
       <ol className="list-decimal pl-6 mb-4">{children}</ol>
@@ -111,7 +111,7 @@ export default async function BlogPostPage({
   });
 
   return (
-    <article className="min-h-screen mt-16 bg-white">
+    <article className="min-h-screen md:mt-16 bg-white">
       {/* Hero Section */}
       <div className="relative">
         {imageUrl && (
@@ -120,7 +120,7 @@ export default async function BlogPostPage({
               src={imageUrl}
               alt={post.mainImage?.alt || post.title}
               fill
-              className="object-cover md:rounded-2xl"
+              className="object-cover md:rounded-2xl border border-gray-300 "
               priority
             />
           </div>
@@ -191,8 +191,33 @@ export default async function BlogPostPage({
               components={portableTextComponents}
             />
           </div>
+
           <div className="hidden md:block">
-            <div className="sticky top-24 bg-primary/10 rounded-xl p-4">Lead magnet</div>
+            <Link href="/roast">
+              <div className="sticky top-24 bg-primary rounded-xl">
+                <div className="p-6 space-y-8">
+                  <h3 className="!text-white !text-2xl !font-semibold mb-4">
+                    FREE Website Analysis
+                  </h3>
+                  <p className="!text-white !text-base">
+                    Identify areas for improvement and boost your online
+                    presence.
+                  </p>
+                  <button className="cta w-full !bg-white !text-primary">
+                    Claim Free Audit
+                  </button>
+                </div>
+
+                <div className="w-full mt-4">
+                  <Image
+                    src="/Roast_banner.png"
+                    alt="Get a free audit"
+                    width={400}
+                    height={300}
+                  />
+                </div>
+              </div>
+            </Link>
           </div>
         </div>
       </div>

@@ -116,11 +116,9 @@ export const INITIAL_FORM_DATA = {
   timeline: "",
   budget: "",
   contentReady: "",
-  ongoingSupport: "",
   fullName: "",
   email: "",
   phone: "",
-  contactPreference: "",
   // consultationTiming: "",
 };
 

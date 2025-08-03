@@ -3,9 +3,10 @@
 import React, { useState } from "react";
 import Logo from "@/Components/Icons/Logo";
 import { BookingRoastSection } from "@/Components/CtaPopup/BookingRoastSection";
+import Image from "next/image";
 
 // Define the possible states
-type RoastPageState = "url-input" | "analyzing" | "contact-form" | "success";
+type RoastPageState = "url-input" | "contact-form" | "success";
 
 export default function RoastPage() {
   const [currentState, setCurrentState] = useState<RoastPageState>("url-input");
@@ -16,6 +17,7 @@ export default function RoastPage() {
     phone: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
 
   // Handle URL form submission
   const handleUrlSubmit = (e: React.FormEvent) => {
@@ -37,16 +39,17 @@ export default function RoastPage() {
       return;
     }
 
-    // Move to analyzing state
-    setCurrentState("analyzing");
+    // Store the URL for later use
+    sessionStorage.setItem("analysisWebsiteUrl", websiteUrl);
 
-    // Simulate analysis process
+    // Set analyzing state
+    setIsAnalyzing(true);
+
+    // Add delay before moving to contact form
     setTimeout(() => {
-      // Store the URL for later use
-      sessionStorage.setItem("analysisWebsiteUrl", websiteUrl);
-      // Move to contact form state
+      setIsAnalyzing(false);
       setCurrentState("contact-form");
-    }, 2000);
+    }, 3000);
   };
 
   // Handle contact form input changes
@@ -81,11 +84,21 @@ export default function RoastPage() {
         timestamp: new Date().toISOString(),
       };
 
-      // For now, just log the data - replace with actual API call
-      console.log("Submitting contact form:", submissionData);
+      // Send form data to API
+      const response = await fetch("/api/roast-analysis", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(submissionData),
+      });
 
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
+
+      const result = await response.json();
+      console.log("Form submitted successfully:", result);
 
       // Store contact info for booking flow
       sessionStorage.setItem("contactInfo", JSON.stringify(formData));
@@ -134,10 +147,17 @@ export default function RoastPage() {
                   />
                   <button
                     type="submit"
-                    disabled={!websiteUrl.trim()}
+                    disabled={!websiteUrl.trim() || isAnalyzing}
                     className="cta w-full"
                   >
-                    Start My Analysis
+                    {isAnalyzing ? (
+                      <>
+                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                        Analyzing...
+                      </>
+                    ) : (
+                      "Start My Analysis"
+                    )}
                   </button>
                 </div>
                 {/* Trust signal */}
@@ -149,36 +169,13 @@ export default function RoastPage() {
           </>
         );
 
-      case "analyzing":
-        return (
-          <>
-            <h1 className="text-4xl md:text-7xl !font-semibold text-gray-900 my-6 leading-tight">
-              <span className="highlight text-primary">Analyzing</span> Your
-              Website
-            </h1>
-
-            <div className="max-w-3xl mx-auto">
-              <div className="text-center mt-24">
-                <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-8"></div>
-                <p className="!text-2xl !font-medium mb-4">
-                  We're analyzing your website...
-                </p>
-                <p className="text-gray-600">
-                  Checking design, user experience, and conversion opportunities
-                </p>
-              </div>
-            </div>
-          </>
-        );
-
       case "contact-form":
         return (
           <>
             <h1 className="text-4xl md:text-6xl !font-semibold text-gray-900 my-6 leading-tight">
               Your{" "}
-              <span className="highlight text-primary">Analysis Result</span>
-              {" "}
-              is Ready!
+              <span className="highlight text-primary">Analysis Result</span> is
+              Ready!
             </h1>
             <p className="text-center text-gray-600">
               Let's us know how we can get to you!
@@ -272,7 +269,6 @@ export default function RoastPage() {
             formData={{
               fullName: formData.name,
               email: formData.email,
-              
             }}
           />
         );
@@ -294,6 +290,15 @@ export default function RoastPage() {
           {renderContent()}
         </div>
       </section>
+      {/* <div className="h-[40rem] overflow-hidden">
+        <Image
+          src="/Roast_banner.png"
+          alt="Get a free audit"
+          width={1200}
+          height={500}
+          className="mx-auto w-full opacity-80"
+        />
+      </div> */}
     </div>
   );
 }

@@ -8,12 +8,9 @@ export interface FormData {
   timeline: string;
   budget: string;
   contentReady: string;
-  ongoingSupport: string;
   fullName: string;
   email: string;
   phone: string;
-  contactPreference: string;
-  consultationTiming: string;
 }
 
 export interface FormStep {

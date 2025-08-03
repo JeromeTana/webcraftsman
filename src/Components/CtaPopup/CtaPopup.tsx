@@ -16,7 +16,7 @@ export const openCtaPopup = () => {
 };
 
 const SESSION_STORAGE_KEY = "ctaPopupShown";
-const POPUP_DELAY = 3000; // 3 seconds
+const POPUP_DELAY = 1000; // 1 second
 const INTERSECTION_THRESHOLD = 0.5; // 50%
 
 export const CtaPopup: React.FC<CtaPopupProps> = ({
