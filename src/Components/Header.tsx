@@ -153,7 +153,7 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="flex items-center gap-8">
-          <ul className="gap-8 hidden md:flex text-(--paragraph)">
+          <ul className="gap-8 hidden lg:flex text-(--paragraph)">
             <li>
               <RevealLink href="/about">About</RevealLink>
             </li>
@@ -182,7 +182,7 @@ export default function Header() {
           {/* Mobile Hamburger Button */}
           <button
             onClick={toggleMobileMenu}
-            className="md:hidden p-2 text-primary"
+            className="lg:hidden p-2 text-primary"
             aria-label="Toggle mobile menu"
           >
             {isMobileMenuOpen ? (
