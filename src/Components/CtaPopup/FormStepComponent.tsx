@@ -39,7 +39,7 @@ export const FormStepComponent: React.FC<FormStepComponentProps> = ({
     <div className="space-y-4">
       <div>
         <label htmlFor="businessName" className="block text-sm font-medium text-gray-700 mb-2">
-          Business Name
+          ชื่อธุรกิจ
         </label>
         <input
           id="businessName"
@@ -47,27 +47,27 @@ export const FormStepComponent: React.FC<FormStepComponentProps> = ({
           value={formData.businessName}
           onChange={(e) => onInputChange("businessName", e.target.value)}
           className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          placeholder="Your Business Name"
+          placeholder="กรอกชื่อธุรกิจของคุณ"
           autoFocus
         />
       </div>
       <div>
         <label htmlFor="businessDescription" className="block text-sm font-medium text-gray-700 mb-2">
-          Business Description
+          คำอธิบายธุรกิจคร่าว ๆ
         </label>
         <textarea
           id="businessDescription"
           value={formData.businessDescription}
           onChange={(e) => onInputChange("businessDescription", e.target.value)}
           className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent h-24 resize-none"
-          placeholder="Brief description of your business and what you do..."
+          placeholder="กรอกคำอธิบายธุรกิจของคุณคร่าว ๆ ว่าทำเกี่ยวกับอะไร ตอนนี้เป็นอย่างไร"
         />
       </div>
       {(formData.hasWebsite === "Yes, but it needs improvement" || 
         formData.hasWebsite === "Yes, and it's working fine") && (
         <div>
           <label htmlFor="currentWebsiteUrl" className="block text-sm font-medium text-gray-700 mb-2">
-            Current Website URL
+            URL เว็บไซต์ปัจจุบัน
           </label>
           <input
             id="currentWebsiteUrl"
@@ -86,7 +86,7 @@ export const FormStepComponent: React.FC<FormStepComponentProps> = ({
     <div className="space-y-4">
       <div>
         <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">
-          Full Name
+          ชื่อ-นามสกุล
         </label>
         <input
           id="fullName"
@@ -94,12 +94,12 @@ export const FormStepComponent: React.FC<FormStepComponentProps> = ({
           value={formData.fullName}
           onChange={(e) => onInputChange("fullName", e.target.value)}
           className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          placeholder="Your Full Name"
+          placeholder="กรอกชื่อ-นามสกุลของคุณ"
         />
       </div>
       <div>
         <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-          Email Address
+          อีเมล
         </label>
         <input
           id="email"
@@ -107,12 +107,12 @@ export const FormStepComponent: React.FC<FormStepComponentProps> = ({
           value={formData.email}
           onChange={(e) => onInputChange("email", e.target.value)}
           className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          placeholder="Your Email Address"
+          placeholder="กรอกอีเมลของคุณ"
         />
       </div>
       <div>
         <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-          Phone Number
+          เบอร์โทรศัพท์
         </label>
         <input
           id="phone"
@@ -120,7 +120,7 @@ export const FormStepComponent: React.FC<FormStepComponentProps> = ({
           value={formData.phone}
           onChange={(e) => onInputChange("phone", e.target.value)}
           className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          placeholder="Your Phone Number"
+          placeholder="กรอกเบอร์โทรศัพท์ของคุณ"
         />
       </div>
     </div>

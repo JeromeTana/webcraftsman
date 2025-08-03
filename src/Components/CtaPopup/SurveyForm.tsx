@@ -124,7 +124,7 @@ export const SurveyForm: React.FC<SurveyFormProps> = ({ onSubmitted }) => {
             disabled={!isBusinessStepValid()}
             className="cta w-full"
           >
-            Continue
+            ไปขั้นตอนถัดไป
           </button>
         )}
 
@@ -141,7 +141,7 @@ export const SurveyForm: React.FC<SurveyFormProps> = ({ onSubmitted }) => {
                 Processing...
               </>
             ) : (
-              "Get My Custom Website Strategy"
+              "รับข้อมูลกลยุทธ์เว็บไซต์ของฉัน"
             )}
           </button>
         )}

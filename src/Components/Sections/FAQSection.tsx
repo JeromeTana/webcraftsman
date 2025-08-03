@@ -45,20 +45,13 @@ export default function FAQSection({
         >
           <h2 className="text-4xl md:text-6xl">
             <span className={`highlight`}>{highlightText}</span> {title}
-            <span className="flex items-center gap-2 md:gap-4">
-              {titleIcon}
-              {subtitle}
-            </span>
+            <span className="flex items-center gap-2 md:gap-4">{subtitle}</span>
           </h2>
         </AnimatedContent>
       </div>
       <div className="grid grid-cols-1 gap-6 w-full max-w-2xl">
         {faqs.map((faq, index) => (
-          <Accordion
-            key={index}
-            question={faq.question}
-            answer={faq.answer}
-          />
+          <Accordion key={index} question={faq.question} answer={faq.answer} />
         ))}
       </div>
     </section>

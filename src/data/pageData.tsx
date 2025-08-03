@@ -139,29 +139,29 @@ export const PROCESS = [
 
 export const FAQS = [
   {
-    question: "How quickly can I expect my website to be completed?",
+    question: "เว็บไซต์จะเสร็จเมื่อไหร่?",
     answer:
-      "Your landing page will be delivered in 5 days, and full websites in 7 days from brief submission. If there's a delay, we will notify you immediately.",
+      "หน้าแลนดิ้งจะส่งมอบภายใน 5 วัน และเว็บไซต์เต็มรูปแบบภายใน 7 วัน นับจากที่ได้รับข้อมูลโครงการ หากมีความล่าช้า เราจะแจ้งให้ทราบทันที",
   },
   {
-    question: "What information do you need from me to get started?",
+    question: "ต้องเตรียมข้อมูลอะไรบ้างเพื่อเริ่มโครงการ?",
     answer:
-      "We'll need your brand guidelines (if available), content preferences, target audience information, and any specific features you want included. ",
+      "เราต้องการแบรนด์ไกด์ไลน์ (หากมี) ข้อมูลเนื้อหาที่ต้องการ ข้อมูลกลุ่มเป้าหมาย และฟีเจอร์พิเศษที่ต้องการรวมอยู่ในเว็บไซต์",
   },
   {
-    question: "Why is payment required upfront?",
+    question: "ทำไมต้องชำระเงินล่วงหน้า?",
     answer:
-      "The upfront payment secures your place in our limited schedule and allows us to dedicate full resources to your project immediately.",
+      "การชำระเงินล่วงหน้าจะรับประกันสล็อตของคุณในตารางงานที่จำกัด และช่วยให้เราสามารถทุ่มเททรัพยากรเต็มที่กับโครงการของคุณได้ทันที",
   },
   {
-    question: "Do you offer ongoing maintenance?",
+    question: "มีบริการดูแลเว็บไซต์หลังส่งมอบไหม?",
     answer:
-      "While our packages don't include ongoing maintenance, we offer support packages that can be purchased separately after your project is completed.",
+      "แพ็คเกจของเราไม่รวมการดูแลรักษาต่อเนื่อง แต่เรามีแพ็คเกจสนับสนุนที่สามารถซื้อแยกต่างหากได้หลังจากโครงการเสร็จสิ้น",
   },
   {
-    question: "How do I get started?",
+    question: "จะเริ่มต้นได้อย่างไร?",
     answer:
-      "Simply click the 'Book an Intro Call' button on our homepage, select your package, and complete the payment process. We'll reach out to you within 24 hours to kick off your project.",
+      "เพียงคลิกปุ่ม 'นัดพูดคุย' ในหน้าหลัก กรอกแบบสอบถาม และนัดวันพูดคุย เราจะติดต่อกลับภายใน 24 ชั่วโมงเพื่อเริ่มโครงการของคุณ",
   },
 ];
 
@@ -184,14 +184,15 @@ export const SHOWCASE_IMAGES = [
 ];
 
 export const TESTIMONIAL_DATA = {
-  quote: "They truly understood our branding",
-  description: "Making it not just beautiful but also clearly reflecting our brand's identity",
+  quote: "เข้าใจใน branding ของเราจริงๆ",
+  description:
+    "ทำให้เว็บไซต์ที่ออกมาไม่ใช่แค่สวย แต่ยังสะท้อนตัวตนของแบรนด์ได้อย่างชัดเจน",
   author: {
     name: "Jatawat Xie",
     title: "Founder of Data Echooo",
     avatar: "/Jatawat_Xie.png",
-    companyLogo: "/dataechooo.png"
+    companyLogo: "/dataechooo.png",
   },
   image: "/DE_comparison.png",
-  rating: 5
+  rating: 5,
 };

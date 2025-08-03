@@ -28,7 +28,7 @@ export default function Home() {
         <HeroSection
           title="รับทำเว็บไซต์ และการตลาดออนไลน์"
           subtitle="สำหรับ"
-          highlightText="ธุรกิจท้องถิ่น"
+          highlightText="ธุรกิจ B2B"
           description="เพิ่มช่องทางให้ลูกค้าหาใหม่เจอผ่าน Google ได้ง่าย และปิดยอดขายได้มากขึ้น"
         />
 
@@ -55,7 +55,7 @@ export default function Home() {
             logo: <Logo className="w-16 h-16 fill-primary text-primary" />,
             items: [
               "จัดการทุกอย่างภายใน 7 วัน",
-              "เน้นทำงานเฉพาะกลุ่มธุรกิจท้องถิ่น",
+              "เน้นทำงานเฉพาะกลุ่มธุรกิจ B2B",
               "ให้คำปรึกษาอย่างมืออาชีพ",
               "จ่ายเริ่มต้นหลักพัน",
               "ดูแลอย่างใกล้ชิด ไว้ใจได้ตลอด 24 ชั่วโมง",
@@ -85,21 +85,21 @@ export default function Home() {
 
         <TestimonialSection
           pillText="Testimonial"
-          title="What"
-          highlightText="Our Clients"
-          subtitle="Say"
+          title="สิ่งที่"
+          highlightText="ลูกค้าของเรา"
+          subtitle="พูดถึงเรา"
           titleIcon={<AnimatedQuoteIcon className="bg-primary rounded-full p-2" />}
           testimonial={TESTIMONIAL_DATA}
         />
 
-        <FAQSection
-          pillText="FAQ"
-          title="to Your"
-          highlightText="Answers"
-          subtitle="Questions"
-          titleIcon={<AnimatedQuestionIcon className="animate-bounce" />}
-          faqs={FAQS}
-        />
+         <FAQSection
+                pillText="FAQ"
+                title="ที่พบบ่อย"
+                highlightText="คำถาม"
+                subtitle=""
+                titleIcon={<AnimatedQuestionIcon className="animate-bounce" />}
+                faqs={FAQS}
+              />
       </main>
     </div>
   );

@@ -26,22 +26,21 @@ export default function ShowcasePage() {
         process={PROCESS}
       />
 
-      <TestimonialSection
-        pillText="Testimonial"
-        title="What"
-        highlightText="Our Clients"
-        subtitle="Say"
-        titleIcon={
-          <AnimatedQuoteIcon className="bg-primary rounded-full p-2" />
-        }
-        testimonial={TESTIMONIAL_DATA}
-      />
+  
+          <TestimonialSection
+            pillText="Testimonial"
+            title="สิ่งที่"
+            highlightText="ลูกค้าของเรา"
+            subtitle="พูดถึงเรา"
+            titleIcon={<AnimatedQuoteIcon className="bg-primary rounded-full p-2" />}
+            testimonial={TESTIMONIAL_DATA}
+          />
 
       <FAQSection
         pillText="FAQ"
-        title="to Your"
-        highlightText="Answers"
-        subtitle="Questions"
+        title="ที่พบบ่อย"
+        highlightText="คำถาม"
+        subtitle=""
         titleIcon={<AnimatedQuestionIcon className="animate-bounce" />}
         faqs={FAQS}
       />

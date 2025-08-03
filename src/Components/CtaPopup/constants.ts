@@ -1,109 +1,104 @@
-import { FormStep } from './types';
+import { FormStep } from "./types";
 
 export const FORM_STEPS: FormStep[] = [
   {
     id: 1,
-    question: "Do you currently have a website?",
+    question: "ตออนี้มีเว็บไซต์อยู่แล้วรึเปล่าครับ?",
     field: "hasWebsite",
     type: "select",
     options: [
-      "Yes, but it needs improvement",
-      "Yes, and it's working fine",
-      "No, I need a new website",
+      "มี แต่ต้องการปรับปรุง",
+      "มี และใช้งานได้ดี",
+      "ไม่มี กำลังต้องการเว็บไซต์ใหม่",
     ],
-    helpText: "Knowing your current situation helps me determine if we need a redesign or a brand new website."
+    helpText:
+      "พอผมทราบสถานการณ์ปัจจุบันของคุณ จะช่วยให้ผมกำหนดได้ว่า จำเป็นแค่ต้องออกแบบใหม่หรือสร้างเว็บไซต์ใหม่ทั้งหมดครับ",
   },
   {
     id: 2,
-    question: "What's your main goal for your website?",
+    question: "เป้าหมายหลักของสำหรับเว็บไซต์คืออะไรครับ?",
     field: "mainGoal",
     type: "select",
     options: [
-      "Get more customers and sales",
-      "Look more professional and credible",
-      "Share information about my business",
-      "Improve online visibility",
+      "ได้ลูกค้าและยอดขายมากขึ้น",
+      "ดูเป็นมืออาชีพและน่าเชื่อถือมากขึ้น",
+      "แสดงข้อมูลเกี่ยวกับธุรกิจ",
+      "สร้างตัวตนตนออนไลน์",
     ],
-    helpText: "Understanding your primary objective allows me to focus on the features that matter most to you."
+    helpText:
+      "การที่เข้าใจวัตถุประสงค์หลักของคุณ ช่วยให้ผมมุ่งเน้นไปที่เป้าหมายที่สำคัญที่สุดสำหรับคุณได้ครับ",
   },
   {
     id: 3,
-    question: "Which is your biggest struggle right now?",
+    question: "ปัญหาที่ใหญ่ที่สุดที่เจอตอนนี้คืออะไรครับ?",
     field: "biggestChallenge",
     type: "select",
     options: [
-      "Not getting enough customers online",
-      "My website looks outdated",
-      "I'm losing customers to competitors",
-      "No online presence at all",
+      "ไม่ได้ลูกค้าทางออนไลน์เพียงพอ",
+      "เว็บไซต์ดูล้าสมัย",
+      "ฉันกำลังเสียลูกค้าให้กับคู่แข่ง",
+      "ไม่มีช่องทางติดต่อออนไลน์เลย",
     ],
-    helpText: "Identifying your pain points helps me prioritize solutions that will have the biggest impact."
+    helpText:
+      "การระบุ pain point ช่วยให้ผมจัดลำดับความสำคัญของสิ่งที่จะสร้างผลกระทบมากที่สุดได้ครับ",
   },
   {
     id: 4,
-    question: "When would you like to start this project?",
+    question: "ต้องการเร่งดำเนินการโปรเจคนี้เมื่อไหร่ครับ?",
     field: "timeline",
     type: "select",
     options: [
-      "ASAP - I need this urgently",
-      "Within 1-2 weeks",
-      "Within 1 month",
-      "I'm just exploring options",
+      "โดยเร็วที่สุด",
+      "ภายใน 1-2 สัปดาห์",
+      "ภายใน 1 เดือน",
+      "ยังไม่แน่ใจ",
     ],
-    helpText: "Your timeline helps me plan the project scope and set realistic expectations for delivery."
+    helpText:
+      "ไทม์ไลน์ของคุณช่วยให้ผมวางแผนขอบเขตโปรเจค และตั้งความคาดหวังสำหรับการส่งมอบได้ครับ",
   },
   {
     id: 5,
-    question: "What's your budget range for this project?",
+    question: "งบประมาณสำหรับโปรเจคนี้ที่ประมาณเท่าไร?",
     field: "budget",
     type: "select",
     options: [
-      "Under $2,000 - Basic website",
-      "$2,000 - $5,000 - Professional website",
-      "$5,000 - $10,000 - Premium website",
-      "$10,000+ - Enterprise solution",
+      "ต่ำกว่า 10,000 บาท",
+      "10,000 - 50,000 บาท",
+      "50,000 - 100,000 บาท",
+      "มากกว่า 100,000 บาท",
     ],
-    helpText: "Budget information allows me to recommend the best package and features within your range."
+    helpText:
+      "ข้อมูลงบประมาณช่วยให้ผมแนะนำแพ็คเกจและฟีเจอร์ที่ดี และเหมาะสมที่สุดได้ครับ",
   },
   {
     id: 6,
-    question: "Do you have content ready for your website?",
+    question: "มีเนื้อหาสำหรับใส่ในเว็บไซต์พร้อมแล้วมั้ยครับ?",
     field: "contentReady",
     type: "select",
     options: [
-      "Yes, I have everything ready",
-      "I have some content prepared",
-      "No, I need help creating content",
+      "ใช่ ฉันมีทุกอย่างพร้อมแล้ว",
+      "ฉันมีเนื้อหาเตรียมไว้บางส่วน",
+      "ไม่ ฉันต้องการความช่วยเหลือในการสร้างเนื้อหา",
     ],
-    helpText: "Content readiness affects the timeline and helps me plan what support you'll need."
+    helpText:
+      "ความพร้อมของเนื้อหาช่วยให้ผมวางแผนการออกแบบและพัฒนาเว็บไซต์ได้อย่างมีประสิทธิภาพมากขึ้นครับ",
   },
-  // {
-  //   id: 7,
-  //   question: "When would be the best time for a consultation?",
-  //   field: "consultationTiming",
-  //   type: "select",
-  //   options: [
-  //     "Today - I'm available now",
-  //     "This week - Schedule for later",
-  //     "Next week - I need more time",
-  //     "I'll contact you when ready",
-  //   ],
-  //   helpText: "This helps me schedule our consultation at the most convenient time for you."
-  // },
   {
     id: 7,
-    question: "Tell me about your business",
+    question: "รบกวนเล่าเกี่ยวกับตัวธุรกิจให้ฟังคร่าว ๆ ทีครับ",
     field: "businessName", // This step handles multiple business fields
     type: "business",
-    helpText: "Understanding your business helps me create a more targeted strategy and recommendations."
+    helpText:
+      "การเข้าใจธุรกิจของคุณช่วยให้ผมสร้างกลยุทธ์และคำแนะนำที่เจาะจงมากขึ้น",
   },
   {
     id: 8,
-    question: "Your website strategy is ready!",
+    question: "เยี่ยมครับ กลยุทธ์เว็บไซต์ของคุณพร้อมแล้ว!",
     field: "fullName", // This step handles multiple fields
     type: "contact",
-    helpText: "I need these details to create a personalized proposal and provide the best recommendations for your business."
-  }
+    helpText:
+      "ผมขอข้อมูลติดต่อ เพื่อส่งรายละเอียดสำหรับเริ่มต้นโปรเจคครับ",
+  },
 ];
 
 export const INITIAL_FORM_DATA = {
@@ -119,7 +114,6 @@ export const INITIAL_FORM_DATA = {
   fullName: "",
   email: "",
   phone: "",
-  // consultationTiming: "",
 };
 
 export const TOTAL_STEPS = FORM_STEPS.length;
