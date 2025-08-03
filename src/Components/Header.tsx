@@ -230,8 +230,8 @@ export default function Header() {
                   Services
                 </h3>
                 <ul className="space-y-2 pl-4">
-                  {servicesSections[0].items.map((item) => (
-                    <li key={item.name}>
+                  {servicesSections[0].items.map((item, index) => (
+                    <li key={index}>
                       <a
                         href={item.href}
                         className="block py-1 text-sm hover:text-primary transition-colors"
@@ -252,8 +252,8 @@ export default function Header() {
                   Resources
                 </h3>
                 <ul className="space-y-2 pl-4">
-                  {resourcesSections[0].items.map((item) => (
-                    <li key={item.name}>
+                  {resourcesSections[0].items.map((item,index) => (
+                    <li key={index}>
                       <a
                         href={item.href}
                         className="block py-1 text-sm hover:text-primary transition-colors"
