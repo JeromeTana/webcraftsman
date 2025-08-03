@@ -158,7 +158,7 @@ export default function Header() {
               <RevealLink href="/about">About</RevealLink>
             </li>
             <li>
-              <RevealLink href="/work">Showcases</RevealLink>
+              <RevealLink href="/showcase">Showcases</RevealLink>
             </li>
             <li>
               <MegaMenu trigger="Services" sections={servicesSections} />
@@ -215,7 +215,7 @@ export default function Header() {
             </li>
             <li>
               <a
-                href="/work"
+                href="/showcase"
                 className="block py-2 text-lg hover:text-primary transition-colors"
                 onClick={closeMobileMenu}
               >
