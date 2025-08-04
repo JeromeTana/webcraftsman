@@ -11,11 +11,11 @@ const portableTextComponents = {
     image: ({ value }: any) => (
       <div className="my-8">
         <Image
-          src={urlFor(value).width(800).height(600).url()}
+          src={urlFor(value).width(1600).height(900).url()}
           alt={value.alt || "Blog post image"}
-          width={800}
-          height={600}
-          className="rounded-lg"
+          width={1600}
+          height={900}
+          className="rounded-xl aspect-video object-cover mx-auto border border-gray-300"
         />
         {value.caption && (
           <p className="mt-2 text-center text-sm text-gray-600">
@@ -195,21 +195,17 @@ export default async function BlogPostPage({
 
           <div className="hidden md:block">
             <Link href="/roast">
-              <div className="sticky top-24 bg-primary rounded-xl">
-                <div className="p-6 space-y-8">
-                  <h3 className="!text-white !text-2xl !font-semibold mb-4">
-                    FREE Website Analysis
+              <div className="sticky top-24 bg-primary rounded-2xl">
+                <div className="p-8 space-y-8">
+                  <h3 className="!text-white text-center !text-3xl !font-semibold mb-8">
+                    Get My Free Website Audit
                   </h3>
-                  <p className="!text-white !text-base">
-                    Identify areas for improvement and boost your online
-                    presence.
-                  </p>
                   <button className="cta w-full !bg-white !text-primary">
                     Claim Free Audit
                   </button>
                 </div>
 
-                <div className="w-full mt-4">
+                <div className="w-full">
                   <Image
                     src="/Roast_banner.png"
                     alt="Get a free audit"
