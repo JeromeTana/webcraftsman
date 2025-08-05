@@ -3,7 +3,7 @@ import { FormStep } from "./types";
 export const FORM_STEPS: FormStep[] = [
   {
     id: 1,
-    question: "ตออนี้มีเว็บไซต์อยู่แล้วรึเปล่าครับ?",
+    question: "ตอนนี้มีเว็บไซต์อยู่แล้วรึเปล่าครับ?",
     field: "hasWebsite",
     type: "select",
     options: [
