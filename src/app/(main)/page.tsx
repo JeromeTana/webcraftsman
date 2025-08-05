@@ -31,7 +31,7 @@ export default async function Home() {
     <div>
       <main>
         <HeroSection
-          title="รับทำเว็บไซต์ และการตลาดออนไลน์"
+          title="รับทำออกแบบและพัฒนาเว็บไซต์"
           subtitle="สำหรับ"
           highlightText="ธุรกิจ B2B"
           description="เพิ่มช่องทางให้ลูกค้าหาใหม่เจอผ่าน Google ได้ง่าย และปิดยอดขายได้มากขึ้น"
