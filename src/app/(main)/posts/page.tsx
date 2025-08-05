@@ -1,89 +1,109 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { getAllPosts, BlogPost } from '@/sanity/lib/queries'
 import { urlFor } from '@/sanity/lib/image'
+import BlogPostCard from '@/Components/BlogPostCard'
+import FeaturedBlogPostCard from '@/Components/FeaturedBlogPostCard'
+import { Metadata } from 'next'
 
-// Blog Post Card Component
-function BlogPostCard({ post }: { post: BlogPost }) {
-  const imageUrl = post.mainImage 
-    ? urlFor(post.mainImage).width(600).height(400).url()
-    : '/placeholder-image.svg'
-
-  const publishedDate = new Date(post.publishedAt).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  })
-
-  return (
-    <article className="group cursor-pointer">
-      <Link href={`/posts/${post.slug.current}`}>
-        <div className="overflow-hidden transition-all duration-300">
-          {/* Image */}
-          <div className="relative w-full aspect-video border border-gray-300 rounded-2xl overflow-hidden">
-            <Image
-              src={imageUrl}
-              alt={post.mainImage?.alt || post.title}
-              fill
-              className="object-cover  transition-transform  duration-300 group-hover:scale-105"
-            />
-          </div>
-
-          {/* Content */}
-          <div className="py-6">
-            {/* Categories */}
-            {post.categories && post.categories.length > 0 && (
-              <div className="mb-3 flex flex-wrap gap-2">
-                {post.categories.map((category) => (
-                  <span
-                    key={category.slug.current}
-                    className="rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-primary"
-                  >
-                    {category.title}
-                  </span>
-                ))}
-              </div>
-            )}
-
-            {/* Title */}
-            <h2 className="mb-3 line-clamp-2 !leading-8 text-2xl font-bold text-gray-900 group-hover:text-primary transition-colors">
-              {post.title}
-            </h2>
-
-            {/* Excerpt */}
-            {post.excerpt && (
-              <p className="mb-4 line-clamp-3 text-gray-600">{post.excerpt}</p>
-            )}
-
-            {/* Meta */}
-            <div className="flex items-center justify-between text-sm text-gray-500">
-              <div className="flex items-center">
-                {post.author?.image && (
-                  <Image
-                    src={urlFor(post.author.image).width(100).height(100).url()}
-                    alt={post.author.name}
-                    width={32}
-                    height={32}
-                    className="mr-2 rounded-full"
-                  />
-                )}
-                <span>{post.author?.name || "Anonymous"}</span>
-              </div>
-              <time dateTime={post.publishedAt}>{publishedDate}</time>
-            </div>
-          </div>
-        </div>
-      </Link>
-    </article>
-  );
-}
+// Generate metadata for SEO
+export const metadata: Metadata = {
+  title: `Blog | ${process.env.NEXT_PUBLIC_SITE_NAME || 'WEBCRAFTSMAN'}`,
+  description: "Explore our collection of web development insights, tutorials, and digital marketing strategies. Stay updated with the latest trends in web design, SEO, and development best practices.",
+  keywords: [
+    "web development blog",
+    "digital marketing tutorials",
+    "web design insights",
+    "SEO strategies",
+    "development best practices",
+    "WEBCRAFTSMAN blog",
+    "web development tips",
+    "coding tutorials"
+  ],
+  openGraph: {
+    title: `Blog | ${process.env.NEXT_PUBLIC_SITE_NAME || 'WEBCRAFTSMAN'}`,
+    description: "Explore our collection of web development insights, tutorials, and digital marketing strategies.",
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://WEBCRAFTSMAN.co'}/posts`,
+    siteName: `${process.env.NEXT_PUBLIC_SITE_NAME || 'WEBCRAFTSMAN'} Blog`,
+    images: [
+      {
+        url: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://WEBCRAFTSMAN.co'}/OG_Home.png`,
+        width: 1200,
+        height: 630,
+        alt: `${process.env.NEXT_PUBLIC_SITE_NAME || 'WEBCRAFTSMAN'} Blog - Web Development & Digital Marketing Insights`,
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `Blog | ${process.env.NEXT_PUBLIC_SITE_NAME || 'WEBCRAFTSMAN'}`,
+    description: "Explore our collection of web development insights, tutorials, and digital marketing strategies.",
+    images: [`${process.env.NEXT_PUBLIC_SITE_URL || 'https://WEBCRAFTSMAN.co'}/OG_Home.png`],
+    creator: process.env.NEXT_PUBLIC_TWITTER_HANDLE || '@WEBCRAFTSMAN',
+    site: process.env.NEXT_PUBLIC_TWITTER_HANDLE || '@WEBCRAFTSMAN',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://WEBCRAFTSMAN.co'}/posts`,
+  },
+};
 
 // Main Blog Posts Page
 export default async function BlogPostsPage() {
   const posts = await getAllPosts()
 
+  // Structured data for blog listing page
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": `${process.env.NEXT_PUBLIC_SITE_NAME || 'WEBCRAFTSMAN'} Blog`,
+    "description": "Web development insights, tutorials, and digital marketing strategies",
+    "url": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://WEBCRAFTSMAN.co'}/posts`,
+    "author": {
+      "@type": "Organization",
+      "name": process.env.NEXT_PUBLIC_SITE_NAME || 'WEBCRAFTSMAN',
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://WEBCRAFTSMAN.co'}/logo.svg`
+      }
+    },
+    "blogPost": posts.slice(0, 10).map(post => ({
+      "@type": "BlogPosting",
+      "headline": post.title,
+      "description": post.excerpt || post.title,
+      "url": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://WEBCRAFTSMAN.co'}/posts/${post.slug.current}`,
+      "datePublished": post.publishedAt,
+      "author": {
+        "@type": "Person",
+        "name": post.author?.name || `${process.env.NEXT_PUBLIC_SITE_NAME || 'WEBCRAFTSMAN'} Team`
+      },
+      ...(post.mainImage && {
+        "image": urlFor(post.mainImage).width(1200).height(630).url()
+      })
+    }))
+  };
+
   return (
     <div className="min-h-screen">
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
+
       {/* Header */}
       <div>
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
@@ -117,11 +137,22 @@ export default async function BlogPostsPage() {
             </Link>
           </div>
         ) : (
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post) => (
-              <BlogPostCard key={post._id} post={post} />
-            ))}
-          </div>
+          <>
+            {/* Featured Latest Post */}
+            <FeaturedBlogPostCard post={posts[0]} locale="th-TH" />
+            
+            {/* Remaining Posts Grid */}
+            {posts.length > 1 && (
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-8">More Posts</h3>
+                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                  {posts.slice(1).map((post) => (
+                    <BlogPostCard key={post._id} post={post} locale="th-TH" />
+                  ))}
+                </div>
+              </div>
+            )}
+          </>
         )}
       </div>
     </div>

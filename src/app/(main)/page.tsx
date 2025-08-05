@@ -6,6 +6,7 @@ import {
   ProcessSection,
   TestimonialSection,
   FAQSection,
+  BlogSection,
 } from "@/Components/Sections";
 import { LucideCheck } from "@/Components/Icons/LucideCheck";
 import { LucideX } from "@/Components/Icons/LucideX";
@@ -20,8 +21,12 @@ import {
   SHOWCASE_IMAGES,
   TESTIMONIAL_DATA,
 } from "@/data/pageData";
+import { getAllPosts } from "@/sanity/lib/queries";
 
-export default function Home() {
+export default async function Home() {
+  // Fetch blog posts for the blog section
+  const posts = await getAllPosts();
+
   return (
     <div>
       <main>
@@ -72,7 +77,9 @@ export default function Home() {
           title="ของเรา"
           highlightText="ผลงานล่าสุด"
           works={WORKS}
-          titleIcon={<AnimatedCategoryIcon className="bg-primary rounded-full p-2" />}
+          titleIcon={
+            <AnimatedCategoryIcon className="bg-primary rounded-full p-2" />
+          }
         />
 
         <ProcessSection
@@ -88,18 +95,29 @@ export default function Home() {
           title="สิ่งที่"
           highlightText="ลูกค้าของเรา"
           subtitle="พูดถึงเรา"
-          titleIcon={<AnimatedQuoteIcon className="bg-primary rounded-full p-2" />}
+          titleIcon={
+            <AnimatedQuoteIcon className="bg-primary rounded-full p-2" />
+          }
           testimonial={TESTIMONIAL_DATA}
         />
 
-         <FAQSection
-                pillText="FAQ"
-                title="ที่พบบ่อย"
-                highlightText="คำถาม"
-                subtitle=""
-                titleIcon={<AnimatedQuestionIcon className="animate-bounce" />}
-                faqs={FAQS}
-              />
+        <BlogSection
+          pillText="Blog"
+          title=""
+          highlightText="ความรู้และบทความ"
+          subtitle="ล่าสุดจากเรา"
+          posts={posts}
+          titleIcon={<></>}
+        />
+
+        <FAQSection
+          pillText="FAQ"
+          title="ที่พบบ่อย"
+          highlightText="คำถาม"
+          subtitle=""
+          titleIcon={<AnimatedQuestionIcon className="animate-bounce" />}
+          faqs={FAQS}
+        />
       </main>
     </div>
   );

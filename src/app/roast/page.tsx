@@ -121,10 +121,10 @@ export default function RoastPage() {
       case "url-input":
         return (
           <>
-            <h1 className="text-4xl md:text-7xl !font-semibold text-gray-900 my-6 leading-tight">
+            <h1 className="text-4xl md:text-7xl !font-medium text-gray-900 my-6 leading-tight">
               Let's{" "}
               <span className="highlight text-primary">Grow Your Revenue</span>
-              <br /> Through Better Design
+              <br /> <span className="text-gray-400">Through Better Design</span>
             </h1>
 
             <div className="max-w-3xl mx-auto">

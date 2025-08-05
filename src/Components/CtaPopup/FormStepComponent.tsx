@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { FormStep, FormData } from './types';
+import { FormStep, FormData } from "./types";
 
 interface FormStepComponentProps {
   step: FormStep;
@@ -38,7 +38,10 @@ export const FormStepComponent: React.FC<FormStepComponentProps> = ({
   const renderBusinessStep = () => (
     <div className="space-y-4">
       <div>
-        <label htmlFor="businessName" className="block text-sm font-medium text-gray-700 mb-2">
+        <label
+          htmlFor="businessName"
+          className="block text-sm font-medium text-gray-700 mb-2"
+        >
           ชื่อธุรกิจ
         </label>
         <input
@@ -52,7 +55,10 @@ export const FormStepComponent: React.FC<FormStepComponentProps> = ({
         />
       </div>
       <div>
-        <label htmlFor="businessDescription" className="block text-sm font-medium text-gray-700 mb-2">
+        <label
+          htmlFor="businessDescription"
+          className="block text-sm font-medium text-gray-700 mb-2"
+        >
           คำอธิบายธุรกิจคร่าว ๆ
         </label>
         <textarea
@@ -63,10 +69,12 @@ export const FormStepComponent: React.FC<FormStepComponentProps> = ({
           placeholder="กรอกคำอธิบายธุรกิจของคุณคร่าว ๆ ว่าทำเกี่ยวกับอะไร ตอนนี้เป็นอย่างไร"
         />
       </div>
-      {(formData.hasWebsite === "Yes, but it needs improvement" || 
-        formData.hasWebsite === "Yes, and it's working fine") && (
+      {formData.hasWebsite === "มี แต่ต้องการปรับปรุง" && (
         <div>
-          <label htmlFor="currentWebsiteUrl" className="block text-sm font-medium text-gray-700 mb-2">
+          <label
+            htmlFor="currentWebsiteUrl"
+            className="block text-sm font-medium text-gray-700 mb-2"
+          >
             URL เว็บไซต์ปัจจุบัน
           </label>
           <input
@@ -85,7 +93,10 @@ export const FormStepComponent: React.FC<FormStepComponentProps> = ({
   const renderContactStep = () => (
     <div className="space-y-4">
       <div>
-        <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">
+        <label
+          htmlFor="fullName"
+          className="block text-sm font-medium text-gray-700 mb-2"
+        >
           ชื่อ-นามสกุล
         </label>
         <input
@@ -98,7 +109,10 @@ export const FormStepComponent: React.FC<FormStepComponentProps> = ({
         />
       </div>
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+        <label
+          htmlFor="email"
+          className="block text-sm font-medium text-gray-700 mb-2"
+        >
           อีเมล
         </label>
         <input
@@ -111,7 +125,10 @@ export const FormStepComponent: React.FC<FormStepComponentProps> = ({
         />
       </div>
       <div>
-        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+        <label
+          htmlFor="phone"
+          className="block text-sm font-medium text-gray-700 mb-2"
+        >
           เบอร์โทรศัพท์
         </label>
         <input

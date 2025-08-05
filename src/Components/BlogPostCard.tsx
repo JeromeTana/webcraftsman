@@ -1,0 +1,83 @@
+import Link from 'next/link'
+import Image from 'next/image'
+import { BlogPost } from '@/sanity/lib/queries'
+import { urlFor } from '@/sanity/lib/image'
+
+interface BlogPostCardProps {
+  post: BlogPost;
+  locale?: 'en-US' | 'th-TH';
+}
+
+export default function BlogPostCard({ post, locale = 'en-US' }: BlogPostCardProps) {
+  const imageUrl = post.mainImage 
+    ? urlFor(post.mainImage).width(600).height(400).url()
+    : '/placeholder-image.svg'
+
+  const publishedDate = new Date(post.publishedAt).toLocaleDateString(locale, {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  })
+
+  return (
+    <article className="group cursor-pointer">
+      <Link href={`/posts/${post.slug.current}`}>
+        <div className="overflow-hidden transition-all duration-300">
+          {/* Image */}
+          <div className="relative w-full aspect-video border border-gray-300 rounded-2xl overflow-hidden">
+            <Image
+              src={imageUrl}
+              alt={post.mainImage?.alt || post.title}
+              fill
+              className="object-cover  transition-transform  duration-300 group-hover:scale-105"
+            />
+          </div>
+
+          {/* Content */}
+          <div className="py-6">
+            {/* Categories */}
+            {post.categories && post.categories.length > 0 && (
+              <div className="mb-3 flex flex-wrap gap-2">
+                {post.categories.map((category) => (
+                  <span
+                    key={category.slug.current}
+                    className="rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-primary"
+                  >
+                    {category.title}
+                  </span>
+                ))}
+              </div>
+            )}
+
+            {/* Title */}
+            <h2 className="mb-3 line-clamp-2 !leading-8 text-2xl font-bold text-gray-900 group-hover:text-primary transition-colors">
+              {post.title}
+            </h2>
+
+            {/* Excerpt */}
+            {post.excerpt && (
+              <p className="mb-4 line-clamp-3 text-gray-600">{post.excerpt}</p>
+            )}
+
+            {/* Meta */}
+            <div className="flex items-center justify-between text-sm text-gray-500">
+              <div className="flex items-center">
+                {post.author?.image && (
+                  <Image
+                    src={urlFor(post.author.image).width(100).height(100).url()}
+                    alt={post.author.name}
+                    width={32}
+                    height={32}
+                    className="mr-2 rounded-full"
+                  />
+                )}
+                <span>{post.author?.name || "Anonymous"}</span>
+              </div>
+              <time dateTime={post.publishedAt}>{publishedDate}</time>
+            </div>
+          </div>
+        </div>
+      </Link>
+    </article>
+  );
+}
