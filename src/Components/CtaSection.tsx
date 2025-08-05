@@ -30,11 +30,7 @@ export default function CtaSection() {
               <h2 className="text-4xl md:text-6xl !mb-0 text-white text-center">
                 <span className="inline-flex items-center gap-4">
                   <span className="inline-flex flex-col md:flex-row items-center gap-2 md:gap-4">
-                    รับคำปรึกษาด้าน
-                    <span className="inline-flex items-center gap-2 md:gap-4">
-                      <AnimatedCalendarIcon />
-                      เว็บไซต์ ฟรี!
-                    </span>
+                    รับคำปรึกษาด้านเว็บไซต์ ฟรี!
                   </span>
                 </span>
                 {/* <span className="hidden md:inline-flex items-center gap-4">
@@ -52,9 +48,8 @@ export default function CtaSection() {
                 </span> */}
               </h2>
             </AnimatedContent>
-            <p className="!text-white text-xl font-medium text-center leading-10">
-              นัดพูดคุยกับเราฟรี!เราจะช่วยคุณวางแผนกลยุทธ์ด้านเว็บไซต์ <br />
-              และการตลาดออนไลน์ที่เหมาะสมกับธุรกิจของคุณ
+            <p className="!text-white text-xl max-w-lg mx-auto font-medium text-center leading-10">
+              นัดพูดคุยกับเราฟรี!เราจะช่วยคุณวางแผนกลยุทธ์ด้านเว็บไซต์ที่เหมาะสมกับธุรกิจของคุณ
             </p>
             {/* <ul className="flex flex-col gap-2">
             {features.map((feature, index) => (
