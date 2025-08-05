@@ -414,12 +414,12 @@ export default async function BlogPostPage({
 
           <div className="hidden md:block">
             <Link href="/roast">
-              <div className="sticky top-24 bg-primary rounded-2xl">
+              <div className="sticky top-24 bg-primary/10 rounded-2xl">
                 <div className="p-8 space-y-8">
-                  <h3 className="!text-white text-center !text-3xl !font-semibold mb-8">
+                  <h3 className="text-center !text-3xl !font-semibold mb-8">
                     Get Your Free Website Audit
                   </h3>
-                  <button className="cta w-full !bg-white !text-primary">
+                  <button className="cta w-full">
                     Claim Free Audit
                   </button>
                 </div>
