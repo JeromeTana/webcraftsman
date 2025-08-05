@@ -5,6 +5,7 @@ import { PortableText } from "@portabletext/react";
 import { getPostBySlug, getAllPosts } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 import { Metadata } from "next";
+import Breadcrumb from "@/Components/Breadcrumb";
 
 // Portable Text components for rich content rendering
 const portableTextComponents = {
@@ -134,21 +135,23 @@ export async function generateMetadata({
   }
 
   const imageUrl = post.mainImage
-    ? urlFor(post.mainImage).width(1200).height(630).url()
+    ? urlFor(post.mainImage).width(1600).height(900).url()
     : null;
 
   const publishedDate = new Date(post.publishedAt).toISOString();
-  const categories = post.categories?.map(cat => cat.title).join(", ") || "";
-  
-  // Create a clean description from excerpt or truncated body content
-  const description = post.excerpt || 
-    (post.body && post.body.length > 0 
-      ? `${post.body.find(block => block._type === 'block')?.children?.[0]?.text?.substring(0, 160) || post.title}...`
-      : `Read ${post.title} - A comprehensive blog post about ${categories || 'web development'}.`);
+  const categories = post.categories?.map((cat) => cat.title).join(", ") || "";
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://webcraftsman.co';
-  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'WebCraftsman';
-  const twitterHandle = process.env.NEXT_PUBLIC_TWITTER_HANDLE || '@webcraftsman';
+  // Create a clean description from excerpt or truncated body content
+  const description =
+    post.excerpt ||
+    (post.body && post.body.length > 0
+      ? `${post.body.find((block) => block._type === "block")?.children?.[0]?.text?.substring(0, 160) || post.title}...`
+      : `Read ${post.title} - A comprehensive blog post about ${categories || "web development"}.`);
+
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://webcraftsman.co";
+  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "WebCraftsman";
+  const twitterHandle =
+    process.env.NEXT_PUBLIC_TWITTER_HANDLE || "@webcraftsman";
   const url = `${baseUrl}/posts/${slug}`;
 
   return {
@@ -207,9 +210,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: post.title,
       description: description.substring(0, 160),
-      images: imageUrl
-        ? [imageUrl]
-        : [`${baseUrl}/OG_Home.png`],
+      images: imageUrl ? [imageUrl] : [`${baseUrl}/OG_Home.png`],
       creator: twitterHandle,
       site: twitterHandle,
     },
@@ -258,20 +259,21 @@ export default async function BlogPostPage({
   }
 
   const imageUrl = post.mainImage
-    ? urlFor(post.mainImage).width(2400).height(1200).url()
+    ? urlFor(post.mainImage).width(2400).height(1350).url()
     : null;
 
-  const publishedDate = new Date(post.publishedAt).toLocaleDateString("en-US", {
+  const publishedDate = new Date(post.publishedAt).toLocaleDateString("th-TH", {
     year: "numeric",
     month: "long",
     day: "numeric",
   });
 
   // Site configuration
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://webcraftsman.co';
-  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'WEBCRAFTSMAN';
-  const twitterHandle = process.env.NEXT_PUBLIC_TWITTER_HANDLE || '@webcraftsman';
-  const categories = post.categories?.map(cat => cat.title).join(", ") || "";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://webcraftsman.co";
+  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "WEBCRAFTSMAN";
+  const twitterHandle =
+    process.env.NEXT_PUBLIC_TWITTER_HANDLE || "@webcraftsman";
+  const categories = post.categories?.map((cat) => cat.title).join(", ") || "";
 
   // Structured data for SEO
   const structuredData = {
@@ -286,26 +288,34 @@ export default async function BlogPostPage({
       "@type": "Person",
       name: post.author?.name || `${siteName} Team`,
       ...(post.author?.image && {
-        image: urlFor(post.author.image).width(100).height(100).url()
-      })
+        image: urlFor(post.author.image).width(100).height(100).url(),
+      }),
     },
     publisher: {
       "@type": "Organization",
       name: siteName,
       logo: {
         "@type": "ImageObject",
-        url: `${baseUrl}/logo.svg`
-      }
+        url: `${baseUrl}/logo.svg`,
+      },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `${baseUrl}/posts/${slug}`
+      "@id": `${baseUrl}/posts/${slug}`,
     },
-    ...(post.categories && post.categories.length > 0 && {
-      articleSection: post.categories.map(cat => cat.title),
-      keywords: post.categories.map(cat => cat.title).join(", ")
-    })
+    ...(post.categories &&
+      post.categories.length > 0 && {
+        articleSection: post.categories.map((cat) => cat.title),
+        keywords: post.categories.map((cat) => cat.title).join(", "),
+      }),
   };
+
+  // Breadcrumb items
+  const breadcrumbItems = [
+    { label: "Home", href: "/" },
+    { label: "Blog", href: "/posts" },
+    { label: post.title },
+  ];
 
   return (
     <article className="min-h-screen md:mt-8 bg-white">
@@ -316,23 +326,28 @@ export default async function BlogPostPage({
           __html: JSON.stringify(structuredData),
         }}
       />
-      
+
       {/* Hero Section */}
       <div className="relative md:px-4">
         {imageUrl && (
-          <div className="relative max-w-5xl px-4 aspect-video mx-auto overflow-hidden">
+          <div className="relative max-w-5xl aspect-video mx-auto">
             <Image
               src={imageUrl}
               alt={post.mainImage?.alt || post.title}
               fill
-              className="object-cover md:rounded-3xl border border-gray-300 "
+              className="object-cover md:rounded-3xl border border-gray-300"
               priority
             />
           </div>
         )}
 
+        {/* Breadcrumb Navigation */}
+
         {/* Header Content */}
         <div className="relative mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="mx-auto pb-8">
+            <Breadcrumb items={breadcrumbItems} />
+          </div>
           <div className={imageUrl ? "inset-x-0 bottom-8" : "text-gray-900"}>
             {/* Categories */}
             {post.categories && post.categories.length > 0 && (

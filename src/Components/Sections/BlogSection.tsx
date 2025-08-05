@@ -66,7 +66,7 @@ export default function BlogSection({
         threshold={0.2}
         delay={0.2}
       >
-        <div className="w-full max-w-7xl mx-auto px-4">
+        <div className="w-full max-w-7xl mx-auto">
           {displayPosts.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-gray-600 mb-8">

@@ -10,7 +10,7 @@ interface FeaturedBlogPostCardProps {
 
 export default function FeaturedBlogPostCard({ post, locale = 'en-US' }: FeaturedBlogPostCardProps) {
   const imageUrl = post.mainImage 
-    ? urlFor(post.mainImage).width(1200).height(600).url()
+    ? urlFor(post.mainImage).width(1600).height(900).url()
     : '/placeholder-image.svg'
 
   const publishedDate = new Date(post.publishedAt).toLocaleDateString(locale, {
@@ -22,15 +22,19 @@ export default function FeaturedBlogPostCard({ post, locale = 'en-US' }: Feature
   return (
     <article className="group cursor-pointer mb-16">
       <Link href={`/posts/${post.slug.current}`}>
-        <div className="relative overflow-hidden transition-all duration-300 rounded-3xl p-8">
-          {/* Featured Badge */}
-          <div className="absolute top-6 left-6 z-10">
-            <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-primary text-white shadow-md">
-              ✨ Latest Post
-            </span>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
+        <div className="relative overflow-hidden">
+          <div className="grid lg:grid-cols-3 gap-8 items-center">
+            {/* Image */}
+            <div className="order-1 lg:order-2 lg:col-span-2">
+              <div className="relative w-full aspect-video rounded-2xl overflow-hidden">
+                <Image
+                  src={imageUrl}
+                  alt={post.mainImage?.alt || post.title}
+                  fill
+                  className="object-cover transition-transform duration-500"
+                />
+              </div>
+            </div>
             {/* Content */}
             <div className="order-2 lg:order-1">
               {/* Categories */}
@@ -64,36 +68,29 @@ export default function FeaturedBlogPostCard({ post, locale = 'en-US' }: Feature
                 <div className="flex items-center">
                   {post.author?.image && (
                     <Image
-                      src={urlFor(post.author.image).width(100).height(100).url()}
+                      src={urlFor(post.author.image)
+                        .width(100)
+                        .height(100)
+                        .url()}
                       alt={post.author.name}
                       width={40}
                       height={40}
-                      className="mr-3 rounded-full border-2 border-white shadow-sm"
+                      className="mr-3 rounded-full border-2 border-white"
                     />
                   )}
                   <div>
-                    <span className="font-medium text-gray-900">{post.author?.name || "Anonymous"}</span>
-                    <p className="text-sm text-gray-600">
+                    <span className="font-medium text-gray-900">
+                      {post.author?.name || "Anonymous"}
+                    </span>
+                    <p className="!text-sm">
                       <time dateTime={post.publishedAt}>{publishedDate}</time>
                     </p>
                   </div>
                 </div>
-                
-                <div className="hidden sm:flex items-center text-primary font-medium group-hover:translate-x-1 transition-transform">
-                  Read more →
-                </div>
-              </div>
-            </div>
 
-            {/* Image */}
-            <div className="order-1 lg:order-2">
-              <div className="relative w-full aspect-video lg:aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
-                <Image
-                  src={imageUrl}
-                  alt={post.mainImage?.alt || post.title}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
+                {/* <div className="hidden sm:flex items-center text-primary font-medium group-hover:translate-x-1 transition-transform">
+                  Read more →
+                </div> */}
               </div>
             </div>
           </div>
