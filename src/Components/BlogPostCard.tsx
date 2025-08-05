@@ -10,7 +10,7 @@ interface BlogPostCardProps {
 
 export default function BlogPostCard({ post, locale = 'en-US' }: BlogPostCardProps) {
   const imageUrl = post.mainImage 
-    ? urlFor(post.mainImage).width(600).height(400).url()
+    ? urlFor(post.mainImage).width(800).height(450).url()
     : '/placeholder-image.svg'
 
   const publishedDate = new Date(post.publishedAt).toLocaleDateString(locale, {
