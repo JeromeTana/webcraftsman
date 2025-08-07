@@ -52,7 +52,7 @@ export default function FeaturedBlogPostCard({ post, locale = 'en-US' }: Feature
               )}
 
               {/* Title */}
-              <h2 className="mb-4 text-3xl lg:text-4xl font-bold text-gray-900 group-hover:text-primary transition-colors leading-tight">
+              <h2 className="mb-4 text-3xl lg:text-4xl !font-semibold text-gray-900 group-hover:text-primary transition-colors !leading-snug">
                 {post.title}
               </h2>
 

@@ -50,7 +50,7 @@ export default function BlogPostCard({ post, locale = 'en-US' }: BlogPostCardPro
             )}
 
             {/* Title */}
-            <h2 className="mb-3 line-clamp-2 !leading-8 text-2xl font-bold text-gray-900 group-hover:text-primary transition-colors">
+            <h2 className="mb-3 line-clamp-2 !leading-snug text-2xl !font-semibold text-gray-900 group-hover:text-primary transition-colors">
               {post.title}
             </h2>
 

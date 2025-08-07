@@ -167,7 +167,7 @@ export default async function BlogPostsPage() {
             {/* Remaining Posts Grid */}
             {posts.length > 1 && (
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-8">
+                <h3 className="text-3xl font-bold text-gray-900 mb-8">
                   บทความล่าสุด
                 </h3>
                 <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">

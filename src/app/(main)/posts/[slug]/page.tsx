@@ -322,7 +322,7 @@ export default async function BlogPostPage({
   ];
 
   return (
-    <article className="min-h-screen md:mt-8 bg-white">
+    <article className="min-h-screen bg-white">
       {/* Structured Data */}
       <script
         type="application/ld+json"
@@ -332,23 +332,10 @@ export default async function BlogPostPage({
       />
 
       {/* Hero Section */}
-      <div className="relative md:px-4">
-        {imageUrl && (
-          <div className="relative max-w-5xl aspect-video mx-auto">
-            <Image
-              src={imageUrl}
-              alt={post.mainImage?.alt || post.title}
-              fill
-              className="object-cover md:rounded-3xl border border-gray-300"
-              priority
-            />
-          </div>
-        )}
-
-        {/* Breadcrumb Navigation */}
-
+      <div className="relative md:px-4 my-16">
         {/* Header Content */}
-        <div className="relative mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="relative mx-auto max-w-4xl px-4 pb-16 sm:px-6 lg:px-8">
+          {/* Breadcrumb Navigation */}
           <div className="mx-auto pb-8">
             <Breadcrumb items={breadcrumbItems} />
           </div>
@@ -396,6 +383,18 @@ export default async function BlogPostPage({
             </div>
           </div>
         </div>
+
+        {imageUrl && (
+          <div className="relative max-w-5xl aspect-video mx-auto">
+            <Image
+              src={imageUrl}
+              alt={post.mainImage?.alt || post.title}
+              fill
+              className="object-cover md:rounded-3xl border border-gray-300"
+              priority
+            />
+          </div>
+        )}
       </div>
 
       {/* Content */}
@@ -423,9 +422,7 @@ export default async function BlogPostPage({
                   <h3 className="text-center !text-3xl !font-semibold mb-8">
                     Get Your Free Website Audit
                   </h3>
-                  <button className="cta w-full">
-                    Claim Free Audit
-                  </button>
+                  <button className="cta w-full">Claim Free Audit</button>
                 </div>
 
                 <div className="w-full">
