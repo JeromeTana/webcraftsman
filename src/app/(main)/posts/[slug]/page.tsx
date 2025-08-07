@@ -8,7 +8,7 @@ import { Metadata } from "next";
 import Breadcrumb from "@/Components/Breadcrumb";
 
 // Force this page to use SSR instead of static generation
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 // Revalidate every 15 minutes for individual posts
 export const revalidate = 900;
 
@@ -346,11 +346,7 @@ export default async function BlogPostPage({
                 {post.categories.map((category) => (
                   <span
                     key={category.slug.current}
-                    className={`rounded-full px-3 py-1 text-xs font-medium ${
-                      imageUrl
-                        ? "bg-white bg-opacity-20 text-white"
-                        : "bg-blue-100 text-blue-800"
-                    }`}
+                    className={`rounded-full px-3 py-2 text-xs font-medium bg-primary/10 text-primary`}
                   >
                     {category.title}
                   </span>
