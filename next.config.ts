@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   
   // Enable Server-Side Rendering
-  output: 'standalone',
+  // output: 'standalone',
   
   images: {
     remotePatterns: [

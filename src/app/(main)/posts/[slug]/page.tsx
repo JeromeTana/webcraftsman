@@ -8,7 +8,7 @@ import { Metadata } from "next";
 import Breadcrumb from "@/Components/Breadcrumb";
 
 // Force this page to use SSR instead of static generation
-export const dynamic = 'force-dynamic';
+// export const dynamic = 'force-dynamic';
 
 // Portable Text components for rich content rendering
 const portableTextComponents = {

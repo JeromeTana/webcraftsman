@@ -1,3 +1,4 @@
+"use server"
 import { client } from './client'
 
 // Define the blog post type

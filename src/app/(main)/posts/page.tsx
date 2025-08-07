@@ -7,7 +7,7 @@ import { Metadata } from "next";
 import Breadcrumb from "@/Components/Breadcrumb";
 
 // Force this page to use SSR instead of static generation
-export const dynamic = 'force-dynamic';
+// export const dynamic = 'force-dynamic';
 
 // Generate metadata for SEO
 export const metadata: Metadata = {
