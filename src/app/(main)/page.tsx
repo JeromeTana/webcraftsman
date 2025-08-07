@@ -24,12 +24,9 @@ import {
 } from "@/data/pageData";
 import { getAllPosts } from "@/sanity/lib/queries";
 
-// Enable ISR with revalidation for better performance
-export const revalidate = 3600; // Revalidate every hour
-
 export default async function Home() {
   // Fetch blog posts for the blog section
-  const posts = await getAllPosts();
+  // const posts = await getAllPosts();
 
   return (
     <div>
@@ -81,7 +78,9 @@ export default async function Home() {
           title="ของเรา"
           highlightText="ผลงานล่าสุด"
           works={WORKS}
-          titleIcon={<></>}
+          titleIcon={
+            <AnimatedCategoryIcon className="bg-primary rounded-full p-2" />
+          }
         />
 
         <ProcessSection
@@ -97,25 +96,27 @@ export default async function Home() {
           title="สิ่งที่"
           highlightText="ลูกค้าของเรา"
           subtitle="พูดถึงเรา"
-          titleIcon={<></>}
+          titleIcon={
+            <AnimatedQuoteIcon className="bg-primary rounded-full p-2" />
+          }
           testimonial={TESTIMONIAL_DATA}
         />
 
-        <BlogSection
+        {/* <BlogSection
           pillText="Blog"
           title=""
           highlightText="ความรู้และบทความ"
           subtitle="ล่าสุดจากเรา"
           posts={posts}
           titleIcon={<></>}
-        />
+        /> */}
 
         <FAQSection
           pillText="FAQ"
           title="ที่พบบ่อย"
           highlightText="คำถาม"
           subtitle=""
-          titleIcon={<></>}
+          titleIcon={<AnimatedQuestionIcon className="animate-bounce" />}
           faqs={FAQS}
         />
       </main>
