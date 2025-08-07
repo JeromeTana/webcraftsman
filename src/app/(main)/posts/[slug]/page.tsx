@@ -7,6 +7,9 @@ import { urlFor } from "@/sanity/lib/image";
 import { Metadata } from "next";
 import Breadcrumb from "@/Components/Breadcrumb";
 
+// Force this page to use SSR instead of static generation
+export const dynamic = 'force-dynamic';
+
 // Portable Text components for rich content rendering
 const portableTextComponents = {
   types: {
@@ -236,14 +239,13 @@ export async function generateMetadata({
   };
 }
 
-// Generate static params for all blog posts
-export async function generateStaticParams() {
-  const posts = await getAllPosts();
-
-  return posts.map((post) => ({
-    slug: post.slug.current,
-  }));
-}
+// Removed generateStaticParams to enable SSR instead of SSG
+// export async function generateStaticParams() {
+//   const posts = await getAllPosts();
+//   return posts.map((post) => ({
+//     slug: post.slug.current,
+//   }));
+// }
 
 // Individual Blog Post Page
 export default async function BlogPostPage({

@@ -4,6 +4,15 @@ const nextConfig: NextConfig = {
   /* config options here */
   // cdn cdn.sanity.io
   reactStrictMode: true,
+  
+  // Enable Server-Side Rendering
+  output: 'standalone',
+  
+  // Disable static optimization to force SSR
+  experimental: {
+    dynamicIO: true,
+  },
+  
   images: {
     remotePatterns: [
       {

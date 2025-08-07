@@ -6,6 +6,9 @@ import FeaturedBlogPostCard from "@/Components/FeaturedBlogPostCard";
 import { Metadata } from "next";
 import Breadcrumb from "@/Components/Breadcrumb";
 
+// Force this page to use SSR instead of static generation
+export const dynamic = 'force-dynamic';
+
 // Generate metadata for SEO
 export const metadata: Metadata = {
   title: `Blog | ${process.env.NEXT_PUBLIC_SITE_NAME || "WEBCRAFTSMAN"}`,

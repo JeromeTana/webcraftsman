@@ -8,6 +8,9 @@ import {
   FAQSection,
   BlogSection,
 } from "@/Components/Sections";
+
+// Force this page to use SSR instead of static generation
+export const dynamic = 'force-dynamic';
 import { LucideCheck } from "@/Components/Icons/LucideCheck";
 import { LucideX } from "@/Components/Icons/LucideX";
 import Logo from "@/Components/Icons/Logo";
