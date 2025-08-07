@@ -8,11 +8,6 @@ const nextConfig: NextConfig = {
   // Enable Server-Side Rendering
   output: 'standalone',
   
-  // Disable static optimization to force SSR
-  experimental: {
-    dynamicIO: true,
-  },
-  
   images: {
     remotePatterns: [
       {
