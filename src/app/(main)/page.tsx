@@ -81,9 +81,7 @@ export default async function Home() {
           title="ของเรา"
           highlightText="ผลงานล่าสุด"
           works={WORKS}
-          titleIcon={
-            <AnimatedCategoryIcon className="bg-primary rounded-full p-2" />
-          }
+          titleIcon={<></>}
         />
 
         <ProcessSection
@@ -99,9 +97,7 @@ export default async function Home() {
           title="สิ่งที่"
           highlightText="ลูกค้าของเรา"
           subtitle="พูดถึงเรา"
-          titleIcon={
-            <AnimatedQuoteIcon className="bg-primary rounded-full p-2" />
-          }
+          titleIcon={<></>}
           testimonial={TESTIMONIAL_DATA}
         />
 
@@ -119,7 +115,7 @@ export default async function Home() {
           title="ที่พบบ่อย"
           highlightText="คำถาม"
           subtitle=""
-          titleIcon={<AnimatedQuestionIcon className="animate-bounce" />}
+          titleIcon={<></>}
           faqs={FAQS}
         />
       </main>
