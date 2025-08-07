@@ -34,14 +34,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
-        <script src="https://cdn.lordicon.com/lordicon.js"></script>
+        <script
+          src="https://cdn.lordicon.com/lordicon.js"
+          defer
+        ></script>
         <Hotjar />
         <GA4 />
       </head>
       <body
         className={`${ibmPlexSansThai.variable} ${sarabun.variable} antialiased`}
+        suppressHydrationWarning
       >
         <FollowCursor />
         <LenisScrollProvider>{children}</LenisScrollProvider>

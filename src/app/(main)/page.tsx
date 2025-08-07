@@ -26,6 +26,9 @@ import {
 } from "@/data/pageData";
 import { getAllPosts } from "@/sanity/lib/queries";
 
+// Enable ISR with revalidation for better performance
+export const revalidate = 3600; // Revalidate every hour
+
 export default async function Home() {
   // Fetch blog posts for the blog section
   const posts = await getAllPosts();

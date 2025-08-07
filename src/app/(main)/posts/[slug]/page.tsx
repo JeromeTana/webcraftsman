@@ -8,7 +8,9 @@ import { Metadata } from "next";
 import Breadcrumb from "@/Components/Breadcrumb";
 
 // Force this page to use SSR instead of static generation
-// export const dynamic = 'force-dynamic';
+export const dynamic = 'force-dynamic';
+// Revalidate every 15 minutes for individual posts
+export const revalidate = 900;
 
 // Portable Text components for rich content rendering
 const portableTextComponents = {

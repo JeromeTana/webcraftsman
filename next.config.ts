@@ -5,8 +5,10 @@ const nextConfig: NextConfig = {
   // cdn cdn.sanity.io
   reactStrictMode: true,
   
-  // Enable Server-Side Rendering
-  // output: 'standalone',
+  // Optimize for production builds
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production",
+  },
   
   images: {
     remotePatterns: [
