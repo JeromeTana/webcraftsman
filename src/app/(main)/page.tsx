@@ -8,7 +8,6 @@ import {
   FAQSection,
   BlogSection,
 } from "@/Components/Sections";
-
 import { LucideCheck } from "@/Components/Icons/LucideCheck";
 import { LucideX } from "@/Components/Icons/LucideX";
 import Logo from "@/Components/Icons/Logo";
@@ -26,7 +25,7 @@ import { getAllPosts } from "@/sanity/lib/queries";
 
 export default async function Home() {
   // Fetch blog posts for the blog section
-  // const posts = await getAllPosts();
+  const posts = await getAllPosts();
 
   return (
     <div>
@@ -102,14 +101,14 @@ export default async function Home() {
           testimonial={TESTIMONIAL_DATA}
         />
 
-        {/* <BlogSection
+        <BlogSection
           pillText="Blog"
           title=""
           highlightText="ความรู้และบทความ"
           subtitle="ล่าสุดจากเรา"
           posts={posts}
           titleIcon={<></>}
-        /> */}
+        />
 
         <FAQSection
           pillText="FAQ"
