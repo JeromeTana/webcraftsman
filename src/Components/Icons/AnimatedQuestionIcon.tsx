@@ -11,8 +11,13 @@ export default function AnimatedQuestionIcon(
   const playerRef = useRef<Player>(null);
 
   useEffect(() => {
-              setTimeout(() => playerRef.current?.playFromBeginning(), 1000)
-;
+    const timer = setTimeout(() => {
+      if (playerRef.current) {
+        playerRef.current.playFromBeginning();
+      }
+    }, 1000);
+    
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -20,8 +25,14 @@ export default function AnimatedQuestionIcon(
       <Player
         ref={playerRef}
         icon={ICON}
-        onComplete={() =>           setTimeout(() => playerRef.current?.playFromBeginning(), 1000)
-}
+        onComplete={() => {
+          const timer = setTimeout(() => {
+            if (playerRef.current) {
+              playerRef.current.playFromBeginning();
+            }
+          }, 1000);
+          return () => clearTimeout(timer);
+        }}
         size={48}
       />
     </div>

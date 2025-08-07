@@ -11,7 +11,13 @@ export default function AnimatedCalendarIcon(
   const playerRef = useRef<Player>(null);
 
   useEffect(() => {
-    setTimeout(() => playerRef.current?.playFromBeginning(), 1000);
+    const timer = setTimeout(() => {
+      if (playerRef.current) {
+        playerRef.current.playFromBeginning();
+      }
+    }, 1000);
+    
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -19,9 +25,14 @@ export default function AnimatedCalendarIcon(
       <Player
         ref={playerRef}
         icon={ICON}
-        onComplete={() =>
-          setTimeout(() => playerRef.current?.playFromBeginning(), 1000)
-        }
+        onComplete={() => {
+          const timer = setTimeout(() => {
+            if (playerRef.current) {
+              playerRef.current.playFromBeginning();
+            }
+          }, 1000);
+          return () => clearTimeout(timer);
+        }}
         size={50}
       />
     </div>
