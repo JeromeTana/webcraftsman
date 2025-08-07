@@ -8,6 +8,9 @@ interface FollowCursorProps {
 
 const FollowCursor: React.FC<FollowCursorProps> = ({ color = "#ffffff" }) => {
   useEffect(() => {
+    // Only run in browser environment
+    if (typeof window === 'undefined') return;
+    
     let canvas: HTMLCanvasElement;
     let context: CanvasRenderingContext2D | null;
     let animationFrame: number;

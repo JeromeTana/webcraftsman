@@ -30,7 +30,9 @@ export const CtaPopup: React.FC<CtaPopupProps> = ({
   const showPopup = useCallback(() => {
     setIsVisible(true);
     setHasBeenShown(true);
-    sessionStorage.setItem(SESSION_STORAGE_KEY, "true");
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem(SESSION_STORAGE_KEY, "true");
+    }
   }, []);
 
   const handleClose = useCallback(() => {
@@ -50,6 +52,9 @@ export const CtaPopup: React.FC<CtaPopupProps> = ({
   }, []);
 
   useEffect(() => {
+    // Only run in browser environment
+    if (typeof window === 'undefined') return;
+    
     // Register the trigger function
     triggerCtaPopup = showPopup;
 
