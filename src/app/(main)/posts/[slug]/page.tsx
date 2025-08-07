@@ -7,6 +7,37 @@ import { urlFor } from "@/sanity/lib/image";
 import { Metadata } from "next";
 import Breadcrumb from "@/Components/Breadcrumb";
 
+// Utility function to generate slug from text
+function generateSlug(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^\w\s\u0E00-\u0E7F-]/g, "") // Keep word characters, spaces, Thai characters (U+0E00-U+0E7F), and hyphens
+    .replace(/\s+/g, "-") // Replace spaces with hyphens
+    .replace(/-+/g, "-") // Replace multiple hyphens with single
+    .trim();
+}
+
+// Function to extract headings from portable text
+function extractHeadings(
+  body: any[]
+): { level: number; text: string; slug: string }[] {
+  const headings: { level: number; text: string; slug: string }[] = [];
+
+  body.forEach((block) => {
+    if (block._type === "block" && block.style === "h2") {
+      const text =
+        block.children?.map((child: any) => child.text).join("") || "";
+      if (text.trim()) {
+        const level = parseInt(block.style.substring(1)); // Extract number from h2
+        const slug = generateSlug(text);
+        headings.push({ level, text, slug });
+      }
+    }
+  });
+
+  return headings;
+}
+
 // Force this page to use SSR instead of static generation
 export const dynamic = "force-dynamic";
 // Revalidate every 15 minutes for individual posts
@@ -22,7 +53,7 @@ const portableTextComponents = {
           alt={value.alt || "Blog post image"}
           width={1600}
           height={900}
-          className="rounded-xl object-cover mx-auto border border-gray-300"
+          className="rounded-xl mx-auto border border-gray-300"
         />
         {value.caption && (
           <p className="mt-2 text-center !text-sm text-gray-600">
@@ -70,15 +101,45 @@ const portableTextComponents = {
     ),
   },
   block: {
-    h1: ({ children }: any) => (
-      <h1 className="text-3xl font-bold !mt-16 mb-4 !leading-12">{children}</h1>
-    ),
-    h2: ({ children }: any) => (
-      <h2 className="text-2xl font-bold !mt-16 mb-4 !leading-12">{children}</h2>
-    ),
-    h3: ({ children }: any) => (
-      <h3 className="text-xl font-bold !mt-16 mb-3 !leading-12">{children}</h3>
-    ),
+    h1: ({ children, value }: any) => {
+      const text =
+        value.children?.map((child: any) => child.text).join("") || "";
+      const slug = generateSlug(text);
+      return (
+        <h1
+          id={slug}
+          className="text-3xl font-bold !mt-16 mb-4 !leading-12 scroll-mt-24"
+        >
+          {children}
+        </h1>
+      );
+    },
+    h2: ({ children, value }: any) => {
+      const text =
+        value.children?.map((child: any) => child.text).join("") || "";
+      const slug = generateSlug(text);
+      return (
+        <h2
+          id={slug}
+          className="text-2xl font-bold !mt-16 mb-4 !leading-12 scroll-mt-24"
+        >
+          {children}
+        </h2>
+      );
+    },
+    h3: ({ children, value }: any) => {
+      const text =
+        value.children?.map((child: any) => child.text).join("") || "";
+      const slug = generateSlug(text);
+      return (
+        <h3
+          id={slug}
+          className="text-xl font-bold !mt-16 mb-3 !leading-12 scroll-mt-24"
+        >
+          {children}
+        </h3>
+      );
+    },
     normal: ({ children }: any) => (
       <p className="mb-4 !leading-10">{children}</p>
     ),
@@ -249,6 +310,37 @@ export async function generateMetadata({
 //   }));
 // }
 
+// TableOfContents component
+function TableOfContents({
+  headings,
+}: {
+  headings: { level: number; text: string; slug: string }[];
+}) {
+  if (headings.length === 0) return null;
+
+  return (
+    <div className="bg-gray-100 p-6 rounded-2xl">
+      <h3 className="text-lg font-semibold mb-4 text-gray-900 flex items-center gap-2">
+        Table of Contents
+      </h3>
+      <nav>
+        <ul className="space-y-2">
+          {headings.map((heading, index) => (
+            <li key={index}>
+              <a
+                href={`#${heading.slug}`}
+                className="block py-1 px-2 rounded text-sm hover:text-primary hover:bg-primary/5 transition-all duration-200 font-medium text-gray-700"
+              >
+                {heading.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+  );
+}
+
 // Individual Blog Post Page
 export default async function BlogPostPage({
   params,
@@ -261,6 +353,9 @@ export default async function BlogPostPage({
   if (!post) {
     notFound();
   }
+
+  // Extract headings for table of contents
+  const headings = extractHeadings(post.body || []);
 
   const imageUrl = post.mainImage
     ? urlFor(post.mainImage).width(2400).height(1350).url()
@@ -395,42 +490,51 @@ export default async function BlogPostPage({
 
       {/* Content */}
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-3 gap-8 w-full">
-          {/* Excerpt */}
-          {/* {post.excerpt && (
-              <div className="mb-8 text-xl leading-relaxed text-gray-600 border-l-4 border-blue-500 pl-6">
-                {post.excerpt}
-              </div>
-            )} */}
-
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 w-full">
           {/* Main Content */}
-          <div className="col-span-3 md:col-span-2 w-full prose prose-lg">
+          <div className="lg:col-span-2 w-full prose prose-lg max-w-none">
+            {/* Table of Contents - Mobile */}
+            <div className="lg:hidden mb-8">
+              <TableOfContents headings={headings} />
+            </div>
+
             <PortableText
               value={post.body}
               components={portableTextComponents}
             />
           </div>
 
-          <div className="hidden md:block">
-            <Link href="/roast">
-              <div className="sticky top-24 bg-primary/10 rounded-2xl">
-                <div className="p-8 space-y-8">
-                  <h3 className="text-center !text-3xl !font-semibold mb-8">
-                    Get Your Free Website Audit
-                  </h3>
-                  <button className="cta w-full">Claim Free Audit</button>
-                </div>
-
-                <div className="w-full">
-                  <Image
-                    src="/Roast_banner.png"
-                    alt="Get a free audit"
-                    width={400}
-                    height={300}
-                  />
-                </div>
+          {/* Sidebar */}
+          <div className="lg:col-span-1">
+            <div className="sticky top-24 space-y-6">
+              {/* Table of Contents - Desktop */}
+              <div className="hidden lg:block">
+                <TableOfContents headings={headings} />
               </div>
-            </Link>
+
+              {/* CTA Section */}
+              <Link href="/roast">
+                <div className="bg-primary/10 rounded-2xl">
+                  <div className="p-6 space-y-6">
+                    <h3 className="text-center text-2xl font-semibold mb-8">
+                      Get Your Free <br />
+                      Website Audit
+                    </h3>
+                    <button className="cta w-full">Claim Free Audit</button>
+                  </div>
+
+                  <div className="w-full">
+                    <Image
+                      src="/Roast_banner.png"
+                      alt="Get a free audit"
+                      width={400}
+                      height={300}
+                      className="w-full h-auto"
+                    />
+                  </div>
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
