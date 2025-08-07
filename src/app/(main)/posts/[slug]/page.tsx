@@ -320,7 +320,7 @@ function TableOfContents({
 
   return (
     <div className="bg-gray-100 p-6 rounded-2xl">
-      <h3 className="text-lg font-semibold mb-4 text-gray-900 flex items-center gap-2">
+      <h3 className="text-lg font-semibold mb-4 !mt-0 text-gray-900 flex items-center gap-2">
         Table of Contents
       </h3>
       <nav>
