@@ -22,10 +22,10 @@ const portableTextComponents = {
           alt={value.alt || "Blog post image"}
           width={1600}
           height={900}
-          className="rounded-xl aspect-video object-cover mx-auto border border-gray-300"
+          className="rounded-xl object-cover mx-auto border border-gray-300"
         />
         {value.caption && (
-          <p className="mt-2 text-center text-sm text-gray-600">
+          <p className="mt-2 text-center !text-sm text-gray-600">
             {value.caption}
           </p>
         )}
