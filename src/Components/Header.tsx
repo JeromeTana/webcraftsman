@@ -94,10 +94,10 @@ export default function Header() {
     },
   ];
 
-  // Define the mega menu structure for Values
-  const resourcesSections = [
+  // Define the mega menu structure for Value
+  const valueSections = [
     {
-      title: "Values",
+      title: "Value",
       icon: BookIcon,
       items: [
         {
@@ -164,7 +164,7 @@ export default function Header() {
               <MegaMenu trigger="Services" sections={servicesSections} />
             </li>
             <li>
-              <MegaMenu trigger="Values" sections={resourcesSections} />
+              <MegaMenu trigger="Value" sections={valueSections} />
             </li>
           </ul>
         </nav>
@@ -245,14 +245,14 @@ export default function Header() {
               </div>
             </li>
 
-            {/* Mobile Values Section */}
+            {/* Mobile Value Section */}
             <li>
               <div className="py-2">
                 <h3 className="text-lg font-semibold text-primary mb-2">
-                  Values
+                  Value
                 </h3>
                 <ul className="space-y-2 pl-4">
-                  {resourcesSections[0].items.map((item,index) => (
+                  {valueSections[0].items.map((item,index) => (
                     <li key={index}>
                       <a
                         href={item.href}

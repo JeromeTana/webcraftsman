@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function ValuesPage() {
+export default function ValuePage() {
   return (
     <div className="min-h-screen pt-24 px-4">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold text-primary mb-8">Values</h1>
+        <h1 className="text-4xl font-bold text-primary mb-8">Value</h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-foreground/5 p-6 rounded-lg">
             <h2 className="text-xl font-semibold mb-4">Learning Hub</h2>
@@ -19,7 +19,7 @@ export default function ValuesPage() {
           </div>
           
           <div className="bg-foreground/5 p-6 rounded-lg">
-            <h2 className="text-xl font-semibold mb-4">Tools & Values</h2>
+            <h2 className="text-xl font-semibold mb-4">Tools & Resource</h2>
             <p className="text-paragraph mb-4">
               Access our collection of templates, snippets, and assets.
             </p>
