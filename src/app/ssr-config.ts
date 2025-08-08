@@ -36,7 +36,7 @@ export function shouldUseSSR(pathname: string): boolean {
     '/posts/',
     '/about',
     '/showcase',
-    '/resources'
+    '/value'
   ];
   
   const dynamicPaths = [

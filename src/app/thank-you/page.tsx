@@ -116,10 +116,10 @@ export default function ThankYouPage() {
                 </Link>
                 
                 <Link 
-                  href="/resources"
+                  href="/value"
                   className="px-8 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium text-center"
                 >
-                  Browse Resources
+                  Browse Values
                 </Link>
               </div>
             </div>

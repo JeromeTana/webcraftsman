@@ -94,10 +94,10 @@ export default function Header() {
     },
   ];
 
-  // Define the mega menu structure for Resources
+  // Define the mega menu structure for Values
   const resourcesSections = [
     {
-      title: "Resources",
+      title: "Values",
       icon: BookIcon,
       items: [
         {
@@ -108,31 +108,31 @@ export default function Header() {
         },
         {
           name: "Design Guides",
-          href: "/resources/design-guides",
+          href: "/value/design-guides",
           description: "UI/UX best practices",
           icon: DesignIcon,
         },
         {
           name: "Templates",
-          href: "/resources/templates",
+          href: "/value/templates",
           description: "Pre-built design templates",
           icon: CodeIcon,
         },
         {
           name: "Development Tips",
-          href: "/resources/dev-tips",
+          href: "/value/dev-tips",
           description: "Code optimization techniques",
           icon: CodeIcon,
         },
         {
           name: "Development Tips",
-          href: "/resources/dev-tips",
+          href: "/value/dev-tips",
           description: "Code optimization techniques",
           icon: CodeIcon,
         },
         {
           name: "Development Tips",
-          href: "/resources/dev-tips",
+          href: "/value/dev-tips",
           description: "Code optimization techniques",
           icon: CodeIcon,
         },
@@ -164,7 +164,7 @@ export default function Header() {
               <MegaMenu trigger="Services" sections={servicesSections} />
             </li>
             <li>
-              <MegaMenu trigger="Resources" sections={resourcesSections} />
+              <MegaMenu trigger="Values" sections={resourcesSections} />
             </li>
           </ul>
         </nav>
@@ -245,11 +245,11 @@ export default function Header() {
               </div>
             </li>
 
-            {/* Mobile Resources Section */}
+            {/* Mobile Values Section */}
             <li>
               <div className="py-2">
                 <h3 className="text-lg font-semibold text-primary mb-2">
-                  Resources
+                  Values
                 </h3>
                 <ul className="space-y-2 pl-4">
                   {resourcesSections[0].items.map((item,index) => (
