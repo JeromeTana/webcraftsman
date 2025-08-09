@@ -52,13 +52,13 @@ export default function FeaturedBlogPostCard({ post, locale = 'en-US' }: Feature
               )}
 
               {/* Title */}
-              <h2 className="mb-4 text-3xl lg:text-4xl !font-semibold text-gray-900 group-hover:text-primary transition-colors !leading-snug">
+              <h2 className="mb-2 text-3xl lg:text-4xl !font-semibold text-gray-900 group-hover:text-primary transition-colors !leading-snug">
                 {post.title}
               </h2>
 
               {/* Excerpt */}
               {post.excerpt && (
-                <p className="mb-6 text-lg text-gray-700 leading-relaxed line-clamp-3">
+                <p className="mb-6 text-lg text-gray-700 leading-relaxed line-clamp-2">
                   {post.excerpt}
                 </p>
               )}
