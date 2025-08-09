@@ -55,9 +55,9 @@ export default function BlogPostCard({ post, locale = 'en-US' }: BlogPostCardPro
             </h2>
 
             {/* Excerpt */}
-            {post.excerpt && (
+            {/* {post.excerpt && (
               <p className="!text-base mb-4 line-clamp-3 text-gray-600">{post.excerpt}</p>
-            )}
+            )} */}
 
             {/* Meta */}
             <div className="flex items-center justify-between text-sm text-gray-500">
