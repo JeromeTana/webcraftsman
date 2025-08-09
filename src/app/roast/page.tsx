@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Logo from "@/Components/Icons/Logo";
 import { BookingRoastSection } from "@/Components/CtaPopup/BookingRoastSection";
@@ -9,7 +9,7 @@ import Image from "next/image";
 // Define the possible states
 type RoastPageState = "url-input" | "contact-form" | "success";
 
-export default function RoastPage() {
+function RoastPageContent() {
   const searchParams = useSearchParams();
   const [currentState, setCurrentState] = useState<RoastPageState>("url-input");
   const [websiteUrl, setWebsiteUrl] = useState("");
@@ -316,5 +316,18 @@ export default function RoastPage() {
         />
       </div> */}
     </div>
+  );
+}
+
+export default function RoastPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="text-center">
+        <div className="w-8 h-8 border-2 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+        <p>Loading...</p>
+      </div>
+    </div>}>
+      <RoastPageContent />
+    </Suspense>
   );
 }
