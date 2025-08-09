@@ -6,6 +6,8 @@ import { getPostBySlug, getAllPosts } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 import { Metadata } from "next";
 import Breadcrumb from "@/Components/Breadcrumb";
+import AuditUrlInput from "@/Components/AuditUrlInput";
+import MobileCTA from "@/Components/MobileCTA";
 
 // Utility function to generate slug from text
 function generateSlug(text: string): string {
@@ -179,8 +181,12 @@ const portableTextComponents = {
     ),
   },
   listItem: {
-    bullet: ({ children }: any) => <li className="mb-1">{children}</li>,
-    number: ({ children }: any) => <li className="mb-1">{children}</li>,
+    bullet: ({ children }: any) => (
+      <li className="mb-4 !leading-10">{children}</li>
+    ),
+    number: ({ children }: any) => (
+      <li className="mb-4 !leading-10">{children}</li>
+    ),
   },
 };
 
@@ -320,7 +326,7 @@ function TableOfContents({
 
   return (
     <div className="bg-gray-100 p-6 rounded-2xl">
-      <h3 className="text-lg font-semibold mb-4 !mt-0 text-gray-900 flex items-center gap-2">
+      <h3 className="!text-base font-semibold mb-4 !mt-0 text-gray-900 flex items-center gap-2">
         Table of Contents
       </h3>
       <nav>
@@ -489,8 +495,8 @@ export default async function BlogPostPage({
       </div>
 
       {/* Content */}
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 w-full">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pb-32 lg:pb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 w-full mb-20 lg:mb-0">
           {/* Main Content */}
           <div className="lg:col-span-2 w-full prose prose-lg max-w-none">
             {/* Table of Contents - Mobile */}
@@ -512,32 +518,33 @@ export default async function BlogPostPage({
                 <TableOfContents headings={headings} />
               </div>
 
-              {/* CTA Section */}
-              <Link href="/roast">
-                <div className="bg-primary/10 rounded-2xl">
-                  <div className="p-6 space-y-6">
-                    <h3 className="text-center text-2xl font-semibold mb-8">
-                      Get Your Free <br />
-                      Website Audit
-                    </h3>
-                    <button className="cta w-full">Claim Free Audit</button>
-                  </div>
-
-                  <div className="w-full">
-                    <Image
-                      src="/Roast_banner.png"
-                      alt="Get a free audit"
-                      width={400}
-                      height={300}
-                      className="w-full h-auto"
-                    />
-                  </div>
+              {/* CTA Section - Desktop Only */}
+              <div className="hidden lg:block bg-primary/10 rounded-2xl">
+                <div className="p-6 space-y-6">
+                  <h3 className="text-center text-2xl font-semibold mb-8">
+                    Get Your FREE <br />
+                    Website Audit
+                  </h3>
+                  <AuditUrlInput />
                 </div>
-              </Link>
+
+                <div className="w-full">
+                  <Image
+                    src="/Roast_banner.png"
+                    alt="Get a free audit"
+                    width={400}
+                    height={300}
+                    className="w-full h-auto"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Mobile CTA Section - Fixed Bottom */}
+      <MobileCTA />
     </article>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import Logo from "@/Components/Icons/Logo";
 import { BookingRoastSection } from "@/Components/CtaPopup/BookingRoastSection";
 import Image from "next/image";
@@ -9,6 +10,7 @@ import Image from "next/image";
 type RoastPageState = "url-input" | "contact-form" | "success";
 
 export default function RoastPage() {
+  const searchParams = useSearchParams();
   const [currentState, setCurrentState] = useState<RoastPageState>("url-input");
   const [websiteUrl, setWebsiteUrl] = useState("");
   const [formData, setFormData] = useState({
@@ -18,6 +20,20 @@ export default function RoastPage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+
+  // Handle URL parameters and sessionStorage
+  useEffect(() => {
+    const step = searchParams.get("step");
+    const storedUrl = sessionStorage.getItem("analysisWebsiteUrl");
+    
+    if (storedUrl) {
+      setWebsiteUrl(storedUrl);
+    }
+    
+    if (step === "contact" && storedUrl) {
+      setCurrentState("contact-form");
+    }
+  }, [searchParams]);
 
   // Handle URL form submission
   const handleUrlSubmit = (e: React.FormEvent) => {
