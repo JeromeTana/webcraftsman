@@ -182,10 +182,10 @@ const portableTextComponents = {
   },
   listItem: {
     bullet: ({ children }: any) => (
-      <li className="mb-4 !leading-10">{children}</li>
+      <li className="mb-2 !leading-10">{children}</li>
     ),
     number: ({ children }: any) => (
-      <li className="mb-4 !leading-10">{children}</li>
+      <li className="mb-2 !leading-10">{children}</li>
     ),
   },
 };

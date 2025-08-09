@@ -113,9 +113,9 @@ export default function Header() {
           icon: DesignIcon,
         },
         {
-          name: "Templates",
-          href: "/value/templates",
-          description: "Pre-built design templates",
+          name: "Assets",
+          href: "/value/assets",
+          description: "Design assets",
           icon: CodeIcon,
         },
         {
