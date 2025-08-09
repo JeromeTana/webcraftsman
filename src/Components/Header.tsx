@@ -161,7 +161,7 @@ export default function Header() {
               <RevealLink href="/showcase">Showcases</RevealLink>
             </li>
             <li>
-              <MegaMenu trigger="Services" sections={servicesSections} />
+              <RevealLink href="/service">Services</RevealLink>
             </li>
             <li>
               <MegaMenu trigger="Value" sections={valueSections} />
@@ -252,7 +252,7 @@ export default function Header() {
                   Value
                 </h3>
                 <ul className="space-y-2 pl-4">
-                  {valueSections[0].items.map((item,index) => (
+                  {valueSections[0].items.map((item, index) => (
                     <li key={index}>
                       <a
                         href={item.href}
