@@ -221,7 +221,7 @@ export async function generateMetadata({
       : `Read ${post.title} - A comprehensive blog post about ${categories || "web development"}.`);
 
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://webcraftsman.co";
-  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "WebCraftsman";
+  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "WEBCRAFTSMAN";
   const twitterHandle =
     process.env.NEXT_PUBLIC_TWITTER_HANDLE || "@webcraftsman";
   const url = `${baseUrl}/posts/${slug}`;

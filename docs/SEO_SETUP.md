@@ -1,7 +1,7 @@
 # SEO Configuration Documentation
 
 ## Overview
-This document explains the comprehensive SEO setup implemented for your WebCraftsman blog posts.
+This document explains the comprehensive SEO setup implemented for your WEBCRAFTSMAN blog posts.
 
 ## Features Implemented
 
@@ -41,7 +41,7 @@ Create a `.env.local` file with the following variables:
 ```env
 # Required for SEO
 NEXT_PUBLIC_SITE_URL=https://webcraftsman.co
-NEXT_PUBLIC_SITE_NAME=WebCraftsman
+NEXT_PUBLIC_SITE_NAME=WEBCRAFTSMAN
 
 # Social Media (Optional)
 NEXT_PUBLIC_TWITTER_HANDLE=@webcraftsman
