@@ -20,13 +20,13 @@ export default function FeaturedBlogPostCard({ post, locale = 'en-US' }: Feature
   })
 
   return (
-    <article className="group cursor-pointer mb-16">
+    <article className="group cursor-pointer mb-16 md:mb-32">
       <Link href={`/posts/${post.slug.current}`}>
         <div className="relative overflow-hidden">
           <div className="grid lg:grid-cols-3 gap-8 items-center">
             {/* Image */}
             <div className="order-1 lg:order-2 lg:col-span-2">
-              <div className="relative w-full aspect-video rounded-2xl overflow-hidden">
+              <div className="relative w-full aspect-video rounded-2xl border border-gray-300 overflow-hidden">
                 <Image
                   src={imageUrl}
                   alt={post.mainImage?.alt || post.title}
@@ -57,11 +57,11 @@ export default function FeaturedBlogPostCard({ post, locale = 'en-US' }: Feature
               </h2>
 
               {/* Excerpt */}
-              {post.excerpt && (
+              {/* {post.excerpt && (
                 <p className="mb-6 text-lg text-gray-700 leading-relaxed line-clamp-2">
                   {post.excerpt}
                 </p>
-              )}
+              )} */}
 
               {/* Meta */}
               <div className="flex items-center justify-between">
