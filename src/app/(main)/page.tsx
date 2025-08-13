@@ -22,18 +22,100 @@ import {
   TESTIMONIAL_DATA,
 } from "@/data/pageData";
 import { getAllPosts } from "@/sanity/lib/queries";
+import { siteUrl } from "../global";
 
 export default async function Home() {
   // Fetch blog posts for the blog section
   const posts = await getAllPosts();
 
+  // Structured data for homepage
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${siteUrl}/#organization`,
+        name: "WEBCRAFTSMAN",
+        url: siteUrl,
+        logo: {
+          "@type": "ImageObject",
+          url: `${siteUrl}/logo.svg`,
+        },
+        description: "รับออกแบบและพัฒนาเว็บไซต์ สำหรับธุรกิจ B2B เพื่อเพิ่มยอดขายและลูกค้าใหม่",
+        contactPoint: {
+          "@type": "ContactPoint",
+          contactType: "customer service",
+          availableLanguage: ["Thai", "English"],
+        },
+        sameAs: [
+          // Add your social media links here
+          // "https://facebook.com/webcraftsman",
+          // "https://twitter.com/webcraftsman",
+          // "https://linkedin.com/company/webcraftsman",
+        ],
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        url: siteUrl,
+        name: "WEBCRAFTSMAN",
+        description: "รับออกแบบและพัฒนาเว็บไซต์ สำหรับธุรกิจ B2B เพื่อเพิ่มยอดขายและลูกค้าใหม่",
+        publisher: {
+          "@id": `${siteUrl}/#organization`,
+        },
+        potentialAction: [
+          {
+            "@type": "SearchAction",
+            target: {
+              "@type": "EntryPoint",
+              urlTemplate: `${siteUrl}/posts?search={search_term_string}`,
+            },
+            "query-input": "required name=search_term_string",
+          },
+        ],
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${siteUrl}/#webpage`,
+        url: siteUrl,
+        name: "เปลี่ยนคนดูให้เป็นลูกค้า ด้วย Landing Page | WEBCRAFTSMAN",
+        isPartOf: {
+          "@id": `${siteUrl}/#website`,
+        },
+        about: {
+          "@id": `${siteUrl}/#organization`,
+        },
+        description: "เพิ่มช่องทางให้ลูกค้าหาใหม่เจอผ่าน Google ได้ง่าย และปิดยอดขายได้มากขึ้น",
+      },
+      {
+        "@type": "Service",
+        "@id": `${siteUrl}/#service`,
+        name: "Web Development & Landing Page Design",
+        description: "รับออกแบบและพัฒนาเว็บไซต์ Landing Page สำหรับธุรกิจ B2B",
+        provider: {
+          "@id": `${siteUrl}/#organization`,
+        },
+        serviceType: "Web Development",
+        areaServed: "Thailand",
+      },
+    ],
+  };
+
   return (
     <div>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
+      
       <main>
         <HeroSection
-          title="รับออกแบบและพัฒนาเว็บไซต์"
-          subtitle="สำหรับ"
-          highlightText="ธุรกิจ B2B"
+          title="เปลี่ยนคนดูให้เป็นลูกค้า"
+          subtitle="ด้วย "
+          highlightText="Landing Page"
           description="เพิ่มช่องทางให้ลูกค้าหาใหม่เจอผ่าน Google ได้ง่าย และปิดยอดขายได้มากขึ้น"
         />
 

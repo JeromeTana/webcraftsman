@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "seo-check": "./scripts/seo-check.sh",
+    "seo-audit": "lighthouse --only-categories=seo,performance,accessibility,best-practices --output=html --output-path=./seo-audit.html"
   },
   "dependencies": {
     "@calcom/embed-react": "^1.5.3",

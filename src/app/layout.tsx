@@ -4,29 +4,12 @@ import { ibmPlexSansThai, kanit, manrope, sarabun } from "./fonts";
 import LenisScrollProvider from "./providers/lenis-provider";
 import FollowCursor from "@/Components/FollowCursor";
 import Header from "@/Components/Header";
-import { description, tagline } from "./global";
+import { baseMetadata } from "./metadata";
 import Hotjar from "@/Components/Hotjar";
 import GA4 from "@/Components/GA4";
 import Footer from "@/Components/Footer";
 
-export const metadata: Metadata = {
-  title: tagline,
-  description: description,
-  openGraph: {
-    title: tagline,
-    description: description,
-    url: "https://www.webcraftsman.co",
-    siteName: "Webcraftsman",
-    images: [
-      {
-        url: "https://www.webcraftsman.co/OG_Home.png",
-        alt: "Open Graph Image",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-};
+export const metadata: Metadata = baseMetadata;
 
 export default function RootLayout({
   children,
