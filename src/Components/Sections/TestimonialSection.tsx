@@ -40,12 +40,22 @@ export default function TestimonialSection({
 }: TestimonialSectionProps) {
   const renderStars = (rating: number = 5) => {
     return Array.from({ length: rating }, (_, index) => (
-      <MaterialSymbolsStarRounded key={index} className="text-(--accent-yellow)" />
+      <MaterialSymbolsStarRounded
+        key={index}
+        className="text-(--accent-yellow)"
+        width={24}
+        height={24}
+        fill="currentColor"
+        aria-label={`Star ${index + 1}`}
+      />
     ));
   };
 
   return (
-    <section className={`flex flex-col items-center gap-8 ${maxWidth}`} id={sectionId}>
+    <section
+      className={`flex flex-col items-center gap-8 ${maxWidth}`}
+      id={sectionId}
+    >
       <div className="pill">
         <ShinyText text={pillText} speed={5} />
       </div>
@@ -68,52 +78,52 @@ export default function TestimonialSection({
           </span>
         </h2>
       </AnimatedContent>
-      
-      {testimonial.image && (
-        <Image
-          src={testimonial.image}
-          alt="Testimonial comparison"
-          width={1000}
-          height={1000}
-          className="w-full h-full object-cover rounded-3xl mb-16 border border-neutral-200"
-        />
-      )}
-      
-      {testimonial.rating && (
-        <div className="flex scale-150">
-          {renderStars(testimonial.rating)}
-        </div>
-      )}
-      
-      <div className="text-center mb-8">
-        <h3 className="text-3xl md:text-5xl mb-2 leading-snug">
-          "{testimonial.quote}"
-        </h3>
-        {testimonial.description && <p>{testimonial.description}</p>}
-      </div>
-      
-      <div className="flex items-center gap-6">
-        <div className="relative">
+      <div className="flex flex-col md:flex-row-reverse md:gap-8">
+        {testimonial.image && (
           <Image
-            src={testimonial.author.avatar}
-            alt={testimonial.author.name}
-            width={64}
-            height={64}
-            className="rounded-full"
+            src={testimonial.image}
+            alt="Testimonial comparison"
+            width={1000}
+            height={1000}
+            className="w-full h-full object-cover rounded-3xl mb-16 md:mb-0 border border-neutral-200"
           />
-          {testimonial.author.companyLogo && (
-            <Image
-              src={testimonial.author.companyLogo}
-              alt="Company logo"
-              width={40}
-              height={40}
-              className="rounded-full absolute -bottom-2 -right-4 border-2 border-background"
-            />
+        )}
+        <div className="flex flex-col w-full gap-6 px-4 md:px-8 items-center md:items-start">
+          {testimonial.rating && (
+            <div className="flex">{renderStars(testimonial.rating)}</div>
           )}
-        </div>
-        <div className="flex flex-col gap-1">
-          <p className="!text-black">{testimonial.author.name}</p>
-          <p className="!text-sm">{testimonial.author.title}</p>
+
+          <div className="mb-8 text-center md:text-start">
+            <h3 className="text-3xl mb-2 leading-snug">
+              "{testimonial.quote}"
+            </h3>
+            {testimonial.description && <p>{testimonial.description}</p>}
+          </div>
+
+          <div className="flex items-center gap-6">
+            <div className="relative">
+              <Image
+                src={testimonial.author.avatar}
+                alt={testimonial.author.name}
+                width={64}
+                height={64}
+                className="rounded-full"
+              />
+              {testimonial.author.companyLogo && (
+                <Image
+                  src={testimonial.author.companyLogo}
+                  alt="Company logo"
+                  width={40}
+                  height={40}
+                  className="rounded-full absolute -bottom-2 -right-4 border-2 border-background"
+                />
+              )}
+            </div>
+            <div className="flex flex-col gap-1">
+              <p className="!text-black">{testimonial.author.name}</p>
+              <p className="!text-sm">{testimonial.author.title}</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

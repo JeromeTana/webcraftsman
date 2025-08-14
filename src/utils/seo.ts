@@ -33,14 +33,13 @@ export function generateSEOMetadata({
     'ออกแบบเว็บไซต์',
     'พัฒนาเว็บไซต์',
     'Landing Page',
-    'B2B website',
     'SEO',
     'Digital Marketing',
     'Thailand web development',
   ]
 
   const fullTitle = title ? `${title} | WEBCRAFTSMAN` : 'WEBCRAFTSMAN'
-  const fullDescription = description || 'รับออกแบบและพัฒนาเว็บไซต์ สำหรับธุรกิจ B2B เพื่อเพิ่มยอดขายและลูกค้าใหม่'
+  const fullDescription = description || 'รับออกแบบและพัฒนาเว็บไซต์ สำหรับทำการตลาดออนไลน์ เพื่อเพิ่มยอดขายและลูกค้าใหม่'
   const fullImage = image || `${siteUrl}/OG_Home.png`
   const fullUrl = url || siteUrl
   const allKeywords = [...defaultKeywords, ...keywords]
@@ -110,7 +109,7 @@ export function generateOrganizationStructuredData() {
       '@type': 'ImageObject',
       url: `${siteUrl}/logo.svg`,
     },
-    description: 'รับออกแบบและพัฒนาเว็บไซต์ สำหรับธุรกิจ B2B เพื่อเพิ่มยอดขายและลูกค้าใหม่',
+    description: 'รับออกแบบและพัฒนาเว็บไซต์ สำหรับทำการตลาดออนไลน์ เพื่อเพิ่มยอดขายและลูกค้าใหม่',
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer service',
@@ -125,7 +124,7 @@ export function generateWebsiteStructuredData() {
     '@id': `${siteUrl}/#website`,
     url: siteUrl,
     name: 'WEBCRAFTSMAN',
-    description: 'รับออกแบบและพัฒนาเว็บไซต์ สำหรับธุรกิจ B2B เพื่อเพิ่มยอดขายและลูกค้าใหม่',
+    description: 'รับออกแบบและพัฒนาเว็บไซต์ สำหรับทำการตลาดออนไลน์ เพื่อเพิ่มยอดขายและลูกค้าใหม่',
     publisher: {
       '@id': `${siteUrl}/#organization`,
     },

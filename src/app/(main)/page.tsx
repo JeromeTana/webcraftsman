@@ -41,7 +41,7 @@ export default async function Home() {
           "@type": "ImageObject",
           url: `${siteUrl}/logo.svg`,
         },
-        description: "รับออกแบบและพัฒนาเว็บไซต์ สำหรับธุรกิจ B2B เพื่อเพิ่มยอดขายและลูกค้าใหม่",
+        description: "รับออกแบบและพัฒนาเว็บไซต์ สำหรับทำการตลาดออนไลน์ เพื่อเพิ่มยอดขายและลูกค้าใหม่",
         contactPoint: {
           "@type": "ContactPoint",
           contactType: "customer service",
@@ -59,7 +59,7 @@ export default async function Home() {
         "@id": `${siteUrl}/#website`,
         url: siteUrl,
         name: "WEBCRAFTSMAN",
-        description: "รับออกแบบและพัฒนาเว็บไซต์ สำหรับธุรกิจ B2B เพื่อเพิ่มยอดขายและลูกค้าใหม่",
+        description: "รับออกแบบและพัฒนาเว็บไซต์ สำหรับทำการตลาดออนไลน์ เพื่อเพิ่มยอดขายและลูกค้าใหม่",
         publisher: {
           "@id": `${siteUrl}/#organization`,
         },
@@ -78,7 +78,7 @@ export default async function Home() {
         "@type": "WebPage",
         "@id": `${siteUrl}/#webpage`,
         url: siteUrl,
-        name: "เปลี่ยนคนดูให้เป็นลูกค้า ด้วย Landing Page | WEBCRAFTSMAN",
+        name: "เปลี่ยนคนเข้าเว็บให้เป็นลูกค้า ด้วย Landing Page | WEBCRAFTSMAN",
         isPartOf: {
           "@id": `${siteUrl}/#website`,
         },
@@ -91,7 +91,7 @@ export default async function Home() {
         "@type": "Service",
         "@id": `${siteUrl}/#service`,
         name: "Web Development & Landing Page Design",
-        description: "รับออกแบบและพัฒนาเว็บไซต์ Landing Page สำหรับธุรกิจ B2B",
+        description: "รับออกแบบและพัฒนาเว็บไซต์ Landing Page สำหรับทำการตลาดออนไลน์",
         provider: {
           "@id": `${siteUrl}/#organization`,
         },
@@ -113,9 +113,9 @@ export default async function Home() {
       
       <main>
         <HeroSection
-          title="เปลี่ยนคนดูให้เป็นลูกค้า"
+          title="เปลี่ยนคนสนใจให้เป็นลูกค้า"
           subtitle="ด้วย "
-          highlightText="Landing Page"
+          highlightText="เว็บไซต์คุณภาพ"
           description="เพิ่มช่องทางให้ลูกค้าหาใหม่เจอผ่าน Google ได้ง่าย และปิดยอดขายได้มากขึ้น"
         />
 
@@ -142,7 +142,7 @@ export default async function Home() {
             logo: <Logo className="w-16 h-16 fill-primary text-primary" />,
             items: [
               "จัดการทุกอย่างภายใน 7 วัน",
-              "เน้นทำงานเฉพาะกลุ่มธุรกิจ B2B",
+              "เน้นทำงานเฉพาะกลุ่มทำการตลาดออนไลน์",
               "ให้คำปรึกษาอย่างมืออาชีพ",
               "จ่ายเริ่มต้นหลักพัน",
               "ดูแลอย่างใกล้ชิด ไว้ใจได้ตลอด 24 ชั่วโมง",

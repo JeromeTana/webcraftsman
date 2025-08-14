@@ -2,10 +2,10 @@ import { MetadataRoute } from 'next'
  
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "WEBCRAFTSMAN - รับออกแบบและพัฒนาเว็บไซต์สำหรับธุรกิจ B2B",
+    name: "WEBCRAFTSMAN - รับออกแบบและพัฒนาเว็บไซต์สำหรับทำการตลาดออนไลน์",
     short_name: "WEBCRAFTSMAN",
     description:
-      "รับออกแบบและพัฒนาเว็บไซต์ สำหรับธุรกิจ B2B เพื่อเพิ่มยอดขายและลูกค้าใหม่",
+      "รับออกแบบและพัฒนาเว็บไซต์ สำหรับทำการตลาดออนไลน์ เพื่อเพิ่มยอดขายและลูกค้าใหม่",
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",

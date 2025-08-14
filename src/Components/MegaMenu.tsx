@@ -116,83 +116,85 @@ export const MegaMenu = ({
                 >
                   <h3 className="font-semibold text-lg mb-4">Blog</h3>
                   <ul className="space-y-3">
-                    {isLoadingBlogs ? (
-                      // Loading skeleton
-                      Array.from({ length: 3 }).map((_, index) => (
-                        <motion.li
-                          key={`loading-${index}`}
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{
-                            duration: 0.2,
-                            delay: 0.1 + index * 0.05,
-                            ease: "easeOut",
-                          }}
-                        >
-                          <div className="flex gap-3 p-2 rounded-lg">
-                            <div className="w-8 h-8 bg-gray-200 rounded-md animate-pulse flex-shrink-0" />
-                            <div className="flex flex-col gap-1 flex-1">
-                              <div className="h-4 bg-gray-200 rounded animate-pulse" />
-                              <div className="h-3 bg-gray-100 rounded animate-pulse w-3/4" />
-                            </div>
-                          </div>
-                        </motion.li>
-                      ))
-                    ) : (
-                      blogPosts.map((post, itemIndex) => (
-                        <motion.li
-                          key={post._id}
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{
-                            duration: 0.2,
-                            delay: 0.1 + itemIndex * 0.05,
-                            ease: "easeOut",
-                          }}
-                        >
-                          <a
-                            href={`/posts/${post.slug.current}`}
-                            className="flex gap-3 group hover:bg-primary/5 rounded-lg p-2 transition-all duration-200"
+                    {isLoadingBlogs
+                      ? // Loading skeleton
+                        Array.from({ length: 3 }).map((_, index) => (
+                          <motion.li
+                            key={`loading-${index}`}
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{
+                              duration: 0.2,
+                              delay: 0.1 + index * 0.05,
+                              ease: "easeOut",
+                            }}
                           >
-                            {post.mainImage ? (
-                              <div className="w-8 h-8 rounded-md overflow-hidden flex-shrink-0 group-hover:scale-105 transition-transform duration-200">
-                                <Image
-                                  src={urlFor(post.mainImage).width(50).height(50).fit('crop').url()}
-                                  alt={post.mainImage.alt || post.title}
-                                  width={50}
-                                  height={50}
-                                  className="w-full h-full object-cover"
-                                />
-                              </div>
-                            ) : (
-                              <div className="w-8 h-8 p-1.5 bg-primary/10 rounded-md text-primary group-hover:text-primary/80 transition-colors flex-shrink-0 flex items-center justify-center">
-                                
-                              </div>
-                            )}
-                            <div className="flex flex-col gap-1">
-                              <div className="font-medium text-sm group-hover:text-primary transition-colors line-clamp-1">
-                                {post.title}
-                              </div>
-                              {post.excerpt && (
-                                <div className="text-xs text-gray-400 group-hover:text-paragraph/80 transition-colors line-clamp-2">
-                                  {post.excerpt}
-                                </div>
-                              )}
-                              <div className="text-xs text-gray-300">
-                                {new Date(post.publishedAt).toLocaleDateString('en-US', { 
-                                  month: 'short', 
-                                  day: 'numeric',
-                                  year: 'numeric'
-                                })}
+                            <div className="flex gap-3 p-2 rounded-lg">
+                              <div className="w-8 h-8 bg-gray-200 rounded-md animate-pulse flex-shrink-0" />
+                              <div className="flex flex-col gap-1 flex-1">
+                                <div className="h-4 bg-gray-200 rounded animate-pulse" />
+                                <div className="h-3 bg-gray-100 rounded animate-pulse w-3/4" />
                               </div>
                             </div>
-                          </a>
-                        </motion.li>
-                      ))
-                    )}
+                          </motion.li>
+                        ))
+                      : blogPosts.map((post, itemIndex) => (
+                          <motion.li
+                            key={post._id}
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{
+                              duration: 0.2,
+                              delay: 0.1 + itemIndex * 0.05,
+                              ease: "easeOut",
+                            }}
+                          >
+                            <a
+                              href={`/posts/${post.slug.current}`}
+                              className="flex gap-3 group hover:bg-primary/5 rounded-lg p-2 transition-all duration-200"
+                            >
+                              {post.mainImage ? (
+                                <div className="w-8 h-8 rounded-md overflow-hidden flex-shrink-0 group-hover:scale-105 transition-transform duration-200">
+                                  <Image
+                                    src={urlFor(post.mainImage)
+                                      .width(50)
+                                      .height(50)
+                                      .fit("crop")
+                                      .url()}
+                                    alt={post.mainImage.alt || post.title}
+                                    width={50}
+                                    height={50}
+                                    className="w-full h-full object-cover"
+                                  />
+                                </div>
+                              ) : (
+                                <div className="w-8 h-8 p-1.5 bg-primary/10 rounded-md text-primary group-hover:text-primary/80 transition-colors flex-shrink-0 flex items-center justify-center"></div>
+                              )}
+                              <div className="flex flex-col gap-1">
+                                <div className="font-medium text-sm group-hover:text-primary transition-colors line-clamp-1">
+                                  {post.title}
+                                </div>
+                                {post.excerpt && (
+                                  <div className="text-xs text-gray-400 group-hover:text-paragraph/80 transition-colors line-clamp-2">
+                                    {post.excerpt}
+                                  </div>
+                                )}
+                                {/* <div className="text-xs text-gray-300">
+                                  {new Date(
+                                    post.publishedAt
+                                  ).toLocaleDateString("en-US", {
+                                    month: "short",
+                                    day: "numeric",
+                                    year: "numeric",
+                                  })}
+                                </div> */}
+                              </div>
+                            </a>
+                          </motion.li>
+                        ))}
                   </ul>
-                  <a 
-                    href="/posts" 
+                  <a
+                    href="/posts"
                     className="inline-block text-sm text-primary hover:text-primary/80 font-medium transition-colors mt-4"
                   >
                     View All →
@@ -249,7 +251,7 @@ export const MegaMenu = ({
                   </button>
                 </motion.div>
 
-                {/* Affiliate Software Column */}
+                {/* Design Tips Column */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -260,7 +262,7 @@ export const MegaMenu = ({
                   }}
                   className="space-y-4"
                 >
-                  <h3 className="font-semibold text-lg mb-4">Affiliate Software</h3>
+                  <h3 className="font-semibold text-lg mb-4">Design Tips</h3>
                   <ul className="space-y-3">
                     {sections[2]?.items.slice(0, 4).map((item, itemIndex) => (
                       <motion.li

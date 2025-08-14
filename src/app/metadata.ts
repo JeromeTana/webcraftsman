@@ -41,7 +41,7 @@ export const baseMetadata: Metadata = {
         url: `${siteUrl}/OG_Home.png`,
         width: 1200,
         height: 630,
-        alt: 'WEBCRAFTSMAN - รับออกแบบและพัฒนาเว็บไซต์สำหรับธุรกิจ B2B',
+        alt: 'WEBCRAFTSMAN - รับออกแบบและพัฒนาเว็บไซต์สำหรับทำการตลาดออนไลน์',
       },
     ],
   },
