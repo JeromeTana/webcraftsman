@@ -10,6 +10,7 @@ html {
   --background-dark: #000000;
   --foreground-dark: #0e0e0e;
   --primary: #1d3fd7;
+  /* --primary: #3058ea; */
   --primary-dark: #1d3fd7;
   --accent-green: #01d3ad;
   --accent-yellow: #FDB022;
@@ -17,6 +18,7 @@ html {
   --border: #e4e4e4;
   --border-dark: #323232;
   --border-highlight: #1d3fd7;
+  /* --border-highlight: #3d5de8; */
 }
 
 @keyframes star-movement-bottom {
