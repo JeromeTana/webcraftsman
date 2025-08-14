@@ -26,7 +26,7 @@ export default function AuditForm() {
           name="website"
           placeholder="https://yourwebsite.com"
           required
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
         />
       </div>
 
@@ -41,7 +41,7 @@ export default function AuditForm() {
           name="goal"
           placeholder="Get more leads, increase sales, grow email list..."
           required
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
         />
       </div>
 
@@ -57,7 +57,7 @@ export default function AuditForm() {
             name="name"
             placeholder="Jerome Tana"
             required
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
           />
         </div>
         
@@ -71,7 +71,7 @@ export default function AuditForm() {
             name="email"
             placeholder="you@example.com"
             required
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
           />
         </div>
       </div>
@@ -89,7 +89,7 @@ export default function AuditForm() {
             name="instagram"
             placeholder="yourhandle"
             required
-            className="w-full pl-8 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            className="w-full pl-8 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
           />
         </div>
       </div>

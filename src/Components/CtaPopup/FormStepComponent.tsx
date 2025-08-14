@@ -25,7 +25,7 @@ export const FormStepComponent: React.FC<FormStepComponentProps> = ({
           onClick={() => onOptionSelect(step.field, option)}
           className={`p-4 rounded-full border transition-all duration-200 text-center cursor-pointer ${
             formData[step.field] === option
-              ? "border-blue-500 bg-blue-50 text-blue-700"
+              ? "border-primary bg-blue-50 text-blue-700"
               : "border-gray-200 hover:border-gray-300 text-gray-700"
           }`}
         >
@@ -49,7 +49,7 @@ export const FormStepComponent: React.FC<FormStepComponentProps> = ({
           type="text"
           value={formData.businessName}
           onChange={(e) => onInputChange("businessName", e.target.value)}
-          className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent"
           placeholder="กรอกชื่อธุรกิจของคุณ"
           autoFocus
         />
@@ -65,7 +65,7 @@ export const FormStepComponent: React.FC<FormStepComponentProps> = ({
           id="businessDescription"
           value={formData.businessDescription}
           onChange={(e) => onInputChange("businessDescription", e.target.value)}
-          className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent h-24 resize-none"
+          className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent h-24 resize-none"
           placeholder="กรอกคำอธิบายธุรกิจของคุณคร่าว ๆ ว่าทำเกี่ยวกับอะไร ตอนนี้เป็นอย่างไร"
         />
       </div>
@@ -82,7 +82,7 @@ export const FormStepComponent: React.FC<FormStepComponentProps> = ({
             type="url"
             value={formData.currentWebsiteUrl}
             onChange={(e) => onInputChange("currentWebsiteUrl", e.target.value)}
-            className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent"
             placeholder="https://yourwebsite.com"
           />
         </div>
@@ -104,7 +104,7 @@ export const FormStepComponent: React.FC<FormStepComponentProps> = ({
           type="text"
           value={formData.fullName}
           onChange={(e) => onInputChange("fullName", e.target.value)}
-          className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent"
           placeholder="กรอกชื่อ-นามสกุลของคุณ"
         />
       </div>
@@ -120,7 +120,7 @@ export const FormStepComponent: React.FC<FormStepComponentProps> = ({
           type="email"
           value={formData.email}
           onChange={(e) => onInputChange("email", e.target.value)}
-          className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent"
           placeholder="กรอกอีเมลของคุณ"
         />
       </div>
@@ -136,7 +136,7 @@ export const FormStepComponent: React.FC<FormStepComponentProps> = ({
           type="tel"
           value={formData.phone}
           onChange={(e) => onInputChange("phone", e.target.value)}
-          className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          className="w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent"
           placeholder="กรอกเบอร์โทรศัพท์ของคุณ"
         />
       </div>

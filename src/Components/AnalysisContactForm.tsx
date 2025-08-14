@@ -108,7 +108,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSubmitted }) => {
             value={formData.name}
             onChange={(e) => handleInputChange("name", e.target.value)}
             placeholder="Jerome Tana"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
             disabled={isSubmitting}
             required
           />
@@ -124,7 +124,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSubmitted }) => {
             value={formData.email}
             onChange={(e) => handleInputChange("email", e.target.value)}
             placeholder="you@example.com"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
             disabled={isSubmitting}
             required
           />
@@ -140,7 +140,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSubmitted }) => {
             value={formData.phone}
             onChange={(e) => handleInputChange("phone", e.target.value)}
             placeholder="+1 (555) 123-4567"
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
             disabled={isSubmitting}
             required
           />

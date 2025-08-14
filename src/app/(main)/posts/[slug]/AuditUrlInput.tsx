@@ -49,7 +49,7 @@ export default function AuditUrlInput() {
         value={websiteUrl}
         onChange={(e) => setWebsiteUrl(e.target.value)}
         placeholder="https://yourwebsite.com"
-        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors text-sm"
+        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors text-sm"
         disabled={isAnalyzing}
       />
       <button

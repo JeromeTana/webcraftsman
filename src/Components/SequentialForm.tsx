@@ -159,7 +159,7 @@ export default function SequentialForm() {
               onChange={(e) => handleInputChange(e.target.value)}
               onKeyPress={handleKeyPress}
               placeholder={currentQuestion.placeholder}
-              className="w-full pl-8 pr-4 py-4 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+              className="w-full pl-8 pr-4 py-4 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
               autoFocus
             />
           </div>
@@ -170,7 +170,7 @@ export default function SequentialForm() {
             onChange={(e) => handleInputChange(e.target.value)}
             onKeyPress={handleKeyPress}
             placeholder={currentQuestion.placeholder}
-            className="w-full px-4 py-4 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            className="w-full px-4 py-4 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
             autoFocus
           />
         )}
