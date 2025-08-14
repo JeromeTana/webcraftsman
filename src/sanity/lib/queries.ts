@@ -26,6 +26,7 @@ export interface BlogPost {
         _type: string
       }
     }
+    bio?: string
   }
   categories?: Array<{
     title: string
@@ -85,6 +86,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
       },
       author-> {
         name,
+        bio,
         image {
           asset
         }
@@ -101,5 +103,71 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
   } catch (error) {
     console.error('Error fetching post:', error)
     return null
+  }
+}
+
+// Fetch previous and next posts
+export async function getPreviousAndNextPosts(publishedAt: string, currentId: string): Promise<{
+  previous: BlogPost | null;
+  next: BlogPost | null;
+}> {
+  const previousQuery = `
+    *[_type == "post" && publishedAt < $publishedAt && _id != $currentId] | order(publishedAt desc)[0] {
+      _id,
+      title,
+      slug,
+      publishedAt,
+      excerpt,
+      mainImage {
+        asset,
+        alt
+      },
+      author-> {
+        name,
+        image {
+          asset
+        }
+      },
+      categories[]-> {
+        title,
+        slug
+      }
+    }
+  `
+  
+  const nextQuery = `
+    *[_type == "post" && publishedAt > $publishedAt && _id != $currentId] | order(publishedAt asc)[0] {
+      _id,
+      title,
+      slug,
+      publishedAt,
+      excerpt,
+      mainImage {
+        asset,
+        alt
+      },
+      author-> {
+        name,
+        image {
+          asset
+        }
+      },
+      categories[]-> {
+        title,
+        slug
+      }
+    }
+  `
+  
+  try {
+    const [previous, next] = await Promise.all([
+      client.fetch(previousQuery, { publishedAt, currentId }),
+      client.fetch(nextQuery, { publishedAt, currentId })
+    ])
+    
+    return { previous: previous || null, next: next || null }
+  } catch (error) {
+    console.error('Error fetching previous/next posts:', error)
+    return { previous: null, next: null }
   }
 }

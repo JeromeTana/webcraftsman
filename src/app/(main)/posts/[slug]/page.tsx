@@ -2,12 +2,15 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { PortableText } from "@portabletext/react";
-import { getPostBySlug, getAllPosts } from "@/sanity/lib/queries";
+import { getPostBySlug, getAllPosts, getPreviousAndNextPosts } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 import { Metadata } from "next";
 import Breadcrumb from "@/Components/Breadcrumb";
 import AuditUrlInput from "@/Components/AuditUrlInput";
 import MobileCTA from "@/Components/MobileCTA";
+import BlogNavigation from "@/Components/BlogNavigation";
+import AuthorCard from "@/Components/AuthorCard";
+import SocialShare from "@/Components/SocialShare";
 
 // Utility function to generate slug from text
 function generateSlug(text: string): string {
@@ -363,6 +366,9 @@ export default async function BlogPostPage({
   // Extract headings for table of contents
   const headings = extractHeadings(post.body || []);
 
+  // Get previous and next posts
+  const { previous, next } = await getPreviousAndNextPosts(post.publishedAt, post._id);
+
   const imageUrl = post.mainImage
     ? urlFor(post.mainImage).width(2400).height(1350).url()
     : null;
@@ -538,8 +544,36 @@ export default async function BlogPostPage({
                   />
                 </div>
               </div>
+
+              {/* Social Share - Desktop */}
+              <div className="hidden lg:block">
+                <SocialShare
+                  url={`${baseUrl}/posts/${slug}`}
+                  title={post.title}
+                  description={post.excerpt}
+                />
+              </div>
             </div>
           </div>
+        </div>
+
+        {/* Social Share - Mobile */}
+        <div className="lg:hidden mb-8">
+          <SocialShare
+            url={`${baseUrl}/posts/${slug}`}
+            title={post.title}
+            description={post.excerpt}
+          />
+        </div>
+
+        {/* Author Card */}
+        <div className="mt-16">
+          <AuthorCard author={post.author} siteName={siteName} />
+        </div>
+
+        {/* Previous/Next Navigation */}
+        <div className="mt-16">
+          <BlogNavigation previous={previous} next={next} />
         </div>
       </div>
 
