@@ -13,7 +13,6 @@ export const baseMetadata: Metadata = {
     'ออกแบบเว็บไซต์',
     'พัฒนาเว็บไซต์',
     'Landing Page',
-    'B2B website',
     'SEO',
     'Digital Marketing',
     'Thailand web development',
