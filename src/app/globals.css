@@ -197,10 +197,10 @@ button.cta:hover {
 
 button.cta:disabled {
   background: var(--foreground);
-  color: var(--paragraph);
+  color: hsl(0, 0%, 80%);
   cursor: not-allowed;
   box-shadow: none;
-  border: solid var(--border) 1px;
+  border: none;
 }
 
 section {
