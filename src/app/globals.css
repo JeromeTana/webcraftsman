@@ -14,7 +14,7 @@ html {
   --primary-dark: #1d3fd7;
   --accent-green: #01d3ad;
   --accent-yellow: #FDB022;
-  --paragraph: hsl(240, 10%, 38%);
+  --paragraph: #57576b;
   --border: #e4e4e4;
   --border-dark: #323232;
   --border-highlight: #1d3fd7;
@@ -190,9 +190,17 @@ button.cta {
   gap: 0.5rem;
 }
 
-.cta:hover {
+button.cta:hover {
   background: #172f99;
   transform: scale(0.98);
+}
+
+button.cta:disabled {
+  background: var(--foreground);
+  color: var(--paragraph);
+  cursor: not-allowed;
+  box-shadow: none;
+  border: solid var(--border) 1px;
 }
 
 section {
