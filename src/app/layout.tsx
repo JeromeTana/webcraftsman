@@ -9,6 +9,7 @@ import Hotjar from "@/Components/Hotjar";
 import GA4 from "@/Components/GA4";
 import Footer from "@/Components/Footer";
 import FacebookPixel from "@/Components/FacebookPixel";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata: Metadata = baseMetadata;
 
@@ -22,7 +23,8 @@ export default function RootLayout({
       <head>
         <script src="https://cdn.lordicon.com/lordicon.js" defer></script>
         <Hotjar />
-        <GA4 />
+        {/* <GA4 /> */}
+        <GoogleAnalytics gaId="G-H98Z69VQWL" />
         <FacebookPixel />
       </head>
       <body

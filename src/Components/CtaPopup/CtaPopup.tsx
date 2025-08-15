@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { LucideX } from "../Icons/LucideX";
 import { CtaPopupProps } from "./types";
 import { SurveyForm } from "./SurveyForm";
+import { sendGAEvent } from "@next/third-parties/google";
 
 // Global function to trigger popup from anywhere
 let triggerCtaPopup: (() => void) | null = null;
@@ -48,34 +49,36 @@ export const CtaPopup: React.FC<CtaPopupProps> = ({
 
   const handleSubmitted = useCallback(() => {
     // Track GA4 conversion event
-    if (typeof window !== "undefined" && (window as any).gtag) {
-      (window as any).gtag("event", "conversion", {
-        event_category: "Survey",
-        event_label: "CTA Popup Survey Completed",
-        value: 1,
-      });
+    sendGAEvent("event", "generate_lead", { value: 1 });
 
-      // Track custom event for lead generation
-      (window as any).gtag("event", "generate_lead", {
-        event_category: "Lead Generation",
-        event_label: "CTA Popup Survey Lead",
-        value: 1,
-      });
-    }
+    // if (typeof window !== "undefined" && (window as any).gtag) {
+    //   (window as any).gtag("event", "conversion", {
+    //     event_category: "Survey",
+    //     event_label: "CTA Popup Survey Completed",
+    //     value: 1,
+    //   });
+
+    // Track custom event for lead generation
+    //   (window as any).gtag("event", "generate_lead", {
+    //     event_category: "Lead Generation",
+    //     event_label: "CTA Popup Survey Lead",
+    //     value: 1,
+    //   });
+    // }
 
     // Track Facebook Pixel event
-    if (typeof window !== "undefined" && (window as any).fbq) {
-      (window as any).fbq("track", "Lead", {
-        content_name: "CTA Popup Survey",
-        content_category: "Survey Completion",
-      });
+    // if (typeof window !== "undefined" && (window as any).fbq) {
+    //   (window as any).fbq("track", "Lead", {
+    //     content_name: "CTA Popup Survey",
+    //     content_category: "Survey Completion",
+    //   });
 
-      // Track custom conversion event
-      (window as any).fbq("trackCustom", "SurveyCompleted", {
-        source: "CTA Popup",
-        form_type: "Survey",
-      });
-    }
+    //   // Track custom conversion event
+    //   (window as any).fbq("trackCustom", "SurveyCompleted", {
+    //     source: "CTA Popup",
+    //     form_type: "Survey",
+    //   });
+    // }
 
     console.log("Survey submitted - tracking events fired");
   }, []);
