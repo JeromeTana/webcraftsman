@@ -8,6 +8,7 @@ import { baseMetadata } from "./metadata";
 import Hotjar from "@/Components/Hotjar";
 import GA4 from "@/Components/GA4";
 import Footer from "@/Components/Footer";
+import FacebookPixel from "@/Components/FacebookPixel";
 
 export const metadata: Metadata = baseMetadata;
 
@@ -19,12 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <script
-          src="https://cdn.lordicon.com/lordicon.js"
-          defer
-        ></script>
+        <script src="https://cdn.lordicon.com/lordicon.js" defer></script>
         <Hotjar />
         <GA4 />
+        <FacebookPixel />
       </head>
       <body
         className={`${ibmPlexSansThai.variable} ${sarabun.variable} antialiased`}

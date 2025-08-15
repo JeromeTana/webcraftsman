@@ -8,18 +8,21 @@ export async function POST(request: Request) {
     const formData = await request.json();
 
     // Validate required fields
-    if (!formData.fullName || !formData.email || !formData.businessName) {
+    if (!formData.firstName || !formData.lastName || !formData.email) {
       return Response.json(
         { error: "Missing required fields" }, 
         { status: 400 }
       );
     }
 
+    // Create full name for backward compatibility
+    const fullName = `${formData.firstName} ${formData.lastName}`.trim();
+
     const { data, error } = await resend.emails.send({
-      from: "Jerome <jerome@mail.webcraftsman.co>",
-      to: ["naronkrach@gmail.com"], // Your email where you want to receive form submissions
-      subject: `New Website Strategy Survey: ${formData.businessName}`,
-      react: SurveyFormTemplate({ formData }),
+      from: "Jerome from WEBCRAFTSMAN <jerome@mail.webcraftsman.co>",
+      to: ["jerome@webcraftsman.co"], // Your email where you want to receive form submissions
+      subject: `New Website Strategy Survey: ${fullName}`,
+      react: SurveyFormTemplate({ formData: { ...formData, fullName } }),
     });
 
     if (error) {
@@ -30,15 +33,17 @@ export async function POST(request: Request) {
     // Optionally, you can also send a confirmation email to the user
     try {
       await resend.emails.send({
-        from: "Jerome <jerome@mail.webcraftsman.co>",
+        from: "Jerome from WEBCRAFTSMAN <jerome@mail.webcraftsman.co>",
         to: [formData.email],
-        subject: "Thank you for your website strategy survey!",
+        subject:
+          "ขอบคุณสำหรับการตอบแบบสำรวจกลยุทธ์เว็บไซต์บน webcraftsman.co ครับ",
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-            <h1 style="color: #333;">Thank you, ${formData.fullName}!</h1>
-            <p>I've received your website strategy survey and will be in touch soon to discuss your project.</p>
-            <p>In the meantime, feel free to schedule a consultation call at your convenience.</p>
-            <p>Best regards,<br>Jerome<br>WEBCRAFTSMAN</p>
+        <h1 style="color: #333;">ขอบคุณครับ คุณ${formData.firstName}</h1>
+        <p>ทางเราได้รับแบบสำรวจกลยุทธ์เว็บไซต์ของคุณแล้ว และจะติดต่อกลับเพื่อพูดคุยเกี่ยวกับโปรเจกต์ของคุณอย่างเร็วที่สุดครับ</p>
+        <p>ในระหว่างนี้ คุณ${formData.firstName}สามารถนัดหมายเพื่อปรึกษาเพิ่มเติมจากตารางที่กำลังแสดงบนเว็บไซต์ได้ตามสะดวกครับ</p>
+        <br>
+        <p>Best regards,<br>Jerome<br>WEBCRAFTSMAN</p>
           </div>
         `,
       });

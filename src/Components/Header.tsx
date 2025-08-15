@@ -48,47 +48,47 @@ export default function Header() {
   //   };
   // }, [isMobileMenuOpen]);
 
-  // Define the mega menu structure for Services
+    // Define the mega menu structure for Services
   const servicesSections = [
     {
       title: "Services",
       icon: BriefcaseIcon,
       items: [
         {
-          name: "Web Development",
-          href: "/services/web-development",
-          description: "Custom websites and applications",
+          name: "Landing Page & Website",
+          href: "/service/web-development",
+          description: "Custom websites and landing pages",
           icon: CodeIcon,
         },
         {
-          name: "UI/UX Design",
-          href: "/services/ui-ux-design",
-          description: "User-centered design solutions",
+          name: "Website Audit",
+          href: "/roast",
+          description: "Free website analysis and optimization",
           icon: DesignIcon,
         },
         {
-          name: "E-commerce",
-          href: "/services/ecommerce",
-          description: "Online store development",
-          icon: BriefcaseIcon,
+          name: "SEO",
+          href: "/service/seo",
+          description: "Search engine optimization",
+          icon: BookIcon,
         },
         {
-          name: "Consulting",
-          href: "/services/consulting",
-          description: "Strategic digital guidance",
+          name: "Conversion Rate Optimization",
+          href: "/service/consulting",
+          description: "Improve conversion and sales",
           icon: ToolIcon,
         },
         {
-          name: "Maintenance",
-          href: "/services/maintenance",
+          name: "Maintenance Support",
+          href: "/service/maintenance",
           description: "Ongoing support and updates",
           icon: ToolIcon,
         },
         {
-          name: "SEO Optimization",
-          href: "/services/seo",
-          description: "Search engine optimization",
-          icon: BookIcon,
+          name: "E-Commerce",
+          href: "/service/ecommerce",
+          description: "Online store development (Coming Soon)",
+          icon: BriefcaseIcon,
         },
       ],
     },

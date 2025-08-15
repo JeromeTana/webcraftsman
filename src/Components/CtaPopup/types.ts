@@ -1,16 +1,26 @@
 export interface FormData {
-  businessName: string;
-  businessDescription: string;
-  hasWebsite: string;
+  // businessName: string;
+  // businessDescription: string;
   currentWebsiteUrl: string;
-  mainGoal: string;
+  // mainGoal: string;
   biggestChallenge: string;
   timeline: string;
   budget: string;
-  contentReady: string;
-  fullName: string;
+  monthlyRevenue: string;
+  // contentReady: string;
+  firstName: string;
+  lastName: string;
   email: string;
   phone: string;
+}
+
+export interface ValidationResult {
+  isValid: boolean;
+  message?: string;
+}
+
+export interface FormErrors {
+  [key: string]: string | undefined;
 }
 
 export interface FormStep {
@@ -19,7 +29,8 @@ export interface FormStep {
   field: keyof FormData;
   options?: string[];
   type: 'select' | 'input' | 'textarea' | 'contact' | 'business';
-  validation?: (value: string) => boolean;
+  validation?: (value: string) => ValidationResult;
+  required?: boolean;
   helpText: string;
 }
 

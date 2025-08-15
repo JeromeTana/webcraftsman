@@ -23,7 +23,7 @@ A section for displaying a grid of images with hover effects.
 - `containerClassName` (string, optional): Custom container class
 
 ### ComparisonSection
-A section for comparing two items/services side by side.
+A section for comparing two items/service side by side.
 
 **Props:**
 - `pillText` (string): Text for the pill/badge

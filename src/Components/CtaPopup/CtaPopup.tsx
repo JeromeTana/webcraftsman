@@ -3,8 +3,8 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { LucideX } from "../Icons/LucideX";
-import { CtaPopupProps } from './types';
-import { SurveyForm } from './SurveyForm';
+import { CtaPopupProps } from "./types";
+import { SurveyForm } from "./SurveyForm";
 
 // Global function to trigger popup from anywhere
 let triggerCtaPopup: (() => void) | null = null;
@@ -30,7 +30,7 @@ export const CtaPopup: React.FC<CtaPopupProps> = ({
   const showPopup = useCallback(() => {
     setIsVisible(true);
     setHasBeenShown(true);
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       sessionStorage.setItem(SESSION_STORAGE_KEY, "true");
     }
   }, []);
@@ -47,14 +47,43 @@ export const CtaPopup: React.FC<CtaPopupProps> = ({
   }, []);
 
   const handleSubmitted = useCallback(() => {
-    // Additional logic when form is submitted
-    console.log("Form submitted successfully");
+    // Track GA4 conversion event
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag("event", "conversion", {
+        event_category: "Survey",
+        event_label: "CTA Popup Survey Completed",
+        value: 1,
+      });
+
+      // Track custom event for lead generation
+      (window as any).gtag("event", "generate_lead", {
+        event_category: "Lead Generation",
+        event_label: "CTA Popup Survey Lead",
+        value: 1,
+      });
+    }
+
+    // Track Facebook Pixel event
+    if (typeof window !== "undefined" && (window as any).fbq) {
+      (window as any).fbq("track", "Lead", {
+        content_name: "CTA Popup Survey",
+        content_category: "Survey Completion",
+      });
+
+      // Track custom conversion event
+      (window as any).fbq("trackCustom", "SurveyCompleted", {
+        source: "CTA Popup",
+        form_type: "Survey",
+      });
+    }
+
+    console.log("Survey submitted - tracking events fired");
   }, []);
 
   useEffect(() => {
     // Only run in browser environment
-    if (typeof window === 'undefined') return;
-    
+    if (typeof window === "undefined") return;
+
     // Register the trigger function
     triggerCtaPopup = showPopup;
 
@@ -72,7 +101,8 @@ export const CtaPopup: React.FC<CtaPopupProps> = ({
           if (entry.isIntersecting && !hasBeenShown) {
             // Add delay before showing popup
             setTimeout(() => {
-              if (!hasBeenShown) { // Double check to prevent race conditions
+              if (!hasBeenShown) {
+                // Double check to prevent race conditions
                 showPopup();
               }
             }, POPUP_DELAY);
@@ -129,9 +159,9 @@ export const CtaPopup: React.FC<CtaPopupProps> = ({
           {/* Popup Content */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ 
-              opacity: 1, 
-              scale: 1, 
+            animate={{
+              opacity: 1,
+              scale: 1,
               y: 0,
             }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}

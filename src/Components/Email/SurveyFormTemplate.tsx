@@ -1,14 +1,14 @@
 interface SurveyFormTemplateProps {
   formData: {
-    businessName: string;
-    businessDescription: string;
-    hasWebsite: string;
+    // businessName: string;
+    // businessDescription: string;
     currentWebsiteUrl: string;
-    mainGoal: string;
+    // mainGoal: string;
     biggestChallenge: string;
     timeline: string;
     budget: string;
-    contentReady: string;
+    monthlyRevenue: string;
+    // contentReady: string;
     fullName: string;
     email: string;
     phone: string;
@@ -55,24 +55,21 @@ export function SurveyFormTemplate({ formData }: SurveyFormTemplateProps) {
         </table>
       </div>
 
-      {/* Business Information */}
+      {/* Website Information */}
       <div style={{ marginBottom: '30px' }}>
         <h2 style={{ color: '#333', fontSize: '20px', borderBottom: '2px solid #e0e0e0', paddingBottom: '10px' }}>
-          Business Information
+          Website Information
         </h2>
         <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-          <tr>
+          {/* Disabled business fields */}
+          {/* <tr>
             <td style={{ padding: '8px 0', fontWeight: 'bold', color: '#555', width: '30%' }}>Business Name:</td>
             <td style={{ padding: '8px 0', color: '#333' }}>{formData.businessName}</td>
           </tr>
           <tr>
             <td style={{ padding: '8px 0', fontWeight: 'bold', color: '#555', verticalAlign: 'top' }}>Description:</td>
             <td style={{ padding: '8px 0', color: '#333' }}>{formData.businessDescription}</td>
-          </tr>
-          <tr>
-            <td style={{ padding: '8px 0', fontWeight: 'bold', color: '#555' }}>Has Website:</td>
-            <td style={{ padding: '8px 0', color: '#333' }}>{formData.hasWebsite}</td>
-          </tr>
+          </tr> */}
           {formData.currentWebsiteUrl && (
             <tr>
               <td style={{ padding: '8px 0', fontWeight: 'bold', color: '#555' }}>Current Website:</td>
@@ -92,10 +89,11 @@ export function SurveyFormTemplate({ formData }: SurveyFormTemplateProps) {
           Project Requirements
         </h2>
         <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-          <tr>
+          {/* Disabled main goal field */}
+          {/* <tr>
             <td style={{ padding: '8px 0', fontWeight: 'bold', color: '#555', width: '30%' }}>Main Goal:</td>
             <td style={{ padding: '8px 0', color: '#333' }}>{formData.mainGoal}</td>
-          </tr>
+          </tr> */}
           <tr>
             <td style={{ padding: '8px 0', fontWeight: 'bold', color: '#555', verticalAlign: 'top' }}>Biggest Challenge:</td>
             <td style={{ padding: '8px 0', color: '#333' }}>{formData.biggestChallenge}</td>
@@ -109,9 +107,14 @@ export function SurveyFormTemplate({ formData }: SurveyFormTemplateProps) {
             <td style={{ padding: '8px 0', color: '#333' }}>{formData.budget}</td>
           </tr>
           <tr>
+            <td style={{ padding: '8px 0', fontWeight: 'bold', color: '#555' }}>Monthly Revenue:</td>
+            <td style={{ padding: '8px 0', color: '#333' }}>{formData.monthlyRevenue}</td>
+          </tr>
+          {/* Disabled content ready field */}
+          {/* <tr>
             <td style={{ padding: '8px 0', fontWeight: 'bold', color: '#555' }}>Content Ready:</td>
             <td style={{ padding: '8px 0', color: '#333' }}>{formData.contentReady}</td>
-          </tr>
+          </tr> */}
         </table>
       </div>
 

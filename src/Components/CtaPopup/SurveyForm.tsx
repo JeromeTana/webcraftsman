@@ -3,10 +3,15 @@
 import React, { useState, useCallback } from "react";
 import { FormData } from "./types";
 import { FORM_STEPS, INITIAL_FORM_DATA, TOTAL_STEPS } from "./constants";
-import { validateStep7, validateStep8, submitFormData } from "./utils";
+import {
+  validateContactStep,
+  validateBusinessStep,
+  submitFormData,
+} from "./utils";
 import { FormStepComponent } from "./FormStepComponent";
 import { JeromeProfile } from "./JeromeProfile";
 import { BookingDemoSection } from "./BookingDemoSection";
+import { useFormValidation } from "./useFormValidation";
 
 interface SurveyFormProps {
   onSubmitted?: () => void;
@@ -20,9 +25,20 @@ export const SurveyForm: React.FC<SurveyFormProps> = ({ onSubmitted }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  const {
+    validateCurrentField,
+    markFieldTouched,
+    getFieldError,
+    markAllFieldsTouched,
+  } = useFormValidation(formData);
+
   const handleOptionSelect = useCallback(
     (field: keyof FormData, value: string) => {
       setFormData((prev) => ({ ...prev, [field]: value }));
+
+      // Mark field as touched and validate
+      markFieldTouched(field);
+      validateCurrentField(field, value);
 
       // Auto advance to next step for all steps except contact info step
       if (currentStep !== TOTAL_STEPS && currentStep < TOTAL_STEPS) {
@@ -31,21 +47,39 @@ export const SurveyForm: React.FC<SurveyFormProps> = ({ onSubmitted }) => {
         }, 300);
       }
     },
-    [currentStep]
+    [currentStep, validateCurrentField, markFieldTouched]
   );
 
   const handleInputChange = useCallback(
     (field: keyof FormData, value: string) => {
       setFormData((prev) => ({ ...prev, [field]: value }));
+
+      // Mark field as touched and validate
+      markFieldTouched(field);
+      validateCurrentField(field, value);
     },
-    []
+    [validateCurrentField, markFieldTouched]
+  );
+
+  const handleInputBlur = useCallback(
+    (field: keyof FormData) => {
+      markFieldTouched(field);
+      validateCurrentField(field, formData[field]);
+    },
+    [formData, validateCurrentField, markFieldTouched]
   );
 
   const handleSubmit = async () => {
-    const validation = validateStep8(formData);
+    // Mark all contact fields as touched to show errors
+    markAllFieldsTouched(["firstName", "lastName", "email", "phone", "currentWebsiteUrl"]);
+
+    // Validate all contact fields
+    const validation = validateContactStep(formData);
 
     if (!validation.isValid) {
-      alert(validation.message);
+      // Show specific error message
+      const errorMessage = validation.message || "กรุณากรอกข้อมูลให้ครบถ้วน";
+      alert(errorMessage);
       return;
     }
 
@@ -57,17 +91,25 @@ export const SurveyForm: React.FC<SurveyFormProps> = ({ onSubmitted }) => {
       onSubmitted?.();
     } catch (error) {
       console.error("Form submission failed:", error);
-      alert("There was an error submitting your form. Please try again.");
+      alert("เกิดข้อผิดพลาดในการส่งแบบฟอร์ม กรุณาลองใหม่อีกครั้ง");
     } finally {
       setIsSubmitting(false);
     }
   };
 
   const handleBusinessStepContinue = () => {
-    const validation = validateStep7(formData);
+    // Mark business fields as touched (disabled)
+    // markAllFieldsTouched([
+    //   "businessName",
+    //   "businessDescription",
+    // ]);
+
+    const validation = validateBusinessStep(formData);
 
     if (!validation.isValid) {
-      alert(validation.message);
+      const errorMessage =
+        validation.message || "กรุณากรอกข้อมูลธุรกิจให้ครบถ้วน";
+      alert(errorMessage);
       return;
     }
 
@@ -75,21 +117,22 @@ export const SurveyForm: React.FC<SurveyFormProps> = ({ onSubmitted }) => {
   };
 
   const isFormValid = () => {
-    return (
-      formData.fullName.trim() && formData.email.trim() && formData.phone.trim()
-    );
+    const contactValidation = validateContactStep(formData);
+    return contactValidation.isValid;
   };
 
   const isBusinessStepValid = () => {
-    return (
-      formData.businessName.trim() && formData.businessDescription.trim()
-    );
+    const businessValidation = validateBusinessStep(formData);
+    return businessValidation.isValid;
   };
 
   if (isSubmitted) {
     return (
       <BookingDemoSection
-        formData={{ fullName: formData.fullName, email: formData.email }}
+        formData={{ 
+          fullName: `${formData.firstName} ${formData.lastName}`.trim(), 
+          email: formData.email 
+        }}
       />
     );
   }
@@ -115,18 +158,24 @@ export const SurveyForm: React.FC<SurveyFormProps> = ({ onSubmitted }) => {
           formData={formData}
           onOptionSelect={handleOptionSelect}
           onInputChange={handleInputChange}
+          onInputBlur={handleInputBlur}
+          getFieldError={getFieldError}
         />
 
         {/* Continue Button for Business Step */}
-        {currentStep === TOTAL_STEPS - 1 && (
+        {/* {currentStep === TOTAL_STEPS - 1 && (
           <button
             onClick={handleBusinessStepContinue}
             disabled={!isBusinessStepValid()}
-            className="cta w-full"
+            className={`w-full py-4 px-6 rounded-xl font-semibold transition-all duration-200 ${
+              isBusinessStepValid()
+                ? "bg-blue-600 hover:bg-blue-700 text-white cursor-pointer"
+                : "bg-gray-300 text-gray-500 cursor-not-allowed"
+            }`}
           >
             ไปขั้นตอนถัดไป
           </button>
-        )}
+        )} */}
 
         {/* Submit Button for Contact Step */}
         {currentStep === TOTAL_STEPS && (
@@ -138,7 +187,7 @@ export const SurveyForm: React.FC<SurveyFormProps> = ({ onSubmitted }) => {
             {isSubmitting ? (
               <>
                 <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                Processing...
+                กำลังส่งข้อมูล...
               </>
             ) : (
               "รับข้อมูลกลยุทธ์เว็บไซต์ของฉัน"

@@ -1,40 +1,179 @@
-import { FormData } from './types';
+import { FormData, ValidationResult, FormErrors } from './types';
 
-export const validateEmail = (email: string): boolean => {
+// Validation utility functions
+export const validateEmail = (email: string): ValidationResult => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
+  if (!email.trim()) {
+    return { isValid: false, message: "กรุณากรอกอีเมล" };
+  }
+  if (!emailRegex.test(email)) {
+    return { isValid: false, message: "รูปแบบอีเมลไม่ถูกต้อง" };
+  }
+  return { isValid: true };
 };
 
-export const validateStep7 = (formData: FormData): { isValid: boolean; message?: string } => {
-  if (!formData.businessName.trim()) {
-    return { isValid: false, message: "Please enter your business name" };
+export const validatePhone = (phone: string): ValidationResult => {
+  const phoneRegex = /^[0-9+\-\s\(\)]{8,15}$/;
+  if (!phone.trim()) {
+    return { isValid: false, message: "กรุณากรอกเบอร์โทรศัพท์" };
   }
+  if (!phoneRegex.test(phone.replace(/\s/g, ''))) {
+    return { isValid: false, message: "รูปแบบเบอร์โทรศัพท์ไม่ถูกต้อง" };
+  }
+  return { isValid: true };
+};
+
+export const validateFirstName = (firstName: string): ValidationResult => {
+  if (!firstName.trim()) {
+    return { isValid: false, message: "กรุณากรอกชื่อ" };
+  }
+  if (firstName.trim().length < 2) {
+    return { isValid: false, message: "ชื่อต้องมีอย่างน้อย 2 ตัวอักษร" };
+  }
+  return { isValid: true };
+};
+
+export const validateLastName = (lastName: string): ValidationResult => {
+  if (!lastName.trim()) {
+    return { isValid: false, message: "กรุณากรอกนามสกุล" };
+  }
+  if (lastName.trim().length < 2) {
+    return { isValid: false, message: "นามสกุลต้องมีอย่างน้อย 2 ตัวอักษร" };
+  }
+  return { isValid: true };
+};
+
+export const validateBusinessName = (businessName: string): ValidationResult => {
+  if (!businessName.trim()) {
+    return { isValid: false, message: "กรุณากรอกชื่อธุรกิจ" };
+  }
+  if (businessName.trim().length < 2) {
+    return { isValid: false, message: "ชื่อธุรกิจต้องมีอย่างน้อย 2 ตัวอักษร" };
+  }
+  return { isValid: true };
+};
+
+export const validateBusinessDescription = (description: string): ValidationResult => {
+  if (!description.trim()) {
+    return { isValid: false, message: "กรุณากรอกคำอธิบายธุรกิจ" };
+  }
+  if (description.trim().length < 10) {
+    return { isValid: false, message: "คำอธิบายธุรกิจต้องมีอย่างน้อย 10 ตัวอักษร" };
+  }
+  return { isValid: true };
+};
+
+export const validateUrl = (url: string): ValidationResult => {
+  if (!url.trim()) {
+    return { isValid: true }; // URL is optional
+  }
+  try {
+    new URL(url);
+    return { isValid: true };
+  } catch {
+    return { isValid: false, message: "รูปแบบ URL ไม่ถูกต้อง" };
+  }
+};
+
+export const validateRequired = (value: string, fieldName: string): ValidationResult => {
+  if (!value.trim()) {
+    return { isValid: false, message: `กรุณาเลือก${fieldName}` };
+  }
+  return { isValid: true };
+};
+
+// Form-wide validation functions
+export const validateContactStep = (formData: FormData): ValidationResult => {
+  const firstNameValidation = validateFirstName(formData.firstName);
+  if (!firstNameValidation.isValid) return firstNameValidation;
   
-  if (!formData.businessDescription.trim()) {
-    return { isValid: false, message: "Please enter a brief description of your business" };
+  const lastNameValidation = validateLastName(formData.lastName);
+  if (!lastNameValidation.isValid) return lastNameValidation;
+  
+  const emailValidation = validateEmail(formData.email);
+  if (!emailValidation.isValid) return emailValidation;
+  
+  const phoneValidation = validatePhone(formData.phone);
+  if (!phoneValidation.isValid) return phoneValidation;
+  
+  // Website URL is always optional - validate format only if provided
+  if (formData.currentWebsiteUrl && formData.currentWebsiteUrl.trim()) {
+    const urlValidation = validateUrl(formData.currentWebsiteUrl);
+    if (!urlValidation.isValid) return urlValidation;
   }
   
   return { isValid: true };
+};
+
+export const validateBusinessStep = (formData: FormData): ValidationResult => {
+  // const businessNameValidation = validateBusinessName(formData.businessName);
+  // if (!businessNameValidation.isValid) return businessNameValidation;
+  
+  // const businessDescValidation = validateBusinessDescription(formData.businessDescription);
+  // if (!businessDescValidation.isValid) return businessDescValidation;
+  
+  return { isValid: true };
+};
+
+// Individual field validation
+export const validateField = (field: keyof FormData, value: string, formData: FormData): ValidationResult => {
+  switch (field) {
+    case 'firstName':
+      return validateFirstName(value);
+    case 'lastName':
+      return validateLastName(value);
+    case 'email':
+      return validateEmail(value);
+    case 'phone':
+      return validatePhone(value);
+    // case 'businessName':
+    //   return validateBusinessName(value);
+    // case 'businessDescription':
+    //   return validateBusinessDescription(value);
+    case 'currentWebsiteUrl':
+      return validateUrl(value);
+    // case 'mainGoal':
+    //   return validateRequired(value, 'เป้าหมายหลัก');
+    case 'biggestChallenge':
+      return validateRequired(value, 'ปัญหาที่ใหญ่ที่สุด');
+    case 'timeline':
+      return validateRequired(value, 'ไทม์ไลน์');
+    case 'budget':
+      return validateRequired(value, 'งบประมาณ');
+    case 'monthlyRevenue':
+      return validateRequired(value, 'รายได้ต่อเดือน');
+    // case 'contentReady':
+    //   return validateRequired(value, 'ความพร้อมของเนื้อหา');
+    default:
+      return { isValid: true };
+  }
+};
+
+// Get all form errors
+export const getFormErrors = (formData: FormData): FormErrors => {
+  const errors: FormErrors = {};
+  
+  // Validate all fields
+  Object.keys(formData).forEach((key) => {
+    const field = key as keyof FormData;
+    const validation = validateField(field, formData[field], formData);
+    if (!validation.isValid && validation.message) {
+      errors[field] = validation.message;
+    }
+  });
+  
+  return errors;
+};
+
+// Legacy validation functions (for backward compatibility)
+export const validateStep7 = (formData: FormData): { isValid: boolean; message?: string } => {
+  const validation = validateBusinessStep(formData);
+  return { isValid: validation.isValid, message: validation.message };
 };
 
 export const validateStep8 = (formData: FormData): { isValid: boolean; message?: string } => {
-  if (!formData.fullName.trim()) {
-    return { isValid: false, message: "Please enter your full name" };
-  }
-  
-  if (!formData.email.trim()) {
-    return { isValid: false, message: "Please enter your email address" };
-  }
-  
-  if (!validateEmail(formData.email)) {
-    return { isValid: false, message: "Please enter a valid email address" };
-  }
-  
-  if (!formData.phone.trim()) {
-    return { isValid: false, message: "Please enter your phone number" };
-  }
-  
-  return { isValid: true };
+  const validation = validateContactStep(formData);
+  return { isValid: validation.isValid, message: validation.message };
 };
 
 export const submitFormData = async (formData: FormData): Promise<void> => {
