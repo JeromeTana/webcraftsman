@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { LucideX } from "../Icons/LucideX";
 import { CtaPopupProps } from "./types";
 import { SurveyForm } from "./SurveyForm";
-import { sendGAEvent } from "@next/third-parties/google";
+import { sendGAEvent, sendGTMEvent } from "@next/third-parties/google";
 
 // Global function to trigger popup from anywhere
 let triggerCtaPopup: (() => void) | null = null;
@@ -49,7 +49,8 @@ export const CtaPopup: React.FC<CtaPopupProps> = ({
 
   const handleSubmitted = useCallback(() => {
     // Track GA4 conversion event
-    sendGAEvent("event", "generate_lead", { value: 1 });
+    // sendGAEvent("event", "generate_lead", { value: "1" });
+    sendGTMEvent({ event: "generate_lead", value: "1" });
 
     // if (typeof window !== "undefined" && (window as any).gtag) {
     //   (window as any).gtag("event", "conversion", {
