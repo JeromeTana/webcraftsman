@@ -52,11 +52,16 @@ export const SurveyForm: React.FC<SurveyFormProps> = ({ onSubmitted }) => {
 
   const handleInputChange = useCallback(
     (field: keyof FormData, value: string) => {
-      setFormData((prev) => ({ ...prev, [field]: value }));
-
-      // Mark field as touched and validate
-      markFieldTouched(field);
-      validateCurrentField(field, value);
+      if (field === 'consent') {
+        const boolValue = value === 'true';
+        setFormData((prev) => ({ ...prev, [field]: boolValue }));
+        markFieldTouched(field);
+        validateCurrentField(field, boolValue);
+      } else {
+        setFormData((prev) => ({ ...prev, [field]: value }));
+        markFieldTouched(field);
+        validateCurrentField(field, value);
+      }
     },
     [validateCurrentField, markFieldTouched]
   );
@@ -71,7 +76,7 @@ export const SurveyForm: React.FC<SurveyFormProps> = ({ onSubmitted }) => {
 
   const handleSubmit = async () => {
     // Mark all contact fields as touched to show errors
-    markAllFieldsTouched(["firstName", "lastName", "email", "phone", "currentWebsiteUrl"]);
+    markAllFieldsTouched(["firstName", "lastName", "email", "phone", "currentWebsiteUrl", "consent"]);
 
     // Validate all contact fields
     const validation = validateContactStep(formData);

@@ -15,6 +15,7 @@ interface FormData {
   name: string;
   email: string;
   instagram: string;
+  consent: boolean;
 }
 
 const questions = [
@@ -53,6 +54,13 @@ const questions = [
     placeholder: "yourhandle",
     type: "text" as const,
   },
+  {
+    id: "consent",
+    title: "Privacy Consent",
+    subtitle: "We need your consent to process your data and share your analysis",
+    placeholder: "",
+    type: "consent" as const,
+  },
 ];
 
 export default function SequentialForm() {
@@ -63,6 +71,7 @@ export default function SequentialForm() {
     name: "",
     email: "",
     instagram: "",
+    consent: false,
   });
   const [state, formAction, pending] = React.useActionState(
     submitAuditForm,
@@ -71,8 +80,9 @@ export default function SequentialForm() {
 
   const currentQuestion = questions[currentStep];
   const isLastStep = currentStep === questions.length - 1;
-  const canProceed =
-    formData[currentQuestion.id as keyof FormData].trim() !== "";
+  const canProceed = currentQuestion.id === "consent" 
+    ? formData.consent 
+    : (formData[currentQuestion.id as keyof Omit<FormData, 'consent'>] as string).trim() !== "";
 
   const handleNext = () => {
     if (canProceed && !isLastStep) {
@@ -86,7 +96,7 @@ export default function SequentialForm() {
     }
   };
 
-  const handleInputChange = (value: string) => {
+  const handleInputChange = (value: string | boolean) => {
     setFormData((prev) => ({
       ...prev,
       [currentQuestion.id]: value,
@@ -148,7 +158,25 @@ export default function SequentialForm() {
 
       {/* Input */}
       <div className="mb-8">
-        {currentQuestion.id === "instagram" ? (
+        {currentQuestion.id === "consent" ? (
+          <div className="flex items-start gap-3">
+            <input
+              type="checkbox"
+              id="consent"
+              checked={formData.consent}
+              onChange={(e) => handleInputChange(e.target.checked)}
+              className="mt-1 h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded"
+            />
+            <label htmlFor="consent" className="text-sm text-gray-600 leading-relaxed">
+              I agree to the processing of my personal data for the purpose of website analysis 
+              and sharing the results on Instagram. I understand that I can withdraw my consent 
+              at any time by contacting you directly. My data will be handled in accordance with your{" "}
+              <a href="/privacy-policy" className="text-primary hover:underline" target="_blank">
+                Privacy Policy
+              </a>.
+            </label>
+          </div>
+        ) : currentQuestion.id === "instagram" ? (
           <div className="relative">
             <span className="absolute left-3 top-3 text-gray-500 font-medium">
               @
@@ -166,7 +194,7 @@ export default function SequentialForm() {
         ) : (
           <input
             type={currentQuestion.type}
-            value={formData[currentQuestion.id as keyof FormData]}
+            value={formData[currentQuestion.id as keyof FormData] as string}
             onChange={(e) => handleInputChange(e.target.value)}
             onKeyPress={handleKeyPress}
             placeholder={currentQuestion.placeholder}
@@ -194,6 +222,69 @@ export default function SequentialForm() {
           </div>
         </div>
       )}
+
+      {/* Navigation Buttons */}
+      <div className="flex gap-4">
+        {currentStep > 0 && (
+          <button
+            type="button"
+            onClick={handleBack}
+            className="flex items-center gap-2 px-6 py-3 text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+          >
+            <LucideArrowLeft className="w-4 h-4" />
+            Back
+          </button>
+        )}
+        
+        {isLastStep ? (
+          <button
+            type="button"
+            onClick={handleSubmit}
+            disabled={!canProceed || pending}
+            className={twMerge(
+              "flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg transition-all duration-200",
+              (!canProceed || pending) ? "opacity-50 cursor-not-allowed" : "hover:bg-blue-700"
+            )}
+          >
+            {pending ? (
+              <>
+                <Spinner className="w-5 h-5" />
+                Submitting...
+              </>
+            ) : (
+              "Submit Analysis Request"
+            )}
+          </button>
+        ) : (
+          <button
+            type="button"
+            onClick={handleNext}
+            disabled={!canProceed}
+            className={twMerge(
+              "flex-1 flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg transition-all duration-200",
+              !canProceed ? "opacity-50 cursor-not-allowed" : "hover:bg-blue-700"
+            )}
+          >
+            Next
+            <LucideArrowRight className="w-4 h-4" />
+          </button>
+        )}
+      </div>
+
+      {/* Progress Indicator */}
+      <div className="flex justify-center mt-6">
+        <div className="flex gap-2">
+          {questions.map((_, index) => (
+            <div
+              key={index}
+              className={twMerge(
+                "w-2 h-2 rounded-full transition-colors",
+                index <= currentStep ? "bg-blue-600" : "bg-gray-300"
+              )}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

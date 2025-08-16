@@ -18,6 +18,7 @@ const AdLeadForm: React.FC<AdLeadFormProps> = ({ onSubmit }) => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isConsentGiven, setIsConsentGiven] = useState(false);
 
   const businessTypes = [
     { value: "e-commerce", label: "E-commerce Store" },
@@ -52,6 +53,10 @@ const AdLeadForm: React.FC<AdLeadFormProps> = ({ onSubmit }) => {
 
     if (!formData.phone.trim()) {
       newErrors.phone = "Phone number is required";
+    }
+
+    if (!isConsentGiven) {
+      newErrors.consent = "You must agree to the processing of your data";
     }
 
     setErrors(newErrors);
@@ -228,10 +233,36 @@ const AdLeadForm: React.FC<AdLeadFormProps> = ({ onSubmit }) => {
           )}
         </div>
 
+        {/* Consent Checkbox */}
+        <div className="flex items-start gap-3">
+          <input
+            type="checkbox"
+            id="consent"
+            name="consent"
+            checked={isConsentGiven}
+            onChange={(e) => setIsConsentGiven(e.target.checked)}
+            required
+            className="mt-1 h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded"
+            disabled={isSubmitting}
+          />
+          <label htmlFor="consent" className="text-sm text-gray-600 leading-relaxed">
+            I agree to the processing of my personal data for the purpose of receiving my FREE 
+            website analysis and marketing communications. I understand that I can withdraw my 
+            consent at any time by contacting you directly. My data will be handled in accordance 
+            with your{" "}
+            <a href="/privacy-policy" className="text-primary hover:underline" target="_blank">
+              Privacy Policy
+            </a>.
+          </label>
+        </div>
+        {errors.consent && (
+          <p className="text-red-500 text-sm mt-1">{errors.consent}</p>
+        )}
+
         {/* Submit Button */}
         <motion.button
           type="submit"
-          disabled={isSubmitting}
+          disabled={isSubmitting || !isConsentGiven}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           className="w-full bg-primary text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"

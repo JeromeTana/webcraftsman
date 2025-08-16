@@ -189,6 +189,29 @@ export const FormStepComponent: React.FC<FormStepComponentProps> = ({
           <p className="!text-red-500 !text-sm mt-1">{getFieldError("currentWebsiteUrl")}</p>
         )}
       </div>
+      
+      {/* Consent Checkbox */}
+      <div className="flex items-start gap-3">
+        <input
+          type="checkbox"
+          id="consent"
+          checked={formData.consent}
+          onChange={(e) => onInputChange("consent", e.target.checked.toString())}
+          onBlur={() => onInputBlur?.("consent")}
+          className="mt-1 h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded"
+        />
+        <label htmlFor="consent" className="text-sm text-gray-600 leading-relaxed">
+          ฉันยินยอมให้ประมวลผลข้อมูลส่วนบุคคลของฉันเพื่อวัตถุประสงค์ในการติดต่อกลับและส่งรายละเอียดโปรเจค 
+          ฉันเข้าใจว่าสามารถถอนความยินยอมได้ตลอดเวลาโดยติดต่อคุณโดยตรง ข้อมูลของฉันจะได้รับการจัดการ
+          ตามนโยบายความเป็นส่วนตัว{" "}
+          <a href="/privacy-policy" className="text-primary hover:underline" target="_blank">
+            Privacy Policy
+          </a>
+        </label>
+      </div>
+      {getFieldError?.("consent") && (
+        <p className="!text-red-500 !text-sm mt-1">{getFieldError("consent")}</p>
+      )}
     </div>
   );
 

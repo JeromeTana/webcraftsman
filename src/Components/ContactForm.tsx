@@ -9,6 +9,7 @@ const projectTypes = [
 
 export default function ContactForm() {
   const [projectType, setProjectType] = React.useState(projectTypes[0].value);
+  const [isConsentGiven, setIsConsentGiven] = React.useState(false);
 
   return (
     <form className="flex flex-col gap-8 w-full">
@@ -77,8 +78,34 @@ export default function ContactForm() {
           required
         />
       </div>
+      
+      {/* Consent Checkbox */}
+      <div className="flex items-start gap-3">
+        <input
+          type="checkbox"
+          id="consent"
+          name="consent"
+          checked={isConsentGiven}
+          onChange={(e) => setIsConsentGiven(e.target.checked)}
+          required
+          className="mt-1 h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded"
+        />
+        <label htmlFor="consent" className="text-sm text-gray-600 leading-relaxed">
+          I agree to the processing of my personal data for the purpose of handling this inquiry. 
+          I understand that I can withdraw my consent at any time by contacting you directly. 
+          My data will be handled in accordance with your{" "}
+          <a href="/privacy-policy" className="text-primary hover:underline" target="_blank">
+            Privacy Policy
+          </a>.
+        </label>
+      </div>
+      
       <div className="flex flex-col items-center space-y-3">
-        <button type="submit" className="cta w-full">
+        <button 
+          type="submit" 
+          className="cta w-full"
+          disabled={!isConsentGiven}
+        >
           Send project request
         </button>
         <p className="text-xs">We will get back to you within 24 hours</p>

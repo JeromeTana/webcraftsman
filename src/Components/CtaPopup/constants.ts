@@ -128,6 +128,7 @@ export const INITIAL_FORM_DATA = {
   lastName: "",
   email: "",
   phone: "",
+  consent: false,
 };
 
 export const TOTAL_STEPS = FORM_STEPS.length;

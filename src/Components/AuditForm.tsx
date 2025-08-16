@@ -12,6 +12,7 @@ export default function AuditForm() {
     submitAuditForm,
     null
   );
+  const [isConsentGiven, setIsConsentGiven] = React.useState(false);
 
   return (
     <form action={formAction} className="space-y-6">
@@ -94,6 +95,27 @@ export default function AuditForm() {
         </div>
       </div>
 
+      {/* Consent Checkbox */}
+      <div className="flex items-start gap-3">
+        <input
+          type="checkbox"
+          id="consent"
+          name="consent"
+          checked={isConsentGiven}
+          onChange={(e) => setIsConsentGiven(e.target.checked)}
+          required
+          className="mt-1 h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded"
+        />
+        <label htmlFor="consent" className="text-sm text-gray-600 leading-relaxed">
+          I agree to the processing of my personal data for the purpose of website analysis 
+          and sharing the results on Instagram. I understand that I can withdraw my consent 
+          at any time by contacting you directly. My data will be handled in accordance with your{" "}
+          <a href="/privacy-policy" className="text-primary hover:underline" target="_blank">
+            Privacy Policy
+          </a>.
+        </label>
+      </div>
+
       {/* Error Message */}
       {state?.error && (
         <div className="p-4 bg-red-50 border border-red-200 rounded-lg flex items-center gap-3">
@@ -135,10 +157,10 @@ export default function AuditForm() {
         <>
           <button
             type="submit"
-            disabled={pending}
+            disabled={pending || !isConsentGiven}
             className={twMerge(
               "w-full py-4 px-6 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all duration-200 flex items-center justify-center gap-2",
-              pending ? "opacity-50 cursor-not-allowed" : "hover:scale-[0.98]"
+              (pending || !isConsentGiven) ? "opacity-50 cursor-not-allowed" : "hover:scale-[0.98]"
             )}
           >
             {pending ? (

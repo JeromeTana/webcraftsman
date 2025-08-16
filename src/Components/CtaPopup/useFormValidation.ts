@@ -6,7 +6,7 @@ export const useFormValidation = (formData: FormData) => {
   const [formErrors, setFormErrors] = useState<FormErrors>({});
   const [touchedFields, setTouchedFields] = useState<Set<string>>(new Set());
 
-  const validateCurrentField = useCallback((field: keyof FormData, value: string) => {
+  const validateCurrentField = useCallback((field: keyof FormData, value: string | boolean) => {
     const validation = validateField(field, value, formData);
     setFormErrors(prev => ({
       ...prev,

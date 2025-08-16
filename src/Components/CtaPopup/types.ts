@@ -12,6 +12,7 @@ export interface FormData {
   lastName: string;
   email: string;
   phone: string;
+  consent: boolean;
 }
 
 export interface ValidationResult {

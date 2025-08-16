@@ -16,6 +16,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSubmitted }) => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccessScreen, setShowSuccessScreen] = useState(false);
+  const [isConsentGiven, setIsConsentGiven] = useState(false);
   const router = useRouter();
 
   const handleInputChange = (field: string, value: string) => {
@@ -23,7 +24,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSubmitted }) => {
   };
 
   const isFormValid = () => {
-    return formData.name.trim() && formData.email.trim() && formData.phone.trim();
+    return formData.name.trim() && formData.email.trim() && formData.phone.trim() && isConsentGiven;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -144,6 +145,28 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSubmitted }) => {
             disabled={isSubmitting}
             required
           />
+        </div>
+
+        {/* Consent Checkbox */}
+        <div className="flex items-start gap-3">
+          <input
+            type="checkbox"
+            id="consent"
+            name="consent"
+            checked={isConsentGiven}
+            onChange={(e) => setIsConsentGiven(e.target.checked)}
+            required
+            className="mt-1 h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded"
+            disabled={isSubmitting}
+          />
+          <label htmlFor="consent" className="text-sm text-gray-600 leading-relaxed">
+            I agree to the processing of my personal data for the purpose of receiving my website analysis 
+            and booking a strategy call. I understand that I can withdraw my consent at any time by 
+            contacting you directly. My data will be handled in accordance with your{" "}
+            <a href="/privacy-policy" className="text-primary hover:underline" target="_blank">
+              Privacy Policy
+            </a>.
+          </label>
         </div>
 
         <button

@@ -76,8 +76,15 @@ export const validateUrl = (url: string): ValidationResult => {
 };
 
 export const validateRequired = (value: string, fieldName: string): ValidationResult => {
-  if (!value.trim()) {
+  if (!value || !value.trim()) {
     return { isValid: false, message: `กรุณาเลือก${fieldName}` };
+  }
+  return { isValid: true };
+};
+
+export const validateConsent = (consent: boolean): ValidationResult => {
+  if (!consent) {
+    return { isValid: false, message: "กรุณายินยอมให้ประมวลผลข้อมูลส่วนบุคคล" };
   }
   return { isValid: true };
 };
@@ -95,6 +102,9 @@ export const validateContactStep = (formData: FormData): ValidationResult => {
   
   const phoneValidation = validatePhone(formData.phone);
   if (!phoneValidation.isValid) return phoneValidation;
+  
+  const consentValidation = validateConsent(formData.consent);
+  if (!consentValidation.isValid) return consentValidation;
   
   // Website URL is always optional - validate format only if provided
   if (formData.currentWebsiteUrl && formData.currentWebsiteUrl.trim()) {
@@ -116,32 +126,34 @@ export const validateBusinessStep = (formData: FormData): ValidationResult => {
 };
 
 // Individual field validation
-export const validateField = (field: keyof FormData, value: string, formData: FormData): ValidationResult => {
+export const validateField = (field: keyof FormData, value: string | boolean, formData: FormData): ValidationResult => {
   switch (field) {
     case 'firstName':
-      return validateFirstName(value);
+      return validateFirstName(value as string);
     case 'lastName':
-      return validateLastName(value);
+      return validateLastName(value as string);
     case 'email':
-      return validateEmail(value);
+      return validateEmail(value as string);
     case 'phone':
-      return validatePhone(value);
+      return validatePhone(value as string);
+    case 'consent':
+      return validateConsent(value as boolean);
     // case 'businessName':
     //   return validateBusinessName(value);
     // case 'businessDescription':
     //   return validateBusinessDescription(value);
     case 'currentWebsiteUrl':
-      return validateUrl(value);
+      return validateUrl(value as string);
     // case 'mainGoal':
     //   return validateRequired(value, 'เป้าหมายหลัก');
     case 'biggestChallenge':
-      return validateRequired(value, 'ปัญหาที่ใหญ่ที่สุด');
+      return validateRequired(value as string, 'ปัญหาที่ใหญ่ที่สุด');
     case 'timeline':
-      return validateRequired(value, 'ไทม์ไลน์');
+      return validateRequired(value as string, 'ไทม์ไลน์');
     case 'budget':
-      return validateRequired(value, 'งบประมาณ');
+      return validateRequired(value as string, 'งบประมาณ');
     case 'monthlyRevenue':
-      return validateRequired(value, 'รายได้ต่อเดือน');
+      return validateRequired(value as string, 'รายได้ต่อเดือน');
     // case 'contentReady':
     //   return validateRequired(value, 'ความพร้อมของเนื้อหา');
     default:
