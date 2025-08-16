@@ -78,7 +78,7 @@ export default function FeaturedBlogPostCard({ post, locale = 'en-US' }: Feature
                       className="mr-3 rounded-full border-2 border-white"
                     />
                   )}
-                  <div className='flex justify-between items-center w-full'>
+                  <div className='flex flex-col w-full'>
                     <span className="font-medium text-gray-900">
                       {post.author?.name || "Anonymous"}
                     </span>

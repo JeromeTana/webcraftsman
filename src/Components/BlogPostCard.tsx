@@ -71,9 +71,15 @@ export default function BlogPostCard({ post, locale = 'en-US' }: BlogPostCardPro
                     className="mr-2 rounded-full"
                   />
                 )}
-                <span>{post.author?.name || "Anonymous"}</span>
+                <div className="flex flex-col">
+                  <p className="!text-sm !text-black">
+                    {post.author?.name || "Anonymous"}
+                  </p>
+                  <p className="!text-xs">
+                    <time dateTime={post.publishedAt}>{publishedDate}</time>
+                  </p>
+                </div>
               </div>
-              <time dateTime={post.publishedAt}>{publishedDate}</time>
             </div>
           </div>
         </div>

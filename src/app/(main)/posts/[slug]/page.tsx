@@ -137,7 +137,7 @@ const portableTextComponents = {
       return (
         <h2
           id={slug}
-          className="text-2xl font-bold !mt-16 mb-4 !leading-12 scroll-mt-24"
+          className="text-2xl font-bold !mt-16 mb-4 !leading-12 !tracking-tight scroll-mt-24"
         >
           {children}
         </h2>
