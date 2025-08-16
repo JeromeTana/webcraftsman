@@ -2,7 +2,11 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { PortableText } from "@portabletext/react";
-import { getPostBySlug, getAllPosts, getPreviousAndNextPosts } from "@/sanity/lib/queries";
+import {
+  getPostBySlug,
+  getAllPosts,
+  getPreviousAndNextPosts,
+} from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 import { Metadata } from "next";
 import Breadcrumb from "@/Components/Breadcrumb";
@@ -11,6 +15,7 @@ import MobileCTA from "@/Components/MobileCTA";
 import BlogNavigation from "@/Components/BlogNavigation";
 import AuthorCard from "@/Components/AuthorCard";
 import SocialShare from "@/Components/SocialShare";
+import { LucideCheck } from "@/Components/Icons/LucideCheck";
 
 // Utility function to generate slug from text
 function generateSlug(text: string): string {
@@ -55,12 +60,12 @@ const portableTextComponents = {
       // For content images, use a responsive approach with max width
       // Let Sanity handle the aspect ratio automatically
       const maxWidth = 1200;
-      
+
       return (
         <div className="my-8">
           <Image
             src={urlFor(value).width(maxWidth).quality(90).url()}
-            alt={value.alt || "Blog post image"}
+            alt={value.alt || value.caption || "Blog post image"}
             width={maxWidth}
             height={600} // This will be adjusted by CSS to maintain aspect ratio
             className="w-full h-auto rounded-xl mx-auto border border-gray-300"
@@ -373,7 +378,10 @@ export default async function BlogPostPage({
   const headings = extractHeadings(post.body || []);
 
   // Get previous and next posts
-  const { previous, next } = await getPreviousAndNextPosts(post.publishedAt, post._id);
+  const { previous, next } = await getPreviousAndNextPosts(
+    post.publishedAt,
+    post._id
+  );
 
   const imageUrl = post.mainImage
     ? urlFor(post.mainImage).width(2400).height(1350).url()
@@ -443,6 +451,9 @@ export default async function BlogPostPage({
           __html: JSON.stringify(structuredData),
         }}
       />
+      <button className="cta hidden md:block z-50 fixed bottom-4 right-4 md:bottom-8 md:right-8">
+        <LucideCheck /> Get My FREE Audit
+      </button>
 
       {/* Hero Section */}
       <div className="relative md:px-4 my-16">

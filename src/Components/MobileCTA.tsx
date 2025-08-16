@@ -17,7 +17,7 @@ export default function MobileCTA({ className }: MobileCTAProps) {
 
   return (
     <div
-      className={`lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-lg z-50 transition-all duration-300 ${className || ""}`}
+      className={`hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-lg z-50 transition-all duration-300 ${className || ""}`}
     >
       {/* Toggle Button */}
       <button
