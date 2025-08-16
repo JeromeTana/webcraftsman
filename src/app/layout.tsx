@@ -26,7 +26,7 @@ export default function RootLayout({
         {/* <GA4 /> */}
         {/* <GoogleAnalytics gaId="G-H98Z69VQWL" /> */}
         <GoogleTagManager gtmId="GTM-WVWNFLC2" />
-        <FacebookPixel />
+        {/* <FacebookPixel /> */}
       </head>
       <body
         className={`${ibmPlexSansThai.variable} ${sarabun.variable} antialiased`}
