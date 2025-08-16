@@ -51,22 +51,28 @@ export const revalidate = 900;
 // Portable Text components for rich content rendering
 const portableTextComponents = {
   types: {
-    image: ({ value }: any) => (
-      <div className="my-8">
-        <Image
-          src={urlFor(value).width(1600).height(900).url()}
-          alt={value.alt || "Blog post image"}
-          width={1600}
-          height={900}
-          className="rounded-xl mx-auto border border-gray-300"
-        />
-        {value.caption && (
-          <p className="mt-2 text-center !text-sm text-gray-600">
-            {value.caption}
-          </p>
-        )}
-      </div>
-    ),
+    image: ({ value }: any) => {
+      // For content images, use a responsive approach with max width
+      // Let Sanity handle the aspect ratio automatically
+      const maxWidth = 1200;
+      
+      return (
+        <div className="my-8">
+          <Image
+            src={urlFor(value).width(maxWidth).quality(90).url()}
+            alt={value.alt || "Blog post image"}
+            width={maxWidth}
+            height={600} // This will be adjusted by CSS to maintain aspect ratio
+            className="w-full h-auto rounded-xl mx-auto border border-gray-300"
+          />
+          {value.caption && (
+            <p className="mt-2 text-center !text-sm text-gray-600">
+              {value.caption}
+            </p>
+          )}
+        </div>
+      );
+    },
     table: ({ value }: any) => (
       <div className="my-8 overflow-x-auto">
         <table className="min-w-full border-collapse border border-gray-300 rounded-lg overflow-hidden">
@@ -441,7 +447,7 @@ export default async function BlogPostPage({
       {/* Hero Section */}
       <div className="relative md:px-4 my-16">
         {/* Header Content */}
-        <div className="relative mx-auto max-w-4xl px-4 pb-16 sm:px-6 lg:px-8">
+        <div className="relative mx-auto max-w-3xl px-4 pb-16 sm:px-6 lg:px-8">
           {/* Breadcrumb Navigation */}
           <div className="mx-auto pb-8">
             <Breadcrumb items={breadcrumbItems} />
@@ -467,7 +473,7 @@ export default async function BlogPostPage({
             </h1>
 
             {/* Meta */}
-            <div className="flex items-center justify-between text-sm">
+            <div className="flex flex-col">
               <div className="flex items-center">
                 {post.author?.image && (
                   <Image
@@ -478,11 +484,13 @@ export default async function BlogPostPage({
                     className="mr-3 rounded-full"
                   />
                 )}
-                <p className="font-medium">
-                  {post.author?.name || "Anonymous"}
-                </p>
+                <div>
+                  <p className="font-medium">
+                    {post.author?.name || "Anonymous"}
+                  </p>
+                  <p className="opacity-75 !text-sm">{publishedDate}</p>
+                </div>
               </div>
-              <p className="opacity-75">{publishedDate}</p>
             </div>
           </div>
         </div>
@@ -501,10 +509,10 @@ export default async function BlogPostPage({
       </div>
 
       {/* Content */}
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pb-32 lg:pb-8">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 pb-32 lg:pb-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 w-full mb-20 lg:mb-0">
           {/* Main Content */}
-          <div className="lg:col-span-2 w-full prose prose-lg max-w-none">
+          <div className="md:col-span-3 w-full prose prose-lg max-w-none">
             {/* Table of Contents - Mobile */}
             <div className="lg:hidden mb-8">
               <TableOfContents headings={headings} />
@@ -517,14 +525,12 @@ export default async function BlogPostPage({
           </div>
 
           {/* Sidebar */}
-          <div className="lg:col-span-1">
+          {/* <div className="lg:col-span-1">
             <div className="sticky top-24 space-y-6">
-              {/* Table of Contents - Desktop */}
               <div className="hidden lg:block">
                 <TableOfContents headings={headings} />
               </div>
 
-              {/* CTA Section - Desktop Only */}
               <div className="hidden lg:block bg-primary/10 rounded-2xl">
                 <div className="p-6 space-y-6">
                   <h3 className="text-center text-2xl font-semibold mb-8">
@@ -545,7 +551,6 @@ export default async function BlogPostPage({
                 </div>
               </div>
 
-              {/* Social Share - Desktop */}
               <div className="hidden lg:block">
                 <SocialShare
                   url={`${baseUrl}/posts/${slug}`}
@@ -554,7 +559,7 @@ export default async function BlogPostPage({
                 />
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Social Share - Mobile */}
