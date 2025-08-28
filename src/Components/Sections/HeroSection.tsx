@@ -5,19 +5,11 @@ import { CtaButton } from "@/Components/CtaButton";
 import AnimatedCartIcon from "@/Components/Icons/AnimatedCartIcon";
 
 interface HeroSectionProps {
-  title: string;
-  subtitle: string;
-  highlightText: string;
-  description: string;
   showAvailableSpots?: boolean;
   showCta?: boolean;
 }
 
 export default function HeroSection({
-  title,
-  subtitle,
-  highlightText,
-  description,
   showAvailableSpots = true,
   showCta = true,
 }: HeroSectionProps) {
@@ -35,17 +27,14 @@ export default function HeroSection({
         threshold={0.2}
       >
         <h1 className="text-4xl md:text-7xl text-center ">
-          {title} <br /> {subtitle}{" "}
-          <span className="inline-flex items-center gap-4">
-            <AnimatedCartIcon className="hidden md:block bg-primary rounded-full p-2" />
-            <span className={`highlight`}>
-              {highlightText}
-            </span>{" "}
-          </span>
+          บริการออกแบบ และพัฒนาเว็บไซต์ <br />
+          สำหรับ <span className="highlight">Local Business</span>
         </h1>
       </AnimatedContent>
       <BlurText
-        text={description}
+        text={
+          "พวกเราสร้างเว็บไซต์ที่สวยงาม และตอบโจทย์ความต้องการ พร้อมดึงดูดลูกค้าให้กับธุรกิจของคุณ"
+        }
         delay={50}
         animateBy="words"
         direction="top"

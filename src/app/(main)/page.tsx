@@ -112,12 +112,7 @@ export default async function Home() {
       />
       
       <main>
-        <HeroSection
-          title="เปลี่ยนคนสนใจให้เป็นลูกค้า"
-          subtitle="ด้วย "
-          highlightText="เว็บไซต์คุณภาพ"
-          description="เพิ่มช่องทางให้ลูกค้าหาใหม่เจอผ่าน Google ได้ง่าย และปิดยอดขายได้มากขึ้น"
-        />
+        <HeroSection/>
 
         <ImageShowcaseSection images={SHOWCASE_IMAGES} />
 
