@@ -3,18 +3,16 @@ import Image from "next/image";
 import { CtaButtonHighlighted } from "./CtaButton";
 import AnimatedCalendarIcon from "./Icons/AnimatedCalendarIcon";
 import { CtaPopup } from "./CtaPopup";
+import PulsingDot from "./PulsingDot";
 
 export default function CtaSection() {
   return (
     <>
       <section id="cta" className="cta-section">
-        <div className="relative overflow-clip bg-primary m-auto pt-16 pb-72 lg:pb-96 rounded-4xl flex flex-col gap-8 items-center justify-center">
+        <div className="relief relative overflow-clip bg-primary border-2 border-primary m-auto pt-16 pb-72 lg:pb-96 rounded-4xl flex flex-col gap-8 items-center justify-center">
           <div className="pill flex items-center gap-4">
-            <div className="relative flex items-center">
-              <div className="w-3 h-3 rounded-full bg-accent-green" />
-              <div className="w-3 h-3 rounded-full bg-accent-green animate-ping absolute" />
-            </div>
-            Let's Get Started
+            <PulsingDot />
+            <p className="!text-white">เริ่มต้นพูดคุยรับคำปรึกษา</p>
           </div>
           <div className="flex flex-col gap-4 px-8">
             <AnimatedContent

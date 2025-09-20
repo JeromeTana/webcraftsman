@@ -1,40 +1,15 @@
 import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import ComparisonItem from "@/Components/ComparisonItem";
 import ShinyText from "@/Components/ShinyText/ShinyText";
-import { ReactNode } from "react";
+import { LucideCheck } from "../Icons/LucideCheck";
+import Logo from "../Icons/Logo";
+import { LucideX } from "../Icons/LucideX";
 
-interface ComparisonData {
-  title: string;
-  items: string[];
-  Icon: ReactNode;
-  logo?: ReactNode;
-  isHighlighted?: boolean;
-  className?: string;
-}
-
-interface ComparisonSectionProps {
-  pillText: string;
-  title: string;
-  highlightText: string;
-  subtitle: string;
-  leftComparison: ComparisonData;
-  rightComparison: ComparisonData;
-  sectionId?: string;
-}
-
-export default function ComparisonSection({
-  pillText,
-  title,
-  highlightText,
-  subtitle,
-  leftComparison,
-  rightComparison,
-  sectionId = "comparison",
-}: ComparisonSectionProps) {
+export default function ComparisonSection() {
   return (
-    <section id={sectionId} className="flex flex-col items-center gap-8">
+    <section className="flex flex-col items-center gap-8">
       <div className="pill">
-        <ShinyText text={pillText} speed={5} />
+        <ShinyText text="สิ่งที่ทำให้เราไม่เหมือนใคร" speed={5} />
       </div>
       <AnimatedContent
         distance={100}
@@ -47,10 +22,11 @@ export default function ComparisonSection({
         threshold={0.2}
       >
         <h2 className="text-4xl md:text-6xl shaded text-center">
-          {title} <span className={`highlight`}>{highlightText}</span> {subtitle}
+          พวกเรา เชี่ยวชาญ ในการทำงานกับ <br />
+          <span className="highlight">ธุรกิจท้องถิ่นและ SME</span> โดยเฉพาะ
         </h2>
       </AnimatedContent>
-      <div className="flex flex-col md:flex-row items-end gap-16 sm:gap-6 w-full">
+      <div className="flex flex-col md:flex-row items-end gap-16 sm:gap-8 w-full">
         <AnimatedContent
           distance={100}
           direction="vertical"
@@ -60,20 +36,17 @@ export default function ComparisonSection({
           threshold={0.2}
           delay={100}
         >
-          <div className="flex flex-col items-center gap-6">
-            {leftComparison.logo ? (
-              <div className="flex items-center gap-4">
-                {leftComparison.logo}
-                <h3 className="text-2xl">{leftComparison.title}</h3>
-              </div>
-            ) : (
-              <h3 className="text-2xl">{leftComparison.title}</h3>
-            )}
+          <div className="flex flex-col items-center gap-8">
+            <h3 className="text-2xl">Agency ทั่วไป</h3>
             <ComparisonItem
-              item={leftComparison.items}
-              Icon={leftComparison.Icon}
-              className={leftComparison.className}
-              isHighlighted={leftComparison.isHighlighted}
+              item={[
+                "ใช้เวลานาน 4 - 6 สัปดาห์",
+                "ไม่เข้าใจกลุ่มเป้าหมายและธุรกิจ",
+                "ราคาสูงเกินหลักแสน",
+                "ไม่ดูแลหลังส่งมอบ",
+              ]}
+              Icon={<LucideX />}
+              className="text-neutral-500"
             />
           </div>
         </AnimatedContent>
@@ -86,20 +59,22 @@ export default function ComparisonSection({
           threshold={0.2}
           delay={200}
         >
-          <div className="flex flex-col items-center gap-6">
-            {rightComparison.logo ? (
-              <div className="flex items-center gap-4">
-                {rightComparison.logo}
-                <h3 className="text-2xl !font-semibold">{rightComparison.title}</h3>
-              </div>
-            ) : (
-              <h3 className="text-2xl">{rightComparison.title}</h3>
-            )}
+          <div className="flex flex-col items-center gap-8">
+            <div className="flex items-center gap-4">
+              <Logo className="w-16 h-16 fill-primary text-primary" />
+              <h3 className="text-2xl !font-semibold">WEBCRAFTSMAN</h3>
+            </div>
             <ComparisonItem
-              item={rightComparison.items}
-              Icon={rightComparison.Icon}
-              isHighlighted={rightComparison.isHighlighted}
-              className={rightComparison.className}
+              item={[
+                "จัดการทุกอย่างภายใน 14 วัน",
+                "เข้าใจการตลาดสำหรับธุรกิจท้องถิ่นและ SME",
+                "ให้คำปรึกษาอย่างมืออาชีพ",
+                "จ่ายเริ่มต้นหลักพัน",
+                "ดูแลอย่างใกล้ชิด ไว้ใจได้ตลอด 24 ชั่วโมง",
+              ]}
+              Icon={<LucideCheck className="text-primary" />}
+              isHighlighted={true}
+              className="!bg-primary/10"
             />
           </div>
         </AnimatedContent>

@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next'
 import { getAllPosts } from '@/sanity/lib/queries'
-import { siteUrl } from './global'
+import { siteUrl } from '@/data'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Get all blog posts for dynamic URLs

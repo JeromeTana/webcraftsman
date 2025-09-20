@@ -49,7 +49,7 @@ function StandardPricingCard({
       )}
     >
       <div>
-        <div className="flex flex-col gap-6 z-10">
+        <div className="flex flex-col gap-8 z-10">
           <h3 className="text-2xl text-center font-semibold">{title}</h3>
           <div>
             {price_from && (
@@ -110,7 +110,7 @@ function HighlightedPricingCard({
       />
       */}
       <div>
-        <div className="flex flex-col gap-6 z-10">
+        <div className="flex flex-col gap-8 z-10">
           <h3 className="text-2xl text-center font-semibold text-white">
             {title}
           </h3>

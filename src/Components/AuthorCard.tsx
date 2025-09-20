@@ -27,7 +27,7 @@ export default function AuthorCard({ author, siteName = "WEBCRAFTSMAN" }: Author
 
   return (
     <div className="bg-gray-50 rounded-2xl p-8 border border-foreground">
-      <div className="flex flex-col sm:flex-row gap-6 items-start">
+      <div className="flex flex-col sm:flex-row gap-8 items-start">
         {/* Author Image */}
         <div className="flex-shrink-0">
           {authorImage ? (

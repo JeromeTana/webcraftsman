@@ -3,7 +3,8 @@ import React from "react";
 import Logo from "./Icons/Logo";
 import { RevealLink } from "./RevealLink";
 import CtaSection from "./CtaSection";
-import { tagline } from "@/app/global";
+import { tagline } from "@/data";
+import { navItems } from "@/data";
 
 export default function Footer() {
   return (
@@ -17,20 +18,13 @@ export default function Footer() {
               <p>{tagline}</p>
             </div>
             <div>
-              <p className="text-black mb-8">Info</p>
+              <p className="text-black mb-8">Quick links</p>
               <ul className="flex flex-col gap-4 text-(--paragraph)">
-                <li>
-                  <RevealLink href="/#showcase">Showcase</RevealLink>
-                </li>
-                <li>
-                  <RevealLink href="/#process">Process</RevealLink>
-                </li>
-                <li>
-                  <RevealLink href="/#faq">FAQs</RevealLink>
-                </li>
-                <li>
-                  <RevealLink href="/booking">Booking</RevealLink>
-                </li>
+                {navItems.map((item, index) => (
+                  <li key={index}>
+                    <RevealLink href={item.href}>{item.name}</RevealLink>
+                  </li>
+                ))}
               </ul>
             </div>
             <div>
@@ -58,24 +52,6 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        {/* <div className="relative bg-white h-[26vh] flex flex-col justify-center items-center -z-20 overflow-clip">
-          <div className="top-0 bg-background rounded-b-3xl w-full p-8 shadow-2xl">
-            <div className="flex flex-col gap-6 md:flex-row md:justify-between">
-              <p> Copyright ©Webcraftsman.co </p>
-              <p> jerome@Webcraftsman.co</p>
-              <p> Follow on instagram </p>
-            </div>
-          </div>
-          <div>
-            <Image
-              src="/WebcraftsmanCO.png"
-              alt="Reveal footer"
-              width={1440}
-              height={315}
-              className="w-full"
-            />
-          </div>
-        </div> */}
       </footer>
     </>
   );

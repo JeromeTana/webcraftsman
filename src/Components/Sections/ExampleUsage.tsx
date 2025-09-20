@@ -1,10 +1,10 @@
 // Example usage of reusable sections for a different page
 import {
   HeroSection,
-  WorkShowcaseSection,
+  ShowcaseSection,
   FAQSection,
 } from "@/Components/Sections";
-import { WORKS, FAQS } from "@/data/pageData";
+import { WORKS, FAQS } from "@/data";
 import AnimatedQuestionIcon from "@/Components/Icons/AnimatedQuestionIcon";
 
 export default function ExamplePage() {
@@ -40,7 +40,7 @@ export default function ExamplePage() {
         />
 
         {/* Work showcase with different configuration */}
-        <WorkShowcaseSection
+        <ShowcaseSection
           pillText="Portfolio"
           title=""
           highlightText="Our Best Work"

@@ -35,7 +35,7 @@ export const JeromeProfile: React.FC<JeromeProfileProps> = ({
           {/* Triangle */}
           <div className="w-4 h-4 bg-foreground absolute -left-2 top-8 rotate-45"></div>
           <div className="absolute -left-2 top-3 w-0 h-0 border-t-4 border-t-transparent border-r-4 border-r-white border-b-4 border-b-transparent"></div>
-          <p className="text-sm text-gray-600">
+          <p className="text-gray-600">
             {helpText}
           </p>
         </motion.div>

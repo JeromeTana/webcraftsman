@@ -79,7 +79,7 @@ export const MegaMenu = ({
       onMouseLeave={handleMouseLeave}
     >
       {/* Trigger */}
-      <div className="cursor-pointer flex items-center gap-1">
+      <div className="cursor-pointer flex items-center gap-2">
         <span className="font-medium hover:text-primary transition-colors">
           {trigger}
         </span>

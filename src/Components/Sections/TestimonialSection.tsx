@@ -1,63 +1,19 @@
 import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import ShinyText from "@/Components/ShinyText/ShinyText";
-import { MaterialSymbolsStarRounded } from "@/Components/Icons/MaterialStar";
 import Image from "next/image";
-import { ReactNode } from "react";
+import AnimatedQuoteIcon from "../Icons/AnimatedQuoteIcon";
+import { TESTIMONIAL_DATA } from "@/data";
+import { renderStars } from "../CtaPopup/utils";
 
-interface TestimonialData {
-  quote: string;
-  description?: string;
-  author: {
-    name: string;
-    title: string;
-    avatar: string;
-    companyLogo?: string;
-  };
-  image?: string;
-  rating?: number;
-}
-
-interface TestimonialSectionProps {
-  pillText: string;
-  title: string;
-  highlightText: string;
-  subtitle: string;
-  titleIcon?: ReactNode;
-  testimonial: TestimonialData;
-  sectionId?: string;
-  maxWidth?: string;
-}
-
-export default function TestimonialSection({
-  pillText,
-  title,
-  highlightText,
-  subtitle,
-  titleIcon,
-  testimonial,
-  sectionId = "testimonial",
-  maxWidth = "!max-w-5xl",
-}: TestimonialSectionProps) {
-  const renderStars = (rating: number = 5) => {
-    return Array.from({ length: rating }, (_, index) => (
-      <MaterialSymbolsStarRounded
-        key={index}
-        className="text-(--accent-yellow)"
-        width={24}
-        height={24}
-        fill="currentColor"
-        aria-label={`Star ${index + 1}`}
-      />
-    ));
-  };
+export default function TestimonialSection() {
 
   return (
     <section
-      className={`flex flex-col items-center gap-8 ${maxWidth}`}
-      id={sectionId}
+      className="flex flex-col items-center gap-8 !max-w-5xl"
+      id="testimonial"
     >
       <div className="pill">
-        <ShinyText text={pillText} speed={5} />
+        <ShinyText text="รีวิวจากลูกค้า" speed={5} />
       </div>
       <AnimatedContent
         distance={100}
@@ -69,49 +25,50 @@ export default function TestimonialSection({
         scale={0.9}
         threshold={0.2}
       >
-        <h2 className="text-4xl md:text-6xl shaded text-center w-full inline-flex flex-col sm:flex-row items-center justify-center gap-4">
-          <span>
-            {title} <span className={`highlight`}>{highlightText}</span>
-          </span>
+        <h2 className="text-4xl md:text-6xl shaded text-center w-full inline-flex items-center justify-center gap-4">
+          <span>สิ่งที่ลูกค้า</span>
           <span className="inline-flex items-center gap-2 md:gap-4">
-            {titleIcon} {subtitle}
+            <AnimatedQuoteIcon className="bg-primary hidden md:inline-block rounded-full p-2" />
+            <span className={`highlight`}>พูดถึงเรา</span>
           </span>
         </h2>
       </AnimatedContent>
       <div className="flex flex-col md:flex-row-reverse md:gap-8">
-        {testimonial.image && (
+        {TESTIMONIAL_DATA.image && (
           <Image
-            src={testimonial.image}
+            src={TESTIMONIAL_DATA.image}
             alt="Testimonial comparison"
             width={1000}
             height={1000}
             className="w-full h-full object-cover rounded-3xl mb-16 md:mb-0 border border-neutral-200"
           />
         )}
-        <div className="flex flex-col w-full gap-6 px-4 md:px-8 items-center md:items-start">
-          {testimonial.rating && (
-            <div className="flex">{renderStars(testimonial.rating)}</div>
+        <div className="flex flex-col w-full gap-8 px-4 md:px-8 items-center md:items-start">
+          {TESTIMONIAL_DATA.rating && (
+            <div className="flex">{renderStars(TESTIMONIAL_DATA.rating)}</div>
           )}
 
           <div className="mb-8 text-center md:text-start">
             <h3 className="text-3xl mb-2 leading-snug">
-              "{testimonial.quote}"
+              "{TESTIMONIAL_DATA.quote}"
             </h3>
-            {testimonial.description && <p>{testimonial.description}</p>}
+            {TESTIMONIAL_DATA.description && (
+              <p className="text-gray-600">{TESTIMONIAL_DATA.description}</p>
+            )}
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-8">
             <div className="relative">
               <Image
-                src={testimonial.author.avatar}
-                alt={testimonial.author.name}
+                src={TESTIMONIAL_DATA.author.avatar}
+                alt={TESTIMONIAL_DATA.author.name}
                 width={64}
                 height={64}
                 className="rounded-full"
               />
-              {testimonial.author.companyLogo && (
+              {TESTIMONIAL_DATA.author.companyLogo && (
                 <Image
-                  src={testimonial.author.companyLogo}
+                  src={TESTIMONIAL_DATA.author.companyLogo}
                   alt="Company logo"
                   width={40}
                   height={40}
@@ -120,8 +77,10 @@ export default function TestimonialSection({
               )}
             </div>
             <div className="flex flex-col gap-1">
-              <p className="!text-black">{testimonial.author.name}</p>
-              <p className="!text-sm">{testimonial.author.title}</p>
+              <p>{TESTIMONIAL_DATA.author.name}</p>
+              <p className="!text-sm text-gray-600">
+                {TESTIMONIAL_DATA.author.title}
+              </p>
             </div>
           </div>
         </div>

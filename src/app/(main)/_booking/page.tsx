@@ -3,7 +3,7 @@ import AvailableSpots from "@/Components/AvailableSpots";
 import AnimatedArrowIcon from "@/Components/Icons/AnimatedArrowIcon";
 import AnimatedCalendarIcon from "@/Components/Icons/AnimatedCalendarIcon";
 import { Metadata } from "next";
-import { description } from "../../global";
+import { description } from "@/data";
 import Calcom from "@/Components/Booking/DemoCall";
 
 export const metadata: Metadata = {

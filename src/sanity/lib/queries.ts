@@ -1,39 +1,39 @@
-"use server"
-import { client } from './client'
+"use server";
+import { client } from "./client";
 
 // Define the blog post type
 export interface BlogPost {
-  _id: string
-  title: string
+  _id: string;
+  title: string;
   slug: {
-    current: string
-  }
-  publishedAt: string
-  excerpt?: string
-  body: any[] // Portable Text blocks
+    current: string;
+  };
+  publishedAt: string;
+  excerpt?: string;
+  body: any[]; // Portable Text blocks
   mainImage?: {
     asset: {
-      _ref: string
-      _type: string
-    }
-    alt?: string
-  }
+      _ref: string;
+      _type: string;
+    };
+    alt?: string;
+  };
   author?: {
-    name: string
+    name: string;
     image?: {
       asset: {
-        _ref: string
-        _type: string
-      }
-    }
-    bio?: string
-  }
+        _ref: string;
+        _type: string;
+      };
+    };
+    bio?: string;
+  };
   categories?: Array<{
-    title: string
+    title: string;
     slug: {
-      current: string
-    }
-  }>
+      current: string;
+    };
+  }>;
 }
 
 // Fetch all blog posts
@@ -60,13 +60,45 @@ export async function getAllPosts(): Promise<BlogPost[]> {
         slug
       }
     }
-  `
-  
+  `;
+
   try {
-    return await client.fetch(query)
+    return await client.fetch(query);
   } catch (error) {
-    console.error('Error fetching posts:', error)
-    return []
+    console.error("Error fetching posts:", error);
+    return [];
+  }
+}
+
+export async function getLatestPosts(limit: number): Promise<BlogPost[]> {
+  const query = `
+    *[_type == "post"] | order(publishedAt desc)[0...${limit}] {
+      _id,
+      title,
+      slug,
+      publishedAt,
+      excerpt,
+      mainImage {
+        asset,
+        alt
+      },
+      author-> {
+        name,
+        image {
+          asset
+        }
+      },
+      categories[]-> {
+        title,
+        slug
+      }
+    }
+  `;
+  try {
+    return await client.fetch(query);
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+    return [];
   }
 }
 
@@ -96,18 +128,21 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
         slug
       }
     }
-  `
-  
+  `;
+
   try {
-    return await client.fetch(query, { slug })
+    return await client.fetch(query, { slug });
   } catch (error) {
-    console.error('Error fetching post:', error)
-    return null
+    console.error("Error fetching post:", error);
+    return null;
   }
 }
 
 // Fetch previous and next posts
-export async function getPreviousAndNextPosts(publishedAt: string, currentId: string): Promise<{
+export async function getPreviousAndNextPosts(
+  publishedAt: string,
+  currentId: string
+): Promise<{
   previous: BlogPost | null;
   next: BlogPost | null;
 }> {
@@ -133,8 +168,8 @@ export async function getPreviousAndNextPosts(publishedAt: string, currentId: st
         slug
       }
     }
-  `
-  
+  `;
+
   const nextQuery = `
     *[_type == "post" && publishedAt > $publishedAt && _id != $currentId] | order(publishedAt asc)[0] {
       _id,
@@ -157,17 +192,17 @@ export async function getPreviousAndNextPosts(publishedAt: string, currentId: st
         slug
       }
     }
-  `
-  
+  `;
+
   try {
     const [previous, next] = await Promise.all([
       client.fetch(previousQuery, { publishedAt, currentId }),
-      client.fetch(nextQuery, { publishedAt, currentId })
-    ])
-    
-    return { previous: previous || null, next: next || null }
+      client.fetch(nextQuery, { publishedAt, currentId }),
+    ]);
+
+    return { previous: previous || null, next: next || null };
   } catch (error) {
-    console.error('Error fetching previous/next posts:', error)
-    return { previous: null, next: null }
+    console.error("Error fetching previous/next posts:", error);
+    return { previous: null, next: null };
   }
 }

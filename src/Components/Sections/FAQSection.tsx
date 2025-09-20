@@ -1,37 +1,15 @@
 import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import ShinyText from "@/Components/ShinyText/ShinyText";
 import Accordion from "@/Components/Accordion";
-import { ReactNode } from "react";
+import { FAQS } from "@/data";
+import AnimatedQuestionIcon from "../Icons/AnimatedQuestionIcon";
 
-interface FAQ {
-  question: string;
-  answer: string;
-}
-
-interface FAQSectionProps {
-  pillText: string;
-  title: string;
-  highlightText: string;
-  subtitle: string;
-  titleIcon?: ReactNode;
-  faqs: FAQ[];
-  sectionId?: string;
-}
-
-export default function FAQSection({
-  pillText,
-  title,
-  highlightText,
-  subtitle,
-  titleIcon,
-  faqs,
-  sectionId = "faq",
-}: FAQSectionProps) {
+export default function FAQSection() {
   return (
-    <section id={sectionId} className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <section id="faq" className="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div className="flex flex-col gap-8">
         <div className="pill">
-          <ShinyText text={pillText} speed={5} />
+          <ShinyText text="FAQ" speed={5} />
         </div>
         <AnimatedContent
           distance={100}
@@ -43,14 +21,14 @@ export default function FAQSection({
           scale={0.9}
           threshold={0.2}
         >
-          <h2 className="text-4xl md:text-6xl">
-            <span className={`highlight`}>{highlightText}</span> {title}
-            <span className="flex items-center gap-2 md:gap-4">{subtitle}</span>
+          <h2 className="inline-flex items-center justify-center gap-4 text-4xl md:text-6xl">
+            <AnimatedQuestionIcon className="animate-bounce" />
+            <span className={`highlight`}>คำถาม</span> ที่พบบ่อย
           </h2>
         </AnimatedContent>
       </div>
-      <div className="grid grid-cols-1 gap-6 w-full max-w-2xl">
-        {faqs.map((faq, index) => (
+      <div className="grid grid-cols-1 gap-8 w-full max-w-2xl">
+        {FAQS.map((faq, index) => (
           <Accordion key={index} question={faq.question} answer={faq.answer} />
         ))}
       </div>

@@ -2,35 +2,15 @@ import Link from "next/link";
 import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import ShinyText from "@/Components/ShinyText/ShinyText";
 import BlogPostCard from "@/Components/BlogPostCard";
-import { BlogPost } from "@/sanity/lib/queries";
-import { ReactNode } from "react";
+import { BlogPost, getLatestPosts } from "@/sanity/lib/queries";
 
-interface BlogSectionProps {
-  pillText: string;
-  title: string;
-  highlightText: string;
-  subtitle?: string;
-  posts: BlogPost[];
-  titleIcon?: ReactNode;
-  sectionId?: string;
-}
-
-export default function BlogSection({
-  pillText,
-  title,
-  highlightText,
-  subtitle,
-  posts,
-  titleIcon,
-  sectionId = "blog",
-}: BlogSectionProps) {
-  // Only show first 3 posts
-  const displayPosts = posts.slice(0, 3);
+export default async function BlogSection() {
+  const posts = await getLatestPosts(3);
 
   return (
-    <section id={sectionId} className="flex flex-col items-center gap-8">
+    <section id="blog" className="flex flex-col items-center gap-8">
       <div className="pill">
-        <ShinyText text={pillText} speed={5} />
+        <ShinyText text="บทความ" speed={5} />
       </div>
 
       <AnimatedContent
@@ -45,10 +25,9 @@ export default function BlogSection({
       >
         <div className="flex flex-col items-center gap-4">
           <div className="flex items-center gap-2">
-            {titleIcon && titleIcon}
-            <h2 className="text-center text-4xl font-bold lg:text-5xl">
-              {title} <span className="text-primary highlight">{highlightText}</span>
-              {subtitle && <span className="block">{subtitle}</span>}
+            <h2 className="text-center text-5xl font-bold lg:text-6xl">
+              <span className="text-primary highlight">ความรู้และบทความ</span>
+              <span className="block">ล่าสุดจากเรา</span>
             </h2>
           </div>
         </div>
@@ -67,7 +46,7 @@ export default function BlogSection({
         delay={0.2}
       >
         <div className="w-full max-w-7xl mx-auto">
-          {displayPosts.length === 0 ? (
+          {posts.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-gray-600 mb-8">
                 ยังไม่มีบทความในขณะนี้ กรุณาติดตามใน blog ของเรา
@@ -79,7 +58,7 @@ export default function BlogSection({
           ) : (
             <>
               <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                {displayPosts.map((post) => (
+                {posts.map((post) => (
                   <BlogPostCard key={post._id} post={post} locale="th-TH" />
                 ))}
               </div>

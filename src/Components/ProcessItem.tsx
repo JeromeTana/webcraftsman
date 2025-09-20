@@ -19,9 +19,9 @@ export default function ProcessItem({
   return (
     <SpotlightCard className="card relative duration-200 hover:!border-border-highlight flex flex-col justify-between">
       <div className="space-y-4">
-        <p className="!text-primary text-sm">Step {index}</p>
+        <p className="!text-primary text-sm">ขั้นที่ {index}</p>
         <h3 className="text-3xl">{title}</h3>
-        <p>{description}</p>
+        <p className="text-gray-600">{description}</p>
       </div>
       <div className="mt-10">{children}</div>
     </SpotlightCard>

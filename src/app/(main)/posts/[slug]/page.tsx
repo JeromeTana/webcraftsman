@@ -157,7 +157,7 @@ const portableTextComponents = {
       );
     },
     normal: ({ children }: any) => (
-      <p className="mb-4 !leading-10">{children}</p>
+      <p className="mb-4 leading-10 text-gray-600">{children}</p>
     ),
     blockquote: ({ children }: any) => (
       <blockquote className="border-l-4 border-primary pl-6 my-6 italic text-gray-700">
@@ -196,10 +196,10 @@ const portableTextComponents = {
   },
   listItem: {
     bullet: ({ children }: any) => (
-      <li className="mb-2 !leading-10">{children}</li>
+      <li className="mb-2 leading-10 text-gray-600">{children}</li>
     ),
     number: ({ children }: any) => (
-      <li className="mb-2 !leading-10">{children}</li>
+      <li className="mb-2 leading-10 text-gray-600">{children}</li>
     ),
   },
 };
@@ -451,14 +451,14 @@ export default async function BlogPostPage({
           __html: JSON.stringify(structuredData),
         }}
       />
-      <button className="cta hidden md:block z-50 fixed bottom-4 right-4 md:bottom-8 md:right-8">
+      {/* <button className="cta hidden md:block z-50 fixed bottom-4 right-4 md:bottom-8 md:right-8">
         <LucideCheck /> Get My FREE Audit
-      </button>
+      </button> */}
 
       {/* Hero Section */}
       <div className="relative md:px-4 my-16">
         {/* Header Content */}
-        <div className="relative mx-auto max-w-3xl px-4 pb-16 sm:px-6 lg:px-8">
+        <div className="relative mx-auto max-w-4xl px-4 pb-16 sm:px-6 lg:px-8">
           {/* Breadcrumb Navigation */}
           <div className="mx-auto pb-8">
             <Breadcrumb items={breadcrumbItems} />

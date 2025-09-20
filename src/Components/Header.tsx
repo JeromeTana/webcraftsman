@@ -14,6 +14,7 @@ import { CodeIcon } from "./Icons/CodeIcon";
 import { HamburgerIcon } from "./Icons/HamburgerIcon";
 import { LucideX } from "./Icons/LucideX";
 import { openCtaPopup } from "./CtaPopup";
+import { navItems } from "@/data";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -48,7 +49,7 @@ export default function Header() {
   //   };
   // }, [isMobileMenuOpen]);
 
-    // Define the mega menu structure for Services
+  // Define the mega menu structure for Services
   const servicesSections = [
     {
       title: "Services",
@@ -142,10 +143,10 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50">
-      <div className="flex items-center justify-between m-auto p-3 pl-4 bg-background">
+      <div className="flex items-center  justify-between m-auto p-3 pl-4 bg-background">
         <a
           href="/"
-          className="inline-flex gap-4 items-center sm:text-2xl font-semibold tracking-tight"
+          className="inline-flex lg:w-1/4 gap-4 items-center sm:text-2xl font-semibold tracking-tight"
         >
           <Logo className="w-14 h-14 fill-primary text-primary ml-4" />
           <span className="hidden sm:inline">WEBCRAFTSMAN</span>
@@ -154,23 +155,19 @@ export default function Header() {
         {/* Desktop Navigation */}
         <nav className="flex items-center gap-8">
           <ul className="gap-8 hidden lg:flex text-(--paragraph)">
+            {navItems.map((item, index) => (
+              <li key={index}>
+                <RevealLink href={item.href}>{item.name}</RevealLink>
+              </li>
+            ))}
             <li>
-              <RevealLink href="/about">About</RevealLink>
-            </li>
-            <li>
-              <RevealLink href="/showcase">Showcases</RevealLink>
-            </li>
-            <li>
-              <RevealLink href="/service">Services</RevealLink>
-            </li>
-            <li>
-              <MegaMenu trigger="Value" sections={valueSections} />
+              <MegaMenu trigger="แหล่งความรู้" sections={valueSections} />
             </li>
           </ul>
         </nav>
 
         {/* Desktop CTA Button */}
-        <div className="flex gap-4">
+        <div className="flex lg:w-1/4 justify-end gap-4">
           <button
             onClick={openCtaPopup}
             className="cta hidden md:flex items-center gap-2"
@@ -226,9 +223,9 @@ export default function Header() {
             {/* Mobile Services Section */}
             <li>
               <div className="py-2">
-                <h3 className="text-lg font-semibold text-primary mb-2">
+                <p className="text-lg font-semibold text-primary mb-2">
                   Services
-                </h3>
+                </p>
                 <ul className="space-y-2 pl-4">
                   {servicesSections[0].items.map((item, index) => (
                     <li key={index}>
@@ -248,9 +245,7 @@ export default function Header() {
             {/* Mobile Value Section */}
             <li>
               <div className="py-2">
-                <h3 className="text-lg font-semibold text-primary mb-2">
-                  Value
-                </h3>
+                <p className="text-lg font-semibold text-primary mb-2">Value</p>
                 <ul className="space-y-2 pl-4">
                   {valueSections[0].items.map((item, index) => (
                     <li key={index}>

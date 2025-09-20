@@ -65,7 +65,7 @@ const AdTestimonials: React.FC = () => {
           <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
             Average Results After Our Analysis
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {beforeAfterStats.map((stat, index) => (
               <motion.div
                 key={index}

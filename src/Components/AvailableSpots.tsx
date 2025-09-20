@@ -1,13 +1,11 @@
 import React from "react";
 import ShinyText from "./ShinyText/ShinyText";
+import PulsingDot from "./PulsingDot";
 
 export default function AvailableSpots() {
   return (
     <div className="pill text-accent-green flex items-center gap-4 m-auto">
-      <div className="relative flex items-center">
-        <div className="w-3 h-3 rounded-full bg-accent-green" />
-        <div className="w-3 h-3 rounded-full bg-accent-green animate-ping absolute" />
-      </div>
+      <PulsingDot />
       {/* <ShinyText
         text={
           "2 spots left for " +

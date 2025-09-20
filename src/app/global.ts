@@ -1,4 +1,0 @@
-export const tagline = "รับออกแบบและพัฒนาเว็บไซต์สำหรับทำการตลาดออนไลน์";
-export const description =
-  "รับออกแบบและพัฒนาเว็บไซต์ สำหรับทำการตลาดออนไลน์ เพื่อเพิ่มยอดขายและลูกค้าใหม่";
-export const siteUrl = "https://www.webcraftsman.co";

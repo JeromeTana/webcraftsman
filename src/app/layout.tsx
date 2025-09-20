@@ -3,13 +3,9 @@ import "./globals.css";
 import { ibmPlexSansThai, kanit, manrope, sarabun } from "./fonts";
 import LenisScrollProvider from "./providers/lenis-provider";
 import FollowCursor from "@/Components/FollowCursor";
-import Header from "@/Components/Header";
 import { baseMetadata } from "./metadata";
 import Hotjar from "@/Components/Hotjar";
-import GA4 from "@/Components/GA4";
-import Footer from "@/Components/Footer";
-import FacebookPixel from "@/Components/FacebookPixel";
-import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 export const metadata: Metadata = baseMetadata;
 
@@ -19,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="th" suppressHydrationWarning>
       <head>
         <script src="https://cdn.lordicon.com/lordicon.js" defer></script>
         <Hotjar />

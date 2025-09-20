@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { siteUrl } from '@/app/global'
+import { siteUrl, description as defaultDescription } from '@/data'
 
 interface SEOProps {
   title?: string
@@ -39,7 +39,7 @@ export function generateSEOMetadata({
   ]
 
   const fullTitle = title ? `${title} | WEBCRAFTSMAN` : 'WEBCRAFTSMAN'
-  const fullDescription = description || 'รับออกแบบและพัฒนาเว็บไซต์ สำหรับทำการตลาดออนไลน์ เพื่อเพิ่มยอดขายและลูกค้าใหม่'
+  const fullDescription = description || defaultDescription;
   const fullImage = image || `${siteUrl}/OG_Home.png`
   const fullUrl = url || siteUrl
   const allKeywords = [...defaultKeywords, ...keywords]
@@ -101,21 +101,21 @@ export function generateSEOMetadata({
 // Structured data generators
 export function generateOrganizationStructuredData() {
   return {
-    '@type': 'Organization',
-    '@id': `${siteUrl}/#organization`,
-    name: 'WEBCRAFTSMAN',
+    "@type": "Organization",
+    "@id": `${siteUrl}/#organization`,
+    name: "WEBCRAFTSMAN",
     url: siteUrl,
     logo: {
-      '@type': 'ImageObject',
+      "@type": "ImageObject",
       url: `${siteUrl}/logo.svg`,
     },
-    description: 'รับออกแบบและพัฒนาเว็บไซต์ สำหรับทำการตลาดออนไลน์ เพื่อเพิ่มยอดขายและลูกค้าใหม่',
+    description: defaultDescription,
     contactPoint: {
-      '@type': 'ContactPoint',
-      contactType: 'customer service',
-      availableLanguage: ['Thai', 'English'],
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      availableLanguage: ["Thai", "English"],
     },
-  }
+  };
 }
 
 export function generateWebsiteStructuredData() {

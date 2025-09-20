@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { description } from "../global";
+import { description } from "@/data";
 import Link from "next/link";
 import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import { LucideCheck } from "@/Components/Icons/LucideCheck";

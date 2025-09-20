@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/Components/Header";
-import { description, tagline } from "../global";
+import { description, tagline } from "@/data";
 import Footer from "@/Components/Footer";
 
 export const metadata: Metadata = {
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: tagline,
     description: description,
     url: "https://www.webcraftsman.co",
-    siteName: "Webcraftsman",
+    siteName: "WEBCRAFTSMAN",
     images: [
       {
         url: "https://www.webcraftsman.co/OG_Home.png",
