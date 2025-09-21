@@ -56,7 +56,7 @@ export const SERVICES = [
   },
   {
     icon: <LucideUserRound className="w-12 h-12 stroke-2" />,
-    title: "Lead Generation",
+    title: "Google Ads",
     description:
       "สร้างและจัดการแคมเปญโฆษณาเพื่อดึงดูดลูกค้าเป้าหมายที่มีคุณภาพสูง",
     href: "/services/lead-generation",
@@ -123,7 +123,7 @@ export const WORKS = [
   {
     img: "/showcase6.png",
     pills: ["Concept", "Design & Development"],
-    title: "GS Service",
+    title: "PhuketRoofing",
     description: "",
   },
   {
@@ -167,28 +167,22 @@ export const SHOWCASE_IMAGES = [
   {
     src: "/showcase6.png",
     alt: "work",
-    className: "scale-150 md:scale-100 -rotate-1 md:hover:scale-105",
   },
   {
     src: "/showcase2.png",
     alt: "work",
-    className: "scale-150 md:scale-125 md:hover:scale-[1.2]",
   },
   {
     src: "/showcase1.png",
     alt: "work",
-    className:
-      "scale-200 md:scale-150 md:hover:-rotate-1 md:hover:scale-[1.45] z-20",
   },
   {
     src: "/showcase3.png",
     alt: "work",
-    className: "scale-150 md:scale-125  md:hover:scale-[1.2] z-10",
   },
   {
     src: "/showcase4.png",
     alt: "work",
-    className: "scale-150 md:scale-100 rotate-1 md:hover:scale-105",
   },
 ];
 
