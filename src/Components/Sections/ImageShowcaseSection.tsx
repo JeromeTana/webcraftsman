@@ -1,4 +1,3 @@
-import { SHOWCASE_IMAGES } from "@/data";
 import Image from "next/image";
 
 export default function ImageShowcaseSection() {
@@ -57,7 +56,7 @@ export default function ImageShowcaseSection() {
         </div>
         <div className="flex flex-col gap-4 -mt-16">
           <Image
-            src={"/showcase2.png"}
+            src={"/showcase10.png"}
             alt={""}
             width={1000}
             height={1000}

@@ -1,7 +1,7 @@
 import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import ShinyText from "@/Components/ShinyText/ShinyText";
 import Accordion from "@/Components/Accordion";
-import { FAQS } from "@/data";
+import { faqs } from "@/data";
 import AnimatedQuestionIcon from "../Icons/AnimatedQuestionIcon";
 
 export default function FAQSection() {
@@ -28,7 +28,7 @@ export default function FAQSection() {
         </AnimatedContent>
       </div>
       <div className="grid grid-cols-1 gap-8 w-full max-w-2xl">
-        {FAQS.map((faq, index) => (
+        {faqs.map((faq, index) => (
           <Accordion key={index} question={faq.question} answer={faq.answer} />
         ))}
       </div>

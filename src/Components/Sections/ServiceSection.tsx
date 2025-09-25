@@ -1,7 +1,7 @@
 import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import ShinyText from "@/Components/ShinyText/ShinyText";
 import ServiceCard from "../ServiceCard";
-import { SERVICES } from "@/data";
+import { services } from "@/data";
 
 export default function ComparisonSection() {
   return (
@@ -35,7 +35,7 @@ export default function ComparisonSection() {
           delay={100}
         >
           <div className="grid md:grid-cols-3 gap-8">
-            {SERVICES.map((service, index) => (
+            {services.map((service, index) => (
               <ServiceCard
                 key={index}
                 icon={service.icon}

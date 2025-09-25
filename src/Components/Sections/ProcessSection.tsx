@@ -2,7 +2,7 @@ import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import ProcessItem from "@/Components/ProcessItem";
 import ShinyText from "@/Components/ShinyText/ShinyText";
 import { CtaButton } from "@/Components/CtaButton";
-import { PROCESS } from "@/data";
+import { process } from "@/data";
 
 export default function ProcessSection() {
   return (
@@ -36,7 +36,7 @@ export default function ProcessSection() {
         delay={100}
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {PROCESS.map((step, index) => (
+          {process.map((step, index) => (
             <ProcessItem key={index} index={index + 1} process={step}>
               {step.block}
             </ProcessItem>

@@ -2,7 +2,7 @@ import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import ShowcaseCard from "@/Components/ShowcaseCard";
 import ShinyText from "@/Components/ShinyText/ShinyText";
 import AnimatedCategoryIcon from "../Icons/AnimatedCategoryIcon";
-import { WORKS } from "@/data";
+import { portfolio } from "@/data";
 
 export default function ShowcaseSection() {
   return (
@@ -31,7 +31,7 @@ export default function ShowcaseSection() {
         </h2>
       </AnimatedContent>
       <div className="grid grid-cols-1 gap-8">
-        {WORKS.map((work, index) => (
+        {portfolio.map((work, index) => (
           <ShowcaseCard key={index} work={work} />
         ))}
         {/* <a

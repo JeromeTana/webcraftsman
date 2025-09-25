@@ -14,7 +14,7 @@ import { CodeIcon } from "./Icons/CodeIcon";
 import { HamburgerIcon } from "./Icons/HamburgerIcon";
 import { LucideX } from "./Icons/LucideX";
 import { openCtaPopup } from "./CtaPopup";
-import { navItems } from "@/data";
+import { navBarLinks } from "@/data";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -155,7 +155,7 @@ export default function Header() {
         {/* Desktop Navigation */}
         <nav className="flex items-center gap-8">
           <ul className="gap-8 hidden lg:flex text-(--paragraph)">
-            {navItems.map((item, index) => (
+            {navBarLinks.map((item, index) => (
               <li key={index}>
                 <RevealLink href={item.href}>{item.name}</RevealLink>
               </li>

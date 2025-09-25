@@ -4,7 +4,7 @@ import Logo from "./Icons/Logo";
 import { RevealLink } from "./RevealLink";
 import CtaSection from "./CtaSection";
 import { tagline } from "@/data";
-import { navItems } from "@/data";
+import { navBarLinks } from "@/data";
 
 export default function Footer() {
   return (
@@ -20,7 +20,7 @@ export default function Footer() {
             <div>
               <p className="text-black mb-8">Quick links</p>
               <ul className="flex flex-col gap-4 text-(--paragraph)">
-                {navItems.map((item, index) => (
+                {navBarLinks.map((item, index) => (
                   <li key={index}>
                     <RevealLink href={item.href}>{item.name}</RevealLink>
                   </li>
