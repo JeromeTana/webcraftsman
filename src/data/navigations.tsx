@@ -1,7 +1,30 @@
+import { services } from "./";
+
 export const navBarLinks = [
-  { name: "เกี่ยวกับเรา", href: "/about" },
-  { name: "ผลงาน", href: "/showcase" },
-  { name: "บริการ", href: "/service" },
+  { title: "เกี่ยวกับเรา", url: "/about" },
+  { title: "ผลงาน", url: "/showcase" },
+  { title: "บริการ", url: "/service" },
 ];
 
-export const footerLinks = []
+export const footerLinks = [
+  {
+    section: "Quick Links",
+    links: [
+      { title: "เกี่ยวกับเรา", url: "/about" },
+      { title: "ผลงาน", url: "/showcase" },
+    ],
+  },
+  {
+    section: "Services",
+    links: services.map((service) => ({
+      title: service.title,
+      url: service.url,
+    })),
+  },
+];
+
+export const socialLinks = {
+  facebook: "",
+  instagram: "",
+  nostr: "",
+};

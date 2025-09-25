@@ -41,7 +41,7 @@ export default function ComparisonSection() {
                 icon={service.icon}
                 title={service.title}
                 description={service.description}
-                href={service.href}
+                href={service.url}
               />
             ))}
           </div>

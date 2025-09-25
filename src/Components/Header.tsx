@@ -157,7 +157,7 @@ export default function Header() {
           <ul className="gap-8 hidden lg:flex text-(--paragraph)">
             {navBarLinks.map((item, index) => (
               <li key={index}>
-                <RevealLink href={item.href}>{item.name}</RevealLink>
+                <RevealLink href={item.url}>{item.title}</RevealLink>
               </li>
             ))}
             <li>
