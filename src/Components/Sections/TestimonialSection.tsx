@@ -2,7 +2,7 @@ import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import ShinyText from "@/Components/ShinyText/ShinyText";
 import Image from "next/image";
 import AnimatedQuoteIcon from "../Icons/AnimatedQuoteIcon";
-import { TESTIMONIAL_DATA } from "@/data";
+import { TESTIMONIAL_DATA } from "@/data/testimonials";
 import { renderStars } from "../CtaPopup/utils";
 
 export default function TestimonialSection() {

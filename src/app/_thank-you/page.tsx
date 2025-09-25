@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import { description } from "@/data";
 import Link from "next/link";
 import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import { LucideCheck } from "@/Components/Icons/LucideCheck";
@@ -57,8 +56,9 @@ export default function ThankYouPage() {
             {/* Success Message */}
             <div className="max-w-2xl mx-auto">
               <p className="text-lg text-gray-600 mb-8">
-                We've successfully received your booking and sent you a confirmation email with all the details. 
-                We're excited to discuss your project and help you grow your business!
+                We've successfully received your booking and sent you a
+                confirmation email with all the details. We're excited to
+                discuss your project and help you grow your business!
               </p>
             </div>
 
@@ -67,35 +67,50 @@ export default function ThankYouPage() {
               <h3 className="text-2xl font-semibold text-gray-900 mb-6">
                 What Happens Next?
               </h3>
-              
+
               <div className="space-y-4 text-left">
                 <div className="flex items-start gap-4">
                   <div className="bg-primary text-white rounded-full p-2 mt-1">
                     <LucideCheck className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Check Your Email</h4>
-                    <p className="text-gray-600">You'll receive a calendar invite and meeting details shortly.</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Check Your Email
+                    </h4>
+                    <p className="text-gray-600">
+                      You'll receive a calendar invite and meeting details
+                      shortly.
+                    </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start gap-4">
                   <div className="bg-primary text-white rounded-full p-2 mt-1">
                     <LucideCheck className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Prepare for Our Chat</h4>
-                    <p className="text-gray-600">Think about your goals, current challenges, and what you'd like to achieve.</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Prepare for Our Chat
+                    </h4>
+                    <p className="text-gray-600">
+                      Think about your goals, current challenges, and what you'd
+                      like to achieve.
+                    </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start gap-4">
                   <div className="bg-primary text-white rounded-full p-2 mt-1">
                     <LucideCheck className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Join the Meeting</h4>
-                    <p className="text-gray-600">We'll discuss your project and see how we can help you succeed.</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Join the Meeting
+                    </h4>
+                    <p className="text-gray-600">
+                      We'll discuss your project and see how we can help you
+                      succeed.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -104,18 +119,16 @@ export default function ThankYouPage() {
             {/* Call to Action */}
             <div className="space-y-6">
               <p className="text-gray-600">
-                Need to make changes to your booking? Check your email for the calendar invite with modification options.
+                Need to make changes to your booking? Check your email for the
+                calendar invite with modification options.
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link 
-                  href="/"
-                  className="cta inline-block text-center"
-                >
+                <Link href="/" className="cta inline-block text-center">
                   Back to Home
                 </Link>
-                
-                <Link 
+
+                <Link
                   href="/value"
                   className="px-8 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium text-center"
                 >
@@ -128,8 +141,8 @@ export default function ThankYouPage() {
             <div className="border-t border-gray-200 pt-8">
               <p className="text-sm text-gray-500">
                 Questions? Email us at{" "}
-                <a 
-                  href="mailto:hello@webcraftsman.co" 
+                <a
+                  href="mailto:hello@webcraftsman.co"
                   className="text-primary hover:underline"
                 >
                   hello@webcraftsman.co

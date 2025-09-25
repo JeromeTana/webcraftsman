@@ -9,7 +9,7 @@ import {
   ServiceSection,
   TradeSection,
 } from "@/Components/Sections";
-import { siteUrl } from "@/data";
+import { siteUrl } from "@/data/metadata";
 
 export default function Home() {
   // Structured data for homepage

@@ -1,7 +1,7 @@
 import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import ShinyText from "@/Components/ShinyText/ShinyText";
 import ServiceCard from "../ServiceCard";
-import { services } from "@/data";
+import { services } from "@/data/services";
 
 export default function ComparisonSection() {
   return (
