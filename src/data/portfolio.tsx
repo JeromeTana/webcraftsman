@@ -1,6 +1,6 @@
 export const portfolio = [
   {
-    img: "/showcase6.png",
+    img: "/showcase6.webp",
     pills: ["Concept", "Design & Development"],
     title: "PhuketRoofing",
     description: "",
@@ -34,7 +34,7 @@ export const portfolio = [
       "DevWhoLifts is a web design agency that specializes in creating high-converting websites for fitness professionals.",
   },
   // {
-  //   img: "/showcase5.png",
+  //   img: "/showcase5.webp",
   //   pills: ["Concept", "Design & Development"],
   //   title: "Fit Dad",
   //   description:

@@ -8,14 +8,14 @@ export default function ImageShowcaseSection() {
         {/* {SHOWCASE_IMAGES.map((image, index) => ( */}
         <div className="flex flex-col gap-4 -mt-32">
           <Image
-            src={"/showcase6.png"}
+            src={"/showcase6.webp"}
             alt={""}
             width={1000}
             height={1000}
             className={`w-full object-cover aspect-square border border-gray-200 object-top group-hover:scale-105 duration-300 md:rounded`}
           />
           <Image
-            src={"/showcase5.png"}
+            src={"/showcase5.webp"}
             alt={""}
             width={1000}
             height={1000}
@@ -31,7 +31,7 @@ export default function ImageShowcaseSection() {
             className={`w-full object-cover aspect-square border border-gray-200 object-top group-hover:scale-105 duration-300 md:rounded`}
           />
           <Image
-            src={"/showcase7.png"}
+            src={"/showcase7.webp"}
             alt={""}
             width={1000}
             height={1000}
@@ -47,7 +47,7 @@ export default function ImageShowcaseSection() {
             className={`w-full object-cover aspect-square border border-gray-200 object-top group-hover:scale-105 duration-300 md:rounded`}
           />
           <Image
-            src={"/showcase8.png"}
+            src={"/showcase8.webp"}
             alt={""}
             width={1000}
             height={1000}
@@ -56,14 +56,14 @@ export default function ImageShowcaseSection() {
         </div>
         <div className="flex flex-col gap-4 -mt-16">
           <Image
-            src={"/showcase10.png"}
+            src={"/showcase10.webp"}
             alt={""}
             width={1000}
             height={1000}
             className={`w-full object-cover aspect-square border border-gray-200 object-top group-hover:scale-105 duration-300 md:rounded`}
           />
           <Image
-            src={"/showcase9.png"}
+            src={"/showcase9.webp"}
             alt={""}
             width={1000}
             height={1000}
@@ -72,14 +72,14 @@ export default function ImageShowcaseSection() {
         </div>
         <div className="flex flex-col gap-4 -mt-32">
           <Image
-            src={"/showcase6.png"}
+            src={"/showcase6.webp"}
             alt={""}
             width={1000}
             height={1000}
             className={`w-full object-cover aspect-square border border-gray-200 object-top group-hover:scale-105 duration-300 md:rounded`}
           />
           <Image
-            src={"/showcase6.png"}
+            src={"/showcase6.webp"}
             alt={""}
             width={1000}
             height={1000}
