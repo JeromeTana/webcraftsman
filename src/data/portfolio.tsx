@@ -6,7 +6,7 @@ export const portfolio = [
     description: "",
   },
   {
-    img: "/showcase1.png",
+    img: "/showcase1.webp",
     pills: ["Concept", "Online Course"],
     title: "Wealthery",
     description:

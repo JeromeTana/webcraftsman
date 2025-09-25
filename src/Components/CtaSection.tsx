@@ -69,7 +69,7 @@ export default function CtaSection() {
                 className="w-80 object-cover object-top group-hover:scale-105 duration-300 rounded md:rounded-lg scale-150 md:scale-100 md:hover:-rotate-1 md:hover:scale-105"
               />
               <Image
-                src="/showcase1.png"
+                src="/showcase1.webp"
                 alt="work"
                 width={500}
                 height={500}
