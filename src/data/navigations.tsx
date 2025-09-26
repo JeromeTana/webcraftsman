@@ -1,4 +1,4 @@
-import { services } from "./";
+import { services } from "./services";
 
 export const navBarLinks = [
   { title: "เกี่ยวกับเรา", url: "/about" },

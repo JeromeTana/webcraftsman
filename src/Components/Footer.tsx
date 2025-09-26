@@ -3,8 +3,8 @@ import React from "react";
 import Logo from "./Icons/Logo";
 import { RevealLink } from "./RevealLink";
 import CtaSection from "./CtaSection";
-import { footerLinks } from "@/data/navigations";
-import { tagline } from "@/data/metadata";
+import { footerLinks } from "@/data";
+import { tagline } from "@/data";
 
 export default function Footer() {
   return (

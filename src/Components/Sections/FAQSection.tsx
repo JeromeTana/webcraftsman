@@ -1,7 +1,7 @@
 import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import ShinyText from "@/Components/ShinyText/ShinyText";
 import Accordion from "@/Components/Accordion";
-import { faqs } from "@/data/faqs";
+import { faqs } from "@/data";
 import AnimatedQuestionIcon from "../Icons/AnimatedQuestionIcon";
 
 export default function FAQSection() {

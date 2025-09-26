@@ -2,7 +2,7 @@ import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import ShowcaseCard from "@/Components/ShowcaseCard";
 import ShinyText from "@/Components/ShinyText/ShinyText";
 import AnimatedCategoryIcon from "../Icons/AnimatedCategoryIcon";
-import { portfolio } from "@/data/portfolio";
+import { portfolio } from "@/data";
 
 export default function ShowcaseSection() {
   return (

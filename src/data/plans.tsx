@@ -1,4 +1,4 @@
-export const PLANS = [
+export const plans = [
   {
     title: "Website",
     price_from: 5590,

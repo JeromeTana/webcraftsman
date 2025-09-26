@@ -2,7 +2,7 @@ import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import ProcessItem from "@/Components/ProcessItem";
 import ShinyText from "@/Components/ShinyText/ShinyText";
 import { CtaButton } from "@/Components/CtaButton";
-import { process } from "@/data/process";
+import { process } from "@/data";
 
 export default function ProcessSection() {
   return (

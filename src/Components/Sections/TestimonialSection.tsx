@@ -2,10 +2,11 @@ import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import ShinyText from "@/Components/ShinyText/ShinyText";
 import Image from "next/image";
 import AnimatedQuoteIcon from "../Icons/AnimatedQuoteIcon";
-import { TESTIMONIAL_DATA } from "@/data/testimonials";
+import { testimonials } from "@/data";
 import { renderStars } from "../CtaPopup/utils";
 
 export default function TestimonialSection() {
+  const testimonial = testimonials[0];
 
   return (
     <section
@@ -34,9 +35,9 @@ export default function TestimonialSection() {
         </h2>
       </AnimatedContent>
       <div className="flex flex-col md:flex-row-reverse md:gap-8">
-        {TESTIMONIAL_DATA.image && (
+        {testimonial.image && (
           <Image
-            src={TESTIMONIAL_DATA.image}
+            src={testimonial.image}
             alt="Testimonial comparison"
             width={1000}
             height={1000}
@@ -44,31 +45,31 @@ export default function TestimonialSection() {
           />
         )}
         <div className="flex flex-col w-full gap-8 px-4 md:px-8 items-center md:items-start">
-          {TESTIMONIAL_DATA.rating && (
-            <div className="flex">{renderStars(TESTIMONIAL_DATA.rating)}</div>
+          {testimonial.rating && (
+            <div className="flex">{renderStars(testimonial.rating)}</div>
           )}
 
           <div className="mb-8 text-center md:text-start">
             <h3 className="text-3xl mb-2 leading-snug">
-              "{TESTIMONIAL_DATA.quote}"
+              "{testimonial.quote}"
             </h3>
-            {TESTIMONIAL_DATA.description && (
-              <p className="text-gray-600">{TESTIMONIAL_DATA.description}</p>
+            {testimonial.description && (
+              <p className="text-gray-600">{testimonial.description}</p>
             )}
           </div>
 
           <div className="flex items-center gap-8">
             <div className="relative">
               <Image
-                src={TESTIMONIAL_DATA.author.avatar}
-                alt={TESTIMONIAL_DATA.author.name}
+                src={testimonial.author.avatar}
+                alt={testimonial.author.name}
                 width={64}
                 height={64}
                 className="rounded-full"
               />
-              {TESTIMONIAL_DATA.author.companyLogo && (
+              {testimonial.author.companyLogo && (
                 <Image
-                  src={TESTIMONIAL_DATA.author.companyLogo}
+                  src={testimonial.author.companyLogo}
                   alt="Company logo"
                   width={40}
                   height={40}
@@ -77,9 +78,9 @@ export default function TestimonialSection() {
               )}
             </div>
             <div className="flex flex-col gap-1">
-              <p>{TESTIMONIAL_DATA.author.name}</p>
+              <p>{testimonial.author.name}</p>
               <p className="!text-sm text-gray-600">
-                {TESTIMONIAL_DATA.author.title}
+                {testimonial.author.title}
               </p>
             </div>
           </div>

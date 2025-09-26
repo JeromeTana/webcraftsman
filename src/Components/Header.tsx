@@ -14,7 +14,7 @@ import { CodeIcon } from "./Icons/CodeIcon";
 import { HamburgerIcon } from "./Icons/HamburgerIcon";
 import { LucideX } from "./Icons/LucideX";
 import { openCtaPopup } from "./CtaPopup";
-import { navBarLinks } from "@/data/navigations";
+import { navBarLinks } from "@/data";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
