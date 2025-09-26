@@ -37,13 +37,14 @@ export default function Integration() {
         />
         <Image src="/woo.png" alt="WooCommerce Logo" width={200} height={200} />
         <Image src="/framer.png" alt="Framer Logo" width={200} height={200} />
+        <Image src="/shopify.png" alt="Framer Logo" width={200} height={200} />
         <Image src="/astro.png" alt="Astro Logo" width={200} height={200} />
         <Image
           src="/react.png"
           alt="React Logo"
           width={200}
           height={200}
-        />{" "}
+        />
         <Image src="/next.png" alt="Next.js Logo" width={200} height={200} />{" "}
         <Image
           src="/highlevel.png"

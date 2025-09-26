@@ -1,43 +1,42 @@
 export const portfolio = [
   {
     img: "/showcase6.webp",
-    pills: ["Concept", "Design & Development"],
     title: "PhuketRoofing",
     description: "",
   },
   {
     img: "/showcase1.webp",
-    pills: ["Concept", "Online Course"],
     title: "Wealthery",
-    description:
-      "ContentCreator.com is a filmmaking course that teaches you how to create high-quality content for your audience.",
+    description: "",
   },
-  // {
-  //   img: "/showcase2.png",
-  //   pills: ["Web blog"],
-  //   title: "Data Echooo",
-  //   description:
-  //     "Data Echooo is a data web blog that provides insights and analysis on the latest trends in data science and analytics.",
-  // },
-  // {
-  //   img: "/showcase3.png",
-  //   pills: ["Concept", "Design & Development"],
-  //   title: "What's Your Dream Book",
-  //   description:
-  //     "Simon Squibb's book, 'What's Your Dream', is a guide to help you discover your true purpose and achieve your dreams.",
-  // },
+  {
+    img: "/showcase10.webp",
+    title: "ChiangraiPooling",
+    description: "",
+  },
   {
     img: "/showcase4.png",
-    pills: ["Concept", "Design & Development"],
     title: "Data Echooo",
-    description:
-      "DevWhoLifts is a web design agency that specializes in creating high-converting websites for fitness professionals.",
+    description: "",
   },
-  // {
-  //   img: "/showcase5.webp",
-  //   pills: ["Concept", "Design & Development"],
-  //   title: "Fit Dad",
-  //   description:
-  //     "DevWhoLifts is a web design agency that specializes in creating high-converting websites for fitness professionals.",
-  // },
+  {
+    img: "/showcase3.png",
+    title: "What's Your Dream Book",
+    description: "",
+  },
+  {
+    img: "/showcase2.png",
+    title: "ContentCreator.com",
+    description: "",
+  },
+  {
+    img: "/showcase1.webp",
+    title: "Wealthery",
+    description: "",
+  },
+  {
+    img: "/showcase5.webp",
+    title: "FitDad",
+    description: "",
+  },
 ];

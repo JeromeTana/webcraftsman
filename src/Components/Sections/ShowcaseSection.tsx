@@ -3,6 +3,7 @@ import ShowcaseCard from "@/Components/ShowcaseCard";
 import ShinyText from "@/Components/ShinyText/ShinyText";
 import AnimatedCategoryIcon from "../Icons/AnimatedCategoryIcon";
 import { portfolio } from "@/data";
+import Image from "next/image";
 
 export default function ShowcaseSection() {
   return (
@@ -30,20 +31,17 @@ export default function ShowcaseSection() {
           </span>
         </h2>
       </AnimatedContent>
-      <div className="grid grid-cols-1 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
         {portfolio.map((work, index) => (
-          <ShowcaseCard key={index} work={work} />
+          <Image
+            key={index}
+            src={work.img}
+            alt="work"
+            width={1000}
+            height={1000}
+            className="object-cover aspect-square object-top rounded-xl border border-gray-200"
+          />
         ))}
-        {/* <a
-            href={ctaCardHref}
-            className="group min-h-[36rem] gap-8 w-full bg-foreground p-2 rounded-4xl shadow-lg"
-          >
-            <div className="relative h-full rounded-3xl overflow-hidden p-4 bg-background/50 group-hover:bg-background">
-              <div className="absolute top-1/2 left-1/2 -translate-1/2 w-8 h-36 bg-slate-200"></div>
-              <div className="absolute top-1/2 left-1/2 -translate-1/2 w-8 h-36 bg-slate-200 rotate-90"></div>
-              <span>Your Project Here</span>
-            </div>
-          </a> */}
       </div>
     </section>
   );
