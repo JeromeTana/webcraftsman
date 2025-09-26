@@ -5,7 +5,7 @@ export const portfolio = [
     description: "",
   },
   {
-    img: "/showcase1.webp",
+    img: "/showcase9.webp",
     title: "Wealthery",
     description: "",
   },
