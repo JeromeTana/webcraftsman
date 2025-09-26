@@ -8,6 +8,7 @@ import {
   BlogSection,
   ServiceSection,
   TradeSection,
+  IntegrationSection,
 } from "@/Components/Sections";
 import { siteUrl } from "@/data";
 
@@ -101,6 +102,7 @@ export default function Home() {
 
       <main>
         <HeroSection />
+        <IntegrationSection />
         <TradeSection />
         <ServiceSection />
         {/* <ComparisonSection /> */}

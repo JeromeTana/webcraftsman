@@ -8,3 +8,4 @@ export { default as FAQSection } from './FAQSection';
 export { default as BlogSection } from './BlogSection';
 export { default as ServiceSection } from './ServiceSection';
 export { default as TradeSection } from './TradeSection';
+export { default as IntegrationSection } from './IntegrationSection';
