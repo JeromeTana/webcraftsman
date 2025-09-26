@@ -17,7 +17,7 @@ export const process = [
     ),
   },
   {
-    title: "ปล่อยให้เราจัดการ",
+    title: "เริ่มดำเนินงาน",
     description:
       "เราจะลงมือตามแผนให้คุณ ตามที่ได้พูดคุยกันหลังจากการชำระเงินเสร็จสิ้น",
     block: (
@@ -31,7 +31,7 @@ export const process = [
     ),
   },
   {
-    title: "เว็บสวยพร้อมใช้งาน",
+    title: "เว็บสวยพร้อมใช้",
     description: "เราจะส่งมอบเว็บไซต์ที่สวยงามและพร้อมใช้งาน",
     block: (
       <div className="bg-background  rounded-2xl px-8 py-16 md:py-4 text-center flex flex-col gap-4 items-center justify-center">
