@@ -15,6 +15,7 @@ import { HamburgerIcon } from "./Icons/HamburgerIcon";
 import { LucideX } from "./Icons/LucideX";
 import { openCtaPopup } from "./CtaPopup";
 import { navBarLinks } from "@/data";
+import Link from "next/link";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -168,13 +169,15 @@ export default function Header() {
 
         {/* Desktop CTA Button */}
         <div className="flex lg:w-1/4 justify-end gap-4">
-          <button
-            onClick={openCtaPopup}
-            className="cta hidden md:flex items-center gap-2"
-          >
-            นัดพูดคุยเลย
-            <LucideArrowRight />
-          </button>
+          <Link href="#cta">
+            <button
+              // onClick={openCtaPopup}
+              className="cta hidden md:flex items-center gap-2"
+            >
+              นัดพูดคุยเลย
+              <LucideArrowRight />
+            </button>
+          </Link>
 
           {/* Mobile Hamburger Button */}
           <button

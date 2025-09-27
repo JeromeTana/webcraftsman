@@ -3,7 +3,7 @@ import { LucideCheck } from "@/Components/Icons/LucideCheck";
 import { CtaPopup, openCtaPopup } from "@/Components/CtaPopup";
 import Image from "next/image";
 import ProcessSection from "@/Components/Sections/ProcessSection";
-import CtaSection from "../CtaSection";
+import CtaSection from "../Sections/CtaSection";
 import AnimatedSuccessIcon from "../Icons/AnimatedSeccessIcon";
 import AdHeader from "./AdHeader";
 import AdHeroSection from "./AdHeroSection";

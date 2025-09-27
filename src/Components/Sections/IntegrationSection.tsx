@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Integration() {
   return (
-    <section id="faq" className="grid grid-cols-1 md:grid-cols-1 gap-8">
+    <section id="integration">
       {/* <div className="flex flex-col gap-8">
         <div className="pill">
           <ShinyText text="Integrations" speed={5} />
@@ -25,7 +25,7 @@ export default function Integration() {
           </h2>
         </AnimatedContent>
       </div> */}
-      <div className="flex items-center flex-wrap justify-center gap-x-16 w-full m-auto opacity-50">
+      <div className="flex items-center flex-wrap justify-center gap-x-16 w-full m-auto opacity-50 mt-20">
         {/* {faqs.map((faq, index) => (
           <Accordion key={index} question={faq.question} answer={faq.answer} />
         ))} */}
@@ -39,13 +39,13 @@ export default function Integration() {
         <Image src="/framer.png" alt="Framer Logo" width={200} height={200} />
         <Image src="/shopify.png" alt="Framer Logo" width={200} height={200} />
         <Image src="/astro.png" alt="Astro Logo" width={200} height={200} />
+        <Image src="/react.png" alt="React Logo" width={200} height={200} />
         <Image
-          src="/react.png"
-          alt="React Logo"
+          src="/next.png"
+          alt="Next.js Logo"
           width={200}
           height={200}
-        />
-        <Image src="/next.png" alt="Next.js Logo" width={200} height={200} />{" "}
+        />{" "}
         <Image
           src="/highlevel.png"
           alt="HighLevel Logo"

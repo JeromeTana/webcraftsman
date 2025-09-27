@@ -1,9 +1,9 @@
 import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import Image from "next/image";
-import { CtaButtonHighlighted } from "./CtaButton";
-import AnimatedCalendarIcon from "./Icons/AnimatedCalendarIcon";
-import { CtaPopup } from "./CtaPopup";
-import PulsingDot from "./PulsingDot";
+import { CtaButtonHighlighted } from "../CtaButton";
+import AnimatedCalendarIcon from "../Icons/AnimatedCalendarIcon";
+import { CtaPopup } from "../CtaPopup";
+import PulsingDot from "../PulsingDot";
 
 export default function CtaSection() {
   return (

@@ -2,7 +2,7 @@ import React from "react";
 
 import Logo from "./Icons/Logo";
 import { RevealLink } from "./RevealLink";
-import CtaSection from "./CtaSection";
+import CtaSection from "./Sections/CtaSection";
 import { footerLinks } from "@/data";
 import { tagline } from "@/data";
 
