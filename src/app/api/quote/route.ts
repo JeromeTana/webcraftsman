@@ -8,7 +8,7 @@ export async function POST(request: Request) {
     const formData = await request.json();
 
     // Validate required fields
-    if (!formData.fullName || !formData.email || !formData.projectType) {
+    if (!formData.fullName || !formData.email || !formData.service) {
       return Response.json(
         { error: "Missing required fields" }, 
         { status: 400 }
@@ -23,7 +23,7 @@ export async function POST(request: Request) {
     const { data, error } = await resend.emails.send({
       from: "Jerome from WEBCRAFTSMAN <jerome@mail.webcraftsman.co>",
       to: ["jerome@webcraftsman.co"], // Your email where you want to receive form submissions
-      subject: `New Quote Request: ${formData.projectType} - ${formData.fullName}`,
+      subject: `New Quote Request: ${formData.service} - ${formData.fullName}`,
       react: QuoteFormTemplate({ formData: { ...formData, featuresText } }),
     });
 
@@ -48,7 +48,7 @@ export async function POST(request: Request) {
               </p>
               
               <p style="color: #374151; font-size: 16px; line-height: 1.6; margin-bottom: 20px;">
-                We've successfully received your quote request for <strong>${formData.projectType}</strong>. 
+                We've successfully received your quote request for <strong>${formData.service}</strong>. 
                 Thank you for considering WEBCRAFTSMAN for your project!
               </p>
               

@@ -2,7 +2,7 @@ import { Code, MapPin, MessageCircle, TrendingUp, UserRound, Workflow } from "lu
 export const services = [
   {
     icon: <Code className="w-12 h-12 stroke-2" />,
-    title: "Web Development",
+    title: "Website Development",
     description:
       "สร้างเว็บไซต์ที่สวยงามและใช้งานง่าย เพื่อเสริมสร้างภาพลักษณ์และความน่าเชื่อถือให้กับธุรกิจของคุณ",
     url: "/services/web-development",

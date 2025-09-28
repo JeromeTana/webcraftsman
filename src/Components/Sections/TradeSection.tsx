@@ -37,7 +37,7 @@ export default function TradeSection() {
             <div className="card">ธุรกิจโซล่าเซลล์</div>
             <div className="card">ธุรกิจรีโนเวทอาคาร</div>
             <div className="card">ธุรกิจสร้างสระว่ายน้ำ</div>
-            <div className="card">ธุรกิจรับเหมาก่อสร้าง</div>
+            <div className="card">ธุรกิจรับเหมา</div>
             <div className="card">ธุรกิจปูหลังคา</div>
           </div>
         </AnimatedContent>
