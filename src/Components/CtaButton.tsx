@@ -8,7 +8,7 @@ import AnimatedArrowIcon from "./Icons/AnimatedArrowIcon";
 import { openCtaPopup } from "./CtaPopup";
 import Link from "next/link";
 
-const ctaText = "นัดรับคำปรึกษาฟรี";
+const ctaText = "เริ่มต้นรับบริการ";
 const supportText = "เจ้าของธุรกิจไว้ใจเรา";
 
 export function CtaButton() {

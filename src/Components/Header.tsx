@@ -173,7 +173,7 @@ export default function Header() {
               // onClick={openCtaPopup}
               className="cta hidden md:flex items-center gap-2"
             >
-              นัดพูดคุยเลย
+              เริ่มต้นรับบริการ
               <ArrowRight />
             </button>
           </Link>
@@ -273,7 +273,7 @@ export default function Header() {
                 }}
                 className="w-full cta flex items-center justify-center gap-2 py-3"
               >
-                นัดพูดคุยเลย
+                รับบริการ
                 <ArrowRight />
               </button>
             </li>
