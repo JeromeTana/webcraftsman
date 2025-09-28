@@ -9,7 +9,7 @@ import { tagline } from "@/data";
 export default function Footer() {
   return (
     <>
-      <CtaSection />
+      {/* <CtaSection /> */}
       <footer>
         <div className="max-w-6xl m-auto py-20 pb-10 px-4 border-t border-neutral-200">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-8 mb-32">

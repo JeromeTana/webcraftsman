@@ -8,9 +8,9 @@ interface CtaFormSectionProps {
 
 export default function CtaFormSection({ onSubmitted }: CtaFormSectionProps) {
   return (
-    <section id="cta">
-      <div className="p-20 bg-primary rounded-4xl grid grid-cols-1 md:grid-cols-1">
-        <h2 className="text-3xl font-bold text-white">รับคำปรึกษาด้านเว็บไซต์ ฟรี!</h2>
+    <section id="cta" className="!max-w-full !py-0">
+      <div className="p-20 bg-primary rounded-4xl grid grid-cols-1 md:grid-cols-2">
+        <h2 className="text-4xl font-bold text-white">รับคำปรึกษาด้านเว็บไซต์ ฟรี!</h2>
         <QuoteForm onSubmitted={onSubmitted} />
       </div>
     </section>
