@@ -3,15 +3,12 @@
 import React, { useState, useEffect } from "react";
 import { RevealLink } from "./RevealLink";
 import { MegaMenu } from "./MegaMenu";
+import { ServiceDropdown } from "./NavDropdown";
 import Logo from "./Icons/Logo";
 import { ArrowRight, X } from "lucide-react";
 import { BookIcon } from "./Icons/BookIcon";
-import { ToolIcon } from "./Icons/ToolIcon";
-import { BriefcaseIcon } from "./Icons/BriefcaseIcon";
-import { BlogIcon } from "./Icons/BlogIcon";
 import { DesignIcon } from "./Icons/DesignIcon";
 import { CodeIcon } from "./Icons/CodeIcon";
-import { HamburgerIcon } from "./Icons/HamburgerIcon";
 import { openCtaPopup } from "./CtaPopup";
 import { navBarLinks } from "@/data";
 import Link from "next/link";
@@ -49,51 +46,7 @@ export default function Header() {
   //   };
   // }, [isMobileMenuOpen]);
 
-  // Define the mega menu structure for Services
-  const servicesSections = [
-    {
-      title: "Services",
-      icon: BriefcaseIcon,
-      items: [
-        {
-          name: "Landing Page & Website",
-          href: "/service/web-development",
-          description: "Custom websites and landing pages",
-          icon: CodeIcon,
-        },
-        {
-          name: "Website Audit",
-          href: "/roast",
-          description: "Free website analysis and optimization",
-          icon: DesignIcon,
-        },
-        {
-          name: "SEO",
-          href: "/service/seo",
-          description: "Search engine optimization",
-          icon: BookIcon,
-        },
-        {
-          name: "Conversion Rate Optimization",
-          href: "/service/consulting",
-          description: "Improve conversion and sales",
-          icon: ToolIcon,
-        },
-        {
-          name: "Maintenance Support",
-          href: "/service/maintenance",
-          description: "Ongoing support and updates",
-          icon: ToolIcon,
-        },
-        {
-          name: "E-Commerce",
-          href: "/service/ecommerce",
-          description: "Online store development (Coming Soon)",
-          icon: BriefcaseIcon,
-        },
-      ],
-    },
-  ];
+
 
   // Define the mega menu structure for Value
   const valueSections = [
@@ -157,7 +110,11 @@ export default function Header() {
           <ul className="gap-8 hidden lg:flex text-(--paragraph)">
             {navBarLinks.map((item, index) => (
               <li key={index}>
-                <RevealLink href={item.url}>{item.title}</RevealLink>
+                {item.dropdown ? (
+                  <ServiceDropdown trigger={item.title} items={item.dropdown} />
+                ) : (
+                  <RevealLink href={item.url}>{item.title}</RevealLink>
+                )}
               </li>
             ))}
             <li>
@@ -229,17 +186,19 @@ export default function Header() {
                   Services
                 </p>
                 <ul className="space-y-2 pl-4">
-                  {servicesSections[0].items.map((item, index) => (
-                    <li key={index}>
-                      <a
-                        href={item.href}
-                        className="block py-1 text-sm hover:text-primary transition-colors"
-                        onClick={closeMobileMenu}
-                      >
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
+                  {navBarLinks
+                    .find((link) => link.dropdown)
+                    ?.dropdown?.map((item, index) => (
+                      <li key={index}>
+                        <a
+                          href={item.url}
+                          className="block py-1 text-sm hover:text-primary transition-colors"
+                          onClick={closeMobileMenu}
+                        >
+                          {item.name}
+                        </a>
+                      </li>
+                    ))}
                 </ul>
               </div>
             </li>

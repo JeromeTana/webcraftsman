@@ -1,12 +1,19 @@
-import { Code, MapPin, MessageCircle, TrendingUp, UserRound, Workflow } from "lucide-react";
+import {
+  Code,
+  MapPin,
+  MessageCircle,
+  TrendingUp,
+  UserRound,
+  Workflow,
+} from "lucide-react";
 
 export const services = [
   {
-    icon: <Code className="w-12 h-12 stroke-2" />,
+    icon: <Code />,
     title: "Website Development",
     description:
       "สร้างเว็บไซต์ที่สวยงามและใช้งานง่าย เพื่อเสริมสร้างภาพลักษณ์และความน่าเชื่อถือให้กับธุรกิจของคุณ",
-    url: "/services/web-development",
+    url: "/service/web-development",
     features: [
       "Responsive Design ที่ใช้งานได้ทุกอุปกรณ์",
       "SEO-Friendly Structure",
@@ -23,11 +30,11 @@ export const services = [
     ],
   },
   {
-    icon: <MapPin className="w-12 h-12 stroke-2" />,
+    icon: <MapPin />,
     title: "Local SEO",
     description:
       "ทำเว็บไซต์ และหมุด Google Maps ของคุณให้ติดอันดับการค้นหาในพื้นที่บริการ",
-    url: "/services/local-seo",
+    url: "/service/local-seo",
     features: [
       "Google My Business Optimization",
       "Local Keyword Research",
@@ -44,11 +51,11 @@ export const services = [
     ],
   },
   {
-    icon: <TrendingUp className="w-12 h-12 stroke-2" />,
+    icon: <TrendingUp />,
     title: "Conversion Optimization",
     description:
       "ปรับปรุงประสิทธิภาพของเว็บไซต์เพื่อเพิ่มอัตรา conversion และสร้างรายได้ให้กับธุรกิจของคุณ",
-    url: "/services/conversion-optimization",
+    url: "/service/conversion-optimization",
     features: [
       "A/B Testing และ Analytics",
       "Landing Page Optimization",
@@ -65,11 +72,11 @@ export const services = [
     ],
   },
   {
-    icon: <MessageCircle className="w-12 h-12 stroke-2" />,
+    icon: <MessageCircle />,
     title: "Chatbot",
     description:
       "ติดตั้ง AI Chatbot เพื่อให้พร้อมบริการลูกค้าตลอด 24 ชั่วโมง เพิ่มโอกาสในการปิดการขาย",
-    url: "/services/chatbot",
+    url: "/service/chatbot",
     features: [
       "AI-Powered Natural Language Processing",
       "24/7 Customer Support",
@@ -86,11 +93,11 @@ export const services = [
     ],
   },
   {
-    icon: <Workflow className="w-12 h-12 stroke-2" />,
+    icon: <Workflow />,
     title: "AI Automation",
     description:
       "ใช้ AI และเครื่องมืออัตโนมัติเพื่อเพิ่มประสิทธิภาพการทำงาน และลดภาระงานที่ซ้ำซ้อน",
-    url: "/services/automation",
+    url: "/service/automation",
     features: [
       "Workflow Automation",
       "Data Processing และ Analysis",
@@ -107,11 +114,11 @@ export const services = [
     ],
   },
   {
-    icon: <UserRound className="w-12 h-12 stroke-2" />,
+    icon: <UserRound />,
     title: "Google Ads",
     description:
       "สร้างและจัดการแคมเปญโฆษณาเพื่อดึงดูดลูกค้าเป้าหมายที่มีคุณภาพสูง",
-    url: "/services/lead-generation",
+    url: "/service/lead-generation",
     features: [
       "Keyword Research และ Strategy",
       "Campaign Setup และ Management",
