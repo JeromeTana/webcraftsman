@@ -12,7 +12,7 @@ export const services = [
     icon: <Code />,
     title: "Website Development",
     description:
-      "สร้างเว็บไซต์ที่สวยงามและใช้งานง่าย เพื่อเสริมสร้างภาพลักษณ์และความน่าเชื่อถือให้กับธุรกิจของคุณ",
+      "สร้างเว็บไซต์เพื่อเสริมสร้างภาพลักษณ์และความน่าเชื่อถือให้กับธุรกิจของคุณ",
     url: "/service/web-development",
     features: [
       "Responsive Design ที่ใช้งานได้ทุกอุปกรณ์",
@@ -33,7 +33,7 @@ export const services = [
     icon: <MapPin />,
     title: "Local SEO",
     description:
-      "ทำเว็บไซต์ และหมุด Google Maps ของคุณให้ติดอันดับการค้นหาในพื้นที่บริการ",
+      "ทำเว็บไซต์ และหมุด Google Maps ของคุณให้ติดอันดับการค้นหาในพื้นที่",
     url: "/service/local-seo",
     features: [
       "Google My Business Optimization",
@@ -54,7 +54,7 @@ export const services = [
     icon: <TrendingUp />,
     title: "Conversion Optimization",
     description:
-      "ปรับปรุงประสิทธิภาพของเว็บไซต์เพื่อเพิ่มอัตรา conversion และสร้างรายได้ให้กับธุรกิจของคุณ",
+      "ปรับปรุงประสิทธิภาพของเว็บไซต์เพื่อเพิ่มอัตรา conversion",
     url: "/service/conversion-optimization",
     features: [
       "A/B Testing และ Analytics",
@@ -75,7 +75,7 @@ export const services = [
     icon: <MessageCircle />,
     title: "Chatbot",
     description:
-      "ติดตั้ง AI Chatbot เพื่อให้พร้อมบริการลูกค้าตลอด 24 ชั่วโมง เพิ่มโอกาสในการปิดการขาย",
+      "ติดตั้ง AI Chatbot เพื่อให้พร้อมบริการลูกค้าตลอด 24 ชั่วโมง",
     url: "/service/chatbot",
     features: [
       "AI-Powered Natural Language Processing",
@@ -96,7 +96,7 @@ export const services = [
     icon: <Workflow />,
     title: "AI Automation",
     description:
-      "ใช้ AI และเครื่องมืออัตโนมัติเพื่อเพิ่มประสิทธิภาพการทำงาน และลดภาระงานที่ซ้ำซ้อน",
+      "ใช้ AI และเครื่องมืออัตโนมัติเพื่อเพิ่มประสิทธิภาพ และลดเวลาทำงาน",
     url: "/service/automation",
     features: [
       "Workflow Automation",
