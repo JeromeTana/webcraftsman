@@ -179,7 +179,7 @@ export default function Header() {
           </Link>
 
           {/* Mobile Hamburger Button */}
-          <button
+          {/* <button
             onClick={toggleMobileMenu}
             className="lg:hidden p-2 text-primary"
             aria-label="Toggle mobile menu"
@@ -189,7 +189,7 @@ export default function Header() {
             ) : (
               <HamburgerIcon className="w-8 h-8" />
             )}
-          </button>
+          </button> */}
         </div>
       </div>
 
