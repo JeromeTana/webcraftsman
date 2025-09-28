@@ -1,17 +1,19 @@
 import Logo from "./Icons/Logo";
 import { footerLinks } from "@/data";
 import { tagline } from "@/data";
+import CtaFormSection from "./Sections/CtaFormSection";
 
 export default function Footer() {
   return (
     <>
       {/* <CtaSection /> */}
+      <CtaFormSection />
       <footer>
         <div className="max-w-7xl m-auto py-20 pb-10 px-4">
           <div className="flex flex-col md:flex-row justify-between gap-16 mb-32">
             {/* <div className="flex flex-col items-start"> */}
-              <Logo className="w-40 h-20 mb-10 fill-primary text-primary" />
-              {/* <p>{tagline}</p> */}
+            <Logo className="w-40 h-20 mb-10 fill-primary text-primary" />
+            {/* <p>{tagline}</p> */}
             {/* </div> */}
             <div className="flex flex-col md:flex-row gap-16">
               {footerLinks.map((section, index) => (

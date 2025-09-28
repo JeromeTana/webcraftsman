@@ -112,7 +112,6 @@ export default function Home() {
         <TestimonialSection />
         <BlogSection />
         <FAQSection />
-        <CtaFormSection />
       </main>
     </div>
   );
