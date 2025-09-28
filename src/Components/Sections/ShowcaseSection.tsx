@@ -26,7 +26,7 @@ export default function ShowcaseSection() {
             <AnimatedCategoryIcon className="bg-primary rounded-full p-2" />
             <span>
               <span className={`highlight`}>ผลงานล่าสุด</span>
-              <span>ที่ผ่านมาของเรา</span>
+              <span>ที่ผ่านมา</span>
             </span>
           </span>
         </h2>

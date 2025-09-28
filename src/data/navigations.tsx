@@ -1,3 +1,4 @@
+import { contact } from "./contact";
 import { services } from "./services";
 
 export const navBarLinks = [
@@ -21,6 +22,14 @@ export const footerLinks = [
       url: service.url,
     })),
   },
+  {
+    section: "Contact",
+    links: [
+      { title: contact.email.label, url: contact.email.url },
+      { title: contact.phone.label, url: contact.phone.url },
+      { title: "Location", url: contact.address.url },
+    ]
+  }
 ];
 
 export const socialLinks = {
