@@ -23,7 +23,7 @@ export const navBarLinks: NavBarLink[] = [
     dropdown: services.map((service) => ({
       name: service.title,
       url: service.url,
-      description: service.description.substring(0, 80) + "...",
+      description: service.headline.substring(0, 80) + "...",
       icon: () => <div>{service.icon}</div>,
     })),
   },
