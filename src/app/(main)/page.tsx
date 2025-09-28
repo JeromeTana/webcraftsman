@@ -10,6 +10,7 @@ import {
   TradeSection,
   IntegrationSection,
 } from "@/Components/Sections";
+import CtaFormSection from "@/Components/Sections/CtaFormSection";
 import { siteUrl } from "@/data";
 
 export default function Home() {
@@ -111,6 +112,7 @@ export default function Home() {
         <TestimonialSection />
         <BlogSection />
         <FAQSection />
+        <CtaFormSection />
       </main>
     </div>
   );
