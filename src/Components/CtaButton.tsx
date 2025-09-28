@@ -1,5 +1,5 @@
 import React from "react";
-import { LucideArrowRight } from "./Icons/LucideArrowRight";
+import { ArrowRight } from "lucide-react";
 import { MaterialSymbolsStarRounded as Star } from "./Icons/MaterialStar";
 import Image from "next/image";
 import Magnet from "@/Animations/Magnet/Magnet";
@@ -31,7 +31,7 @@ export function CtaButton() {
                 height={32}
                 className="rounded-full"
               />
-              {ctaText} <LucideArrowRight />
+              {ctaText} <ArrowRight />
             </button>
           </Link>
         </div>
@@ -66,7 +66,7 @@ export function CtaButtonHighlighted() {
               height={32}
               className="rounded-full"
             />
-            {ctaText} <LucideArrowRight />
+            {ctaText} <ArrowRight />
           </button>
         </Link>
       </Magnet>

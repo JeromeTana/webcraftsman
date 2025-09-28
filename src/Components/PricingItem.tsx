@@ -1,8 +1,7 @@
 import React from "react";
-import { LucideCheck } from "./Icons/LucideCheck";
+import { Check, ArrowRight } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 import SpotlightCard from "./SpotlightCard/SpotlightCard";
-import { LucideArrowRight } from "./Icons/LucideArrowRight";
 
 interface PlanType {
   title: string;
@@ -68,7 +67,7 @@ function StandardPricingCard({
           <ul className="flex flex-col gap-2">
             {features.map((feature, index) => (
               <li key={index} className="flex items-center gap-2">
-                <LucideCheck className="text-accent-green" />
+                <Check className="text-accent-green" />
                 <p>{feature}</p>
               </li>
             ))}
@@ -77,7 +76,7 @@ function StandardPricingCard({
       </div>
       <a href={paymentUrl} target="_blank">
         <button className="cta mt-16 w-full flex items-center justify-center gap-2 !shadow-none !bg-neutral-100 !border-none text-primary">
-          Get Started <LucideArrowRight />
+          Get Started <ArrowRight />
         </button>
       </a>
     </SpotlightCard>
@@ -131,7 +130,7 @@ function HighlightedPricingCard({
           <ul className="flex flex-col gap-2">
             {features.map((feature, index) => (
               <li key={index} className="flex items-center gap-2">
-                <LucideCheck className="text-accent-green" />
+                <Check className="text-accent-green" />
                 <p className="text-white">{feature}</p>
               </li>
             ))}
@@ -140,7 +139,7 @@ function HighlightedPricingCard({
       </div>
       <a href="/booking">
         <button className="cta mt-16 w-full flex items-center justify-center gap-2 !shadow-none !bg-white text-primary">
-          Get Started <LucideArrowRight />
+          Get Started <ArrowRight />
         </button>
       </a>
     </SpotlightCard>

@@ -4,8 +4,7 @@ import { motion } from "framer-motion";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { LucideCheck } from "@/Components/Icons/LucideCheck";
-import { LucideArrowRight } from "@/Components/Icons/LucideArrowRight";
+import { Check, ArrowRight } from "lucide-react";
 
 // Form validation schemas
 const step1Schema = z.object({
@@ -186,7 +185,7 @@ export default function QuoteForm({ onSubmitted }: QuoteFormProps) {
           className="space-y-6"
         >
           <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto">
-            <LucideCheck className="w-8 h-8 text-green-600" />
+            <Check className="w-8 h-8 text-green-600" />
           </div>
           <h2 className="text-3xl font-bold text-gray-900">
             Quote Request Submitted! 🎉
@@ -201,15 +200,15 @@ export default function QuoteForm({ onSubmitted }: QuoteFormProps) {
             </h3>
             <ul className="text-left space-y-2 text-gray-600">
               <li className="flex items-center gap-2">
-                <LucideCheck className="w-4 h-4 text-green-600" />
+                <Check className="w-4 h-4 text-green-600" />
                 We'll review your requirements and prepare a detailed proposal
               </li>
               <li className="flex items-center gap-2">
-                <LucideCheck className="w-4 h-4 text-green-600" />
+                <Check className="w-4 h-4 text-green-600" />
                 You'll receive a personalized quote via email within 24 hours
               </li>
               <li className="flex items-center gap-2">
-                <LucideCheck className="w-4 h-4 text-green-600" />
+                <Check className="w-4 h-4 text-green-600" />
                 We'll schedule a call to discuss your project in detail
               </li>
             </ul>
@@ -562,7 +561,7 @@ export default function QuoteForm({ onSubmitted }: QuoteFormProps) {
               ) : (
                 <>
                   Get My Free Quote
-                  <LucideArrowRight className="w-5 h-5" />
+                  <ArrowRight className="w-5 h-5" />
                 </>
               )}
             </button>

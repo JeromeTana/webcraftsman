@@ -1,10 +1,8 @@
+import { Check, X } from "lucide-react";
 import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import ComparisonItem from "@/Components/ComparisonItem";
 import ShinyText from "@/Components/ShinyText/ShinyText";
-import { LucideCheck } from "../Icons/LucideCheck";
 import Logo from "../Icons/Logo";
-import { LucideX } from "../Icons/LucideX";
-
 export default function ComparisonSection() {
   return (
     <section className="flex flex-col items-center gap-8">
@@ -45,7 +43,7 @@ export default function ComparisonSection() {
                 "ราคาสูงเกินหลักแสน",
                 "ไม่ดูแลหลังส่งมอบ",
               ]}
-              Icon={<LucideX />}
+              Icon={<X />}
               className="text-neutral-500"
             />
           </div>
@@ -72,7 +70,7 @@ export default function ComparisonSection() {
                 "จ่ายเริ่มต้นหลักพัน",
                 "ดูแลอย่างใกล้ชิด ไว้ใจได้ตลอด 24 ชั่วโมง",
               ]}
-              Icon={<LucideCheck className="text-primary" />}
+              Icon={<Check className="text-primary" />}
               isHighlighted={true}
               className="!bg-primary/10"
             />

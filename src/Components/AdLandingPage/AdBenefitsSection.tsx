@@ -1,11 +1,8 @@
 "use client";
 
 import React from "react";
+import { ArrowRight, Check, Clock, TrendingUp } from "lucide-react";
 import { motion } from "framer-motion";
-import { LucideCheck } from "@/Components/Icons/LucideCheck";
-import { LucideClock } from "@/Components/Icons/LucideClock";
-import { LucideTrendingUp } from "@/Components/Icons/LucideTrendingUp";
-import { LucideArrowRight } from "@/Components/Icons/LucideArrowRight";
 import { openCtaPopup } from "@/Components/CtaPopup";
 
 const AdBenefitsSection: React.FC = () => {
@@ -37,7 +34,7 @@ const AdBenefitsSection: React.FC = () => {
             className="bg-green-50 rounded-xl p-6 border border-green-500"
           >
             <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4 mx-auto">
-              <LucideTrendingUp className="w-6 h-6 text-green-600" />
+              <TrendingUp className="w-6 h-6 text-green-600" />
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">
               เพิ่มยอดขาย 2 เท่า
@@ -56,7 +53,7 @@ const AdBenefitsSection: React.FC = () => {
             className="bg-green-50 rounded-xl p-6 border border-green-500"
           >
             <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4 mx-auto">
-              <LucideCheck className="w-6 h-6 text-green-600" />
+              <Check className="w-6 h-6 text-green-600" />
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">
               ได้ผลตั้งแต่วันแรก
@@ -75,7 +72,7 @@ const AdBenefitsSection: React.FC = () => {
             className="bg-green-50 rounded-xl p-6 border border-green-500"
           >
             <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4 mx-auto">
-              <LucideClock className="w-6 h-6 text-green-600" />
+              <Clock className="w-6 h-6 text-green-600" />
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">
               ประหยัดค่าโฆษณา
@@ -102,7 +99,7 @@ const AdBenefitsSection: React.FC = () => {
             className="cta flex items-center gap-2 mx-auto"
           >
             นัดพูดคุยรายละเอียด
-            <LucideArrowRight />
+            <ArrowRight />
           </button>
         </motion.div>
       </div>

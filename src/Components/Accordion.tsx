@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { LucideChevronDown } from "./Icons/LucideChevronDown";
+import { ChevronDown } from "lucide-react";
 
 type AccordionProps = {
   question: string;
@@ -24,7 +24,7 @@ const Accordion = ({ question, answer }: AccordionProps) => {
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.2 }}
         >
-          <LucideChevronDown className="h-5 w-5" />
+          <ChevronDown className="h-5 w-5" />
         </motion.div>
       </div>
       <AnimatePresence initial={false}>

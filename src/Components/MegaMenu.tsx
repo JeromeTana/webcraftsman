@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import { ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { LucideChevronDown } from "./Icons/LucideChevronDown";
 import { getAllPosts, type BlogPost } from "../sanity/lib/queries";
 import { urlFor } from "../sanity/lib/image";
 import Image from "next/image";
@@ -87,7 +87,7 @@ export const MegaMenu = ({
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.2 }}
         >
-          <LucideChevronDown className="w-4 h-4 text-paragraph" />
+          <ChevronDown className="w-4 h-4 text-paragraph" />
         </motion.div>
       </div>
 

@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
+import { Check } from "lucide-react";
 import { motion } from "framer-motion";
-import { LucideCheck } from "@/Components/Icons/LucideCheck";
 import Image from "next/image";
 
 const AdWhatYouGetSection: React.FC = () => {
@@ -64,15 +64,15 @@ const AdWhatYouGetSection: React.FC = () => {
             </p>
             <ul className="text-sm text-gray-500 space-y-1">
               <li className="flex items-center gap-2">
-                <LucideCheck className="w-4 h-4 text-green-500" /> Copy
+                <Check className="w-4 h-4 text-green-500" /> Copy
                 ที่โน้มน้าวใจลูกค้า
               </li>
               <li className="flex items-center gap-2">
-                <LucideCheck className="w-4 h-4 text-green-500" /> ออกแบบ UI/UX
+                <Check className="w-4 h-4 text-green-500" /> ออกแบบ UI/UX
                 เพื่อการขาย
               </li>
               <li className="flex items-center gap-2">
-                <LucideCheck className="w-4 h-4 text-green-500" />{" "}
+                <Check className="w-4 h-4 text-green-500" />{" "}
                 ใช้งานได้บนมือถือ
               </li>
             </ul>
@@ -109,15 +109,15 @@ const AdWhatYouGetSection: React.FC = () => {
             </p>
             <ul className="text-sm text-gray-500 space-y-1">
               <li className="flex items-center gap-2">
-                <LucideCheck className="w-4 h-4 text-green-500" />{" "}
+                <Check className="w-4 h-4 text-green-500" />{" "}
                 รายงานผลการวิเคราะห์
               </li>
               <li className="flex items-center gap-2">
-                <LucideCheck className="w-4 h-4 text-green-500" />{" "}
+                <Check className="w-4 h-4 text-green-500" />{" "}
                 จุดอ่อนที่ควรแก้ไข
               </li>
               <li className="flex items-center gap-2">
-                <LucideCheck className="w-4 h-4 text-green-500" />{" "}
+                <Check className="w-4 h-4 text-green-500" />{" "}
                 แนวทางเพิ่มยอดขาย
               </li>
             </ul>
@@ -154,15 +154,15 @@ const AdWhatYouGetSection: React.FC = () => {
             </p>
             <ul className="text-sm text-gray-500 space-y-1">
               <li className="flex items-center gap-2">
-                <LucideCheck className="w-4 h-4 text-green-500" />{" "}
+                <Check className="w-4 h-4 text-green-500" />{" "}
                 คีย์เวิร์ดที่ใช่
               </li>
               <li className="flex items-center gap-2">
-                <LucideCheck className="w-4 h-4 text-green-500" /> ปรับ
+                <Check className="w-4 h-4 text-green-500" /> ปรับ
                 Targeting ให้แม่นยำ
               </li>
               <li className="flex items-center gap-2">
-                <LucideCheck className="w-4 h-4 text-green-500" />{" "}
+                <Check className="w-4 h-4 text-green-500" />{" "}
                 ลดต้นทุนต่อลีด
               </li>
             </ul>
@@ -199,15 +199,15 @@ const AdWhatYouGetSection: React.FC = () => {
             </p>
             <ul className="text-sm text-gray-500 space-y-1">
               <li className="flex items-center gap-2">
-                <LucideCheck className="w-4 h-4 text-green-500" />{" "}
+                <Check className="w-4 h-4 text-green-500" />{" "}
                 วิเคราะห์ตลาดเป้าหมาย
               </li>
               <li className="flex items-center gap-2">
-                <LucideCheck className="w-4 h-4 text-green-500" />{" "}
+                <Check className="w-4 h-4 text-green-500" />{" "}
                 กำหนดกลยุทธ์การตลาด
               </li>
               <li className="flex items-center gap-2">
-                <LucideCheck className="w-4 h-4 text-green-500" />{" "}
+                <Check className="w-4 h-4 text-green-500" />{" "}
                 แนะนำแผนการดำเนินงาน
               </li>
             </ul>
@@ -244,15 +244,15 @@ const AdWhatYouGetSection: React.FC = () => {
             </p>
             <ul className="text-sm text-gray-500 space-y-1">
               <li className="flex items-center gap-2">
-                <LucideCheck className="w-4 h-4 text-green-500" /> Google
+                <Check className="w-4 h-4 text-green-500" /> Google
                 Analytics Setup
               </li>
               <li className="flex items-center gap-2">
-                <LucideCheck className="w-4 h-4 text-green-500" />{" "}
+                <Check className="w-4 h-4 text-green-500" />{" "}
                 รายงานผลเป็นรายเดือน
               </li>
               <li className="flex items-center gap-2">
-                <LucideCheck className="w-4 h-4 text-green-500" />{" "}
+                <Check className="w-4 h-4 text-green-500" />{" "}
                 ปรับปรุงอย่างต่อเนื่อง
               </li>
             </ul>
@@ -289,15 +289,15 @@ const AdWhatYouGetSection: React.FC = () => {
             </p>
             <ul className="text-sm text-gray-500 space-y-1">
               <li className="flex items-center gap-2">
-                <LucideCheck className="w-4 h-4 text-green-500" />{" "}
+                <Check className="w-4 h-4 text-green-500" />{" "}
                 ตอบคำถามได้ทันที
               </li>
               <li className="flex items-center gap-2">
-                <LucideCheck className="w-4 h-4 text-green-500" />{" "}
+                <Check className="w-4 h-4 text-green-500" />{" "}
                 เก็บข้อมูลลูกค้าอัตโนมัติ
               </li>
               <li className="flex items-center gap-2">
-                <LucideCheck className="w-4 h-4 text-green-500" />{" "}
+                <Check className="w-4 h-4 text-green-500" />{" "}
                 ส่งต่อไปทีมขาย
               </li>
             </ul>
@@ -334,15 +334,15 @@ const AdWhatYouGetSection: React.FC = () => {
             </p>
             <ul className="text-sm text-gray-500 space-y-1">
               <li className="flex items-center gap-2">
-                <LucideCheck className="w-4 h-4 text-green-500" /> Email
+                <Check className="w-4 h-4 text-green-500" /> Email
                 Marketing อัตโนมัติ
               </li>
               <li className="flex items-center gap-2">
-                <LucideCheck className="w-4 h-4 text-green-500" /> Messenger
+                <Check className="w-4 h-4 text-green-500" /> Messenger
                 Follow Up
               </li>
               <li className="flex items-center gap-2">
-                <LucideCheck className="w-4 h-4 text-green-500" />{" "}
+                <Check className="w-4 h-4 text-green-500" />{" "}
                 แจ้งเตือนทีมขาย
               </li>
             </ul>
@@ -379,15 +379,15 @@ const AdWhatYouGetSection: React.FC = () => {
             </p>
             <ul className="text-sm text-gray-500 space-y-1">
               <li className="flex items-center gap-2">
-                <LucideCheck className="w-4 h-4 text-green-500" />{" "}
+                <Check className="w-4 h-4 text-green-500" />{" "}
                 ขอรีวิวลูกค้าอัตโนมัติ
               </li>
               <li className="flex items-center gap-2">
-                <LucideCheck className="w-4 h-4 text-green-500" /> จัดการ Google
+                <Check className="w-4 h-4 text-green-500" /> จัดการ Google
                 Reviews
               </li>
               <li className="flex items-center gap-2">
-                <LucideCheck className="w-4 h-4 text-green-500" />{" "}
+                <Check className="w-4 h-4 text-green-500" />{" "}
                 ตอบกลับรีวิวทันที
               </li>
             </ul>
@@ -424,15 +424,15 @@ const AdWhatYouGetSection: React.FC = () => {
             </p>
             <ul className="text-sm text-gray-500 space-y-1">
               <li className="flex items-center gap-2">
-                <LucideCheck className="w-4 h-4 text-green-500" />{" "}
+                <Check className="w-4 h-4 text-green-500" />{" "}
                 เพิ่มลีดขั้นต่ำ 50%
               </li>
               <li className="flex items-center gap-2">
-                <LucideCheck className="w-4 h-4 text-green-500" /> หรือคืนเงิน
+                <Check className="w-4 h-4 text-green-500" /> หรือคืนเงิน
                 100%
               </li>
               <li className="flex items-center gap-2">
-                <LucideCheck className="w-4 h-4 text-green-500" /> ภายใน 60 วัน
+                <Check className="w-4 h-4 text-green-500" /> ภายใน 60 วัน
               </li>
             </ul>
           </motion.div>

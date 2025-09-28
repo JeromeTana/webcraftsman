@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { RevealLink } from "./RevealLink";
 import { MegaMenu } from "./MegaMenu";
 import Logo from "./Icons/Logo";
-import { LucideArrowRight } from "./Icons/LucideArrowRight";
+import { ArrowRight, X } from "lucide-react";
 import { BookIcon } from "./Icons/BookIcon";
 import { ToolIcon } from "./Icons/ToolIcon";
 import { BriefcaseIcon } from "./Icons/BriefcaseIcon";
@@ -12,7 +12,6 @@ import { BlogIcon } from "./Icons/BlogIcon";
 import { DesignIcon } from "./Icons/DesignIcon";
 import { CodeIcon } from "./Icons/CodeIcon";
 import { HamburgerIcon } from "./Icons/HamburgerIcon";
-import { LucideX } from "./Icons/LucideX";
 import { openCtaPopup } from "./CtaPopup";
 import { navBarLinks } from "@/data";
 import Link from "next/link";
@@ -175,7 +174,7 @@ export default function Header() {
               className="cta hidden md:flex items-center gap-2"
             >
               นัดพูดคุยเลย
-              <LucideArrowRight />
+              <ArrowRight />
             </button>
           </Link>
 
@@ -186,7 +185,7 @@ export default function Header() {
             aria-label="Toggle mobile menu"
           >
             {isMobileMenuOpen ? (
-              <LucideX className="w-8 h-8" />
+              <X className="w-8 h-8" />
             ) : (
               <HamburgerIcon className="w-8 h-8" />
             )}
@@ -275,7 +274,7 @@ export default function Header() {
                 className="w-full cta flex items-center justify-center gap-2 py-3"
               >
                 นัดพูดคุยเลย
-                <LucideArrowRight />
+                <ArrowRight />
               </button>
             </li>
           </ul>

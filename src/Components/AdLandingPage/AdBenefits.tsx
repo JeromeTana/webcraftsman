@@ -1,8 +1,6 @@
 import React from "react";
+import { Check, X } from "lucide-react";
 import { motion } from "framer-motion";
-import { LucideCheck } from "@/Components/Icons/LucideCheck";
-import { LucideX } from "@/Components/Icons/LucideX";
-
 const AdBenefits: React.FC = () => {
   const problemSolutions = [
     {
@@ -89,7 +87,7 @@ const AdBenefits: React.FC = () => {
                   transition={{ delay: index * 0.1 }}
                   className="flex items-center gap-3 p-4 bg-red-50 border border-red-200 rounded-lg"
                 >
-                  <LucideX className="w-5 h-5 text-red-500 flex-shrink-0" />
+                  <X className="w-5 h-5 text-red-500 flex-shrink-0" />
                   <span className="font-medium text-red-800">{item.problem}</span>
                 </motion.div>
               ))}
@@ -115,7 +113,7 @@ const AdBenefits: React.FC = () => {
                   transition={{ delay: index * 0.1 }}
                   className="flex items-center gap-3 p-4 bg-green-50 border border-green-200 rounded-lg"
                 >
-                  <LucideCheck className="w-5 h-5 text-accent-green flex-shrink-0" />
+                  <Check className="w-5 h-5 text-accent-green flex-shrink-0" />
                   <span className="font-medium text-green-800">{item.solution}</span>
                 </motion.div>
               ))}
@@ -149,7 +147,7 @@ const AdBenefits: React.FC = () => {
                 transition={{ delay: index * 0.05 }}
                 className="flex items-start gap-3"
               >
-                <LucideCheck className="w-5 h-5 text-accent-green flex-shrink-0 mt-0.5" />
+                <Check className="w-5 h-5 text-accent-green flex-shrink-0 mt-0.5" />
                 <span className="font-medium text-gray-700">{item}</span>
               </motion.div>
             ))}

@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
+import { X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { LucideX } from "../Icons/LucideX";
 import { CtaPopupProps } from "./types";
 import { SurveyForm } from "./SurveyForm";
 import { sendGAEvent, sendGTMEvent } from "@next/third-parties/google";
@@ -157,7 +157,7 @@ export const CtaPopup: React.FC<CtaPopupProps> = ({
             className="absolute top-6 right-6 p-3 rounded-full transition-colors z-10 cursor-pointer hover:bg-gray-100"
             aria-label="Close popup"
           >
-            <LucideX className="w-6 h-6 text-gray-700" />
+            <X className="w-6 h-6 text-gray-700" />
           </motion.button>
 
           {/* Popup Content */}

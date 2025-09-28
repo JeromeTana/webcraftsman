@@ -1,3 +1,4 @@
+import { Check } from "lucide-react";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,8 +16,6 @@ import MobileCTA from "@/Components/MobileCTA";
 import BlogNavigation from "@/Components/BlogNavigation";
 import AuthorCard from "@/Components/AuthorCard";
 import SocialShare from "@/Components/SocialShare";
-import { LucideCheck } from "@/Components/Icons/LucideCheck";
-
 // Utility function to generate slug from text
 function generateSlug(text: string): string {
   return text
@@ -452,7 +451,7 @@ export default async function BlogPostPage({
         }}
       />
       {/* <button className="cta hidden md:block z-50 fixed bottom-4 right-4 md:bottom-8 md:right-8">
-        <LucideCheck /> Get My FREE Audit
+        <Check /> Get My FREE Audit
       </button> */}
 
       {/* Hero Section */}

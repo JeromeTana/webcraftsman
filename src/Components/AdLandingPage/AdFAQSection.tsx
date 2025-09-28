@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { LucideArrowRight } from "@/Components/Icons/LucideArrowRight";
 import { openCtaPopup } from "@/Components/CtaPopup";
 import Accordion from "@/Components/Accordion";
 
@@ -95,7 +95,7 @@ const AdFAQSection: React.FC = () => {
             className="cta flex items-center gap-2 mx-auto"
           >
             นัดพูดคุยรายละเอียด
-            <LucideArrowRight />
+            <ArrowRight />
           </button>
         </div>
       </div>

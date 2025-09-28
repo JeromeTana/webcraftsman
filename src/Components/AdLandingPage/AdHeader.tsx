@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { LucideArrowRight } from "@/Components/Icons/LucideArrowRight";
+import { ArrowRight } from "lucide-react";
 import Logo from "../Icons/Logo";
 import { openCtaPopup } from "@/Components/CtaPopup";
 
@@ -19,7 +19,7 @@ const AdHeader: React.FC = () => {
           className="cta hidden md:flex items-center gap-2"
         >
           นัดพูดคุยรายละเอียด
-          <LucideArrowRight />
+          <ArrowRight />
         </button>
       </div>
     </header>

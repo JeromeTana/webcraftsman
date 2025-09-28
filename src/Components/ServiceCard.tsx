@@ -1,10 +1,8 @@
 import React from "react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { renderStars } from "./CtaPopup/utils";
 import Image from "next/image";
-import { LucideArrowLeft } from "./Icons/LucideArrowLeft";
-import { LucideArrowRight } from "./Icons/LucideArrowRight";
-
 interface ServiceCardProps {
   icon: React.ReactNode;
   title: string;
@@ -35,7 +33,7 @@ export default function ServiceCard({
       </div>
       <div className="mt-8 flex gap-2 items-center text-primary">
         <p>ดูรายละเอียด</p>
-        <LucideArrowRight />
+        <ArrowRight />
       </div>
     </Link>
   );

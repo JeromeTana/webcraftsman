@@ -1,7 +1,5 @@
+import {  ChevronDown } from "lucide-react";
 import Link from "next/link";
-import { LucideArrowRight } from "./Icons/LucideArrowRight";
-import { LucideChevronDown } from "./Icons/LucideChevronDown";
-
 interface BreadcrumbItem {
   label: string;
   href?: string;
@@ -21,7 +19,7 @@ export default function Breadcrumb({ items, className = "" }: BreadcrumbProps) {
       {items.map((item, index) => (
         <div key={index} className="flex items-center">
           {index > 0 && (
-            <LucideChevronDown className="mx-2 h-4 w-4 text-gray-400 -rotate-90" />
+            <ChevronDown className="mx-2 h-4 w-4 text-gray-400 -rotate-90" />
           )}
           {item.href && index < items.length - 1 ? (
             <Link

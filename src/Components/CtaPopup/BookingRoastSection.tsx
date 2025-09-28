@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
+import { Check } from "lucide-react";
 import { motion } from "framer-motion";
 import Calcom from "../Booking/DemoCall";
-import { LucideCheck } from "../Icons/LucideCheck";
 import RoastCallBooking from "../Booking/RoastCall";
 
 interface BookingRoastSectionProps {

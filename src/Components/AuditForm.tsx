@@ -2,11 +2,9 @@
 
 import { submitAuditForm } from "@/app/action";
 import React from "react";
+import { Check, X } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 import { Spinner } from "./Icons/Spinner";
-import { LucideCheck } from "./Icons/LucideCheck";
-import { LucideX } from "./Icons/LucideX";
-
 export default function AuditForm() {
   const [state, formAction, pending] = React.useActionState(
     submitAuditForm,
@@ -119,7 +117,7 @@ export default function AuditForm() {
       {/* Error Message */}
       {state?.error && (
         <div className="p-4 bg-red-50 border border-red-200 rounded-lg flex items-center gap-3">
-          <LucideX className="text-red-500 flex-shrink-0" />
+          <X className="text-red-500 flex-shrink-0" />
           <div>
             <p className="text-red-700">
               {state.error}{" "}
@@ -139,7 +137,7 @@ export default function AuditForm() {
       {state?.success ? (
         <div className="p-6 bg-green-50 border border-green-200 rounded-lg text-center">
           <div className="flex items-center justify-center gap-2 mb-3">
-            <LucideCheck className="text-green-600" />
+            <Check className="text-green-600" />
             <h3 className="text-lg font-semibold text-green-800">Analysis Request Received!</h3>
           </div>
           <p className="text-green-700 mb-4">

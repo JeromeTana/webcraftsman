@@ -1,9 +1,8 @@
 "use client";
 
+import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 import AuditUrlInput from "./AuditUrlInput";
-import { LucideChevronDown } from "./Icons/LucideChevronDown";
-
 interface MobileCTAProps {
   className?: string;
 }
@@ -26,7 +25,7 @@ export default function MobileCTA({ className }: MobileCTAProps) {
         aria-label={isExpanded ? "Hide audit form" : "Show audit form"}
       >
         <span className="text-xl font-semibold">Get Your FREE Website Audit</span>
-        <LucideChevronDown
+        <ChevronDown
           className={`w-5 h-5 transition-transform duration-300 ${isExpanded ? "rotate-0" : "rotate-180"}`}
         />
       </button>

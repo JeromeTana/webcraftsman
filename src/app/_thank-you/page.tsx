@@ -1,7 +1,7 @@
+import { Check } from "lucide-react";
 import { Metadata } from "next";
 import Link from "next/link";
 import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
-import { LucideCheck } from "@/Components/Icons/LucideCheck";
 import AnimatedSeccessIcon from "@/Components/Icons/AnimatedSeccessIcon";
 
 export const metadata: Metadata = {
@@ -71,7 +71,7 @@ export default function ThankYouPage() {
               <div className="space-y-4 text-left">
                 <div className="flex items-start gap-4">
                   <div className="bg-primary text-white rounded-full p-2 mt-1">
-                    <LucideCheck className="w-4 h-4" />
+                    <Check className="w-4 h-4" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">
@@ -86,7 +86,7 @@ export default function ThankYouPage() {
 
                 <div className="flex items-start gap-4">
                   <div className="bg-primary text-white rounded-full p-2 mt-1">
-                    <LucideCheck className="w-4 h-4" />
+                    <Check className="w-4 h-4" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">
@@ -101,7 +101,7 @@ export default function ThankYouPage() {
 
                 <div className="flex items-start gap-4">
                   <div className="bg-primary text-white rounded-full p-2 mt-1">
-                    <LucideCheck className="w-4 h-4" />
+                    <Check className="w-4 h-4" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">

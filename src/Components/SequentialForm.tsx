@@ -2,13 +2,9 @@
 
 import { submitAuditForm } from "@/app/action";
 import React from "react";
+import { ArrowLeft, ArrowRight, Check, X } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 import { Spinner } from "./Icons/Spinner";
-import { LucideCheck } from "./Icons/LucideCheck";
-import { LucideX } from "./Icons/LucideX";
-import { LucideArrowLeft } from "./Icons/LucideArrowLeft";
-import { LucideArrowRight } from "./Icons/LucideArrowRight";
-
 interface FormData {
   website: string;
   goal: string;
@@ -127,7 +123,7 @@ export default function SequentialForm() {
     return (
       <div className="text-center py-12">
         <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-          <LucideCheck className="w-10 h-10 text-green-600" />
+          <Check className="w-10 h-10 text-green-600" />
         </div>
         <h3 className="text-2xl font-bold text-gray-900 mb-3">
           Analysis Request Received!
@@ -207,7 +203,7 @@ export default function SequentialForm() {
       {/* Error Message */}
       {state?.error && (
         <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center gap-3">
-          <LucideX className="text-red-500 flex-shrink-0" />
+          <X className="text-red-500 flex-shrink-0" />
           <div>
             <p className="text-red-700">
               {state.error}{" "}
@@ -231,7 +227,7 @@ export default function SequentialForm() {
             onClick={handleBack}
             className="flex items-center gap-2 px-6 py-3 text-gray-600 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
           >
-            <LucideArrowLeft className="w-4 h-4" />
+            <ArrowLeft className="w-4 h-4" />
             Back
           </button>
         )}
@@ -266,7 +262,7 @@ export default function SequentialForm() {
             )}
           >
             Next
-            <LucideArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4" />
           </button>
         )}
       </div>

@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState, useCallback } from "react";
+import { X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { LucideX } from "./Icons/LucideX";
 import { ContactForm } from "./AnalysisContactForm";
 
 // Global state for the popup
@@ -103,7 +103,7 @@ export const AnalysisPopup: React.FC = () => {
               className="absolute top-4 right-4 z-10 p-2 text-gray-400 hover:text-gray-600 transition-colors rounded-full hover:bg-gray-100"
               aria-label="Close popup"
             >
-              <LucideX className="w-6 h-6" />
+              <X className="w-6 h-6" />
             </button>
 
             {/* Content */}

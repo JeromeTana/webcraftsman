@@ -1,10 +1,8 @@
 "use client";
 
 import React from "react";
+import { ArrowRight, Users, X } from "lucide-react";
 import { motion } from "framer-motion";
-import { LucideX } from "@/Components/Icons/LucideX";
-import { LucideUsers } from "@/Components/Icons/LucideUsers";
-import { LucideArrowRight } from "@/Components/Icons/LucideArrowRight";
 import { openCtaPopup } from "@/Components/CtaPopup";
 
 const AdProblemSection: React.FC = () => {
@@ -35,7 +33,7 @@ const AdProblemSection: React.FC = () => {
             className="bg-white rounded-xl p-6 border border-border"
           >
             <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4 mx-auto">
-              <LucideX className="w-6 h-6 text-red-600" />
+              <X className="w-6 h-6 text-red-600" />
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">
               เสียเงินทุกวัน
@@ -55,7 +53,7 @@ const AdProblemSection: React.FC = () => {
             className="bg-white rounded-xl p-6 border border-border"
           >
             <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4 mx-auto">
-              <LucideUsers className="w-6 h-6 text-red-600" />
+              <Users className="w-6 h-6 text-red-600" />
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">
               แพ้คู่แข่ง
@@ -74,7 +72,7 @@ const AdProblemSection: React.FC = () => {
             className="bg-white rounded-xl p-6 border border-border"
           >
             <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4 mx-auto">
-              <LucideArrowRight className="w-6 h-6 text-red-600 transform rotate-45" />
+              <ArrowRight className="w-6 h-6 text-red-600 transform rotate-45" />
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-3 text-center">
               ไม่รู้ต้องแก้ยังไง
@@ -101,7 +99,7 @@ const AdProblemSection: React.FC = () => {
             className="cta flex items-center gap-2 mx-auto"
           >
             นัดพูดคุยรายละเอียด
-            <LucideArrowRight />
+            <ArrowRight />
           </button>
         </motion.div>
       </div>

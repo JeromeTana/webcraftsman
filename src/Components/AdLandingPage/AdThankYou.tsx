@@ -1,11 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { ArrowRight, Check, Clock } from "lucide-react";
 import { motion } from "framer-motion";
-import { LucideCheck } from "@/Components/Icons/LucideCheck";
-import { LucideArrowRight } from "@/Components/Icons/LucideArrowRight";
-import { LucideClock } from "@/Components/Icons/LucideClock";
-
 const AdThankYou: React.FC = () => {
   const [formData, setFormData] = useState<any>(null);
 
@@ -61,7 +58,7 @@ const AdThankYou: React.FC = () => {
             <span className="font-bold text-xl">WEBCRAFTSMAN</span>
           </div>
           <div className="flex items-center gap-2 text-sm font-medium text-accent-green">
-            <LucideCheck className="w-4 h-4" />
+            <Check className="w-4 h-4" />
             <span>Analysis Requested</span>
           </div>
         </div>
@@ -75,7 +72,7 @@ const AdThankYou: React.FC = () => {
           className="text-center mb-12"
         >
           <div className="w-20 h-20 bg-accent-green rounded-full flex items-center justify-center mx-auto mb-6">
-            <LucideCheck className="w-10 h-10 text-white" />
+            <Check className="w-10 h-10 text-white" />
           </div>
           
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -159,7 +156,7 @@ const AdThankYou: React.FC = () => {
                 transition={{ delay: 0.6 + index * 0.1 }}
                 className="flex items-center gap-3"
               >
-                <LucideCheck className="w-5 h-5 text-yellow-300 flex-shrink-0" />
+                <Check className="w-5 h-5 text-yellow-300 flex-shrink-0" />
                 <span>{item}</span>
               </motion.div>
             ))}
@@ -173,7 +170,7 @@ const AdThankYou: React.FC = () => {
           transition={{ delay: 0.7 }}
           className="bg-orange-50 border border-orange-200 rounded-xl p-6 text-center mb-12"
         >
-          <LucideClock className="w-8 h-8 text-orange-600 mx-auto mb-3" />
+          <Clock className="w-8 h-8 text-orange-600 mx-auto mb-3" />
           <h3 className="font-bold text-orange-900 mb-2">
             ⚡ Want Even Faster Results?
           </h3>

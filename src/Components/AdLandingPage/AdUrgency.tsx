@@ -1,9 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { Clock } from "lucide-react";
 import { motion } from "framer-motion";
-import { LucideClock } from "@/Components/Icons/LucideClock";
-
 const AdUrgency: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState({
     hours: 23,
@@ -70,7 +69,7 @@ const AdUrgency: React.FC = () => {
           className="mb-12"
         >
           <div className="inline-flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded-full mb-6">
-            <LucideClock className="w-4 h-4" />
+            <Clock className="w-4 h-4" />
             <span className="font-medium">Limited Time Offer</span>
           </div>
           

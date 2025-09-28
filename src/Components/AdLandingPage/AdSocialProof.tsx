@@ -1,25 +1,24 @@
 import React from "react";
+import { TrendingUp, Users } from "lucide-react";
 import { motion } from "framer-motion";
-import { LucideUsers } from "@/Components/Icons/LucideUsers";
-import { LucideTrendingUp } from "@/Components/Icons/LucideTrendingUp";
 import Image from "next/image";
 
 const AdSocialProof: React.FC = () => {
   const stats = [
     {
-      icon: LucideUsers,
+      icon: Users,
       number: "500+",
       label: "Happy Clients",
       description: "Businesses we've helped grow online"
     },
     {
-      icon: LucideTrendingUp,
+      icon: TrendingUp,
       number: "200%",
       label: "Average Sales Increase",
       description: "Results after our optimization"
     },
     {
-      icon: LucideUsers,
+      icon: Users,
       number: "24hrs",
       label: "Delivery Time",
       description: "Get your analysis quickly"

@@ -1,9 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { LucideArrowRight } from "@/Components/Icons/LucideArrowRight";
-
 interface AdLeadFormProps {
   onSubmit: () => void;
 }
@@ -275,7 +274,7 @@ const AdLeadForm: React.FC<AdLeadFormProps> = ({ onSubmit }) => {
           ) : (
             <>
               Get My FREE Analysis Now
-              <LucideArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-5 h-5" />
             </>
           )}
         </motion.button>

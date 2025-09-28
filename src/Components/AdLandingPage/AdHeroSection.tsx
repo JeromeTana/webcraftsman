@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useEffect } from "react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { LucideArrowRight } from "@/Components/Icons/LucideArrowRight";
 import { openCtaPopup } from "@/Components/CtaPopup";
 import Image from "next/image";
 
@@ -72,7 +72,7 @@ const AdHeroSection: React.FC = () => {
             className="cta flex items-center gap-2 !p-6 !text-xl"
           >
             รับคำแนะนำจากผู้เชี่ยวชาญ
-            <LucideArrowRight />
+            <ArrowRight />
           </button>
           <p className="text-gray-600">
             พร้อมวางกลยุทธ์ออนไลน์เพื่อคุณฟรี ไม่มีค่าใช้จ่าย
