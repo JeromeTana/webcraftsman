@@ -11,9 +11,13 @@ export const services = [
   {
     icon: <Code />,
     title: "Website Development",
-    headline:
-      "สร้างเว็บไซต์เพื่อเสริมสร้างภาพลักษณ์ และความน่าเชื่อถือ",
+    headline: "สร้างเว็บไซต์คุณภาพ เพื่อเสริมสร้างภาพลักษณ์ และความน่าเชื่อถือ",
     url: "/service/web-development",
+    problems: [
+      "เว็บไซต์เก่า โหลดช้า ทำให้เสียลูกค้าให้กับคู่แข่ง",
+      "ไม่มีเว็บไซต์ ทำให้ดูไม่น่าเชื่อถือและแข่งขันกับคู่แข่งไม่ได้",
+      "เสียโอกาสลูกค้าส่วนใหญ่บนมือถือ เพราะเว็บไซต์ไม่รองรับ",
+    ],
     features: [
       "Responsive Design ที่ใช้งานได้ทุกอุปกรณ์",
       "SEO-Friendly Structure",
@@ -35,6 +39,11 @@ export const services = [
     headline:
       "ทำเว็บไซต์ และหมุด Google Maps ของคุณให้ติดอันดับการค้นหาในพื้นที่",
     url: "/service/local-seo",
+    problems: [
+      "เสียโอกาสขายให้คนในพื้นที่ เพราะลูกค้าไม่เจอบน Google",
+      "คู่แข่งแย่งลูกค้า เพราะ Google Maps ไม่ติดอันดับ ",
+      "ลูกค้าไม่กล้าใช้บริการ เพราะมีรีวิวน้อยหรือรีวิวไม่ดี",
+    ],
     features: [
       "Google My Business Optimization",
       "Local Keyword Research",
@@ -53,9 +62,13 @@ export const services = [
   {
     icon: <TrendingUp />,
     title: "Conversion Optimization",
-    headline:
-      "ปรับปรุงประสิทธิภาพของเว็บไซต์เพื่อเพิ่มอัตรา conversion",
+    headline: "ปรับปรุงประสิทธิภาพของเว็บไซต์เพื่อเพิ่มอัตรา conversion",
     url: "/service/conversion-optimization",
+    problems: [
+      "มีคนเข้าเว็บเยอะแต่ไม่ซื้อ ทำให้เสียเงินโฆษณาฟรีๆ",
+      "ลูกค้ากรอกข้อมูลครึ่งทางแล้วออกไป ไม่รู้ปัญหาตรงไหน",
+      "เว็บสวยงาม แต่ไม่เห็นผลลัพธ์ดีๆ จากการทำโฆษณา",
+    ],
     features: [
       "A/B Testing และ Analytics",
       "Landing Page Optimization",
@@ -74,9 +87,13 @@ export const services = [
   {
     icon: <MessageCircle />,
     title: "Chatbot",
-    headline:
-      "ติดตั้ง AI Chatbot เพื่อให้พร้อมบริการลูกค้าตลอด 24 ชั่วโมง",
+    headline: "ติดตั้ง AI Chatbot เพื่อให้พร้อมบริการลูกค้าตลอด 24 ชั่วโมง",
     url: "/service/chatbot",
+    problems: [
+      "เสียโอกาสขายเพราะลูกค้าทักมานอกเวลาทำการ ",
+      "เสียเวลาทำงานสำคัญอื่น ๆ เพราะตอบคำถามซ้ำๆ ทุกวัน",
+      "เสียเวลานานในการตอบลูกค้าให้ครบ",
+    ],
     features: [
       "AI-Powered Natural Language Processing",
       "24/7 Customer Support",
@@ -98,6 +115,11 @@ export const services = [
     headline:
       "ใช้ AI และเครื่องมืออัตโนมัติเพื่อเพิ่มประสิทธิภาพ และลดเวลาทำงาน",
     url: "/service/automation",
+    problems: [
+      "ทำงานซ้ำๆ เดิมๆ ทุกวัน เสียเวลาที่ควรไปพัฒนาธุรกิจ",
+      "พลาดการติดตามลูกค้า เพราะมีงานเยอะเกินไป",
+      "ข้อมูลกระจัดกระจาย ไม่มีระบบ ทำให้วิเคราะห์และตัดสินใจช้า",
+    ],
     features: [
       "Workflow Automation",
       "Data Processing และ Analysis",
@@ -119,6 +141,11 @@ export const services = [
     headline:
       "สร้างและจัดการแคมเปญโฆษณาเพื่อดึงดูดลูกค้าเป้าหมายที่มีคุณภาพสูง",
     url: "/service/lead-generation",
+    problems: [
+      "เสียเงินโฆษณา Google Ads แต่ไม่มีคนสนใจ",
+      "มี Lead เข้ามาแต่ไม่ใช่คนที่พร้อมซื้อ เสียเวลาไปเปล่า",
+      "ใช้งบไปแบบไม่มีทิศทาง เพราะไม่รู้ว่าแคมเปญไหนได้ผล",
+    ],
     features: [
       "Keyword Research และ Strategy",
       "Campaign Setup และ Management",

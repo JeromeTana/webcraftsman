@@ -3,7 +3,6 @@ import { ArrowRight } from "lucide-react";
 import { MaterialSymbolsStarRounded as Star } from "./Icons/MaterialStar";
 import Image from "next/image";
 import Magnet from "@/Animations/Magnet/Magnet";
-import { grapeNuts } from "@/app/fonts";
 import AnimatedArrowIcon from "./Icons/AnimatedArrowIcon";
 import { openCtaPopup } from "./CtaPopup";
 import Link from "next/link";
@@ -11,9 +10,13 @@ import Link from "next/link";
 const ctaText = "เริ่มต้นรับบริการ";
 const supportText = "เจ้าของธุรกิจไว้ใจเรา";
 
-export function CtaButton() {
+export function CtaButton({
+  className = "md:scale-125",
+}: {
+  className?: string;
+}) {
   return (
-    <div className="flex flex-col md:flex-row items-center gap-4 md:scale-125">
+    <div className={"flex flex-col md:flex-row items-center gap-4 " + className}>
       <div className="absolute -top-4 -right-16 hidden lg:block">
         <AnimatedArrowIcon className="-rotate-90 opacity-40" />
       </div>

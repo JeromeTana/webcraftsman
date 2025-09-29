@@ -3,8 +3,13 @@ import { services } from "@/data/services";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, Check } from "lucide-react";
+import { ArrowLeft, Check, Frown, X } from "lucide-react";
 import { CtaButton } from "@/Components/CtaButton";
+import {
+  FAQSection,
+  ProcessSection,
+  ShowcaseSection,
+} from "@/Components/Sections";
 
 interface ServiceDetailPageProps {
   params: Promise<{ slug: string }>;
@@ -81,91 +86,42 @@ export default async function ServiceDetailPage({
   const serviceContent = getServiceContent(service.title);
 
   return (
-    <section className="min-h-screen">
-      <div className="grid lg:grid-cols-1 gap-8">
+    <>
+      <section id="hero" className="!p-0 !max-w-full grid lg:grid-cols-2 gap-8">
         {/* Main Content */}
-        <div className="lg:col-span-2">
-          {/* Header */}
-          <div className="mb-12">
-            <div className="md:text-center max-w-5xl m-auto gap-6 mb-6">
-              <div className="flex items-start md:justify-center gap-4 mb-4 ">
-                <div className="text-primary flex-shrink-0">{service.icon}</div>
-                <h1 className="text-xl mb-4 text-primary">{service.title}</h1>
-              </div>
-              <h2 className="text-4xl md:text-7xl font-semibold leading-tight tracking-tight">
-                {service.headline}
-              </h2>
-              <div className="mt-16 flex justify-center">
-                <CtaButton />
-              </div>
+        <div className="p-20 my-auto">
+          <div className="gap-6 mb-6">
+            <div className="flex items-start gap-4 mb-4 ">
+              <div className="text-primary flex-shrink-0">{service.icon}</div>
+              <h1 className="text-xl mb-4 text-primary">{service.title}</h1>
             </div>
-          </div>
-
-          {/* Features Section */}
-          <div className="bg-white rounded-3xl p-8 mb-8 border border-border">
-            <h2 className="text-2xl font-semibold mb-6">สิ่งที่คุณจะได้รับ</h2>
-            <div className="grid md:grid-cols-2 gap-4">
-              {serviceContent.features.map((feature: string, index: number) => (
-                <div key={index} className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-700">{feature}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Process Section */}
-          <div className="bg-white rounded-3xl p-8 border border-border">
-            <h2 className="text-2xl font-semibold mb-6">ขั้นตอนการดำเนินงาน</h2>
-            <div className="space-y-6">
-              {serviceContent.process.map((step: string, index: number) => (
-                <div key={index} className="flex items-start gap-4">
-                  <div className="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-semibold text-sm flex-shrink-0">
-                    {index + 1}
-                  </div>
-                  <div className="pt-1">
-                    <p className="text-gray-700">{step}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <h2 className="text-4xl md:text-6xl font-semibold leading-relaxed tracking-tight">
+              {service.headline}
+            </h2>
+            <CtaButton className="mt-16" />
           </div>
         </div>
-
-        {/* Sidebar */}
-        {/* <div className="lg:col-span-1">
-          <div className="bg-white rounded-3xl p-8 border border-border sticky top-32">
-            <h3 className="text-xl font-semibold mb-6">
-              พร้อมเริ่มต้นแล้วใช่ไหม?
-            </h3>
-            <p className="text-gray-600 mb-6">
-              ปรึกษาฟรี!
-              เราจะช่วยวิเคราะห์ความต้องการและแนะนำแผนที่เหมาะสมกับธุรกิจของคุณ
-            </p>
-
-            <div className="space-y-4 mb-6">
-              <div className="flex items-center gap-3">
-                <Check className="w-5 h-5 text-green-500" />
-                <span className="text-sm">ปรึกษาฟรีไม่มีค่าใช้จ่าย</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Check className="w-5 h-5 text-green-500" />
-                <span className="text-sm">รับคำตอบภายใน 24 ชม.</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Check className="w-5 h-5 text-green-500" />
-                <span className="text-sm">ไม่มีการบังคับซื้อ</span>
-              </div>
+        <div className="w-full h-full max-h-[60vh] bg-primary"> </div>
+      </section>
+      <section id="problem">
+        {/* 3 grid items */}
+        <div className="grid md:grid-cols-3 gap-8 my-20">
+          {service.problems.map((problem, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center text-center gap-8  p-8 border border-border rounded-2xl duration-200"
+            >
+              <X size={48} className="text-paragraph" />
+              <h3 className="text-2xl font-semibold text-paragraph !leading-normal">
+                {problem}
+              </h3>
             </div>
-
-            <Link href="/quote">
-              <button className="cta w-full justify-center">
-                ขอใบเสนอราคาฟรี
-              </button>
-            </Link>
-          </div>
-        </div> */}
-      </div>
-    </section>
+          ))}
+        </div>
+      </section>
+      {/* <ShowcaseSection /> */}
+      <ProcessSection />
+      <FAQSection />
+    </>
   );
 }
