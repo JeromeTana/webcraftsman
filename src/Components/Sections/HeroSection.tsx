@@ -7,7 +7,10 @@ import PulsingDot from "../PulsingDot";
 
 export default function HeroSection() {
   return (
-    <section id="hero" className="flex flex-col items-center gap-8 !py-16 !max-w-[90rem] max-h-screen overflow-clip">
+    <section
+      id="hero"
+      className="flex flex-col items-center gap-8 !py-16 !max-w-[90rem] max-h-screen overflow-clip"
+    >
       <div className="!space-y-6">
         <div className="pill text-accent-green flex items-center gap-4 m-auto">
           <PulsingDot />
@@ -47,7 +50,9 @@ export default function HeroSection() {
           ด้วยเว็บไซต์ที่ออกแบบมาสำหรับทำการตลาด และเพิ่มการเติบโตธุรกิจ
         </p>
       </div>
-      <CtaButton />
+      <div className="z-10">
+        <CtaButton />
+      </div>
       <ImageShowcaseSection />
     </section>
   );

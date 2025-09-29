@@ -13,7 +13,7 @@ export default function CtaFormSection({ onSubmitted }: CtaFormSectionProps) {
   return (
     <section id="cta" className="!max-w-full !pb-0 ">
       <div className="relative md:overflow-hidden md:p-20 md:bg-primary rounded-4xl grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div className="hidden md:block absolute bottom-0 left-0 opacity-15">
+        <div className="hidden md:block absolute -bottom-1/5 left-0 opacity-15">
           <ImageShowcaseSection />
         </div>
         <div className="relative">
