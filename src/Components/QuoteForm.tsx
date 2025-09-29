@@ -365,7 +365,7 @@ export default function QuoteForm({ onSubmitted }: QuoteFormProps) {
               type="submit"
               className="cta w-full inline-flex items-center justify-center gap-2 px-8 py-4 text-lg"
             >
-              Continue
+              ถัดไป
             </button>
           </div>
         </>

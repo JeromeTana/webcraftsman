@@ -14,7 +14,7 @@ const Accordion = ({ question, answer }: AccordionProps) => {
 
   return (
     <motion.button
-      className="card !py-2 !rounded-[3rem] w-full cursor-pointer duration-200 !shadow-none"
+      className="card !py-2 rounded-2xl w-full cursor-pointer duration-200 !shadow-none hover:!scale-100"
       onClick={() => setIsOpen(!isOpen)}
       initial={false}
     >
@@ -36,7 +36,7 @@ const Accordion = ({ question, answer }: AccordionProps) => {
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <p className="py-4 text-start">{answer}</p>
+            <p className="py-4 text-start text-paragraph">{answer}</p>
           </motion.div>
         )}
       </AnimatePresence>

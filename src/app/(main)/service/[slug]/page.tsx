@@ -62,29 +62,6 @@ export default async function ServiceDetailPage({
     notFound();
   }
 
-  // Service details content (you can customize this based on each service)
-  const getServiceContent = (title: string) => {
-    const commonBenefits = [
-      "ปรึกษาฟรีก่อนเริ่มโปรเจค",
-      "รับประกันคุณภาพงาน 100%",
-      "ดูแลหลังการขายอย่างใกล้ชิด",
-      "ทีมงานมืออาชีพและประสบการณ์สูง",
-    ];
-
-    // Return service-specific content or fallback to common benefits
-    return {
-      features: service.features || commonBenefits,
-      process: service.process || [
-        "ปรึกษาและวางแผน",
-        "ดำเนินการตามแผน",
-        "ทดสอบและปรับปรุง",
-        "ส่งมอบและดูแล",
-      ],
-    };
-  };
-
-  const serviceContent = getServiceContent(service.title);
-
   return (
     <>
       <section id="hero" className="!p-0 !max-w-full grid lg:grid-cols-2 gap-8">
@@ -93,7 +70,9 @@ export default async function ServiceDetailPage({
           <div className="gap-6 mb-6">
             <div className="flex items-start gap-4 mb-4 ">
               <div className="text-primary flex-shrink-0">{service.icon}</div>
-              <h1 className="text-xl mb-4 text-primary">{service.title}</h1>
+              <h1 className="text-xl mb-4 text-primary !tracking-normal">
+                {service.title}
+              </h1>
             </div>
             <h2 className="text-4xl md:text-6xl font-semibold leading-relaxed tracking-tight">
               {service.headline}
@@ -115,6 +94,29 @@ export default async function ServiceDetailPage({
               <h3 className="text-2xl font-semibold text-paragraph !leading-normal">
                 {problem}
               </h3>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section id="benefit">
+        {/* 3 grid items */}
+        <div className="grid md:grid-cols-3 gap-8 my-20">
+          {service.benefits.map((benefit, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center text-center gap-8  p-8 border border-border rounded-2xl duration-200"
+            >
+              <button className="bg-primary !p-4 !rounded-3xl cta !cursor-default">
+                <Check size={48} className="text-white" />
+              </button>
+              <div>
+                <h3 className="text-2xl font-semibold text-paragraph !leading-normal mb-4">
+                  {benefit.headline}
+                </h3>
+                <p className="text-center text-paragraph/80">
+                  {benefit.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>

@@ -40,7 +40,7 @@ export default function ComparisonSection() {
                 key={index}
                 icon={service.icon}
                 title={service.title}
-                description={service.description}
+                description={service.headline}
                 href={service.url}
               />
             ))}

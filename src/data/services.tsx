@@ -1,3 +1,4 @@
+import { IconParkOutlineGoogleAds } from "@/Components/Icons/GoogleAdsIcon";
 import {
   Code,
   MapPin,
@@ -18,13 +19,31 @@ export const services = [
       "ไม่มีเว็บไซต์ ทำให้ดูไม่น่าเชื่อถือและแข่งขันกับคู่แข่งไม่ได้",
       "เสียโอกาสลูกค้าส่วนใหญ่บนมือถือ เพราะเว็บไซต์ไม่รองรับ",
     ],
-    features: [
-      "Responsive Design ที่ใช้งานได้ทุกอุปกรณ์",
-      "SEO-Friendly Structure",
-      "Page Speed Optimization",
-      "User Experience (UX) Design",
-      "Content Management System",
-      "SSL Certificate และ Security",
+    benefits: [
+      {
+        headline: "เพิ่มยอดขาย 3 เท่า",
+        description: "เว็บไซต์ที่รองรับทุกอุปกรณ์ ทำให้ลูกค้าซื้อได้ง่ายขึ้น และเพิ่มโอกาสขายจากมือถือ"
+      },
+      {
+        headline: "ติดอันดับ Google ได้เร็วขึ้น",
+        description: "โครงสร้างเว็บที่เป็นมิตรกับ SEO ช่วยให้ลูกค้าเจอคุณก่อนคู่แข่ง"
+      },
+      {
+        headline: "ลูกค้าไม่หนีเพราะเว็บช้า",
+        description: "เว็บไซต์โหลดเร็วใน 2 วินาที ลดการหนีของลูกค้าไป 70%"
+      },
+      {
+        headline: "ดูเป็นมืออาชีพทันที",
+        description: "ออกแบบ UX ที่ใช้งานง่าย สร้างความประทับใจและความน่าเชื่อถือ"
+      },
+      {
+        headline: "แก้ไขเนื้อหาเองได้",
+        description: "ระบบจัดการเนื้อหาที่ใช้ง่าย ไม่ต้องรอโปรแกรมเมอร์"
+      },
+      {
+        headline: "ปลอดภัย 100%",
+        description: "SSL Certificate และระบบรักษาความปลอดภัย ทำให้ลูกค้าเชื่อใจและซื้อมากขึ้น"
+      }
     ],
     process: [
       "วิเคราะห์ความต้องการธุรกิจ",
@@ -44,13 +63,31 @@ export const services = [
       "คู่แข่งแย่งลูกค้า เพราะ Google Maps ไม่ติดอันดับ ",
       "ลูกค้าไม่กล้าใช้บริการ เพราะมีรีวิวน้อยหรือรีวิวไม่ดี",
     ],
-    features: [
-      "Google My Business Optimization",
-      "Local Keyword Research",
-      "Citation Building",
-      "Review Management",
-      "Local Schema Markup",
-      "Geographic Target Optimization",
+    benefits: [
+      {
+        headline: "ลูกค้าในพื้นที่เจอคุณก่อน",
+        description: "ปรับแต่ง Google My Business ให้ติดอันดับ 1 ในพื้นที่ เพิ่มลูกค้าใหม่ทุกวัน"
+      },
+      {
+        headline: "คำค้นหาที่ลูกค้าพิมพ์ = เจอคุณ",
+        description: "วิจัยคำค้นหาที่คนในพื้นที่ใช้จริง เพื่อให้เจอธุรกิจคุณเป็นอันดับแรก"
+      },
+      {
+        headline: "ปรากฏทุกเว็บที่สำคัญ",
+        description: "สร้างการกล่าวถึงธุรกิจในเว็บไซต์ท้องถิน่น เพิ่มความน่าเชื่อถือ"
+      },
+      {
+        headline: "รีวิวดีๆ ไหลเข้ามาเอง",
+        description: "ระบบจัดการรีวิวอัตโนมัติ ทำให้มีรีวิว 5 ดาวมากขึ้น"
+      },
+      {
+        headline: "Google รู้จักธุรกิจคุณ",
+        description: "Schema Markup ที่ทำให้ Google เข้าใจธุรกิจคุณดีขึ้น"
+      },
+      {
+        headline: "ครองพื้นที่ในเขตของคุณ",
+        description: "เป้าหมายเฉพาะพื้นที่ที่มีลูกค้าคุณอยู่จริง ลดค่าโฆษณา เพิ่มประสิทธิภาพ"
+      }
     ],
     process: [
       "Audit เว็บไซต์และ Local Presence",
@@ -61,21 +98,39 @@ export const services = [
   },
   {
     icon: <TrendingUp />,
-    title: "Conversion Optimization",
-    headline: "ปรับปรุงประสิทธิภาพของเว็บไซต์เพื่อเพิ่มอัตรา conversion",
+    title: "Conversion Rate Optimization",
+    headline: "ปรับปรุงประสิทธิภาพ และการออกแบบของเว็บไซต์ให้หาลูกค้าใหม่ง่ายขึ้น",
     url: "/service/conversion-optimization",
     problems: [
       "มีคนเข้าเว็บเยอะแต่ไม่ซื้อ ทำให้เสียเงินโฆษณาฟรีๆ",
       "ลูกค้ากรอกข้อมูลครึ่งทางแล้วออกไป ไม่รู้ปัญหาตรงไหน",
       "เว็บสวยงาม แต่ไม่เห็นผลลัพธ์ดีๆ จากการทำโฆษณา",
     ],
-    features: [
-      "A/B Testing และ Analytics",
-      "Landing Page Optimization",
-      "User Journey Analysis",
-      "Call-to-Action Optimization",
-      "Form Optimization",
-      "Performance Tracking",
+    benefits: [
+      {
+        headline: "เงินโฆษณาได้ผลกลับมา 5 เท่า",
+        description: "ทดสอบหน้าเว็บแบบวิทยาศาสตร์ เพิ่มอัตราการซื้อจาก 2% เป็น 10%"
+      },
+      {
+        headline: "หน้าขายที่ขายได้จริง",
+        description: "ปรับปรุงหน้า Landing Page ให้ลูกค้าตัดสินใจซื้อภายใน 30 วินาที"
+      },
+      {
+        headline: "รู้ว่าลูกค้าติดขัดตรงไหน",
+        description: "วิเคราะห์เส้นทางลูกค้า เจอจุดที่ลูกค้าเลิกซื้อและแก้ไขได้ทันที"
+      },
+      {
+        headline: "ปุ่ม 'ซื้อ' ที่กดแล้วติดใจ",
+        description: "ปรับปุ่มและข้อความให้กระตุ้นความต้องการซื้อมากขึ้น 300%"
+      },
+      {
+        headline: "แบบฟอร์มที่ลูกค้ากรอกจบ",
+        description: "ลดขั้นตอนการกรอกข้อมูล เพิ่มการส่งแบบฟอร์มขึ้น 150%"
+      },
+      {
+        headline: "เห็นผลทุกการเปลี่ยนแปลง",
+        description: "ระบบติดตามผลที่ชัดเจน รู้ว่าการปรับปรุงแต่ละครั้งเพิ่มยอดขายเท่าไหร่"
+      }
     ],
     process: [
       "Data Analysis และ User Behavior Study",
@@ -94,13 +149,31 @@ export const services = [
       "เสียเวลาทำงานสำคัญอื่น ๆ เพราะตอบคำถามซ้ำๆ ทุกวัน",
       "เสียเวลานานในการตอบลูกค้าให้ครบ",
     ],
-    features: [
-      "AI-Powered Natural Language Processing",
-      "24/7 Customer Support",
-      "Multi-platform Integration",
-      "Lead Qualification",
-      "Automated FAQ Responses",
-      "Analytics และ Reporting",
+    benefits: [
+      {
+        headline: "ขายได้ตลอด 24 ชั่วโมง",
+        description: "AI ฉลาดที่เข้าใจคำถามลูกค้า ตอบโต้และปิดการขายแทนคุณแม้ตอนหลับ"
+      },
+      {
+        headline: "ไม่พลาดลูกค้าสักคน",
+        description: "ให้บริการลูกค้าทันทีตลอดเวลา ไม่มีการรอคอย เพิ่มความพึงพอใจ"
+      },
+      {
+        headline: "ทำงานครบทุกแพลตฟอร์ม",
+        description: "เชื่อมต่อ Line, Facebook, เว็บไซต์ ลูกค้าติดต่อช่องทางไหนก็ได้คำตอบ"
+      },
+      {
+        headline: "คัดลูกค้าคุณภาพให้อัตโนมัติ",
+        description: "แยกลูกค้าที่พร้อมซื้อกับคนที่มาดูๆ ประหยัดเวลาเจรจาไปครึ่งหนึ่ง"
+      },
+      {
+        headline: "ตอบคำถามซ้ำๆ แทนคุณ",
+        description: "จัดการคำถามพื้นฐาน 80% ให้คุณมีเวลาดูแลลูกค้า VIP"
+      },
+      {
+        headline: "รายงานผลชัดเจนทุกเดือน",
+        description: "ดูสถิติการสนทนา อัตราการแปลงเป็นลูกค้า และรายได้ที่เพิ่มขึ้นจาก Chatbot"
+      }
     ],
     process: [
       "วิเคราะห์ Customer Journey",
@@ -120,13 +193,31 @@ export const services = [
       "พลาดการติดตามลูกค้า เพราะมีงานเยอะเกินไป",
       "ข้อมูลกระจัดกระจาย ไม่มีระบบ ทำให้วิเคราะห์และตัดสินใจช้า",
     ],
-    features: [
-      "Workflow Automation",
-      "Data Processing และ Analysis",
-      "Email Marketing Automation",
-      "Social Media Management",
-      "Customer Segmentation",
-      "Performance Monitoring",
+    benefits: [
+      {
+        headline: "ประหยัดเวลา 20 ชั่วโมงต่อสัปดาห์",
+        description: "ระบบอัตโนมัติทำงานซ้ำๆ แทนคุณ มีเวลาไปขยายธุรกิจแทนที่จะทำงานประจำ"
+      },
+      {
+        headline: "ข้อมูลเปลี่ยนเป็นเงินได้",
+        description: "วิเคราะห์ข้อมูลลูกค้าด้วย AI หาช่องทางสร้างรายได้ใหม่ๆ ที่ไม่เคยเห็น"
+      },
+      {
+        headline: "อีเมลที่ส่งแล้วขายได้",
+        description: "ระบบส่งอีเมลอัตโนมัติที่เข้าใจพฤติกรรมลูกค้า เพิ่มยอดขาย 40%"
+      },
+      {
+        headline: "โซเชียลมีเดียอัตโนมัติ",
+        description: "โพสต์เนื้อหา ตอบคอมเมนต์ และดึงดูดลูกค้าใหม่อัตโนมัติทุกวัน"
+      },
+      {
+        headline: "จัดการข้อมูลลูกค้ารายบุคคล",
+        description: "แบ่งกลุ่มลูกค้าอัตโนมัติ ส่งข้อเสนอที่ตรงใจแต่ละคน เพิ่มโอกาสซื้อซ้ำ"
+      },
+      {
+        headline: "เฝ้าดูธุรกิจแบบเรียลไทม์",
+        description: "แดชบอร์ดที่แสดงผลธุรกิจทุกมิติ รู้ทันทีเมื่อมีปัญหาหรือโอกาสใหม่"
+      }
     ],
     process: [
       "Process Mapping และ Analysis",
@@ -136,7 +227,7 @@ export const services = [
     ],
   },
   {
-    icon: <UserRound />,
+    icon: <IconParkOutlineGoogleAds />,
     title: "Google Ads",
     headline:
       "สร้างและจัดการแคมเปญโฆษณาเพื่อดึงดูดลูกค้าเป้าหมายที่มีคุณภาพสูง",
@@ -146,13 +237,31 @@ export const services = [
       "มี Lead เข้ามาแต่ไม่ใช่คนที่พร้อมซื้อ เสียเวลาไปเปล่า",
       "ใช้งบไปแบบไม่มีทิศทาง เพราะไม่รู้ว่าแคมเปญไหนได้ผล",
     ],
-    features: [
-      "Keyword Research และ Strategy",
-      "Campaign Setup และ Management",
-      "Ad Copy Optimization",
-      "Landing Page Integration",
-      "Conversion Tracking",
-      "Monthly Performance Reports",
+    benefits: [
+      {
+        headline: "ลูกค้าคุณภาพสูงไหลเข้ามาทุกวัน",
+        description: "คำค้นหาที่คัดสรรแล้ว ดึงเฉพาะคนที่พร้อมซื้อ ไม่เสียเวลาคุยกับคนเดินเล่น"
+      },
+      {
+        headline: "เงินโฆษณาคืนทุนใน 30 วัน",
+        description: "ตั้งค่าและจัดการแคมเปญอย่างเป็นระบบ ROI เริ่มต้น 300% ขึ้นไป"
+      },
+      {
+        headline: "โฆษณาที่คนอยากกด",
+        description: "ข้อความโฆษณาที่เขียนโดยผู้เชี่ยวชาญ เพิ่มอัตราคลิกขึ้น 250%"
+      },
+      {
+        headline: "จากคลิกสู่การซื้อไร้รอยต่อ",
+        description: "เชื่อมต่อโฆษณากับหน้าขายที่แปลงได้สูง ลูกค้าไม่หลุดระหว่างทาง"
+      },
+      {
+        headline: "รู้ผลทุกบาทที่ใช้",
+        description: "ติดตามการซื้อจริง รู้ว่าโฆษณาไหนทำเงิน โฆษณาไหนขาดทุน"
+      },
+      {
+        headline: "รายงานที่เข้าใจง่าย",
+        description: "ดูผลประจำเดือนแบบชัดเจน รู้ว่าธุรกิจเติบโตเท่าไหร่จากการโฆษณา"
+      }
     ],
     process: [
       "Market Research และ Competitor Analysis",
