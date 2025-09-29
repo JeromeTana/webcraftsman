@@ -77,6 +77,10 @@ export default async function ServiceDetailPage({
             <h2 className="text-4xl md:text-6xl font-semibold leading-relaxed tracking-tight">
               {service.headline}
             </h2>
+            <p className="max-w-lg text-xl text-paragraph/90">
+              {service.description ||
+                "รายละเอียดเพิ่มเติมเกี่ยวกับบริการนี้จะถูกอัปเดตเร็วๆ นี้"}
+            </p>
             <CtaButton className="mt-16" />
           </div>
         </div>
