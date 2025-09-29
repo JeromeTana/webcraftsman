@@ -12,11 +12,11 @@ export default function ImageShowcaseSection() {
   });
   
   // Different parallax speeds for each column - improved for more dramatic effect
-  const y1 = useTransform(scrollYProgress, [0, 1], [-200, 200]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, -200]);
+  const y1 = useTransform(scrollYProgress, [0, 1], [-100, 200]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, -100]);
   const y3 = useTransform(scrollYProgress, [0, 1], [0, 0]);
-  const y4 = useTransform(scrollYProgress, [0, 1], [0, -200]);
-  const y5 = useTransform(scrollYProgress, [0, 1], [-200, 200]);
+  const y4 = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const y5 = useTransform(scrollYProgress, [0, 1], [-100, 200]);
   return (
     <div ref={containerRef} className="relative mt-24 overflow-x-clip">
       {/* <div className="absolute bottom-0 left-0 bg-gradient-to-t from-white via-white/ to-transparent z-10 w-full h-full"/> */}

@@ -3,13 +3,13 @@ import AnimatedSuccessIcon from "@/Components/Icons/AnimatedSeccessIcon";
 
 export const process = [
   {
-    title: "นัดรับคำแนะนำ",
+    title: "พูดคุยให้คำปรึกษา",
     description:
-      "ตอบแบบฟอร์ม และจองวันนัดพูดคุย เราจะพูดคุยเกี่ยวกับเป้าหมายธุรกิจของคุณ และวิธีที่เราสามารถช่วยได้",
+      "กรอกแบบฟอร์ม เพื่อให้เราติดต่อกลับและทำความเข้าใจเป้าหมายของคุณ เพื่อหาแนวทางที่ดีที่สุด",
     block: (
       <Image
         src="/DE_Call.png"
-        alt="intro call"
+        alt="การประชุมปรึกษา"
         width={500}
         height={500}
         className="rounded-xl w-full object-cover border border-neutral-200"
@@ -17,13 +17,13 @@ export const process = [
     ),
   },
   {
-    title: "เริ่มดำเนินงาน",
+    title: "วางแผนและดำเนินการ",
     description:
-      "เราจะลงมือตามแผนให้คุณ ตามที่ได้พูดคุยกันหลังจากการชำระเงินเสร็จสิ้น",
+      "เราจะเริ่มดำเนินการโครงการของคุณ พร้อมแจ้งข้อมูลความคืบหน้าตตลอดกระบวนการพัฒนา",
     block: (
       <Image
         src="/DE_figma_shot.png"
-        alt="intro call"
+        alt="การวางแผนโครงการ"
         width={500}
         height={500}
         className="rounded-xl w-full object-cover border border-neutral-200"
@@ -31,8 +31,9 @@ export const process = [
     ),
   },
   {
-    title: "เว็บสวยพร้อมใช้",
-    description: "เราจะส่งมอบเว็บไซต์ที่สวยงามและพร้อมใช้งาน",
+    title: "ส่งมอบและสนับสนุน",
+    description:
+      "เมื่อเสร็จสิ้นแล้ว เราจะส่งมอบและให้การสนับสนุนอย่างต่อเนื่องเพื่อให้มั่นใจว่าทุกอย่างทำงานได้อย่างราบรื่น",
     block: (
       <div className="bg-background  rounded-2xl px-8 py-16 md:py-4 text-center flex flex-col gap-4 items-center justify-center">
         <AnimatedSuccessIcon size={80} />
