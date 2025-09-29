@@ -26,7 +26,7 @@ export default function TestimonialSection() {
         scale={0.9}
         threshold={0.2}
       >
-        <h2 className="text-4xl md:text-6xl shaded text-center w-full inline-flex items-center justify-center gap-4">
+        <h2 className="text-4xl md:text-5xl shaded text-center w-full inline-flex items-center justify-center gap-4">
           <span>สิ่งที่ลูกค้า</span>
           <span className="inline-flex items-center gap-2 md:gap-4">
             <AnimatedQuoteIcon className="bg-primary hidden md:inline-block rounded-full p-2" />

@@ -20,7 +20,7 @@ export default function Integration() {
           scale={0.9}
           threshold={0.2}
         >
-          <h2 className="inline-flex items-center justify-center gap-4 text-4xl md:text-6xl">
+          <h2 className="inline-flex items-center justify-center gap-4 text-4xl md:text-5xl">
             <span className={`highlight`}>คำถาม</span> ที่พบบ่อย
           </h2>
         </AnimatedContent>

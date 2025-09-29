@@ -188,7 +188,7 @@ function RoastPageContent() {
       case "contact-form":
         return (
           <>
-            <h1 className="text-4xl md:text-6xl !font-semibold text-gray-900 my-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl !font-semibold text-gray-900 my-6 leading-tight">
               Your{" "}
               <span className="highlight text-primary">Analysis Result</span> is
               Ready!

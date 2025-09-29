@@ -20,7 +20,7 @@ export default function ProcessSection() {
         scale={0.9}
         threshold={0.2}
       >
-        <h2 className="text-4xl md:text-6xl shaded text-center w-full inline-flex flex-col sm:flex-row items-center justify-center gap-4">
+        <h2 className="text-4xl md:text-5xl shaded text-center w-full inline-flex flex-col sm:flex-row items-center justify-center gap-4">
           <span>
             <span className="highlight">3 ขั้นตอน</span> ในการร่วมงานกับเรา
           </span>

@@ -21,7 +21,7 @@ export default function ShowcaseSection() {
         scale={0.9}
         threshold={0.2}
       >
-        <h2 className="text-4xl md:text-6xl shaded text-center w-full inline-flex flex-col sm:flex-row items-center justify-center gap-4">
+        <h2 className="text-4xl md:text-5xl shaded text-center w-full inline-flex flex-col sm:flex-row items-center justify-center gap-4">
           <span className="inline-flex items-center gap-2 md:gap-4">
             <AnimatedCategoryIcon className="bg-primary rounded-full p-2" />
             <span>

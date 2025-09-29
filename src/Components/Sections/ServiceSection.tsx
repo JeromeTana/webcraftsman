@@ -19,7 +19,7 @@ export default function ComparisonSection() {
         scale={0.9}
         threshold={0.2}
       >
-        <h2 className="text-4xl md:text-6xl shaded text-center">
+        <h2 className="text-4xl md:text-5xl shaded text-center">
           มากกว่าแค่เว็บไซต์ เราโฟกัสในการ<br />
           <span className="highlight">เพิ่มการเติบโต</span> ของธุรกิจคุณ
         </h2>

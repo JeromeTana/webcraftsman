@@ -17,7 +17,7 @@ export default function TradeSection() {
         scale={0.9}
         threshold={0.2}
       >
-        <h2 className="text-4xl md:text-6xl shaded text-center">
+        <h2 className="text-4xl md:text-5xl shaded text-center">
           พวกเรา เชี่ยวชาญ ในการทำงานกับ <br />
           <span className="highlight">ธุรกิจท้องถิ่นและ SME</span> โดยเฉพาะ
         </h2>

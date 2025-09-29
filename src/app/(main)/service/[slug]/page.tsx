@@ -9,7 +9,10 @@ import {
   FAQSection,
   ProcessSection,
   ShowcaseSection,
+  TestimonialSection,
+  TradeSection,
 } from "@/Components/Sections";
+import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 
 interface ServiceDetailPageProps {
   params: Promise<{ slug: string }>;
@@ -64,7 +67,10 @@ export default async function ServiceDetailPage({
 
   return (
     <>
-      <section id="hero" className="!p-0 !max-w-full grid lg:grid-cols-2 gap-8">
+      <section
+        id="hero"
+        className="!p-0 !pb-32 !max-w-full grid lg:grid-cols-2 gap-8"
+      >
         {/* Main Content */}
         <div className="p-20 my-auto">
           <div className="gap-6 mb-6">
@@ -81,13 +87,28 @@ export default async function ServiceDetailPage({
               {service.description ||
                 "รายละเอียดเพิ่มเติมเกี่ยวกับบริการนี้จะถูกอัปเดตเร็วๆ นี้"}
             </p>
-            <CtaButton className="mt-16" />
+            <div className="w-fit">
+              <CtaButton className="relative mt-16" />
+            </div>
           </div>
         </div>
-        <div className="w-full h-full max-h-[60vh] bg-primary"> </div>
+        <div className="w-full h-full bg-primary"> </div>
       </section>
       <section id="problem">
-        {/* 3 grid items */}
+        <AnimatedContent
+          distance={100}
+          direction="vertical"
+          initialOpacity={0.05}
+          animateOpacity
+          damping={10}
+          stiffness={50}
+          scale={0.9}
+          threshold={0.2}
+        >
+          <h2 className="text-4xl md:text-5xl !mb-0 !pb-0 shaded text-center">
+            สิ่งที่เจ้าของธุรกิจมักเจอ
+          </h2>
+        </AnimatedContent>
         <div className="grid md:grid-cols-3 gap-8 my-20">
           {service.problems.map((problem, index) => (
             <div
@@ -95,7 +116,7 @@ export default async function ServiceDetailPage({
               className="flex flex-col items-center text-center gap-8  p-8 border border-border rounded-2xl duration-200"
             >
               <X size={48} className="text-paragraph" />
-              <h3 className="text-2xl font-semibold text-paragraph !leading-normal">
+              <h3 className="text-2xl font-semibold text-paragraph/80 !leading-normal">
                 {problem}
               </h3>
             </div>
@@ -103,30 +124,60 @@ export default async function ServiceDetailPage({
         </div>
       </section>
       <section id="benefit">
-        {/* 3 grid items */}
-        <div className="grid md:grid-cols-3 gap-8 my-20">
-          {service.benefits.map((benefit, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center text-center gap-8  p-8 border border-border rounded-2xl duration-200"
-            >
-              <button className="bg-primary !p-4 !rounded-3xl cta !cursor-default">
-                <Check size={48} className="text-white" />
-              </button>
-              <div>
-                <h3 className="text-2xl font-semibold text-paragraph !leading-normal mb-4">
-                  {benefit.headline}
-                </h3>
-                <p className="text-center text-paragraph/80">
-                  {benefit.description}
-                </p>
-              </div>
+        <AnimatedContent
+          distance={100}
+          direction="vertical"
+          initialOpacity={0.05}
+          animateOpacity
+          damping={10}
+          stiffness={50}
+          scale={0.9}
+          threshold={0.2}
+        >
+          <h2 className="text-4xl md:text-5xl !mb-0 !pb-0 shaded text-center">
+            ประโยชน์ที่คุณจะได้รับจากบริการนี้
+          </h2>
+        </AnimatedContent>
+        <div className="space-y-48 my-20 px-4 md:px-0">
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="aspect-video bg-primary rounded-3xl"></div>
+            <div>
+              <h3 className="text-4xl font-semibold !leading-normal mb-4">
+                {service.benefits[0].headline}
+              </h3>
+              <p className="mt-4 text-paragraph/80">
+                {service.benefits[0].description}
+              </p>
             </div>
-          ))}
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-4xl font-semibold !leading-normal mb-4">
+                {service.benefits[1].headline}
+              </h3>
+              <p className="mt-4 text-paragraph/80">
+                {service.benefits[1].description}
+              </p>
+            </div>
+            <div className="aspect-video bg-primary rounded-3xl"></div>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="aspect-video bg-primary rounded-3xl"></div>
+            <div>
+              <h3 className="text-4xl font-semibold !leading-normal mb-4">
+                {service.benefits[2].headline}
+              </h3>
+              <p className="mt-4 text-paragraph/80">
+                {service.benefits[2].description}
+              </p>
+            </div>
+          </div>
         </div>
       </section>
       {/* <ShowcaseSection /> */}
+      <TradeSection />
       <ProcessSection />
+      <TestimonialSection />
       <FAQSection />
     </>
   );

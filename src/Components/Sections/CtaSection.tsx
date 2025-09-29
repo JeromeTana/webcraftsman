@@ -25,7 +25,7 @@ export default function CtaSection() {
               scale={0.9}
               threshold={0.2}
             >
-              <h2 className="text-4xl md:text-6xl !mb-0 text-white text-center">
+              <h2 className="text-4xl md:text-5xl !mb-0 text-white text-center">
                 <span className="inline-flex items-center gap-4">
                   <span className="inline-flex flex-col md:flex-row items-center gap-2 md:gap-4">
                     รับคำปรึกษาด้านเว็บไซต์ ฟรี!
