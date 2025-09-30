@@ -7,6 +7,7 @@ import { ArrowLeft, Check, Frown, X } from "lucide-react";
 import { CtaButton } from "@/Components/CtaButton";
 import {
   FAQSection,
+  IntegrationSection,
   ProcessSection,
   ShowcaseSection,
   TestimonialSection,
@@ -69,7 +70,7 @@ export default async function ServiceDetailPage({
     <>
       <section
         id="hero"
-        className="!p-0 !pb-32 !max-w-full grid lg:grid-cols-2 gap-8"
+        className="!p-0 !max-w-full grid lg:grid-cols-2 gap-8"
       >
         {/* Main Content */}
         <div className="p-20 my-auto">
@@ -94,6 +95,7 @@ export default async function ServiceDetailPage({
         </div>
         <div className="w-full h-full bg-primary"> </div>
       </section>
+      <IntegrationSection />
       <section id="problem">
         <AnimatedContent
           distance={100}
@@ -115,7 +117,7 @@ export default async function ServiceDetailPage({
               key={index}
               className="flex flex-col items-center text-center gap-8  p-8 border border-border rounded-2xl duration-200"
             >
-              <X size={48} className="text-paragraph" />
+              <X size={48} className="text-paragraph opacity-80" />
               <h3 className="text-2xl font-semibold text-paragraph/80 !leading-normal">
                 {problem}
               </h3>
@@ -139,7 +141,7 @@ export default async function ServiceDetailPage({
           </h2>
         </AnimatedContent>
         <div className="space-y-48 my-20 px-4 md:px-0">
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-16">
             <div className="aspect-video bg-primary rounded-3xl"></div>
             <div>
               <h3 className="text-4xl font-semibold !leading-normal mb-4">
@@ -150,7 +152,7 @@ export default async function ServiceDetailPage({
               </p>
             </div>
           </div>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-16">
             <div>
               <h3 className="text-4xl font-semibold !leading-normal mb-4">
                 {service.benefits[1].headline}
@@ -161,7 +163,7 @@ export default async function ServiceDetailPage({
             </div>
             <div className="aspect-video bg-primary rounded-3xl"></div>
           </div>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-16">
             <div className="aspect-video bg-primary rounded-3xl"></div>
             <div>
               <h3 className="text-4xl font-semibold !leading-normal mb-4">
