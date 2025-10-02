@@ -182,8 +182,8 @@ export default async function ServiceDetailPage({
           </div>
         </div>
       </section> */}
-      {/* <ShowcaseSection /> */}
       <TradeSection />
+      <ShowcaseSection />
       <ProcessSection />
       <TestimonialSection />
       <FAQSection />
