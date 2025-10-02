@@ -38,10 +38,7 @@ export default function ComparisonSection() {
             {services.map((service, index) => (
               <ServiceCard
                 key={index}
-                icon={service.icon}
-                title={service.title}
-                description={service.headline}
-                href={service.url}
+                service={service}
               />
             ))}
           </div>

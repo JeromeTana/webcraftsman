@@ -11,7 +11,9 @@ import { services } from "@/data";
 const step1Schema = z.object({
   service: z.string().min(1, "กรุณาเลือกบริการที่สนใจ"),
   websiteUrl: z.string().optional().default(""),
-  businessDescription: z.string().min(1, "กรุณาอธิบายเกี่ยวกับธุรกิจของคุณคร่าว ๆ"),
+  businessDescription: z
+    .string()
+    .min(1, "กรุณาอธิบายเกี่ยวกับธุรกิจของคุณคร่าว ๆ"),
   timeline: z.string().min(1, "กรุณาเลือกระยะเวลา"),
   budget: z.string().min(1, "กรุณาเลือกช่วงงบประมาณ"),
 });
@@ -173,9 +175,7 @@ export default function QuoteForm({ onSubmitted }: QuoteFormProps) {
             ชั่วโมง
           </p>
           <div className="bg-primary/5 border border-primary/20 rounded-lg p-6">
-            <h3 className="font-semibold text-gray-900 mb-3">
-              ขั้นตอนต่อไป
-            </h3>
+            <h3 className="font-semibold text-gray-900 mb-3">ขั้นตอนต่อไป</h3>
             <ul className="text-left space-y-2 text-gray-600">
               <li className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-green-600" />
@@ -197,10 +197,7 @@ export default function QuoteForm({ onSubmitted }: QuoteFormProps) {
   }
 
   return (
-    <form
-      onSubmit={handleFormSubmit}
-      className="space-y-8"
-    >
+    <form onSubmit={handleFormSubmit} className="space-y-8">
       {currentStep === 1 ? (
         <>
           {/* Step 1: Project Details */}
@@ -366,6 +363,7 @@ export default function QuoteForm({ onSubmitted }: QuoteFormProps) {
               className="cta w-full inline-flex items-center justify-center gap-2 px-8 py-4 text-lg"
             >
               ถัดไป
+              <ArrowRight />
             </button>
           </div>
         </>

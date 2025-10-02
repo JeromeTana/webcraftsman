@@ -8,10 +8,23 @@ import {
   Workflow,
 } from "lucide-react";
 
-export const services = [
+export interface Service {
+  icon: React.ReactNode;
+  title: string;
+  thumbnail?: string;
+  headline: string;
+  description: string;
+  url: string;
+  problems: string[];
+  benefits: { headline: string; description: string }[];
+  process: string[];
+}
+
+export const services: Service[] = [
   {
     icon: <Code />,
     title: "Website Development",
+    thumbnail: "/Website_Development_Service.png",
     headline: "สร้างเว็บไซต์คุณภาพ เพื่อเสริมสร้างภาพลักษณ์ และความน่าเชื่อถือ",
     description:
       "เว็บไซต์ที่ออกแบบมาเพื่อเพิ่มยอดขาย และช่วยให้ธุรกิจของคุณเติบโตอย่างยั่งยืน",
@@ -47,6 +60,7 @@ export const services = [
   {
     icon: <MapPin />,
     title: "Local SEO",
+    thumbnail: "/Local_SEO_Service.png",
     headline:
       "ทำเว็บไซต์ และหมุด Google Maps ของคุณให้ติดอันดับการค้นหาในพื้นที่",
     description:
@@ -83,6 +97,7 @@ export const services = [
   {
     icon: <TrendingUp />,
     title: "Conversion Rate Optimization",
+    thumbnail: "/Conversion_Rate_Optimization_Service.png",
     headline:
       "ปรับปรุงประสิทธิภาพ และการออกแบบของเว็บไซต์ให้หาลูกค้าใหม่ง่ายขึ้น",
     description: "เพิ่มยอดขายจากเว็บไซต์ที่มีอยู่แล้ว โดยไม่ต้องเพิ่มงบโฆษณา",
@@ -119,6 +134,7 @@ export const services = [
   {
     icon: <Workflow />,
     title: "AI Chatbot & Automation",
+    thumbnail: "/AI_Chatbot_and_Automation_Service.png",
     headline: "เพิ่มประสิทธิภาพและประหยัดเวลา พร้อมดูแลลูกค้าตลอด 24 ชั่วโมง",
     description:
       "เพิ่มยอดขายและประหยัดเวลาด้วย AI ที่ทำงานแทนคุณทั้งการขายและงานประจำ",

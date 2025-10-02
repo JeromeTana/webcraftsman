@@ -14,6 +14,7 @@ import {
   TradeSection,
 } from "@/Components/Sections";
 import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
+import Image from "next/image";
 
 interface ServiceDetailPageProps {
   params: Promise<{ slug: string }>;
@@ -68,10 +69,7 @@ export default async function ServiceDetailPage({
 
   return (
     <>
-      <section
-        id="hero"
-        className="!p-0 !max-w-full grid lg:grid-cols-2 gap-8"
-      >
+      <section id="hero" className="!p-0 !max-w-full grid xl:grid-cols-2 gap-8">
         {/* Main Content */}
         <div className="p-20 my-auto">
           <div className="gap-6 mb-6">
@@ -93,7 +91,15 @@ export default async function ServiceDetailPage({
             </div>
           </div>
         </div>
-        <div className="w-full h-full bg-primary"> </div>
+        <div className="relative w-full h-full bg-primary">
+          <Image
+            src={service.thumbnail as string}
+            alt={`${service.title} Thumbnail`}
+            width={1000}
+            height={1000}
+            className="h-full object-cover"
+          />
+        </div>
       </section>
       <IntegrationSection />
       <section id="problem">
@@ -108,7 +114,7 @@ export default async function ServiceDetailPage({
           threshold={0.2}
         >
           <h2 className="text-4xl md:text-5xl !mb-0 !pb-0 shaded text-center">
-            สิ่งที่เจ้าของธุรกิจมักเจอ
+            ปัญหาที่เจ้าของธุรกิจมักเจอ
           </h2>
         </AnimatedContent>
         <div className="grid md:grid-cols-3 gap-8 my-20">

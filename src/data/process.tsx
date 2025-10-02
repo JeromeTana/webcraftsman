@@ -31,9 +31,9 @@ export const process = [
     ),
   },
   {
-    title: "ส่งมอบและสนับสนุน",
+    title: "ส่งมอบและดูแล",
     description:
-      "เมื่อเสร็จสิ้นแล้ว เราจะส่งมอบและให้การสนับสนุนอย่างต่อเนื่องเพื่อให้มั่นใจว่าทุกอย่างทำงานได้อย่างราบรื่น",
+      "เมื่อเสร็จสิ้นแล้ว เราจะส่งมอบและให้การดูแลอย่างต่อเนื่องเพื่อให้มั่นใจว่าทุกอย่างทำงานได้อย่างราบรื่น",
     block: (
       <div className="bg-background  rounded-2xl px-8 py-16 md:py-4 text-center flex flex-col gap-4 items-center justify-center">
         <AnimatedSuccessIcon size={80} />
