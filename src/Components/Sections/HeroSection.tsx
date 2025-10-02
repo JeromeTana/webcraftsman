@@ -9,7 +9,7 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="flex flex-col items-center gap-8 !py-16 !max-w-[90rem] max-h-screen overflow-clip"
+      className="flex flex-col items-center gap-8 !py-16 !max-w-full !px-0 max-h-screen overflow-clip"
     >
       <div className="!space-y-6">
         <div className="pill text-accent-green flex items-center gap-4 m-auto">
