@@ -102,7 +102,7 @@ export default async function ServiceDetailPage({
         </div>
       </section>
       <IntegrationSection />
-      <section id="problem">
+      {/* <section id="problem">
         <AnimatedContent
           distance={100}
           direction="vertical"
@@ -181,7 +181,7 @@ export default async function ServiceDetailPage({
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/* <ShowcaseSection /> */}
       <TradeSection />
       <ProcessSection />
