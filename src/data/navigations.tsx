@@ -16,7 +16,7 @@ interface NavBarLink {
 
 export const navBarLinks: NavBarLink[] = [
   { title: "เกี่ยวกับเรา", url: "/about" },
-  { title: "ผลงาน", url: "/showcase" },
+  // { title: "ผลงาน", url: "/showcase" },
   {
     title: "บริการ",
     url: "/service",
@@ -34,7 +34,7 @@ export const footerLinks = [
     section: "Quick Links",
     links: [
       { title: "เกี่ยวกับเรา", url: "/about" },
-      { title: "ผลงาน", url: "/showcase" },
+      // { title: "ผลงาน", url: "/showcase" },
     ],
   },
   {
