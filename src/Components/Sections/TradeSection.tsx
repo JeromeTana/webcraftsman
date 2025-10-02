@@ -3,7 +3,7 @@
 import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import ShinyText from "@/Components/ShinyText/ShinyText";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, FreeMode } from "swiper/modules";
+import { Autoplay, FreeMode } from "swiper/modules";
 
 // Import Swiper styles
 import "swiper/css";
@@ -58,29 +58,16 @@ export default function TradeSection() {
           delay={100}
         >
           <Swiper
-            modules={[Autoplay, Navigation, FreeMode]}
+            modules={[Autoplay, FreeMode]}
             spaceBetween={20}
-            slidesPerView={1}
+            slidesPerView={1.2}
             loop={true}
             freeMode={{
               enabled: true,
               sticky: false,
             }}
             speed={3000}
-            autoplay={{
-              disableOnInteraction: false,
-              pauseOnMouseEnter: true,
-            }}
-            pagination={{
-              clickable: true,
-              dynamicBullets: true,
-            }}
-            navigation={false}
             breakpoints={{
-              0: {
-                slidesPerView: 1.2,
-                spaceBetween: 20,
-              },
               640: {
                 slidesPerView: 2,
                 spaceBetween: 20,

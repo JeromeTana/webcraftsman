@@ -171,6 +171,7 @@ export const services: Service[] = [
   {
     icon: <IconParkOutlineGoogleAds />,
     title: "Google Ads",
+    thumbnail: "/Google_Ads_Service.png",
     headline:
       "สร้างและจัดการแคมเปญโฆษณาเพื่อดึงดูดลูกค้าเป้าหมายที่มีคุณภาพสูง",
     description: "เพิ่มยอดขายอย่างรวดเร็วด้วยแคมเปญโฆษณาที่ตรงกลุ่มเป้าหมาย",
