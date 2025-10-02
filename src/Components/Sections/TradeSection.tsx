@@ -1,26 +1,27 @@
-'use client';
+"use client";
 
 import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import ShinyText from "@/Components/ShinyText/ShinyText";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation, FreeMode } from "swiper/modules";
 
 // Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "swiper/css/free-mode";
 
 export default function TradeSection() {
   const tradeBusinesses = [
     "ธุรกิจจัดสวน ดูแลต้นไม้",
-    "ธุรกิจโซล่าเซลล์", 
+    "ธุรกิจโซล่าเซลล์",
     "ธุรกิจรีโนเวทอาคาร",
     "ธุรกิจสร้างสระว่ายน้ำ",
     "ธุรกิจรับเหมา",
     "ธุรกิจปูหลังคา",
     "ธุรกิจอสังหาริมทรัพย์",
     "ธุรกิจซ่อมแซมบ้าน",
-    "ธุรกิจตกแต่งภายใน"
+    "ธุรกิจตกแต่งภายใน",
   ];
 
   return (
@@ -57,12 +58,16 @@ export default function TradeSection() {
           delay={100}
         >
           <Swiper
-            modules={[Autoplay, Pagination, Navigation]}
+            modules={[Autoplay, Navigation, FreeMode]}
             spaceBetween={20}
             slidesPerView={1}
             loop={true}
+            freeMode={{
+              enabled: true,
+              sticky: false,
+            }}
+            speed={3000}
             autoplay={{
-              delay: 2500,
               disableOnInteraction: false,
               pauseOnMouseEnter: true,
             }}
@@ -72,6 +77,10 @@ export default function TradeSection() {
             }}
             navigation={false}
             breakpoints={{
+              0: {
+                slidesPerView: 1.2,
+                spaceBetween: 20,
+              },
               640: {
                 slidesPerView: 2,
                 spaceBetween: 20,
@@ -81,19 +90,19 @@ export default function TradeSection() {
                 spaceBetween: 25,
               },
               1024: {
-                slidesPerView: 4,
+                slidesPerView: 3,
                 spaceBetween: 30,
               },
               1280: {
-                slidesPerView: 5,
+                slidesPerView: 3,
                 spaceBetween: 30,
               },
             }}
           >
             {tradeBusinesses.map((business, index) => (
               <SwiperSlide key={index}>
-                <div className="card h-full flex items-center justify-center text-center min-h-[120px]">
-                  {business}
+                <div className="bg-foreground rounded-3xl p-8 h-full flex items-end aspect-video">
+                  <h3 className="text-3xl font-semibold">{business}</h3>
                 </div>
               </SwiperSlide>
             ))}
