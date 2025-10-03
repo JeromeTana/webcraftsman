@@ -16,7 +16,7 @@ const ctaText = {
 
 const supportText = {
   th: "เจ้าของธุรกิจไว้ใจเรา",
-  en: "Trusted by business owners"
+  en: "Trusted by entrepreneurs"
 };
 
 interface CtaButtonProps {
