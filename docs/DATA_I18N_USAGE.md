@@ -11,7 +11,7 @@ All data files now support internationalization with both English (`en`) and Tha
 ### Services
 ```typescript
 import { getServices } from '@/data';
-import { type Locale } from '@/lib/i18n';
+import { type Locale } from '@/i18n/routing';
 
 const services = getServices(locale); // Returns Service[] for the specified locale
 ```
@@ -57,7 +57,7 @@ const metadata = getMetadata(locale); // Returns tagline, description, siteUrl
 ### Example: Service Page Component
 ```typescript
 import { getServices } from '@/data';
-import { type Locale } from '@/lib/i18n';
+import { type Locale } from '@/i18n/routing';
 
 export default async function ServicePage({
   params,
@@ -89,7 +89,7 @@ export default async function ServicePage({
 ### Example: FAQ Component
 ```typescript
 import { getFaqs } from '@/data';
-import { type Locale } from '@/lib/i18n';
+import { type Locale } from '@/i18n/routing';
 
 interface FAQSectionProps {
   locale: Locale;
@@ -114,7 +114,7 @@ export default function FAQSection({ locale }: FAQSectionProps) {
 ### Example: Navigation Component
 ```typescript
 import { getNavBarLinks } from '@/data';
-import { type Locale } from '@/lib/i18n';
+import { type Locale } from '@/i18n/routing';
 import Link from 'next/link';
 
 interface NavigationProps {

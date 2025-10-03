@@ -3,19 +3,21 @@ import ShinyText from "@/Components/ShinyText/ShinyText";
 import Accordion from "@/Components/Accordion";
 import { getFaqs } from "@/data/faqs-i18n";
 import AnimatedQuestionIcon from "../Icons/AnimatedQuestionIcon";
-import { type Locale } from "@/lib/i18n";
+import { type Locale } from "@/i18n/routing";
+import { getTranslations } from "next-intl/server";
 
 interface FAQSectionProps {
   locale: Locale;
 }
 
-export default function FAQSection({ locale }: FAQSectionProps) {
+export default async function FAQSection({ locale }: FAQSectionProps) {
+  const t = await getTranslations("sections.faq");
   const faqs = getFaqs(locale);
   return (
     <section id="faq" className="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div className="flex flex-col gap-8">
         <div className="pill">
-          <ShinyText text="FAQ" speed={5} />
+          <ShinyText text={t("label")} speed={5} />
         </div>
         <AnimatedContent
           distance={100}
@@ -29,15 +31,9 @@ export default function FAQSection({ locale }: FAQSectionProps) {
         >
           <h2 className="inline-flex items-center justify-center gap-4 text-4xl md:text-5xl">
             <AnimatedQuestionIcon className="animate-bounce" />
-            {locale === 'th' ? (
-              <>
-                <span className={`highlight`}>คำถาม</span> ที่พบบ่อย
-              </>
-            ) : (
-              <>
-                <span className={`highlight`}>Frequently</span> Asked Questions
-              </>
-            )}
+            {t.rich("headline", {
+              highlight: (chunks) => <span className="highlight">{chunks}</span>,
+            })}
           </h2>
         </AnimatedContent>
       </div>

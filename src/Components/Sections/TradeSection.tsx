@@ -5,7 +5,8 @@ import ShinyText from "@/Components/ShinyText/ShinyText";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, FreeMode } from "swiper/modules";
 import { getTrades } from "@/data/trades-i18n";
-import type { Locale } from "@/lib/i18n";
+import type { Locale } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
 // Import Swiper styles
 import "swiper/css";
@@ -19,6 +20,7 @@ interface TradeSectionProps {
 
 export default function TradeSection({ locale }: TradeSectionProps) {
   const tradesData = getTrades(locale);
+  const t = useTranslations("sections.trade");
 
   return (
     <section className="flex flex-col items-center gap-8 !max-w-full">
@@ -37,17 +39,10 @@ export default function TradeSection({ locale }: TradeSectionProps) {
           threshold={0.2}
         >
           <h2 className="text-4xl md:text-5xl shaded text-center">
-            {locale === 'th' ? (
-              <>
-                พวกเรา เชี่ยวชาญ ในการทำงานกับ <br />
-                <span className="highlight">ธุรกิจท้องถิ่นและ SME</span> โดยเฉพาะ
-              </>
-            ) : (
-              <>
-                We specialize in working with <br />
-                <span className="highlight">local businesses and SMEs</span>
-              </>
-            )}
+            {t.rich("headline", {
+              highlight: (chunks) => <span className="highlight">{chunks}</span>,
+              br: () => <br />,
+            })}
           </h2>
         </AnimatedContent>
       </div>

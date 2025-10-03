@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/Components/Header";
 import Footer from "@/Components/Footer";
-import { type Locale } from "@/lib/i18n";
-import { getDictionary } from "@/dictionaries";
+import { locales, type Locale } from "@/i18n/routing";
 import { getMetadata } from "@/data/metadata-i18n";
 
 export async function generateMetadata({
@@ -44,16 +43,16 @@ export default async function RootLayout({
   params,
 }: Readonly<MainLayoutProps>) {
   const resolvedParams = await params;
-  const localeParam = resolvedParams?.locale || 'en';
-  const locale = localeParam as Locale;
-  
-  const dict = getDictionary(locale);
+  const localeParam = resolvedParams?.locale || "en";
+  const locale = locales.includes(localeParam as Locale)
+    ? (localeParam as Locale)
+    : "en";
 
   return (
     <>
-      <Header locale={locale} dict={dict} />
+      <Header />
       {children}
-      <Footer locale={locale} dict={dict} />
+      <Footer locale={locale} />
     </>
   );
 }

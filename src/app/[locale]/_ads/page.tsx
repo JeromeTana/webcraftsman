@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import AdLandingPage from "@/Components/AdLandingPage/AdLandingPage";
-import type { Locale } from "@/lib/i18n";
+import type { Locale } from "@/i18n/routing";
 
 export const metadata: Metadata = {
   title: "Get More Customers Online - Free Website Analysis | WEBCRAFTSMAN",

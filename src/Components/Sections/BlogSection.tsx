@@ -1,21 +1,24 @@
-import Link from "next/link";
 import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import ShinyText from "@/Components/ShinyText/ShinyText";
 import BlogPostCard from "@/Components/BlogPostCard";
 import { BlogPost, getLatestPosts } from "@/sanity/lib/queries";
-import type { Locale } from "@/lib/i18n";
+import type { Locale } from "@/i18n/routing";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/routing";
 
 interface BlogSectionProps {
   locale: Locale;
 }
 
 export default async function BlogSection({ locale }: BlogSectionProps) {
+  const t = await getTranslations("sections.blog");
   const posts = await getLatestPosts(3);
+  const blogLocale = locale === "th" ? "th-TH" : "en-US";
 
   return (
     <section id="blog" className="flex flex-col items-center gap-8">
       <div className="pill">
-        <ShinyText text={locale === 'th' ? "บทความ" : "Articles"} speed={5} />
+        <ShinyText text={t("label")} speed={5} />
       </div>
 
       <AnimatedContent
@@ -31,17 +34,12 @@ export default async function BlogSection({ locale }: BlogSectionProps) {
         <div className="flex flex-col items-center gap-4">
           <div className="flex items-center gap-2">
             <h2 className="text-center text-5xl font-bold lg:text-6xl">
-              {locale === 'th' ? (
-                <>
-                  <span className="text-primary highlight">ความรู้และบทความ</span>
-                  <span className="block">ล่าสุดจากเรา</span>
-                </>
-              ) : (
-                <>
-                  <span className="text-primary highlight">Latest insights</span>
-                  <span className="block">and articles</span>
-                </>
-              )}
+              {t.rich("headline", {
+                highlight: (chunks) => (
+                  <span className="text-primary highlight">{chunks}</span>
+                ),
+                br: () => <br />,
+              })}
             </h2>
           </div>
         </div>
@@ -63,15 +61,11 @@ export default async function BlogSection({ locale }: BlogSectionProps) {
           {posts.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-gray-600 mb-8">
-                {locale === 'th' ? (
-                  "ยังไม่มีบทความในขณะนี้ กรุณาติดตามใน blog ของเรา"
-                ) : (
-                  "No articles available at this time. Please check our blog for updates"
-                )}
+                {t("emptyMessage")}
               </p>
               <Link href="/posts">
                 <button className="cta mx-auto">
-                  {locale === 'th' ? "ดูบทความทั้งหมด" : "View All Articles"}
+                  {t("viewAll")}
                 </button>
               </Link>
             </div>
@@ -79,7 +73,7 @@ export default async function BlogSection({ locale }: BlogSectionProps) {
             <>
               <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 {posts.map((post) => (
-                  <BlogPostCard key={post._id} post={post} locale="th-TH" />
+                  <BlogPostCard key={post._id} post={post} locale={blogLocale} />
                 ))}
               </div>
 
@@ -87,7 +81,7 @@ export default async function BlogSection({ locale }: BlogSectionProps) {
               <div className="text-center mt-12">
                 <Link href="/posts">
                   <button className="cta mx-auto">
-                    {locale === 'th' ? "ดูบทความทั้งหมด" : "View All Articles"}
+                    {t("viewAll")}
                   </button>
                 </Link>
               </div>

@@ -3,21 +3,20 @@ import ProcessItem from "@/Components/ProcessItem";
 import ShinyText from "@/Components/ShinyText/ShinyText";
 import { CtaButton } from "@/Components/CtaButton";
 import { getProcess } from "@/data/process-i18n";
-import { type Locale } from "@/lib/i18n";
+import { type Locale } from "@/i18n/routing";
+import { getTranslations } from "next-intl/server";
 
 interface ProcessSectionProps {
   locale: Locale;
 }
 
-export default function ProcessSection({ locale }: ProcessSectionProps) {
+export default async function ProcessSection({ locale }: ProcessSectionProps) {
+  const t = await getTranslations("sections.process");
   const process = getProcess(locale);
   return (
     <section id="process" className="flex flex-col items-center gap-8">
       <div className="pill">
-        <ShinyText 
-          text={locale === 'th' ? "วิธีเข้ารับบริการ" : "How to Get Started"} 
-          speed={5} 
-        />
+        <ShinyText text={t("label")} speed={5} />
       </div>
       <AnimatedContent
         distance={100}
@@ -31,15 +30,10 @@ export default function ProcessSection({ locale }: ProcessSectionProps) {
       >
         <h2 className="text-4xl md:text-5xl shaded text-center w-full inline-flex flex-col sm:flex-row items-center justify-center gap-4">
           <span>
-            {locale === 'th' ? (
-              <>
-                <span className="highlight">3 ขั้นตอน</span> ในการร่วมงานกับเรา
-              </>
-            ) : (
-              <>
-                <span className="highlight">3 simple steps</span> to work with us
-              </>
-            )}
+            <>
+              <span className="highlight">{t("highlight")}</span>{" "}
+              {t("tail")}
+            </>
           </span>
         </h2>
       </AnimatedContent>
@@ -61,7 +55,7 @@ export default function ProcessSection({ locale }: ProcessSectionProps) {
         </div>
       </AnimatedContent>
       <div className="mt-20">
-        <CtaButton locale={locale} />
+        <CtaButton />
       </div>
     </section>
   );

@@ -1,12 +1,18 @@
 import Logo from "./Icons/Logo";
 import { getFooterLinks } from "@/data/navigations-i18n";
-import { getMetadata } from "@/data/metadata-i18n";
 import CtaFormSection from "./Sections/CtaFormSection";
-import { type LocalizedComponentProps } from "@/types/i18n";
+import { type Locale } from "@/i18n/routing";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/routing";
 
-export default function Footer({ locale, dict }: LocalizedComponentProps) {
+interface FooterProps {
+  locale: Locale;
+}
+
+export default async function Footer({ locale }: FooterProps) {
   const footerLinks = getFooterLinks(locale);
-  const metadata = getMetadata(locale);
+  const t = await getTranslations("footer");
+  const year = new Date().getFullYear();
   return (
     <>
       {/* <CtaSection /> */}
@@ -36,14 +42,17 @@ export default function Footer({ locale, dict }: LocalizedComponentProps) {
           <div className="flex flex-col md:flex-row gap-8 justify-between">
             <div>
               <p className="text-sm">
-                Copyright
-                <span className="font-semibold"> ©2025 WEBCRAFTSMAN</span>. All
-                rights reserved.
+                {`Copyright `}
+                <span className="font-semibold"> ©{year} WEBCRAFTSMAN</span>. {t("rights")}
               </p>
             </div>
             <div className="flex gap-8">
-              <p className="text-sm">Privacy Policy</p>
-              <p className="text-sm">Terms & Conditions</p>
+              <Link href="/privacy-policy" className="text-sm hover:text-primary">
+                {t("privacyPolicy")}
+              </Link>
+              <Link href="/terms" className="text-sm hover:text-primary">
+                {t("terms")}
+              </Link>
             </div>
           </div>
         </div>

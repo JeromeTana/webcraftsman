@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from '@/i18n/routing'
 import Image from 'next/image'
 import { BlogPost } from '@/sanity/lib/queries'
 import { urlFor } from '@/sanity/lib/image'

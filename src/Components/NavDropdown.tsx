@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "@/i18n/routing";
 
 interface NavDropdownItem {
   name: string;
@@ -90,8 +91,9 @@ export const ServiceDropdown = ({
                       ease: "easeOut",
                     }}
                   >
-                    <a
-                      href={`/${locale}${item.url}`}
+                    <Link
+                      href={item.url}
+                      locale={locale}
                       className="flex gap-3 group hover:bg-primary/5 rounded-lg p-3 transition-all duration-200"
                     >
                       {item.icon && (
@@ -109,7 +111,7 @@ export const ServiceDropdown = ({
                         </div>
                       )}
                       </div>
-                    </a>
+                    </Link>
                   </motion.li>
                 ))}
               </ul>

@@ -1,15 +1,12 @@
 import React from "react";
-import ShinyText from "../ShinyText/ShinyText";
-import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import Image from "next/image";
-
-type Locale = 'en' | 'th';
+import type { Locale } from "@/i18n/routing";
 
 interface IntegrationSectionProps {
   locale: Locale;
 }
 
-export default function IntegrationSection({ locale }: IntegrationSectionProps) {
+export default function IntegrationSection({ locale: _locale }: IntegrationSectionProps) {
   return (
     <section id="integration">
       {/* <div className="flex flex-col gap-8">

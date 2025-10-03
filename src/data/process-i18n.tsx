@@ -1,6 +1,6 @@
 import Image from "next/image";
 import AnimatedSuccessIcon from "@/Components/Icons/AnimatedSeccessIcon";
-import type { Locale } from '@/lib/i18n';
+import type { Locale } from '@/i18n/routing';
 
 interface ProcessStep {
   title: string;

@@ -6,7 +6,9 @@ import FollowCursor from "@/Components/FollowCursor";
 import { baseMetadata } from "../metadata";
 import Hotjar from "@/Components/Hotjar";
 import { GoogleTagManager } from "@next/third-parties/google";
-import { locales, type Locale } from "@/lib/i18n";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages, unstable_setRequestLocale } from "next-intl/server";
+import { locales, type Locale } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = baseMetadata;
@@ -23,12 +25,17 @@ export default async function RootLayout({
   params: Promise<{ locale: Locale }>;
 }>) {
   const resolvedParams = await params;
-  const locale = resolvedParams?.locale || 'en';
-  
-  // Validate that the incoming `locale` parameter is valid
-  if (!locales.includes(locale as Locale)) {
+  const requestedLocale = (resolvedParams?.locale || "en") as string;
+  const locale = locales.includes(requestedLocale as Locale)
+    ? (requestedLocale as Locale)
+    : "en";
+
+  if (!locales.includes(locale)) {
     notFound();
   }
+
+  unstable_setRequestLocale(locale);
+  const messages = await getMessages();
 
   return (
     <html lang={locale} suppressHydrationWarning>
@@ -45,8 +52,10 @@ export default async function RootLayout({
         data-locale={locale}
         suppressHydrationWarning
       >
-        <FollowCursor />
-        <LenisScrollProvider>{children}</LenisScrollProvider>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <FollowCursor />
+          <LenisScrollProvider>{children}</LenisScrollProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

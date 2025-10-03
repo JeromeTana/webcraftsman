@@ -3,14 +3,13 @@
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-
-type Locale = 'en' | 'th';
+import type { Locale } from "@/i18n/routing";
 
 interface ImageShowcaseSectionProps {
   locale: Locale;
 }
 
-export default function ImageShowcaseSection({ locale }: ImageShowcaseSectionProps) {
+export default function ImageShowcaseSection({ locale: _locale }: ImageShowcaseSectionProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,

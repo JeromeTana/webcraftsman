@@ -4,8 +4,7 @@ import {
   TestimonialSection,
   ShowcaseSection,
 } from "@/Components/Sections";
-import { type Locale } from "@/lib/i18n";
-import { getDictionary } from "@/dictionaries";
+import { type Locale } from "@/i18n/routing";
 
 export default async function ShowcasePage({
   params,
@@ -14,7 +13,6 @@ export default async function ShowcasePage({
 }) {
   const resolvedParams = await params;
   const locale = resolvedParams.locale;
-  const dict = getDictionary(locale);
 
   return (
     <main>

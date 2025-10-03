@@ -1,7 +1,6 @@
 import { ComparisonSection, ProcessSection } from "@/Components/Sections";
 import React from "react";
-import { type Locale } from "@/lib/i18n";
-import { getDictionary } from "@/dictionaries";
+import { type Locale } from "@/i18n/routing";
 
 interface AboutPageProps {
   params: Promise<{ locale: Locale }>;
@@ -10,7 +9,6 @@ interface AboutPageProps {
 export default async function AboutPage({ params }: AboutPageProps) {
   const resolvedParams = await params;
   const locale = resolvedParams.locale;
-  const dict = getDictionary(locale);
 
   return (
     <main>

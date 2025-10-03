@@ -13,7 +13,7 @@ import AdBenefitsSection from "./AdBenefitsSection";
 import AdWhatYouGetSection from "./AdWhatYouGetSection";
 import AdFAQSection from "./AdFAQSection";
 import AdFooter from "./AdFooter";
-import type { Locale } from "@/lib/i18n";
+import type { Locale } from "@/i18n/routing";
 
 interface AdLandingPageProps {
   locale: Locale;

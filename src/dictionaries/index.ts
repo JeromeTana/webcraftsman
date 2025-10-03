@@ -1,1 +1,0 @@
-export { getDictionary, type Dictionary } from './dictionaries';

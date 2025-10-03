@@ -4,17 +4,19 @@ import ShinyText from "@/Components/ShinyText/ShinyText";
 import AnimatedCategoryIcon from "../Icons/AnimatedCategoryIcon";
 import { portfolio } from "@/data/portfolio";
 import Image from "next/image";
-import type { Locale } from "@/lib/i18n";
+import type { Locale } from "@/i18n/routing";
+import { getTranslations } from "next-intl/server";
 
 interface ShowcaseSectionProps {
   locale: Locale;
 }
 
-export default function ShowcaseSection({ locale }: ShowcaseSectionProps) {
+export default async function ShowcaseSection(_: ShowcaseSectionProps) {
+  const t = await getTranslations("sections.showcase");
   return (
     <section id="showcase" className="flex flex-col items-center gap-8">
       <div className="pill">
-        <ShinyText text={locale === 'th' ? "ผลงาน" : "Portfolio"} speed={5} />
+        <ShinyText text={t("label")} speed={5} />
       </div>
       <AnimatedContent
         distance={100}
@@ -30,17 +32,10 @@ export default function ShowcaseSection({ locale }: ShowcaseSectionProps) {
           <span className="inline-flex items-center gap-2 md:gap-4">
             <AnimatedCategoryIcon className="bg-primary rounded-full p-2" />
             <span>
-              {locale === 'th' ? (
-                <>
-                  <span className={`highlight`}>ผลงานล่าสุด</span>
-                  <span>ที่ผ่านมา</span>
-                </>
-              ) : (
-                <>
-                  <span className={`highlight`}>Latest work</span>
-                  <span> we've done</span>
-                </>
-              )}
+              {t.rich("headline", {
+                highlight: (chunks) => <span className="highlight">{chunks}</span>,
+                br: () => <br />,
+              })}
             </span>
           </span>
         </h2>

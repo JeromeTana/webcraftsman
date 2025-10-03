@@ -3,8 +3,7 @@ import { getServices } from "@/data/services-i18n";
 import ServiceCard from "@/Components/ServiceCard";
 import { Metadata } from "next";
 import { ServiceSection } from "@/Components/Sections";
-import { type Locale } from "@/lib/i18n";
-import { getDictionary } from "@/dictionaries";
+import { type Locale } from "@/i18n/routing";
 
 export const metadata: Metadata = {
   title: "บริการของเรา - WEBCRAFTSMAN",
@@ -27,7 +26,6 @@ export default async function ServicePage({
 }) {
   const resolvedParams = await params;
   const locale = resolvedParams.locale;
-  const dict = getDictionary(locale);
 
   return (
     <>

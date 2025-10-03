@@ -12,8 +12,7 @@ import {
 } from "@/Components/Sections";
 import CtaFormSection from "@/Components/Sections/CtaFormSection";
 import { getMetadata } from "@/data/metadata-i18n";
-import { type Locale } from "@/lib/i18n";
-import { getDictionary } from "@/dictionaries";
+import { type Locale } from "@/i18n/routing";
 
 export default async function Home({
   params,
@@ -24,7 +23,6 @@ export default async function Home({
   const localeParam = resolvedParams?.locale || 'en';
   const locale = localeParam as Locale;
   
-  const dict = getDictionary(locale);
   const metadata = getMetadata(locale);
   const siteUrl = metadata.siteUrl;
   

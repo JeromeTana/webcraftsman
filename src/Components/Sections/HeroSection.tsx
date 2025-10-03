@@ -1,16 +1,18 @@
-import BlurText from "@/TextAnimations/BlurText/BlurText";
 import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import { CtaButton } from "@/Components/CtaButton";
 import AnimatedCartIcon from "@/Components/Icons/AnimatedCartIcon";
 import ImageShowcaseSection from "./ImageShowcaseSection";
 import PulsingDot from "../PulsingDot";
-import type { Locale } from "@/lib/i18n";
+import type { Locale } from "@/i18n/routing";
+import { getTranslations } from "next-intl/server";
 
 interface HeroSectionProps {
   locale: Locale;
 }
 
-export default function HeroSection({ locale }: HeroSectionProps) {
+export default async function HeroSection({ locale }: HeroSectionProps) {
+  const t = await getTranslations("hero");
+
   return (
     <section
       id="hero"
@@ -20,11 +22,7 @@ export default function HeroSection({ locale }: HeroSectionProps) {
         <div className="pill text-accent-green flex items-center gap-4 m-auto">
           <PulsingDot />
           <h1 className="text-base md:text-2xl text-primary !leading-6 !tracking-wide">
-            {locale === 'th' ? (
-              "รับออกแบบและพัฒนาเว็บไซต์ สำหรับธุรกิจท้องถิ่นและ SME"
-            ) : (
-              "Website design and development for local businesses and SMEs"
-            )}
+            {t("tagline")}
           </h1>
         </div>
         <AnimatedContent
@@ -38,35 +36,21 @@ export default function HeroSection({ locale }: HeroSectionProps) {
           threshold={0.2}
         >
           <h2 className="text-4xl md:text-7xl md:text-center max-w-5xl mx-auto">
-            {locale === 'th' ? (
-              <>
-                <span>เว็บไซต์ที่ออกแบบอย่างตรงจุดเพื่อ</span>{" "}
-                <span>
-                  <AnimatedCartIcon className="hidden md:inline-block bg-primary rounded-full p-2 mx-4" />
-                  <span className="highlight">เพิ่มยอดขายและการเติบโต</span>
-                </span>
-              </>
-            ) : (
-              <>
-                <span>Websites designed to</span>{" "}
-                <span>
-                  <AnimatedCartIcon className="hidden md:inline-block bg-primary rounded-full p-2 mx-4" />
-                  <span className="highlight">increase sales and growth</span>
-                </span>
-              </>
-            )}
+            <>
+              <span>{t("headlinePrefix")}</span>{" "}
+              <span>
+                <AnimatedCartIcon className="hidden md:inline-block bg-primary rounded-full p-2 mx-4" />
+                <span className="highlight">{t("headlineHighlight")}</span>
+              </span>
+            </>
           </h2>
         </AnimatedContent>
         <p className="max-w-2xl text-gray-600 md:text-xl md:m-auto justify-center !mb-8 leading-8 md:text-center">
-          {locale === 'th' ? (
-            "เพิ่มยอดขาย ให้กับธุรกิจท้องถิ่นและ SME โดยเฉพาะ ด้วยเว็บไซต์ที่ออกแบบมาสำหรับทำการตลาด และเพิ่มการเติบโตธุรกิจ"
-          ) : (
-            "Increase sales for local businesses and SMEs with websites designed for marketing and business growth"
-          )}
+          {t("description")}
         </p>
       </div>
       <div className="z-10">
-        <CtaButton locale={locale} />
+        <CtaButton />
       </div>
       <ImageShowcaseSection locale={locale} />
     </section>

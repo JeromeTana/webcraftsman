@@ -1,55 +1,26 @@
 "use client";
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Check, ArrowRight } from "lucide-react";
 import { getServices } from "@/data/services-i18n";
-import { type Locale } from "@/lib/i18n";
+import { type Locale } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
-interface QuoteFormProps {
-  locale: Locale;
+interface QuoteFormData {
+  service: string;
+  websiteUrl?: string;
+  businessDescription: string;
+  timeline: string;
+  budget: string;
+  fullName: string;
+  email: string;
+  phone: string;
+  company?: string;
+  consent: boolean;
 }
-
-// Form validation schemas
-const step1Schema = z.object({
-  service: z.string().min(1, "กรุณาเลือกบริการที่สนใจ"),
-  websiteUrl: z.string().optional().default(""),
-  businessDescription: z
-    .string()
-    .min(1, "กรุณาอธิบายเกี่ยวกับธุรกิจของคุณคร่าว ๆ"),
-  timeline: z.string().min(1, "กรุณาเลือกระยะเวลา"),
-  budget: z.string().min(1, "กรุณาเลือกช่วงงบประมาณ"),
-});
-
-const step2Schema = z.object({
-  fullName: z.string().min(1, "โปรดระบุชื่อ-นามสกุล"),
-  email: z.string().min(1, "โปรดงระบุอีเมล").email("กรุณาระบุอีเมลที่ถูกต้อง"),
-  phone: z.string().min(1, "โปรดระบุหมายเลขโทรศัพท์"),
-  company: z.string().optional().default(""),
-  consent: z
-    .boolean()
-    .refine((val) => val === true, "โปรดรับการประมวลผลข้อมูลของคุณ"),
-});
-
-const completeFormSchema = step1Schema.merge(step2Schema);
-
-type QuoteFormData = z.infer<typeof completeFormSchema>;
-
-const timelineOptions = [
-  "ด่วน (ภายใน 2 สัปดาห์)",
-  "1 เดือน",
-  "3 เดือน",
-  "6 เดือน",
-];
-
-const budgetOptions = [
-  "10,000 - 30,000 บาท",
-  "30,000 - 50,000 บาท",
-  "50,000 - 100,000 บาท",
-  "100,000 - 250,000 บาท",
-];
 
 interface QuoteFormProps {
   locale: Locale;
@@ -57,20 +28,63 @@ interface QuoteFormProps {
 }
 
 export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
+  const t = useTranslations("forms.quote");
   const services = getServices(locale);
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const step1Schema = useMemo(
+    () =>
+      z.object({
+        service: z
+          .string()
+          .min(1, t("errors.serviceRequired")),
+        websiteUrl: z.string().optional().default(""),
+        businessDescription: z
+          .string()
+          .min(1, t("errors.businessDescriptionRequired")),
+        timeline: z
+          .string()
+          .min(1, t("errors.timelineRequired")),
+        budget: z.string().min(1, t("errors.budgetRequired")),
+      }),
+    [t]
+  );
+
+  const step2Schema = useMemo(
+    () =>
+      z.object({
+        fullName: z.string().min(1, t("errors.fullNameRequired")),
+        email: z
+          .string()
+          .min(1, t("errors.emailRequired"))
+          .email(t("errors.emailInvalid")),
+        phone: z.string().min(1, t("errors.phoneRequired")),
+        company: z.string().optional().default(""),
+        consent: z
+          .boolean()
+          .refine((val) => val === true, t("errors.consentRequired")),
+      }),
+    [t]
+  );
+
+  const completeFormSchema = useMemo(
+    () => step1Schema.merge(step2Schema),
+    [step1Schema, step2Schema]
+  );
+
+  const timelineOptions = t.raw("timelineOptions") as string[];
+  const budgetOptions = t.raw("budgetOptions") as string[];
+  const successSteps = t.raw("success.steps") as string[];
 
   // Initialize form with react-hook-form
   const {
     control,
     handleSubmit,
     trigger,
-    watch,
-    setValue,
     formState: { errors },
-  } = useForm({
+  } = useForm<QuoteFormData>({
     resolver: zodResolver(completeFormSchema),
     mode: "onChange" as const,
     defaultValues: {
@@ -108,11 +122,7 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
     }
   };
 
-  const handlePrevStep = () => {
-    setCurrentStep(1);
-  };
-
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: QuoteFormData) => {
     setIsSubmitting(true);
     try {
       const response = await fetch("/api/quote", {
@@ -145,7 +155,7 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
       onSubmitted?.();
     } catch (error) {
       console.error("Quote form submission failed:", error);
-      alert("เกิดข้อผิดพลาดในการส่งคำขอใบเสนอราคา กรุณาลองอีกครั้ง");
+      alert(t("alerts.submitFailed"));
     } finally {
       setIsSubmitting(false);
     }
@@ -175,27 +185,22 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
             <Check className="w-8 h-8 text-green-600" />
           </div>
           <h2 className="text-3xl font-bold text-gray-900">
-            ส่งคำขอใบเสนอราคาสำเร็จ
+            {t("success.title")}
           </h2>
           <p className="text-lg text-gray-600 max-w-lg mx-auto">
-            ขอบคุณสำหรับความสนใจ! เราจะติดต่อกลับพร้อมข้อเสนอที่เหมาะสมภายใน 24
-            ชั่วโมง
+            {t("success.description")}
           </p>
           <div className="bg-primary/5 border border-primary/20 rounded-lg p-6">
-            <h3 className="font-semibold text-gray-900 mb-3">ขั้นตอนต่อไป</h3>
+            <h3 className="font-semibold text-gray-900 mb-3">
+              {t("success.nextStepsTitle")}
+            </h3>
             <ul className="text-left space-y-2 text-gray-600">
-              <li className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-green-600" />
-                เราจะตรวจสอบความต้องการของคุณและจัดทำข้อเสนอโดยละเอียด
-              </li>
-              <li className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-green-600" />
-                คุณจะได้รับใบเสนอราคาที่เหมาะสมทางอีเมลภายใน 24 ชั่วโมง
-              </li>
-              <li className="flex items-center gap-2">
-                <Check className="w-4 h-4 text-green-600" />
-                เราจะจัดการพูดคุยสำหรับหารือโปรเจกต์ของคุณอย่างละเอียด
-              </li>
+              {successSteps.map((step) => (
+                <li key={step} className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-green-600" />
+                  {step}
+                </li>
+              ))}
             </ul>
           </div>
         </motion.div>
@@ -214,7 +219,7 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
               htmlFor="service"
               className="block text-lg font-semibold text-gray-900"
             >
-              สนใจรับบริการใด
+              {t("step1.serviceLabel")}
             </label>
             <Controller
               name="service"
@@ -227,7 +232,7 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
                     errors.service ? "border-red-500" : ""
                   }`}
                 >
-                  <option value="">เลือกบริการ...</option>
+                  <option value="">{t("step1.servicePlaceholder")}</option>
                   {services.map((service) => (
                     <option key={service.title} value={service.title}>
                       {service.title}
@@ -247,7 +252,7 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
               htmlFor="websiteUrl"
               className="block text-lg font-semibold text-gray-900"
             >
-              เว็บไซต์ปัจจุบัน (ถ้ามี)
+              {t("step1.websiteLabel")}
             </label>
             <Controller
               name="websiteUrl"
@@ -257,7 +262,7 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
                   {...field}
                   type="url"
                   id="websiteUrl"
-                  placeholder="https://yourwebsite.com"
+                  placeholder={t("step1.websitePlaceholder")}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
                 />
               )}
@@ -270,7 +275,7 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
               htmlFor="businessDescription"
               className="block text-lg font-semibold text-gray-900"
             >
-              บอกเราเกี่ยวกับธุรกิจของคุณ
+              {t("step1.businessLabel")}
             </label>
             <Controller
               name="businessDescription"
@@ -279,7 +284,7 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
                 <textarea
                   {...field}
                   id="businessDescription"
-                  placeholder="อธิบายเกี่ยวกับธุรกิจ กลุ่มลูกค้าเป้าหมาย เป้าหมายที่ต้องการบรรลุ ปัญหาที่ต้องการแก้ไข และความต้องการเฉพาะอื่นๆ..."
+                  placeholder={t("step1.businessPlaceholder")}
                   rows={4}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors resize-none"
                 />
@@ -296,11 +301,11 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
           <div className="grid gap-6">
             {/* Timeline */}
             <div className="space-y-3">
-              <label
-                htmlFor="timeline"
-                className="block text-lg font-semibold text-gray-900"
-              >
-                ระยะเวลาดำเนินการ
+            <label
+              htmlFor="timeline"
+              className="block text-lg font-semibold text-gray-900"
+            >
+                {t("step1.timelineLabel")}
               </label>
               <Controller
                 name="timeline"
@@ -313,7 +318,7 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
                       errors.timeline ? "border-red-500" : ""
                     }`}
                   >
-                    <option value="">เลือกระยะเวลา...</option>
+                    <option value="">{t("step1.timelinePlaceholder")}</option>
                     {timelineOptions.map((timeline) => (
                       <option key={timeline} value={timeline}>
                         {timeline}
@@ -331,11 +336,11 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
 
             {/* Budget */}
             <div className="space-y-3">
-              <label
-                htmlFor="budget"
-                className="block text-lg font-semibold text-gray-900"
-              >
-                ช่วงงบประมาณ
+            <label
+              htmlFor="budget"
+              className="block text-lg font-semibold text-gray-900"
+            >
+                {t("step1.budgetLabel")}
               </label>
               <Controller
                 name="budget"
@@ -348,7 +353,7 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
                       errors.budget ? "border-red-500" : ""
                     }`}
                   >
-                    <option value="">เลือกช่วงงบประมาณ...</option>
+                    <option value="">{t("step1.budgetPlaceholder")}</option>
                     {budgetOptions.map((budget) => (
                       <option key={budget} value={budget}>
                         {budget}
@@ -369,7 +374,7 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
               type="submit"
               className="cta w-full inline-flex items-center justify-center gap-2 px-8 py-4 text-lg"
             >
-              ถัดไป
+              {t("buttons.next")}
               <ArrowRight />
             </button>
           </div>
@@ -379,7 +384,7 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
           {/* Step 2: Contact Information */}
           <div className="space-y-4">
             <h3 className="text-xl font-semibold text-gray-900 mb-4">
-              ข้อมูลการติดต่อ
+              {t("step2.heading")}
             </h3>
 
             <div className="grid grid-cols-1 gap-4">
@@ -388,7 +393,7 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
                   htmlFor="fullName"
                   className="block text-sm font-medium text-gray-700 mb-2"
                 >
-                  ชื่อ-นามสกุล
+                  {t("step2.fullNameLabel")}
                 </label>
                 <Controller
                   name="fullName"
@@ -399,7 +404,7 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
                       type="text"
                       id="fullName"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
-                      placeholder="Jerome Tana"
+                      placeholder={t("step2.fullNamePlaceholder")}
                     />
                   )}
                 />
@@ -415,7 +420,7 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
                   htmlFor="company"
                   className="block text-sm font-medium text-gray-700 mb-2"
                 >
-                  บริษัท (ถ้ามี)
+                  {t("step2.companyLabel")}
                 </label>
                 <Controller
                   name="company"
@@ -426,7 +431,7 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
                       type="text"
                       id="company"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
-                      placeholder="ชื่อบริษัทของคุณ"
+                      placeholder={t("step2.companyPlaceholder")}
                     />
                   )}
                 />
@@ -437,7 +442,7 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
                   htmlFor="email"
                   className="block text-sm font-medium text-gray-700 mb-2"
                 >
-                  ที่อยู่อีเมล
+                  {t("step2.emailLabel")}
                 </label>
                 <Controller
                   name="email"
@@ -448,7 +453,7 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
                       type="email"
                       id="email"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
-                      placeholder="jerome@example.com"
+                      placeholder={t("step2.emailPlaceholder")}
                     />
                   )}
                 />
@@ -464,7 +469,7 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
                   htmlFor="phone"
                   className="block text-sm font-medium text-gray-700 mb-2"
                 >
-                  หมายเลขโทรศัพท์
+                  {t("step2.phoneLabel")}
                 </label>
                 <Controller
                   name="phone"
@@ -475,7 +480,7 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
                       type="tel"
                       id="phone"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
-                      placeholder="+1 (555) 123-4567"
+                      placeholder={t("step2.phonePlaceholder")}
                     />
                   )}
                 />
@@ -508,17 +513,17 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
                 htmlFor="consent"
                 className="text-sm text-gray-600 leading-relaxed"
               >
-                ฉันยอมรับการประมวลผลข้อมูลส่วนบุคคลเพื่อวัตถุประสงค์ในการจัดการคำขอใบเสนอราคานี้
-                ฉันเข้าใจว่าฉันสามารถถอนความยินยอมได้ตลอดเวลาโดยติดต่อคุณโดยตรง
-                ข้อมูลของฉันจะถูกจัดการตาม{" "}
-                <a
-                  href="/privacy-policy"
-                  className="text-primary hover:underline"
-                  target="_blank"
-                >
-                  นโยบายความเป็นส่วนตัว
-                </a>
-                .
+                {t.rich("step2.consent", {
+                  link: (chunks) => (
+                    <a
+                      href="/privacy-policy"
+                      className="text-primary hover:underline"
+                      target="_blank"
+                    >
+                      {chunks}
+                    </a>
+                  ),
+                })}
               </label>
             </div>
             {errors.consent && (
@@ -536,11 +541,11 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
               {isSubmitting ? (
                 <>
                   <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                  กำลังดำเนินการ...
+                  {t("buttons.loading")}
                 </>
               ) : (
                 <>
-                  ขอใบเสนอราคาฟรี
+                  {t("buttons.submit")}
                   <ArrowRight className="w-5 h-5" />
                 </>
               )}

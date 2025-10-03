@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useMemo, useState } from "react";
 import { RevealLink } from "./RevealLink";
 import { MegaMenu } from "./MegaMenu";
 import { ServiceDropdown } from "./NavDropdown";
@@ -9,15 +9,48 @@ import { ArrowRight, X } from "lucide-react";
 import { BookIcon } from "./Icons/BookIcon";
 import { DesignIcon } from "./Icons/DesignIcon";
 import { CodeIcon } from "./Icons/CodeIcon";
-import { openCtaPopup } from "./CtaPopup";
 import { getNavBarLinks } from "@/data/navigations-i18n";
-import Link from "next/link";
-import { type LocalizedComponentProps } from "@/types/i18n";
+import { Link } from "@/i18n/routing";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { useLocale, useTranslations } from "next-intl";
+import { type Locale } from "@/i18n/routing";
+import { openCtaPopup } from "./CtaPopup";
 
-export default function Header({ locale, dict }: LocalizedComponentProps) {
+export default function Header() {
+  const locale = useLocale() as Locale;
   const navBarLinks = getNavBarLinks(locale);
+  const tNav = useTranslations("nav");
+  const tValueMenu = useTranslations("header.valueMenu");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  type ValueMenuItemMessage = {
+    name: string;
+    href: string;
+    description?: string;
+    icon?: string;
+  };
+
+  const valueMenuItems = (tValueMenu.raw("items") as ValueMenuItemMessage[]) ?? [];
+
+  const iconMap = {
+    blog: BookIcon,
+    design: DesignIcon,
+    code: CodeIcon,
+  } as const;
+
+  const valueSections = useMemo(
+    () => [
+      {
+        title: tValueMenu("title"),
+        icon: BookIcon,
+        items: valueMenuItems.map(({ icon, ...item }) => ({
+          ...item,
+          icon: (icon && iconMap[icon as keyof typeof iconMap]) || BookIcon,
+        })),
+      },
+    ],
+    [tValueMenu, valueMenuItems]
+  );
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -52,43 +85,16 @@ export default function Header({ locale, dict }: LocalizedComponentProps) {
 
 
   // Define the mega menu structure for Value
-  const valueSections = [
-    {
-      title: "Value",
-      icon: BookIcon,
-      items: [
-        {
-          name: "Blog Posts",
-          href: "/posts",
-          description: "Latest insights and tutorials",
-          icon: BookIcon,
-        },
-        {
-          name: "Design Guides",
-          href: "/value/design-guides",
-          description: "UI/UX best practices",
-          icon: DesignIcon,
-        },
-        {
-          name: "Assets",
-          href: "/value/assets",
-          description: "Design assets",
-          icon: CodeIcon,
-        },
-      ],
-    },
-  ];
-
   return (
     <header className="sticky top-0 z-50">
       <div className="flex items-center  justify-between m-auto p-3 pl-4 bg-background">
-        <a
-          href={`/${locale}`}
+        <Link
+          href="/"
           className="inline-flex lg:w-1/4 gap-4 items-center sm:text-2xl font-semibold tracking-tight"
         >
           <Logo className="w-14 h-14 fill-primary text-primary ml-4" />
           <span className="hidden sm:inline">WEBCRAFTSMAN</span>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="flex items-center gap-8">
@@ -99,13 +105,16 @@ export default function Header({ locale, dict }: LocalizedComponentProps) {
                   <ServiceDropdown locale={locale} trigger={item.title} items={item.dropdown} />
                 ) : (
                   <RevealLink href={`/${locale}${item.url}`}>
-                    {dict.nav[item.title.toLowerCase() as keyof typeof dict.nav] || item.title}
+                    {item.title}
                   </RevealLink>
                 )}
               </li>
             ))}
             <li>
-              <MegaMenu trigger="แหล่งความรู้" sections={valueSections} />
+              <MegaMenu
+                trigger={tValueMenu("trigger")}
+                sections={valueSections}
+              />
             </li>
           </ul>
         </nav>
@@ -118,7 +127,7 @@ export default function Header({ locale, dict }: LocalizedComponentProps) {
               // onClick={openCtaPopup}
               className="cta hidden md:flex items-center gap-2"
             >
-              {dict.nav.booking}
+              {tNav("booking")}
               <ArrowRight />
             </button>
           </Link>
@@ -149,22 +158,22 @@ export default function Header({ locale, dict }: LocalizedComponentProps) {
         <nav className="px-4 py-4">
           <ul className="space-y-4">
             <li>
-              <a
+              <Link
                 href="/about"
                 className="block py-2 text-lg hover:text-primary transition-colors"
                 onClick={closeMobileMenu}
               >
                 About
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="/showcase"
                 className="block py-2 text-lg hover:text-primary transition-colors"
                 onClick={closeMobileMenu}
               >
                 Showcases
-              </a>
+              </Link>
             </li>
 
             {/* Mobile Services Section */}
@@ -178,13 +187,13 @@ export default function Header({ locale, dict }: LocalizedComponentProps) {
                     .find((link) => link.dropdown)
                     ?.dropdown?.map((item, index) => (
                       <li key={index}>
-                        <a
+                        <Link
                           href={item.url}
                           className="block py-1 text-sm hover:text-primary transition-colors"
                           onClick={closeMobileMenu}
                         >
                           {item.name}
-                        </a>
+                        </Link>
                       </li>
                     ))}
                 </ul>

@@ -1,6 +1,5 @@
 import React from "react";
-import { type Locale } from "@/lib/i18n";
-import { getDictionary } from "@/dictionaries";
+import { type Locale } from "@/i18n/routing";
 
 export default async function ValuePage({
   params,
@@ -9,7 +8,6 @@ export default async function ValuePage({
 }) {
   const resolvedParams = await params;
   const locale = resolvedParams.locale;
-  const dict = getDictionary(locale);
 
   return (
     <div className="min-h-screen pt-24 px-4">

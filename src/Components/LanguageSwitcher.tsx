@@ -1,7 +1,6 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
-import { locales, type Locale } from "@/lib/i18n";
+import { locales, type Locale, usePathname, useRouter } from "@/i18n/routing";
 import { ChevronDown } from "lucide-react";
 
 interface LanguageSwitcherProps {
@@ -15,12 +14,7 @@ export default function LanguageSwitcher({
   const router = useRouter();
 
   const switchLanguage = (newLocale: Locale) => {
-    // Remove the current locale from the pathname
-    const segments = pathname.split("/");
-    segments[1] = newLocale; // Replace the locale segment
-    const newPath = segments.join("/");
-
-    router.push(newPath);
+    router.replace(pathname, { locale: newLocale });
   };
 
   return (

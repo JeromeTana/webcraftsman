@@ -5,30 +5,21 @@ import Image from "next/image";
 import Magnet from "@/Animations/Magnet/Magnet";
 import AnimatedArrowIcon from "./Icons/AnimatedArrowIcon";
 import { openCtaPopup } from "./CtaPopup";
-import Link from "next/link";
-
-type Locale = 'en' | 'th';
-
-const ctaText = {
-  th: "เริ่มต้นรับบริการ",
-  en: "Get Started"
-};
-
-const supportText = {
-  th: "เจ้าของธุรกิจไว้ใจเรา",
-  en: "Trusted by entrepreneurs"
-};
+import { Link } from "@/i18n/routing";
+import { getTranslations } from "next-intl/server";
 
 interface CtaButtonProps {
   className?: string;
-  locale: Locale;
 }
 
-export function CtaButton({
+export async function CtaButton({
   className = "md:scale-125",
-  locale,
 }: CtaButtonProps) {
-  
+  const [tCommon, tCtaButton] = await Promise.all([
+    getTranslations("common"),
+    getTranslations("ctaButton"),
+  ]);
+
   return (
     <div className={"flex flex-col md:flex-row items-center gap-4 " + className}>
       <div className="absolute -top-4 -right-16 hidden lg:block">
@@ -37,18 +28,18 @@ export function CtaButton({
       <Magnet padding={50} magnetStrength={10}>
         <div className="shadow-xl rounded-full duration-200">
           <Link href="#cta">
-            <button
-              // onClick={openCtaPopup}
-              className="cta flex items-center gap-2"
-            >
-              <Image
+          <button
+            // onClick={openCtaPopup}
+            className="cta flex items-center gap-2"
+          >
+            <Image
                 src="/jerome_pfp.png"
                 alt="Jerome pfp"
                 width={32}
                 height={32}
-                className="rounded-full"
-              />
-              {ctaText[locale as keyof typeof ctaText]} <ArrowRight />
+              className="rounded-full"
+            />
+              {tCommon("getStarted")} <ArrowRight />
             </button>
           </Link>
         </div>
@@ -61,18 +52,20 @@ export function CtaButton({
           <Star className="text-(--accent-yellow)" />
           <Star className="text-(--accent-yellow)" />
         </div>
-        <p className="text-sm text-gray-600">{supportText[locale as keyof typeof supportText]}</p>
+        <p className="text-sm text-gray-600">{tCtaButton("support")}</p>
       </div>
     </div>
   );
 }
 
-interface CtaButtonHighlightedProps {
-  locale: Locale;
-}
+interface CtaButtonHighlightedProps {}
 
-export function CtaButtonHighlighted({ locale }: CtaButtonHighlightedProps) {
-  
+export async function CtaButtonHighlighted(_: CtaButtonHighlightedProps) {
+  const [tCommon, tCtaButton] = await Promise.all([
+    getTranslations("common"),
+    getTranslations("ctaButton"),
+  ]);
+
   return (
     <div className="flex flex-col md:flex-row items-center gap-4 md:scale-125">
       <Magnet padding={50} magnetStrength={10}>
@@ -88,7 +81,7 @@ export function CtaButtonHighlighted({ locale }: CtaButtonHighlightedProps) {
               height={32}
               className="rounded-full"
             />
-            {ctaText[locale as keyof typeof ctaText]} <ArrowRight />
+            {tCommon("getStarted")} <ArrowRight />
           </button>
         </Link>
       </Magnet>
@@ -100,7 +93,7 @@ export function CtaButtonHighlighted({ locale }: CtaButtonHighlightedProps) {
           <Star className="text-(--accent-yellow)" />
           <Star className="text-(--accent-yellow)" />
         </div>
-        <p className="text-sm text-white">{supportText[locale as keyof typeof supportText]}</p>
+        <p className="text-sm text-white">{tCtaButton("support")}</p>
       </div>
     </div>
   );

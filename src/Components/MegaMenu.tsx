@@ -6,6 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { getAllPosts, type BlogPost } from "../sanity/lib/queries";
 import { urlFor } from "../sanity/lib/image";
 import Image from "next/image";
+import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
 interface MegaMenuSection {
   title: string;
@@ -33,6 +35,7 @@ export const MegaMenu = ({
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const [isLoadingBlogs, setIsLoadingBlogs] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const t = useTranslations("header.megaMenu");
 
   // Fetch blog posts when component mounts
   useEffect(() => {
@@ -114,7 +117,9 @@ export const MegaMenu = ({
                   }}
                   className="space-y-4"
                 >
-                  <h3 className="font-semibold text-lg mb-4">Blog</h3>
+                  <h3 className="font-semibold text-lg mb-4">
+                    {t("blogTitle")}
+                  </h3>
                   <ul className="space-y-3">
                     {isLoadingBlogs
                       ? // Loading skeleton
@@ -149,7 +154,7 @@ export const MegaMenu = ({
                               ease: "easeOut",
                             }}
                           >
-                            <a
+                            <Link
                               href={`/posts/${post.slug.current}`}
                               className="flex gap-3 group hover:bg-primary/5 rounded-lg p-2 transition-all duration-200"
                             >
@@ -189,16 +194,16 @@ export const MegaMenu = ({
                                   })}
                                 </div> */}
                               </div>
-                            </a>
+                            </Link>
                           </motion.li>
                         ))}
                   </ul>
-                  <a
+                  <Link
                     href="/posts"
                     className="inline-block text-sm text-primary hover:text-primary/80 font-medium transition-colors mt-4"
                   >
-                    View All →
-                  </a>
+                    {t("viewAll")}
+                  </Link>
                 </motion.div>
 
                 {/* Template Column */}
@@ -225,7 +230,7 @@ export const MegaMenu = ({
                           ease: "easeOut",
                         }}
                       >
-                        <a
+                        <Link
                           href={item.href}
                           className="flex gap-3 group hover:bg-primary/5 rounded-lg p-2 transition-all duration-200"
                         >
@@ -242,13 +247,16 @@ export const MegaMenu = ({
                               </div>
                             )}
                           </div>
-                        </a>
+                        </Link>
                       </motion.li>
                     ))}
                   </ul>
-                  <button className="text-sm text-primary hover:text-primary/80 font-medium transition-colors mt-4">
-                    View All →
-                  </button>
+                  <Link
+                    href={sections[1]?.items[0]?.href ?? "/posts"}
+                    className="text-sm text-primary hover:text-primary/80 font-medium transition-colors mt-4"
+                  >
+                    {t("viewAll")}
+                  </Link>
                 </motion.div>
 
                 {/* Design Tips Column */}
@@ -275,7 +283,7 @@ export const MegaMenu = ({
                           ease: "easeOut",
                         }}
                       >
-                        <a
+                        <Link
                           href={item.href}
                           className="flex gap-3 group hover:bg-primary/5 rounded-lg p-2 transition-all duration-200"
                         >
@@ -292,13 +300,16 @@ export const MegaMenu = ({
                               </div>
                             )}
                           </div>
-                        </a>
+                        </Link>
                       </motion.li>
                     ))}
                   </ul>
-                  <button className="text-sm text-primary hover:text-primary/80 font-medium transition-colors mt-4">
-                    View All →
-                  </button>
+                  <Link
+                    href={sections[2]?.items[0]?.href ?? "/posts"}
+                    className="text-sm text-primary hover:text-primary/80 font-medium transition-colors mt-4"
+                  >
+                    {t("viewAll")}
+                  </Link>
                 </motion.div>
               </div>
             </div>

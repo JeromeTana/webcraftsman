@@ -4,7 +4,8 @@ import QuoteForm from "@/Components/QuoteForm";
 import { Check } from "lucide-react";
 import PulsingDot from "../PulsingDot";
 import ImageShowcaseSection from "./ImageShowcaseSection";
-import { type Locale } from "@/lib/i18n";
+import { type Locale } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
 interface CtaFormSectionProps {
   locale: Locale;
@@ -12,6 +13,11 @@ interface CtaFormSectionProps {
 }
 
 export default function CtaFormSection({ locale, onSubmitted }: CtaFormSectionProps) {
+  const t = useTranslations("sections.ctaForm");
+  const monthLocale = locale === "th" ? "th-TH" : "en-US";
+  const monthName = new Date().toLocaleString(monthLocale, { month: "long" });
+  const bullets = t.raw("bullets") as string[];
+
   return (
     <section id="cta" className="!max-w-full !pb-0 ">
       <div className="relative md:overflow-hidden md:p-20 md:bg-primary rounded-4xl grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -22,42 +28,22 @@ export default function CtaFormSection({ locale, onSubmitted }: CtaFormSectionPr
           <div className="flex items-center gap-4 mb-8">
             <PulsingDot />{" "}
             <span className="text-primary md:text-white font-medium">
-              {locale === 'th' ? (
-                <>
-                  พร้อมให้บริการสำหรับเดือน
-                  {new Date().toLocaleString("th-TH", { month: "long" })}
-                </>
-              ) : (
-                <>
-                  Available for service in{" "}
-                  {new Date().toLocaleString("en-US", { month: "long" })}
-                </>
-              )}
+              {t("availability", { month: monthName })}
             </span>
           </div>
           <h2 className="text-5xl font-bold md:text-white">
-            {locale === 'th' ? "เริ่มต้นรับบริการง่าย ๆ ได้ทันที" : "Get started with our service easily today"}
+            {t("title")}
           </h2>
           <p className="mt-4 text-xl text-paragraph md:text-white">
-            {locale === 'th' ? (
-              "กรอกแบบฟอร์มเพื่อขอใบเสนอราคาฟรี หรือปรึกษาเกี่ยวกับโปรเจกต์ของคุณ"
-            ) : (
-              "Fill out the form to request a free quote or consult about your project"
-            )}
+            {t("description")}
           </p>
           <ul className="mt-8 text-xl space-y-4 text-paragraph md:text-white">
-            <li className="flex items-center gap-4">
-              <Check className="w-4 h-4" />
-              {locale === 'th' ? "ติดต่อกลับภายใน 24 ชั่วโมง" : "Contact back within 24 hours"}
-            </li>
-            <li className="flex items-center gap-4">
-              <Check className="w-4 h-4" />
-              {locale === 'th' ? "ไม่มีค่าใช้จ่าย" : "No cost"}
-            </li>
-            <li className="flex items-center gap-4">
-              <Check className="w-4 h-4" />
-              {locale === 'th' ? "ไม่มีข้อผูกมัด" : "No commitment"}
-            </li>
+            {bullets.map((bullet, index) => (
+              <li key={`${bullet}-${index}`} className="flex items-center gap-4">
+                <Check className="w-4 h-4" />
+                {bullet}
+              </li>
+            ))}
           </ul>
         </div>
         <div className="relative bg-white p-8 rounded-3xl border-8 md:border border-primary md:border-gray-200">

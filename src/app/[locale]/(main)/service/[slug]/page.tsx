@@ -15,8 +15,7 @@ import {
 } from "@/Components/Sections";
 import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import Image from "next/image";
-import { type Locale } from "@/lib/i18n";
-import { getDictionary } from "@/dictionaries";
+import { type Locale } from "@/i18n/routing";
 
 interface ServiceDetailPageProps {
   params: Promise<{ slug: string; locale: Locale }>;
@@ -53,7 +52,7 @@ export async function generateMetadata({
 
 // Generate static params for static generation
 export async function generateStaticParams() {
-  const { locales } = await import("@/lib/i18n");
+  const { locales } = await import("@/i18n/routing");
   
   const params = [];
   for (const locale of locales) {
@@ -74,7 +73,6 @@ export default async function ServiceDetailPage({
 }: ServiceDetailPageProps) {
   const resolvedParams = await params;
   const { slug, locale } = resolvedParams;
-  const dict = getDictionary(locale);
 
   // Find the service based on the slug
   const services = getServices(locale);
@@ -105,7 +103,7 @@ export default async function ServiceDetailPage({
                 "รายละเอียดเพิ่มเติมเกี่ยวกับบริการนี้จะถูกอัปเดตเร็วๆ นี้"}
             </p>
             <div className="w-fit">
-              <CtaButton className="relative mt-16" locale={locale} />
+              <CtaButton className="relative mt-16" />
             </div>
           </div>
         </div>

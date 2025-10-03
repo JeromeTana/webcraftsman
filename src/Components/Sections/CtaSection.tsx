@@ -1,17 +1,17 @@
 import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import Image from "next/image";
 import { CtaButtonHighlighted } from "../CtaButton";
-import AnimatedCalendarIcon from "../Icons/AnimatedCalendarIcon";
 import { CtaPopup } from "../CtaPopup";
 import PulsingDot from "../PulsingDot";
-
-type Locale = 'en' | 'th';
+import type { Locale } from "@/i18n/routing";
+import { getTranslations } from "next-intl/server";
 
 interface CtaSectionProps {
   locale: Locale;
 }
 
-export default function CtaSection({ locale }: CtaSectionProps) {
+export default async function CtaSection(_: CtaSectionProps) {
+  const t = await getTranslations("sections.cta");
   return (
     <>
       <section id="cta" className="cta-section">
@@ -19,7 +19,7 @@ export default function CtaSection({ locale }: CtaSectionProps) {
           <div className="pill flex items-center gap-4">
             <PulsingDot />
             <p className="!text-white">
-              {locale === 'th' ? "เริ่มต้นพูดคุยรับคำปรึกษา" : "Start consultation today"}
+              {t("label")}
             </p>
           </div>
           <div className="flex flex-col gap-4 px-8">
@@ -36,7 +36,9 @@ export default function CtaSection({ locale }: CtaSectionProps) {
               <h2 className="text-4xl md:text-5xl !mb-0 text-white text-center">
                 <span className="inline-flex items-center gap-4">
                   <span className="inline-flex flex-col md:flex-row items-center gap-2 md:gap-4">
-                    {locale === 'th' ? "รับคำปรึกษาด้านเว็บไซต์ ฟรี!" : "Free Website Consultation!"}
+                    {t.rich("headline", {
+                      highlight: (chunks) => <span className="highlight">{chunks}</span>,
+                    })}
                   </span>
                 </span>
                 {/* <span className="hidden md:inline-flex items-center gap-4">
@@ -55,11 +57,7 @@ export default function CtaSection({ locale }: CtaSectionProps) {
               </h2>
             </AnimatedContent>
             <p className="!text-white text-xl max-w-lg mx-auto font-medium text-center leading-10">
-              {locale === 'th' ? (
-                "นัดพูดคุยกับเราฟรี!เราจะช่วยคุณวางแผนกลยุทธ์ด้านเว็บไซต์ที่เหมาะสมกับธุรกิจของคุณ"
-              ) : (
-                "Schedule a free consultation with us! We'll help you plan the perfect website strategy for your business"
-              )}
+              {t("description")}
             </p>
             {/* <ul className="flex flex-col gap-2">
             {features.map((feature, index) => (
@@ -71,7 +69,7 @@ export default function CtaSection({ locale }: CtaSectionProps) {
           </ul> */}
           </div>
           <div className="relative w-full mx-auto flex justify-center mt-4">
-            <CtaButtonHighlighted locale={locale} />
+            <CtaButtonHighlighted />
             <div className="absolute md:w-4xl top-64 md:top-48 z-0 grid grid-cols-3 gap-4 max-w-7xl m-auto px-4">
               <Image
                 src="/showcase2.png"

@@ -5,8 +5,7 @@ import AnimatedCalendarIcon from "@/Components/Icons/AnimatedCalendarIcon";
 import { Metadata } from "next";
 import { getMetadata } from "@/data/metadata-i18n";
 import Calcom from "@/Components/Booking/DemoCall";
-import { type Locale } from "@/lib/i18n";
-import { getDictionary } from "@/dictionaries";
+import { type Locale } from "@/i18n/routing";
 
 export async function generateMetadata({
   params,
@@ -44,7 +43,6 @@ export default async function BookingPage({
 }) {
   const resolvedParams = await params;
   const locale = resolvedParams.locale;
-  const dict = getDictionary(locale);
 
   return (
     <section>

@@ -1,0 +1,230 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "service": "Services",
+    "showcase": "Showcase",
+    "posts": "Blog",
+    "resources": "Resources",
+    "booking": "Book a Call",
+    "contact": "Contact"
+  },
+  "hero": {
+    "tagline": "Website design and development for local businesses and SMEs",
+    "headlinePrefix": "Websites designed to",
+    "headlineHighlight": "increase sales and growth",
+    "description": "Increase sales for local businesses and SMEs with websites designed for marketing and business growth"
+  },
+  "header": {
+    "valueMenu": {
+      "trigger": "Resources",
+      "title": "Value",
+      "items": [
+        {
+          "name": "Blog Posts",
+          "href": "/posts",
+          "description": "Latest insights and tutorials",
+          "icon": "blog"
+        },
+        {
+          "name": "Design Guides",
+          "href": "/value/design-guides",
+          "description": "UI/UX best practices",
+          "icon": "design"
+        },
+        {
+          "name": "Assets",
+          "href": "/value/assets",
+          "description": "Design assets",
+          "icon": "code"
+        }
+      ]
+    },
+    "megaMenu": {
+      "blogTitle": "Blog",
+      "viewAll": "View All →"
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "webDevelopment": {
+      "title": "Web Development",
+      "description": "Custom websites built with modern technologies"
+    },
+    "seo": {
+      "title": "SEO Optimization",
+      "description": "Improve your search engine rankings"
+    },
+    "digitalMarketing": {
+      "title": "Digital Marketing",
+      "description": "Comprehensive marketing strategies"
+    }
+  },
+  "footer": {
+    "company": "Company",
+    "services": "Services",
+    "resources": "Resources",
+    "contact": "Contact",
+    "rights": "All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "terms": "Terms & Conditions"
+  },
+  "common": {
+    "readMore": "Read More",
+    "viewMore": "View More",
+    "getStarted": "Get Started",
+    "contactUs": "Contact Us",
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "close": "Close",
+    "submit": "Submit",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "phone": "Phone",
+    "company": "Company"
+  },
+  "ctaButton": {
+    "support": "Trusted by entrepreneurs"
+  },
+  "sections": {
+    "process": {
+      "label": "How to Get Started",
+      "highlight": "3 simple steps",
+      "tail": "to work with us"
+    },
+    "service": {
+      "label": "Our Services",
+      "headline": "More than just websites. We focus on<br></br><highlight>growing your business</highlight>"
+    },
+    "trade": {
+      "headline": "We specialize in working with<br></br><highlight>local businesses and SMEs</highlight>"
+    },
+    "comparison": {
+      "label": "What makes us different",
+      "headline": "We specialize in working with<br></br><highlight>local businesses and SMEs</highlight> specifically",
+      "typical": {
+        "title": "Typical Agency",
+        "items": [
+          "Takes 4 - 6 weeks",
+          "Doesn't understand target audience and business",
+          "Overpriced with high costs",
+          "No post-delivery support"
+        ]
+      },
+      "webcraftsman": {
+        "title": "WEBCRAFTSMAN",
+        "items": [
+          "Everything delivered within 14 days",
+          "Understands local business and SME marketing",
+          "Professional consultation provided",
+          "Starting from affordable rates",
+          "Close attention and 24/7 reliable support"
+        ]
+      }
+    },
+    "showcase": {
+      "label": "Portfolio",
+      "headline": "<highlight>Latest work</highlight> we've done"
+    },
+    "blog": {
+      "label": "Articles",
+      "headline": "<highlight>Latest insights</highlight><br></br>and articles",
+      "emptyMessage": "No articles available at this time. Please check our blog for updates",
+      "viewAll": "View All Articles"
+    },
+    "faq": {
+      "label": "FAQ",
+      "headline": "<highlight>Frequently</highlight> Asked Questions"
+    },
+    "testimonial": {
+      "label": "Customer Reviews",
+      "headline": "What our clients<br></br><highlight>say about us</highlight>"
+    },
+    "cta": {
+      "label": "Start consultation today",
+      "headline": "<highlight>Free Website Consultation!</highlight>",
+      "description": "Schedule a free consultation with us! We'll help you plan the perfect website strategy for your business"
+    },
+    "ctaForm": {
+      "availability": "Available for service in {month}",
+      "title": "Get started with our service easily today",
+      "description": "Fill out the form to request a free quote or consult about your project",
+      "bullets": [
+        "Contact back within 24 hours",
+        "No cost",
+        "No commitment"
+      ]
+    }
+  },
+  "forms": {
+    "quote": {
+      "errors": {
+        "serviceRequired": "Please choose a service",
+        "businessDescriptionRequired": "Please describe your business",
+        "timelineRequired": "Please select a timeline",
+        "budgetRequired": "Please select a budget range",
+        "fullNameRequired": "Please enter your full name",
+        "emailRequired": "Please enter an email address",
+        "emailInvalid": "Please enter a valid email address",
+        "phoneRequired": "Please enter a phone number",
+        "consentRequired": "Please accept the data processing consent"
+      },
+      "timelineOptions": [
+        "Urgent (within 2 weeks)",
+        "1 month",
+        "3 months",
+        "6 months"
+      ],
+      "budgetOptions": [
+        "฿10,000 - ฿30,000",
+        "฿30,000 - ฿50,000",
+        "฿50,000 - ฿100,000",
+        "฿100,000 - ฿250,000"
+      ],
+      "step1": {
+        "serviceLabel": "Which service are you interested in?",
+        "servicePlaceholder": "Select a service...",
+        "websiteLabel": "Current website (optional)",
+        "websitePlaceholder": "https://yourwebsite.com",
+        "businessLabel": "Tell us about your business",
+        "businessPlaceholder": "Describe your business, target audience, goals, challenges, and any specific requirements...",
+        "timelineLabel": "Project timeline",
+        "timelinePlaceholder": "Select a timeline...",
+        "budgetLabel": "Budget range",
+        "budgetPlaceholder": "Select a budget range..."
+      },
+      "step2": {
+        "heading": "Contact information",
+        "fullNameLabel": "Full name",
+        "fullNamePlaceholder": "Jerome Tana",
+        "companyLabel": "Company (optional)",
+        "companyPlaceholder": "Your company name",
+        "emailLabel": "Email address",
+        "emailPlaceholder": "jerome@example.com",
+        "phoneLabel": "Phone number",
+        "phonePlaceholder": "+1 (555) 123-4567",
+        "consent": "I consent to the processing of my personal data for the purpose of handling this quote request. I understand that I can withdraw my consent at any time by contacting you directly. My data will be handled in accordance with the <link>privacy policy</link>.",
+        "privacyLinkText": "privacy policy"
+      },
+      "buttons": {
+        "next": "Next",
+        "submit": "Request a free quote",
+        "loading": "Processing..."
+      },
+      "success": {
+        "title": "Quote request sent successfully",
+        "description": "Thanks for your interest! We'll get back to you with a tailored proposal within 24 hours.",
+        "nextStepsTitle": "Next steps",
+        "steps": [
+          "We'll review your requirements and prepare a detailed proposal",
+          "You'll receive the best-fit quote by email within 24 hours",
+          "We'll arrange a call to discuss your project in depth"
+        ]
+      },
+      "alerts": {
+        "submitFailed": "There was an error submitting your quote request. Please try again."
+      }
+    }
+  }
+}
