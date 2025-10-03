@@ -61,6 +61,7 @@ export default function TradeSection() {
             modules={[Autoplay, FreeMode]}
             spaceBetween={20}
             slidesPerView={1.2}
+            autoplay={{ delay: 0, disableOnInteraction: false }}
             loop={true}
             freeMode={{
               enabled: true,
@@ -69,20 +70,12 @@ export default function TradeSection() {
             speed={3000}
             breakpoints={{
               640: {
-                slidesPerView: 2,
-                spaceBetween: 20,
+                slidesPerView: 2.2,
+                spaceBetween: 24,
               },
               768: {
-                slidesPerView: 3,
-                spaceBetween: 25,
-              },
-              1024: {
-                slidesPerView: 3,
-                spaceBetween: 30,
-              },
-              1280: {
-                slidesPerView: 3,
-                spaceBetween: 30,
+                slidesPerView: 3.2,
+                spaceBetween: 32,
               },
             }}
           >
