@@ -71,7 +71,13 @@ export const metadata: Metadata = {
 };
 
 // Main Blog Posts Page
-export default async function BlogPostsPage() {
+export default async function BlogPostsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const resolvedParams = await params;
+  const locale = resolvedParams.locale;
   const posts = await getAllPosts();
 
   // Structured data for blog listing page

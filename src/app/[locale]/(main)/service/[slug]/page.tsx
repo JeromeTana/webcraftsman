@@ -1,5 +1,5 @@
 import React from "react";
-import { services } from "@/data/services";
+import { getServices } from "@/data/services-i18n";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import Link from "next/link";
@@ -15,16 +15,20 @@ import {
 } from "@/Components/Sections";
 import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import Image from "next/image";
+import { type Locale } from "@/lib/i18n";
+import { getDictionary } from "@/dictionaries";
 
 interface ServiceDetailPageProps {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string; locale: Locale }>;
 }
 
 // Generate metadata for SEO
 export async function generateMetadata({
   params,
 }: ServiceDetailPageProps): Promise<Metadata> {
-  const { slug } = await params;
+  const resolvedParams = await params;
+  const { slug, locale } = resolvedParams;
+  const services = getServices(locale);
   const service = services.find((s) => s.url.includes(slug));
 
   if (!service) {
@@ -49,17 +53,31 @@ export async function generateMetadata({
 
 // Generate static params for static generation
 export async function generateStaticParams() {
-  return services.map((service) => ({
-    slug: service.url.split("/").pop() || "",
-  }));
+  const { locales } = await import("@/lib/i18n");
+  
+  const params = [];
+  for (const locale of locales) {
+    const services = getServices(locale);
+    for (const service of services) {
+      params.push({
+        locale,
+        slug: service.url.split("/").pop() || "",
+      });
+    }
+  }
+  
+  return params;
 }
 
 export default async function ServiceDetailPage({
   params,
 }: ServiceDetailPageProps) {
-  const { slug } = await params;
+  const resolvedParams = await params;
+  const { slug, locale } = resolvedParams;
+  const dict = getDictionary(locale);
 
   // Find the service based on the slug
+  const services = getServices(locale);
   const service = services.find((s) => s.url.includes(slug));
 
   // If service not found, show 404
@@ -87,7 +105,7 @@ export default async function ServiceDetailPage({
                 "รายละเอียดเพิ่มเติมเกี่ยวกับบริการนี้จะถูกอัปเดตเร็วๆ นี้"}
             </p>
             <div className="w-fit">
-              <CtaButton className="relative mt-16" />
+              <CtaButton className="relative mt-16" locale={locale} />
             </div>
           </div>
         </div>
@@ -101,7 +119,7 @@ export default async function ServiceDetailPage({
           />
         </div>
       </section>
-      <IntegrationSection />
+      <IntegrationSection locale={locale} />
       {/* <section id="problem">
         <AnimatedContent
           distance={100}
@@ -182,11 +200,11 @@ export default async function ServiceDetailPage({
           </div>
         </div>
       </section> */}
-      <TradeSection />
-      <ShowcaseSection />
-      <ProcessSection />
-      <TestimonialSection />
-      <FAQSection />
+      <TradeSection locale={locale} />
+      <ShowcaseSection locale={locale} />
+      <ProcessSection locale={locale} />
+      <TestimonialSection locale={locale} />
+      <FAQSection locale={locale} />
     </>
   );
 }

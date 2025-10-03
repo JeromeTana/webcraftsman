@@ -4,7 +4,13 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
-export default function ImageShowcaseSection() {
+type Locale = 'en' | 'th';
+
+interface ImageShowcaseSectionProps {
+  locale: Locale;
+}
+
+export default function ImageShowcaseSection({ locale }: ImageShowcaseSectionProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,

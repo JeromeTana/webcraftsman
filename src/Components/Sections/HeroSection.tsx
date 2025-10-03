@@ -4,8 +4,13 @@ import { CtaButton } from "@/Components/CtaButton";
 import AnimatedCartIcon from "@/Components/Icons/AnimatedCartIcon";
 import ImageShowcaseSection from "./ImageShowcaseSection";
 import PulsingDot from "../PulsingDot";
+import type { Locale } from "@/lib/i18n";
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  locale: Locale;
+}
+
+export default function HeroSection({ locale }: HeroSectionProps) {
   return (
     <section
       id="hero"
@@ -15,7 +20,11 @@ export default function HeroSection() {
         <div className="pill text-accent-green flex items-center gap-4 m-auto">
           <PulsingDot />
           <h1 className="text-base md:text-2xl text-primary !leading-6 !tracking-wide">
-            รับออกแบบและพัฒนาเว็บไซต์ สำหรับธุรกิจท้องถิ่นและ SME
+            {locale === 'th' ? (
+              "รับออกแบบและพัฒนาเว็บไซต์ สำหรับธุรกิจท้องถิ่นและ SME"
+            ) : (
+              "Website design and development for local businesses and SMEs"
+            )}
           </h1>
         </div>
         <AnimatedContent
@@ -29,22 +38,37 @@ export default function HeroSection() {
           threshold={0.2}
         >
           <h2 className="text-4xl md:text-7xl md:text-center max-w-5xl mx-auto">
-            <span>เว็บไซต์ที่ออกแบบอย่างตรงจุดเพื่อ</span>{" "}
-            <span>
-              <AnimatedCartIcon className="hidden md:inline-block bg-primary rounded-full p-2 mx-4" />
-              <span className="highlight">เพิ่มยอดขายและการเติบโต</span>
-            </span>
+            {locale === 'th' ? (
+              <>
+                <span>เว็บไซต์ที่ออกแบบอย่างตรงจุดเพื่อ</span>{" "}
+                <span>
+                  <AnimatedCartIcon className="hidden md:inline-block bg-primary rounded-full p-2 mx-4" />
+                  <span className="highlight">เพิ่มยอดขายและการเติบโต</span>
+                </span>
+              </>
+            ) : (
+              <>
+                <span>Websites designed to</span>{" "}
+                <span>
+                  <AnimatedCartIcon className="hidden md:inline-block bg-primary rounded-full p-2 mx-4" />
+                  <span className="highlight">increase sales and growth</span>
+                </span>
+              </>
+            )}
           </h2>
         </AnimatedContent>
         <p className="max-w-2xl text-gray-600 md:text-xl md:m-auto justify-center !mb-8 leading-8 md:text-center">
-          เพิ่มยอดขาย ให้กับธุรกิจท้องถิ่นและ SME โดยเฉพาะ
-          ด้วยเว็บไซต์ที่ออกแบบมาสำหรับทำการตลาด และเพิ่มการเติบโตธุรกิจ
+          {locale === 'th' ? (
+            "เพิ่มยอดขาย ให้กับธุรกิจท้องถิ่นและ SME โดยเฉพาะ ด้วยเว็บไซต์ที่ออกแบบมาสำหรับทำการตลาด และเพิ่มการเติบโตธุรกิจ"
+          ) : (
+            "Increase sales for local businesses and SMEs with websites designed for marketing and business growth"
+          )}
         </p>
       </div>
       <div className="z-10">
-        <CtaButton />
+        <CtaButton locale={locale} />
       </div>
-      <ImageShowcaseSection />
+      <ImageShowcaseSection locale={locale} />
     </section>
   );
 }

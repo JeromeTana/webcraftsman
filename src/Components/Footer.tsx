@@ -1,13 +1,16 @@
 import Logo from "./Icons/Logo";
-import { footerLinks } from "@/data";
-import { tagline } from "@/data";
+import { getFooterLinks } from "@/data/navigations-i18n";
+import { getMetadata } from "@/data/metadata-i18n";
 import CtaFormSection from "./Sections/CtaFormSection";
+import { type LocalizedComponentProps } from "@/types/i18n";
 
-export default function Footer() {
+export default function Footer({ locale, dict }: LocalizedComponentProps) {
+  const footerLinks = getFooterLinks(locale);
+  const metadata = getMetadata(locale);
   return (
     <>
       {/* <CtaSection /> */}
-      <CtaFormSection />
+      <CtaFormSection locale={locale} />
       <footer>
         <div className="max-w-7xl m-auto py-20 pb-10 px-4">
           <div className="flex flex-col md:flex-row justify-between gap-16 mb-32">

@@ -11,9 +11,23 @@ import {
   IntegrationSection,
 } from "@/Components/Sections";
 import CtaFormSection from "@/Components/Sections/CtaFormSection";
-import { siteUrl } from "@/data";
+import { getMetadata } from "@/data/metadata-i18n";
+import { type Locale } from "@/lib/i18n";
+import { getDictionary } from "@/dictionaries";
 
-export default function Home() {
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}) {
+  const resolvedParams = await params;
+  const localeParam = resolvedParams?.locale || 'en';
+  const locale = localeParam as Locale;
+  
+  const dict = getDictionary(locale);
+  const metadata = getMetadata(locale);
+  const siteUrl = metadata.siteUrl;
+  
   // Structured data for homepage
   const structuredData = {
     "@context": "https://schema.org",
@@ -102,16 +116,16 @@ export default function Home() {
       />
 
       <main>
-        <HeroSection />
-        <IntegrationSection />
-        <TradeSection />
-        <ServiceSection />
-        {/* <ComparisonSection /> */}
-        <ShowcaseSection />
-        <ProcessSection />
-        <TestimonialSection />
-        <BlogSection />
-        <FAQSection />
+        <HeroSection locale={locale} />
+        <IntegrationSection locale={locale} />
+        <TradeSection locale={locale} />
+        <ServiceSection locale={locale} />
+        {/* <ComparisonSection locale={locale} /> */}
+        <ShowcaseSection locale={locale} />
+        <ProcessSection locale={locale} />
+        <TestimonialSection locale={locale} />
+        <BlogSection locale={locale} />
+        <FAQSection locale={locale} />
       </main>
     </div>
   );

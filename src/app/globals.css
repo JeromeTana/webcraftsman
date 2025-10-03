@@ -327,3 +327,33 @@ label {
 .max-w-none {
   max-width: none;
 }
+
+/* Locale-specific font styles */
+/* Use Manrope font for English locale headings with bold weight */
+body[data-locale="en"] h1,
+body[data-locale="en"] h2,
+body[data-locale="en"] h3 {
+  font-family: var(--font-manrope);
+  font-weight: 700; /* Bold for English headings */
+}
+
+/* Keep IBM Plex Sans Thai for Thai locale headings */
+body[data-locale="th"] h1,
+body[data-locale="th"] h2,
+body[data-locale="th"] h3 {
+  font-family: var(--font-ibm-plex-sans-thai);
+}
+
+/* Also apply to prose content */
+body[data-locale="en"] .prose-lg h1,
+body[data-locale="en"] .prose-lg h2,
+body[data-locale="en"] .prose-lg h3 {
+  font-family: var(--font-manrope);
+  font-weight: 700; /* Bold for English prose headings */
+}
+
+body[data-locale="th"] .prose-lg h1,
+body[data-locale="th"] .prose-lg h2,
+body[data-locale="th"] .prose-lg h3 {
+  font-family: var(--font-ibm-plex-sans-thai);
+}

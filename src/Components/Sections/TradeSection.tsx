@@ -4,6 +4,8 @@ import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import ShinyText from "@/Components/ShinyText/ShinyText";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, FreeMode } from "swiper/modules";
+import { getTrades } from "@/data/trades-i18n";
+import type { Locale } from "@/lib/i18n";
 
 // Import Swiper styles
 import "swiper/css";
@@ -11,24 +13,18 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/free-mode";
 
-export default function TradeSection() {
-  const tradeBusinesses = [
-    "ธุรกิจจัดสวน ดูแลต้นไม้",
-    "ธุรกิจโซล่าเซลล์",
-    "ธุรกิจรีโนเวทอาคาร",
-    "ธุรกิจสร้างสระว่ายน้ำ",
-    "ธุรกิจรับเหมา",
-    "ธุรกิจปูหลังคา",
-    "ธุรกิจอสังหาริมทรัพย์",
-    "ธุรกิจซ่อมแซมบ้าน",
-    "ธุรกิจตกแต่งภายใน",
-  ];
+interface TradeSectionProps {
+  locale: Locale;
+}
+
+export default function TradeSection({ locale }: TradeSectionProps) {
+  const tradesData = getTrades(locale);
 
   return (
     <section className="flex flex-col items-center gap-8 !max-w-full">
       <div className="max-w-6xl text-center flex flex-col items-center gap-8">
         <div className="pill">
-          <ShinyText text="กลุ่มธุรกิจที่เราเชี่ยวชาญ" speed={5} />
+          <ShinyText text={tradesData.sectionTitle} speed={5} />
         </div>
         <AnimatedContent
           distance={100}
@@ -41,8 +37,17 @@ export default function TradeSection() {
           threshold={0.2}
         >
           <h2 className="text-4xl md:text-5xl shaded text-center">
-            พวกเรา เชี่ยวชาญ ในการทำงานกับ <br />
-            <span className="highlight">ธุรกิจท้องถิ่นและ SME</span> โดยเฉพาะ
+            {locale === 'th' ? (
+              <>
+                พวกเรา เชี่ยวชาญ ในการทำงานกับ <br />
+                <span className="highlight">ธุรกิจท้องถิ่นและ SME</span> โดยเฉพาะ
+              </>
+            ) : (
+              <>
+                We specialize in working with <br />
+                <span className="highlight">local businesses and SMEs</span>
+              </>
+            )}
           </h2>
         </AnimatedContent>
       </div>
@@ -79,7 +84,7 @@ export default function TradeSection() {
               },
             }}
           >
-            {tradeBusinesses.map((business, index) => (
+            {tradesData.businesses.map((business: string, index: number) => (
               <SwiperSlide key={index}>
                 <div className="bg-foreground rounded-3xl p-8 h-full flex items-end aspect-video">
                   <h3 className="text-3xl font-semibold">{business}</h3>

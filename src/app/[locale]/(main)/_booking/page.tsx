@@ -3,29 +3,49 @@ import AvailableSpots from "@/Components/AvailableSpots";
 import AnimatedArrowIcon from "@/Components/Icons/AnimatedArrowIcon";
 import AnimatedCalendarIcon from "@/Components/Icons/AnimatedCalendarIcon";
 import { Metadata } from "next";
-import { description } from "@/data";
+import { getMetadata } from "@/data/metadata-i18n";
 import Calcom from "@/Components/Booking/DemoCall";
+import { type Locale } from "@/lib/i18n";
+import { getDictionary } from "@/dictionaries";
 
-export const metadata: Metadata = {
-  title: "Book Your 30-min Intro Call",
-  description: description,
-  openGraph: {
-    title: "Book a 30-min Intro Call",
-    description: description,
-    url: "https://www.webcraftsman.co",
-    siteName: "Webcraftsman",
-    images: [
-      {
-        url: "https://www.webcraftsman.co/OG_Booking.png",
-        alt: "Open Graph Image",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}): Promise<Metadata> {
+  const resolvedParams = await params;
+  const locale = resolvedParams?.locale || 'en';
+  const metadata = getMetadata(locale);
 
-export default function BookingPage() {
+  return {
+    title: "Book Your 30-min Intro Call",
+    description: metadata.description,
+    openGraph: {
+      title: "Book a 30-min Intro Call",
+      description: metadata.description,
+      url: "https://www.webcraftsman.co",
+      siteName: "Webcraftsman",
+      images: [
+        {
+          url: "https://www.webcraftsman.co/OG_Booking.png",
+          alt: "Open Graph Image",
+        },
+      ],
+      locale: locale === 'th' ? "th_TH" : "en_US",
+      type: "website",
+    },
+  };
+}
+
+export default async function BookingPage({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}) {
+  const resolvedParams = await params;
+  const locale = resolvedParams.locale;
+  const dict = getDictionary(locale);
+
   return (
     <section>
       <div className="relative space-y-8 py-16 text-center">

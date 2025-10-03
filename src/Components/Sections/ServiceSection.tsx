@@ -1,13 +1,22 @@
 import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import ShinyText from "@/Components/ShinyText/ShinyText";
 import ServiceCard from "../ServiceCard";
-import { services } from "@/data";
+import { getServices } from "@/data/services-i18n";
+import { type Locale } from "@/lib/i18n";
 
-export default function ComparisonSection() {
+interface ServiceSectionProps {
+  locale: Locale;
+}
+
+export default function ServiceSection({ locale }: ServiceSectionProps) {
+  const services = getServices(locale);
   return (
     <section className="flex flex-col items-center gap-8">
       <div className="pill">
-        <ShinyText text="บริการของเรา" speed={5} />
+        <ShinyText 
+          text={locale === 'th' ? "บริการของเรา" : "Our Services"} 
+          speed={5} 
+        />
       </div>
       <AnimatedContent
         distance={100}
@@ -20,8 +29,17 @@ export default function ComparisonSection() {
         threshold={0.2}
       >
         <h2 className="text-4xl md:text-5xl shaded text-center">
-          มากกว่าแค่เว็บไซต์ เราโฟกัสในการ<br />
-          <span className="highlight">เพิ่มการเติบโต</span> ของธุรกิจคุณ
+          {locale === 'th' ? (
+            <>
+              มากกว่าแค่เว็บไซต์ เราโฟกัสในการ<br />
+              <span className="highlight">เพิ่มการเติบโต</span> ของธุรกิจคุณ
+            </>
+          ) : (
+            <>
+              More than just websites. We focus on<br />
+              <span className="highlight">growing your business</span>
+            </>
+          )}
         </h2>
       </AnimatedContent>
       <div className="flex flex-col md:flex-row items-end gap-16 sm:gap-8 w-full">

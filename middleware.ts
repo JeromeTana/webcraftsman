@@ -1,48 +1,49 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { match as matchLocale } from '@formatjs/intl-localematcher';
+import Negotiator from 'negotiator';
+import { locales, defaultLocale } from '@/lib/i18n';
+
+// Get the preferred locale
+function getLocale(request: NextRequest): string {
+  // Negotiator expects plain object so we need to transform headers
+  const negotiatorHeaders: Record<string, string> = {};
+  request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
+
+  const languages = new Negotiator({ headers: negotiatorHeaders }).languages();
+  
+  // Use matchLocale to find the best match
+  return matchLocale(languages, locales, defaultLocale);
+}
 
 export function middleware(request: NextRequest) {
-  const response = NextResponse.next();
-  
-  // Add security headers for SSR
-  response.headers.set('X-Frame-Options', 'DENY');
-  response.headers.set('X-Content-Type-Options', 'nosniff');
-  response.headers.set('Referrer-Policy', 'origin-when-cross-origin');
-  
-  // Add cache headers for different route types
   const pathname = request.nextUrl.pathname;
   
-  // Static assets and images - long cache
-  if (pathname.startsWith('/_next/static/') || 
-      pathname.match(/\.(jpg|jpeg|png|gif|svg|webp|ico)$/)) {
-    response.headers.set('Cache-Control', 'public, max-age=31536000, immutable');
+  // Check if the pathname already has a locale
+  const pathnameIsMissingLocale = locales.every(
+    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
+  );
+
+  // Redirect if there is no locale
+  if (pathnameIsMissingLocale) {
+    const locale = getLocale(request);
+    
+    // Handle root path specially
+    if (pathname === '/') {
+      return NextResponse.redirect(new URL(`/${locale}`, request.url));
+    }
+    
+    // For other paths, prepend the locale
+    return NextResponse.redirect(new URL(`/${locale}${pathname}`, request.url));
   }
-  
-  // API routes - short cache
-  else if (pathname.startsWith('/api/')) {
-    response.headers.set('Cache-Control', 'public, max-age=30, s-maxage=60');
-  }
-  
-  // Dynamic pages with SSR - moderate cache
-  else if (pathname.includes('/posts/') || pathname === '/posts') {
-    response.headers.set('Cache-Control', 'public, max-age=300, s-maxage=600');
-  }
-  
-  // Static pages - longer cache
-  else if (pathname === '/' || pathname === '/about' || pathname === '/showcase') {
-    response.headers.set('Cache-Control', 'public, max-age=3600, s-maxage=7200');
-  }
-  
-  return response;
+
+  return NextResponse.next();
 }
 
 export const config = {
   matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     */
-    '/((?!_next/static|_next/image|favicon.ico).*)',
+    // Skip all internal paths (_next, _vercel, etc.)
+    // Skip all files in the public folder  
+    // Skip API routes and static files
+    '/((?!api|_next|_vercel|public|favicon.ico|robots.txt|sitemap.xml).*)',
   ],
 };

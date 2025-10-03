@@ -207,9 +207,10 @@ const portableTextComponents = {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string; locale: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
+  const resolvedParams = await params;
+  const { slug, locale } = resolvedParams;
   const post = await getPostBySlug(slug);
 
   if (!post) {
@@ -364,9 +365,10 @@ function TableOfContents({
 export default async function BlogPostPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string; locale: string }>;
 }) {
-  const { slug } = await params;
+  const resolvedParams = await params;
+  const { slug, locale } = resolvedParams;
   const post = await getPostBySlug(slug);
 
   if (!post) {

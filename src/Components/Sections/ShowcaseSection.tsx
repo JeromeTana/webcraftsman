@@ -2,14 +2,19 @@ import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import ShowcaseCard from "@/Components/ShowcaseCard";
 import ShinyText from "@/Components/ShinyText/ShinyText";
 import AnimatedCategoryIcon from "../Icons/AnimatedCategoryIcon";
-import { portfolio } from "@/data";
+import { portfolio } from "@/data/portfolio";
 import Image from "next/image";
+import type { Locale } from "@/lib/i18n";
 
-export default function ShowcaseSection() {
+interface ShowcaseSectionProps {
+  locale: Locale;
+}
+
+export default function ShowcaseSection({ locale }: ShowcaseSectionProps) {
   return (
     <section id="showcase" className="flex flex-col items-center gap-8">
       <div className="pill">
-        <ShinyText text="ผลงาน" speed={5} />
+        <ShinyText text={locale === 'th' ? "ผลงาน" : "Portfolio"} speed={5} />
       </div>
       <AnimatedContent
         distance={100}
@@ -25,8 +30,17 @@ export default function ShowcaseSection() {
           <span className="inline-flex items-center gap-2 md:gap-4">
             <AnimatedCategoryIcon className="bg-primary rounded-full p-2" />
             <span>
-              <span className={`highlight`}>ผลงานล่าสุด</span>
-              <span>ที่ผ่านมา</span>
+              {locale === 'th' ? (
+                <>
+                  <span className={`highlight`}>ผลงานล่าสุด</span>
+                  <span>ที่ผ่านมา</span>
+                </>
+              ) : (
+                <>
+                  <span className={`highlight`}>Latest work</span>
+                  <span> we've done</span>
+                </>
+              )}
             </span>
           </span>
         </h2>

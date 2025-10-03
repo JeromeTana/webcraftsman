@@ -13,7 +13,13 @@ import AdBenefitsSection from "./AdBenefitsSection";
 import AdWhatYouGetSection from "./AdWhatYouGetSection";
 import AdFAQSection from "./AdFAQSection";
 import AdFooter from "./AdFooter";
-const AdLandingPage: React.FC = () => {
+import type { Locale } from "@/lib/i18n";
+
+interface AdLandingPageProps {
+  locale: Locale;
+}
+
+const AdLandingPage: React.FC<AdLandingPageProps> = ({ locale }) => {
   return (
     <div className="min-h-screen bg-white">
       <CtaPopup />
@@ -23,10 +29,10 @@ const AdLandingPage: React.FC = () => {
       <AdBenefitsSection />
       <AdWhatYouGetSection />
 
-      <ProcessSection />
+      <ProcessSection locale={locale} />
 
       <AdFAQSection />
-      <CtaSection />
+      <CtaSection locale={locale} />
       <AdFooter />
     </div>
   );

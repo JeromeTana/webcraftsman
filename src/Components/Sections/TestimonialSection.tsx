@@ -2,10 +2,16 @@ import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import ShinyText from "@/Components/ShinyText/ShinyText";
 import Image from "next/image";
 import AnimatedQuoteIcon from "../Icons/AnimatedQuoteIcon";
-import { testimonials } from "@/data";
+import { getTestimonials } from "@/data/testimonials-i18n";
 import { renderStars } from "../CtaPopup/utils";
+import { type Locale } from "@/lib/i18n";
 
-export default function TestimonialSection() {
+interface TestimonialSectionProps {
+  locale: Locale;
+}
+
+export default function TestimonialSection({ locale }: TestimonialSectionProps) {
+  const testimonials = getTestimonials(locale);
   const testimonial = testimonials[0];
 
   return (
@@ -14,7 +20,10 @@ export default function TestimonialSection() {
       id="testimonial"
     >
       <div className="pill">
-        <ShinyText text="รีวิวจากลูกค้า" speed={5} />
+        <ShinyText 
+          text={locale === 'th' ? "รีวิวจากลูกค้า" : "Customer Reviews"} 
+          speed={5} 
+        />
       </div>
       <AnimatedContent
         distance={100}
@@ -27,11 +36,23 @@ export default function TestimonialSection() {
         threshold={0.2}
       >
         <h2 className="text-4xl md:text-5xl shaded text-center w-full inline-flex items-center justify-center gap-4">
-          <span>สิ่งที่ลูกค้า</span>
-          <span className="inline-flex items-center gap-2 md:gap-4">
-            <AnimatedQuoteIcon className="bg-primary hidden md:inline-block rounded-full p-2" />
-            <span className={`highlight`}>พูดถึงเรา</span>
-          </span>
+          {locale === 'th' ? (
+            <>
+              <span>สิ่งที่ลูกค้า</span>
+              <span className="inline-flex items-center gap-2 md:gap-4">
+                <AnimatedQuoteIcon className="bg-primary hidden md:inline-block rounded-full p-2" />
+                <span className={`highlight`}>พูดถึงเรา</span>
+              </span>
+            </>
+          ) : (
+            <>
+              <span>What our clients</span>
+              <span className="inline-flex items-center gap-2 md:gap-4">
+                <AnimatedQuoteIcon className="bg-primary hidden md:inline-block rounded-full p-2" />
+                <span className={`highlight`}>say about us</span>
+              </span>
+            </>
+          )}
         </h2>
       </AnimatedContent>
       <div className="flex flex-col md:flex-row-reverse md:gap-8">

@@ -3,7 +3,13 @@ import ShinyText from "../ShinyText/ShinyText";
 import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import Image from "next/image";
 
-export default function Integration() {
+type Locale = 'en' | 'th';
+
+interface IntegrationSectionProps {
+  locale: Locale;
+}
+
+export default function IntegrationSection({ locale }: IntegrationSectionProps) {
   return (
     <section id="integration">
       {/* <div className="flex flex-col gap-8">

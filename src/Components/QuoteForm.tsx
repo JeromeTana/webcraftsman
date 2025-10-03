@@ -5,7 +5,12 @@ import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Check, ArrowRight } from "lucide-react";
-import { services } from "@/data";
+import { getServices } from "@/data/services-i18n";
+import { type Locale } from "@/lib/i18n";
+
+interface QuoteFormProps {
+  locale: Locale;
+}
 
 // Form validation schemas
 const step1Schema = z.object({
@@ -47,10 +52,12 @@ const budgetOptions = [
 ];
 
 interface QuoteFormProps {
+  locale: Locale;
   onSubmitted?: () => void;
 }
 
-export default function QuoteForm({ onSubmitted }: QuoteFormProps) {
+export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
+  const services = getServices(locale);
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);

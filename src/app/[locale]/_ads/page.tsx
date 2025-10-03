@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import AdLandingPage from "@/Components/AdLandingPage/AdLandingPage";
+import type { Locale } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "Get More Customers Online - Free Website Analysis | WEBCRAFTSMAN",
@@ -24,6 +25,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function AdsLandingPage() {
-  return <AdLandingPage />;
+export default async function AdsLandingPage({
+  params,
+}: {
+  params: Promise<{ locale: Locale }>;
+}) {
+  const resolvedParams = await params;
+  const locale = resolvedParams?.locale || 'en';
+  
+  return <AdLandingPage locale={locale} />;
 }

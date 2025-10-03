@@ -1,10 +1,16 @@
 import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import ShinyText from "@/Components/ShinyText/ShinyText";
 import Accordion from "@/Components/Accordion";
-import { faqs } from "@/data";
+import { getFaqs } from "@/data/faqs-i18n";
 import AnimatedQuestionIcon from "../Icons/AnimatedQuestionIcon";
+import { type Locale } from "@/lib/i18n";
 
-export default function FAQSection() {
+interface FAQSectionProps {
+  locale: Locale;
+}
+
+export default function FAQSection({ locale }: FAQSectionProps) {
+  const faqs = getFaqs(locale);
   return (
     <section id="faq" className="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div className="flex flex-col gap-8">
@@ -23,7 +29,15 @@ export default function FAQSection() {
         >
           <h2 className="inline-flex items-center justify-center gap-4 text-4xl md:text-5xl">
             <AnimatedQuestionIcon className="animate-bounce" />
-            <span className={`highlight`}>คำถาม</span> ที่พบบ่อย
+            {locale === 'th' ? (
+              <>
+                <span className={`highlight`}>คำถาม</span> ที่พบบ่อย
+              </>
+            ) : (
+              <>
+                <span className={`highlight`}>Frequently</span> Asked Questions
+              </>
+            )}
           </h2>
         </AnimatedContent>
       </div>

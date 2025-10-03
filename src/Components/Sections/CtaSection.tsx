@@ -5,14 +5,22 @@ import AnimatedCalendarIcon from "../Icons/AnimatedCalendarIcon";
 import { CtaPopup } from "../CtaPopup";
 import PulsingDot from "../PulsingDot";
 
-export default function CtaSection() {
+type Locale = 'en' | 'th';
+
+interface CtaSectionProps {
+  locale: Locale;
+}
+
+export default function CtaSection({ locale }: CtaSectionProps) {
   return (
     <>
       <section id="cta" className="cta-section">
         <div className="relief relative overflow-clip bg-primary border-2 border-primary m-auto pt-16 pb-72 lg:pb-96 rounded-4xl flex flex-col gap-8 items-center justify-center">
           <div className="pill flex items-center gap-4">
             <PulsingDot />
-            <p className="!text-white">เริ่มต้นพูดคุยรับคำปรึกษา</p>
+            <p className="!text-white">
+              {locale === 'th' ? "เริ่มต้นพูดคุยรับคำปรึกษา" : "Start consultation today"}
+            </p>
           </div>
           <div className="flex flex-col gap-4 px-8">
             <AnimatedContent
@@ -28,7 +36,7 @@ export default function CtaSection() {
               <h2 className="text-4xl md:text-5xl !mb-0 text-white text-center">
                 <span className="inline-flex items-center gap-4">
                   <span className="inline-flex flex-col md:flex-row items-center gap-2 md:gap-4">
-                    รับคำปรึกษาด้านเว็บไซต์ ฟรี!
+                    {locale === 'th' ? "รับคำปรึกษาด้านเว็บไซต์ ฟรี!" : "Free Website Consultation!"}
                   </span>
                 </span>
                 {/* <span className="hidden md:inline-flex items-center gap-4">
@@ -47,7 +55,11 @@ export default function CtaSection() {
               </h2>
             </AnimatedContent>
             <p className="!text-white text-xl max-w-lg mx-auto font-medium text-center leading-10">
-              นัดพูดคุยกับเราฟรี!เราจะช่วยคุณวางแผนกลยุทธ์ด้านเว็บไซต์ที่เหมาะสมกับธุรกิจของคุณ
+              {locale === 'th' ? (
+                "นัดพูดคุยกับเราฟรี!เราจะช่วยคุณวางแผนกลยุทธ์ด้านเว็บไซต์ที่เหมาะสมกับธุรกิจของคุณ"
+              ) : (
+                "Schedule a free consultation with us! We'll help you plan the perfect website strategy for your business"
+              )}
             </p>
             {/* <ul className="flex flex-col gap-2">
             {features.map((feature, index) => (
@@ -59,7 +71,7 @@ export default function CtaSection() {
           </ul> */}
           </div>
           <div className="relative w-full mx-auto flex justify-center mt-4">
-            <CtaButtonHighlighted />
+            <CtaButtonHighlighted locale={locale} />
             <div className="absolute md:w-4xl top-64 md:top-48 z-0 grid grid-cols-3 gap-4 max-w-7xl m-auto px-4">
               <Image
                 src="/showcase2.png"

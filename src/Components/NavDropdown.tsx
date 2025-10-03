@@ -14,12 +14,14 @@ interface NavDropdownItem {
 interface NavDropdownProps {
   trigger: string;
   items: NavDropdownItem[];
+  locale: string;
   className?: string;
 }
 
 export const ServiceDropdown = ({
   trigger,
   items,
+  locale,
   className = "",
 }: NavDropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -89,23 +91,23 @@ export const ServiceDropdown = ({
                     }}
                   >
                     <a
-                      href={item.url}
+                      href={`/${locale}${item.url}`}
                       className="flex gap-3 group hover:bg-primary/5 rounded-lg p-3 transition-all duration-200"
                     >
                       {item.icon && (
-                        <div className="w-10 h-10 p-2 bg-primary/10 rounded-md text-primary group-hover:text-primary/80 transition-colors flex-shrink-0 flex items-center justify-center">
-                          {item.icon()}
-                        </div>
+                      <div className="w-10 h-10 p-2 bg-primary/10 rounded-md text-primary group-hover:text-primary/80 transition-colors flex-shrink-0 flex items-center justify-center">
+                        {item.icon()}
+                      </div>
                       )}
                       <div className="flex flex-col gap-1 flex-1">
-                        <div className="font-medium text-sm group-hover:text-primary transition-colors">
-                          {item.name}
+                      <div className="font-medium text-sm group-hover:text-primary transition-colors">
+                        {item.name}
+                      </div>
+                      {item.description && (
+                        <div className="text-xs text-gray-400 group-hover:text-paragraph/80 transition-colors line-clamp-1">
+                        {item.description}
                         </div>
-                        {item.description && (
-                          <div className="text-xs text-gray-400 group-hover:text-paragraph/80 transition-colors line-clamp-1">
-                            {item.description}
-                          </div>
-                        )}
+                      )}
                       </div>
                     </a>
                   </motion.li>

@@ -10,10 +10,13 @@ import { BookIcon } from "./Icons/BookIcon";
 import { DesignIcon } from "./Icons/DesignIcon";
 import { CodeIcon } from "./Icons/CodeIcon";
 import { openCtaPopup } from "./CtaPopup";
-import { navBarLinks } from "@/data";
+import { getNavBarLinks } from "@/data/navigations-i18n";
 import Link from "next/link";
+import { type LocalizedComponentProps } from "@/types/i18n";
+import LanguageSwitcher from "./LanguageSwitcher";
 
-export default function Header() {
+export default function Header({ locale, dict }: LocalizedComponentProps) {
+  const navBarLinks = getNavBarLinks(locale);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -72,24 +75,6 @@ export default function Header() {
           description: "Design assets",
           icon: CodeIcon,
         },
-        {
-          name: "Development Tips",
-          href: "/value/dev-tips",
-          description: "Code optimization techniques",
-          icon: CodeIcon,
-        },
-        {
-          name: "Development Tips",
-          href: "/value/dev-tips",
-          description: "Code optimization techniques",
-          icon: CodeIcon,
-        },
-        {
-          name: "Development Tips",
-          href: "/value/dev-tips",
-          description: "Code optimization techniques",
-          icon: CodeIcon,
-        },
       ],
     },
   ];
@@ -98,7 +83,7 @@ export default function Header() {
     <header className="sticky top-0 z-50">
       <div className="flex items-center  justify-between m-auto p-3 pl-4 bg-background">
         <a
-          href="/"
+          href={`/${locale}`}
           className="inline-flex lg:w-1/4 gap-4 items-center sm:text-2xl font-semibold tracking-tight"
         >
           <Logo className="w-14 h-14 fill-primary text-primary ml-4" />
@@ -111,9 +96,11 @@ export default function Header() {
             {navBarLinks.map((item, index) => (
               <li key={index}>
                 {item.dropdown ? (
-                  <ServiceDropdown trigger={item.title} items={item.dropdown} />
+                  <ServiceDropdown locale={locale} trigger={item.title} items={item.dropdown} />
                 ) : (
-                  <RevealLink href={item.url}>{item.title}</RevealLink>
+                  <RevealLink href={`/${locale}${item.url}`}>
+                    {dict.nav[item.title.toLowerCase() as keyof typeof dict.nav] || item.title}
+                  </RevealLink>
                 )}
               </li>
             ))}
@@ -124,13 +111,14 @@ export default function Header() {
         </nav>
 
         {/* Desktop CTA Button */}
-        <div className="flex lg:w-1/4 justify-end gap-4">
+        <div className="flex lg:w-1/4 justify-end gap-4 items-center">
+          <LanguageSwitcher currentLocale={locale} />
           <Link href="#cta">
             <button
               // onClick={openCtaPopup}
               className="cta hidden md:flex items-center gap-2"
             >
-              เริ่มต้นรับบริการ
+              {dict.nav.booking}
               <ArrowRight />
             </button>
           </Link>
