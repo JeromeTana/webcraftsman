@@ -71,7 +71,7 @@ export default async function ServiceDetailPage({
     <>
       <section id="hero" className="!p-0 !max-w-full grid xl:grid-cols-2 gap-8">
         {/* Main Content */}
-        <div className="p-20 my-auto">
+        <div className="p-8 md:p-20 my-auto">
           <div className="gap-6 mb-6">
             <div className="flex items-start gap-4 mb-4 ">
               <div className="text-primary flex-shrink-0">{service.icon}</div>

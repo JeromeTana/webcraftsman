@@ -11,7 +11,7 @@ export default function HeroSection() {
       id="hero"
       className="flex flex-col items-center gap-8 !py-16 !max-w-full !px-0 max-h-screen overflow-clip"
     >
-      <div className="!space-y-6">
+      <div className="!space-y-6 px-4">
         <div className="pill text-accent-green flex items-center gap-4 m-auto">
           <PulsingDot />
           <h1 className="text-base md:text-2xl text-primary !leading-6 !tracking-wide">
@@ -36,17 +36,8 @@ export default function HeroSection() {
             </span>
           </h2>
         </AnimatedContent>
-        {/* <BlurText
-        text={
-          "พวกเราเพิ่มยอดขาย ให้กับธุรกิจท้องถิ่นและ SME โดยเฉพาะ ด้วยเว็บไซต์ที่ออกแบบมาสำหรับทำการตลาด และเพิ่มการเติบโตธุรกิจ"
-        }
-        delay={50}
-        animateBy="words"
-        direction="top"
-        className="max-w-2xl text-gray-600 md:!text-xl justify-center mb-8 leading-8"
-      /> */}
         <p className="max-w-2xl text-gray-600 md:text-xl md:m-auto justify-center !mb-8 leading-8 md:text-center">
-          พวกเราเพิ่มยอดขาย ให้กับธุรกิจท้องถิ่นและ SME โดยเฉพาะ
+          เพิ่มยอดขาย ให้กับธุรกิจท้องถิ่นและ SME โดยเฉพาะ
           ด้วยเว็บไซต์ที่ออกแบบมาสำหรับทำการตลาด และเพิ่มการเติบโตธุรกิจ
         </p>
       </div>
