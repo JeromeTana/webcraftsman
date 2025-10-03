@@ -127,7 +127,7 @@ export default function Header() {
               // onClick={openCtaPopup}
               className="cta hidden md:flex items-center gap-2"
             >
-              {tNav("booking")}
+              {tNav("cta")}
               <ArrowRight />
             </button>
           </Link>
