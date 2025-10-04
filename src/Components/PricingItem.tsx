@@ -76,7 +76,7 @@ function StandardPricingCard({
       </div>
       <a href={paymentUrl} target="_blank">
         <button className="cta mt-16 w-full flex items-center justify-center gap-2 !shadow-none !bg-neutral-100 !border-none text-primary">
-          Get Started <ArrowRight />
+          Get a Quote <ArrowRight />
         </button>
       </a>
     </SpotlightCard>
@@ -139,7 +139,7 @@ function HighlightedPricingCard({
       </div>
       <a href="/booking">
         <button className="cta mt-16 w-full flex items-center justify-center gap-2 !shadow-none !bg-white text-primary">
-          Get Started <ArrowRight />
+          Get a Quote <ArrowRight />
         </button>
       </a>
     </SpotlightCard>

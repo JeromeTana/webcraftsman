@@ -57,7 +57,7 @@ const localizedFaqs: LocalizedFAQ[] = [
       th: "จะเริ่มต้นได้อย่างไร?"
     },
     answer: {
-      en: "Simply click 'Get Started' and fill out the form below. We'll contact you back, discuss your needs, analyze requirements, and propose a suitable plan for your business within 24 hours.",
+      en: "Simply click 'Get a Quote' and fill out the form below. We'll contact you back, discuss your needs, analyze requirements, and propose a suitable plan for your business within 24 hours.",
       th: "เพียงคลิก เริ่มต้นรับบริการ และกรอกแบบฟอร์มด้านล่าง เราจะติดต่อกลับและพูดคุย วิเคราะห์ความต้องการ และเสนอแผนที่เหมาะกับธุรกิจคุณภายใน 24 ชั่วโมง"
     }
   }
