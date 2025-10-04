@@ -54,7 +54,7 @@ export default function AuditForm() {
             type="text"
             id="name"
             name="name"
-            placeholder="Jerome Tana"
+            placeholder="Firstname Lastname"
             required
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
           />

@@ -64,7 +64,7 @@ export default function ContactForm() {
           type="text"
           id="name"
           name="name"
-          placeholder="Jerome Tana"
+          placeholder="Firstname Lastname"
           required
         />
       </div>

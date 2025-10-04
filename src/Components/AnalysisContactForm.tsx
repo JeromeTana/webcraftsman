@@ -108,7 +108,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ onSubmitted }) => {
             id="name"
             value={formData.name}
             onChange={(e) => handleInputChange("name", e.target.value)}
-            placeholder="Jerome Tana"
+            placeholder="Firstname Lastname"
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
             disabled={isSubmitting}
             required
