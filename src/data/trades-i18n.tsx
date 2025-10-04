@@ -9,7 +9,7 @@ export interface TradesData {
 const localizedTrades: Record<Locale, TradesData> = {
   en: {
     sectionTitle: "Industries We Specialize In",
-    heading: "We specialize in working with local businesses and SMEs",
+    heading: "We specialize in working with local businesses",
     businesses: [
       "Landscaping & Tree Care",
       "Solar Panel Installation",

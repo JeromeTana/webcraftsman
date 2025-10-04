@@ -10,10 +10,10 @@
     "contact": "Contact"
   },
   "hero": {
-    "tagline": "Website design and development for local businesses and SMEs",
+    "tagline": "Website design service for local businesses",
     "headlinePrefix": "Websites designed to",
     "headlineHighlight": "increase sales and growth",
-    "description": "Increase sales for local businesses and SMEs with websites designed for marketing and business growth"
+    "description": "Increase sales for local businesses with websites design and marketing for business growth"
   },
   "header": {
     "valueMenu": {
@@ -98,11 +98,11 @@
       "headline": "More than just websites. We focus on<br></br><highlight>growing your business</highlight>"
     },
     "trade": {
-      "headline": "We specialize in working with<br></br><highlight>local businesses and SMEs</highlight>"
+      "headline": "We specialize in working with<br></br><highlight>local businesses</highlight>"
     },
     "comparison": {
       "label": "What makes us different",
-      "headline": "We specialize in working with<br></br><highlight>local businesses and SMEs</highlight> specifically",
+      "headline": "We specialize in working with<br></br><highlight>local businesses</highlight> specifically",
       "typical": {
         "title": "Typical Agency",
         "items": [

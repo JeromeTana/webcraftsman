@@ -8,8 +8,8 @@ interface Metadata {
 
 const localizedMetadata: Record<Locale, Metadata> = {
   en: {
-    tagline: "Website design and development for local businesses and SMEs",
-    description: "Website design and development for online marketing to increase sales and attract new customers",
+    tagline: "Website design service for local businesses",
+    description: "Website design service for local businesses to boost online marketing, sales, and customer acquisition.",
     siteUrl: "https://www.webcraftsman.co/en"
   },
   th: {
