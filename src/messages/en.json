@@ -90,19 +90,22 @@
   "sections": {
     "process": {
       "label": "How to Get Started",
-      "highlight": "3 simple steps",
-      "tail": "to work with us"
+      "headline": "<highlight>3 simple steps</highlight> to work with us",
+      "description": "Our streamlined process makes it easy to get started. From initial consultation to final delivery, we'll guide you through every step."
     },
     "service": {
       "label": "Our Services",
-      "headline": "More than just websites. We focus on<br></br><highlight>growing your business</highlight>"
+      "headline": "More than just websites. We focus on<br></br><highlight>growing your business</highlight>",
+      "description": "We offer comprehensive digital solutions tailored to local businesses. Our expertise spans web development, SEO, and digital marketing to ensure your online success."
     },
     "trade": {
-      "headline": "We specialize in working with<br></br><highlight>local businesses</highlight>"
+      "headline": "We specialize in working with<br></br><highlight>local businesses</highlight>",
+      "description": "Local businesses have unique needs and challenges. We understand your market and create solutions that resonate with your community."
     },
     "comparison": {
       "label": "What makes us different",
       "headline": "We specialize in working with<br></br><highlight>local businesses</highlight> specifically",
+      "description": "See how our approach differs from typical agencies. We focus on delivering value, speed, and ongoing support for local business success.",
       "typical": {
         "title": "Typical Agency",
         "items": [
@@ -125,21 +128,25 @@
     },
     "showcase": {
       "label": "Portfolio",
-      "headline": "<highlight>Latest work</highlight> we've done"
+      "headline": "<highlight>Latest work</highlight> we've done",
+      "description": "Explore our recent projects and see how we've helped local businesses transform their online presence and achieve growth."
     },
     "blog": {
       "label": "Articles",
       "headline": "<highlight>Latest insights</highlight><br></br>and articles",
+      "description": "Stay updated with the latest trends, tips, and strategies for growing your business online. Learn from our expertise and experience.",
       "emptyMessage": "No articles available at this time. Please check our blog for updates",
       "viewAll": "View All Articles"
     },
     "faq": {
       "label": "FAQ",
-      "headline": "<highlight>Frequently</highlight> Asked Questions"
+      "headline": "Most Asked <highlight>Questions</highlight>",
+      "description": "Find answers to common questions about our services, process, and pricing. Still have questions? We're here to help."
     },
     "testimonial": {
       "label": "Customer Reviews",
-      "headline": "What our clients<br></br><highlight>say about us</highlight>"
+      "headline": "What our clients<br></br><highlight>say about us</highlight>",
+      "description": "Read real feedback from local business owners who have experienced growth and success through our services."
     },
     "cta": {
       "label": "Start consultation today",

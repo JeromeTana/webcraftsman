@@ -14,6 +14,7 @@ export interface Service {
   thumbnail?: string;
   headline: string;
   description: string;
+  content?: React.ReactNode;
   url: string;
   problems: string[];
   benefits: { headline: string; description: string }[];
@@ -29,6 +30,7 @@ export const services: Service[] = [
     description:
       "เว็บไซต์ที่ออกแบบมาเพื่อเพิ่มยอดขาย และช่วยให้ธุรกิจของคุณเติบโตอย่างยั่งยืน",
     url: "/service/web-development",
+    content: <div></div>,
     problems: [
       "เว็บไซต์เก่า โหลดช้า ทำให้เสียลูกค้าให้กับคู่แข่ง",
       "ไม่มีเว็บไซต์ ทำให้ดูไม่น่าเชื่อถือและแข่งขันกับคู่แข่งไม่ได้",

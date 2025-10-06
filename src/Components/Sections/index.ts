@@ -9,3 +9,5 @@ export { default as BlogSection } from './BlogSection';
 export { default as ServiceSection } from './ServiceSection';
 export { default as TradeSection } from './TradeSection';
 export { default as IntegrationSection } from './IntegrationSection';
+export { default as CtaSection } from './CtaSection';
+export { default as CtaFormSection } from './CtaFormSection';

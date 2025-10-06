@@ -15,7 +15,7 @@ export default async function FAQSection({ locale }: FAQSectionProps) {
   const faqs = getFaqs(locale);
   return (
     <section id="faq" className="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col">
         <div className="pill">
           <ShinyText text={t("label")} speed={5} />
         </div>
@@ -30,12 +30,15 @@ export default async function FAQSection({ locale }: FAQSectionProps) {
           threshold={0.2}
         >
           <h2 className="inline-flex items-center justify-center gap-4 text-4xl md:text-5xl">
-            <AnimatedQuestionIcon className="animate-bounce" />
+            {/* <AnimatedQuestionIcon className="animate-bounce" /> */}
             {t.rich("headline", {
               highlight: (chunks) => <span className="highlight">{chunks}</span>,
             })}
           </h2>
         </AnimatedContent>
+        <p className="text-paragraph text-xl">
+          {t("description")}
+        </p>
       </div>
       <div className="grid grid-cols-1 gap-8 w-full max-w-2xl">
         {faqs.map((faq, index) => (

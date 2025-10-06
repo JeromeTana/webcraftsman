@@ -11,7 +11,9 @@ interface TestimonialSectionProps {
   locale: Locale;
 }
 
-export default async function TestimonialSection({ locale }: TestimonialSectionProps) {
+export default async function TestimonialSection({
+  locale,
+}: TestimonialSectionProps) {
   const t = await getTranslations("sections.testimonial");
   const testimonials = getTestimonials(locale);
   const testimonial = testimonials[0];
@@ -21,31 +23,36 @@ export default async function TestimonialSection({ locale }: TestimonialSectionP
       className="flex flex-col items-center gap-8 !max-w-5xl"
       id="testimonial"
     >
-      <div className="pill">
-        <ShinyText text={t("label")} speed={5} />
+      <div className="flex flex-col items-center text-center mb-16">
+        <div className="pill">
+          <ShinyText text={t("label")} speed={5} />
+        </div>
+        <AnimatedContent
+          distance={100}
+          direction="vertical"
+          initialOpacity={0.05}
+          animateOpacity
+          damping={10}
+          stiffness={50}
+          scale={0.9}
+          threshold={0.2}
+        >
+          <h2 className="text-4xl md:text-5xl shaded text-center w-full inline-flex items-center justify-center gap-4">
+            {t.rich("headline", {
+              highlight: (chunks) => (
+                <span className="inline-flex items-center gap-2 md:gap-4">
+                  <AnimatedQuoteIcon className="bg-primary hidden md:inline-block rounded-full p-2" />
+                  <span className="highlight">{chunks}</span>
+                </span>
+              ),
+              br: () => <br />,
+            })}
+          </h2>
+        </AnimatedContent>
+        <p className="text-paragraph text-xl leading-relaxed max-w-2xl mx-auto">
+          {t("description")}
+        </p>
       </div>
-      <AnimatedContent
-        distance={100}
-        direction="vertical"
-        initialOpacity={0.05}
-        animateOpacity
-        damping={10}
-        stiffness={50}
-        scale={0.9}
-        threshold={0.2}
-      >
-        <h2 className="text-4xl md:text-5xl shaded text-center w-full inline-flex items-center justify-center gap-4">
-          {t.rich("headline", {
-            highlight: (chunks) => (
-              <span className="inline-flex items-center gap-2 md:gap-4">
-                <AnimatedQuoteIcon className="bg-primary hidden md:inline-block rounded-full p-2" />
-                <span className="highlight">{chunks}</span>
-              </span>
-            ),
-            br: () => <br />,
-          })}
-        </h2>
-      </AnimatedContent>
       <div className="flex flex-col md:flex-row-reverse md:gap-8">
         {testimonial.image && (
           <Image

@@ -15,28 +15,33 @@ export default async function ProcessSection({ locale }: ProcessSectionProps) {
   const process = getProcess(locale);
   return (
     <section id="process" className="flex flex-col items-center gap-8">
-      <div className="pill">
-        <ShinyText text={t("label")} speed={5} />
+      <div className="flex flex-col items-center text-center mb-16">
+        <div className="pill">
+          <ShinyText text={t("label")} speed={5} />
+        </div>
+        <AnimatedContent
+          distance={100}
+          direction="vertical"
+          initialOpacity={0.05}
+          animateOpacity
+          damping={10}
+          stiffness={50}
+          scale={0.9}
+          threshold={0.2}
+        >
+          <h2 className="text-4xl md:text-5xl shaded text-center w-full inline-flex flex-col sm:flex-row items-center justify-center gap-4">
+            {t.rich("headline", {
+              highlight: (chunks) => (
+                <span className="text-primary highlight">{chunks}</span>
+              ),
+              br: () => <br />,
+            })}
+          </h2>
+        </AnimatedContent>
+        <p className="text-paragraph text-xl leading-relaxed max-w-2xl mx-auto">
+          {t("description")}
+        </p>
       </div>
-      <AnimatedContent
-        distance={100}
-        direction="vertical"
-        initialOpacity={0.05}
-        animateOpacity
-        damping={10}
-        stiffness={50}
-        scale={0.9}
-        threshold={0.2}
-      >
-        <h2 className="text-4xl md:text-5xl shaded text-center w-full inline-flex flex-col sm:flex-row items-center justify-center gap-4">
-          <span>
-            <>
-              <span className="highlight">{t("highlight")}</span>{" "}
-              {t("tail")}
-            </>
-          </span>
-        </h2>
-      </AnimatedContent>
       <AnimatedContent
         distance={100}
         direction="vertical"

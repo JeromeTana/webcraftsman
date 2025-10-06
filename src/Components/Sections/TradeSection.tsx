@@ -24,7 +24,7 @@ export default function TradeSection({ locale }: TradeSectionProps) {
 
   return (
     <section className="flex flex-col items-center gap-8 !max-w-full">
-      <div className="max-w-6xl text-center flex flex-col items-center gap-8">
+      <div className="max-w-6xl text-center flex flex-col items-center mb-16">
         <div className="pill">
           <ShinyText text={tradesData.sectionTitle} speed={5} />
         </div>
@@ -40,11 +40,16 @@ export default function TradeSection({ locale }: TradeSectionProps) {
         >
           <h2 className="text-4xl md:text-5xl shaded text-center">
             {t.rich("headline", {
-              highlight: (chunks) => <span className="highlight">{chunks}</span>,
+              highlight: (chunks) => (
+                <span className="highlight">{chunks}</span>
+              ),
               br: () => <br />,
             })}
           </h2>
         </AnimatedContent>
+        <p className="text-paragraph text-xl leading-relaxed max-w-2xl mx-auto">
+          {t("description")}
+        </p>
       </div>
 
       <div className="w-full">
