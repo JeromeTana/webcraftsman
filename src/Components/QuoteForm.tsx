@@ -5,7 +5,7 @@ import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Check, ArrowRight } from "lucide-react";
-import { getServices } from "@/data/services-i18n";
+import { getServices } from "@/data/services";
 import { type Locale } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 

@@ -2,7 +2,7 @@ import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import ProcessItem from "@/Components/ProcessItem";
 import ShinyText from "@/Components/ShinyText/ShinyText";
 import { CtaButton } from "@/Components/CtaButton";
-import { getProcess } from "@/data/process-i18n";
+import { getProcess } from "@/data/process";
 import { type Locale } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
 

@@ -1,5 +1,5 @@
 import { contact } from "./contact";
-import { getServices } from "./services-i18n";
+import { getServices } from "./services";
 import type { Locale } from '@/i18n/routing';
 
 interface DropdownItem {

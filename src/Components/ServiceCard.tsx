@@ -2,7 +2,7 @@ import React from "react";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { Service } from "@/data/services-i18n";
+import { Service } from "@/data/services";
 
 export default function ServiceCard({ service }: { service: Service }) {
   return (

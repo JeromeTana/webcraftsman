@@ -1,5 +1,5 @@
 import Logo from "./Icons/Logo";
-import { getFooterLinks } from "@/data/navigations-i18n";
+import { getFooterLinks } from "@/data/navigations";
 import CtaFormSection from "./Sections/CtaFormSection";
 import { type Locale } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";

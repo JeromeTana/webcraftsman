@@ -11,7 +11,7 @@ import {
   IntegrationSection,
 } from "@/Components/Sections";
 import CtaFormSection from "@/Components/Sections/CtaFormSection";
-import { getMetadata } from "@/data/metadata-i18n";
+import { getMetadata } from "@/data/metadata";
 import { type Locale } from "@/i18n/routing";
 
 export default async function Home({

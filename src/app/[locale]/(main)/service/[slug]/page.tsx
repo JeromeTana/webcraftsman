@@ -1,5 +1,5 @@
 import React from "react";
-import { getServices } from "@/data/services-i18n";
+import { getServices } from "@/data/services";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import Link from "next/link";

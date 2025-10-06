@@ -3,7 +3,7 @@ import AvailableSpots from "@/Components/AvailableSpots";
 import AnimatedArrowIcon from "@/Components/Icons/AnimatedArrowIcon";
 import AnimatedCalendarIcon from "@/Components/Icons/AnimatedCalendarIcon";
 import { Metadata } from "next";
-import { getMetadata } from "@/data/metadata-i18n";
+import { getMetadata } from "@/data/metadata";
 import Calcom from "@/Components/Booking/DemoCall";
 import { type Locale } from "@/i18n/routing";
 

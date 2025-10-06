@@ -2,7 +2,7 @@ import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import ShinyText from "@/Components/ShinyText/ShinyText";
 import Image from "next/image";
 import AnimatedQuoteIcon from "../Icons/AnimatedQuoteIcon";
-import { getTestimonials } from "@/data/testimonials-i18n";
+import { getTestimonials } from "@/data/testimonials";
 import { renderStars } from "../CtaPopup/utils";
 import { type Locale } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";

@@ -1,7 +1,7 @@
 import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import ShinyText from "@/Components/ShinyText/ShinyText";
 import Accordion from "@/Components/Accordion";
-import { getFaqs } from "@/data/faqs-i18n";
+import { getFaqs } from "@/data";
 import AnimatedQuestionIcon from "../Icons/AnimatedQuestionIcon";
 import { type Locale } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";

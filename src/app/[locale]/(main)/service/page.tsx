@@ -1,5 +1,5 @@
 import React from "react";
-import { getServices } from "@/data/services-i18n";
+import { getServices } from "@/data/services";
 import ServiceCard from "@/Components/ServiceCard";
 import { Metadata } from "next";
 import { ServiceSection } from "@/Components/Sections";

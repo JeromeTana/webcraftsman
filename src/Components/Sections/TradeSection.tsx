@@ -4,7 +4,7 @@ import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import ShinyText from "@/Components/ShinyText/ShinyText";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, FreeMode } from "swiper/modules";
-import { getTrades } from "@/data/trades-i18n";
+import { getTrades } from "@/data/trades";
 import type { Locale } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 

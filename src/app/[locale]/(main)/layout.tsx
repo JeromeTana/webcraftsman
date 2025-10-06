@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/Components/Header";
 import Footer from "@/Components/Footer";
 import { locales, type Locale } from "@/i18n/routing";
-import { getMetadata } from "@/data/metadata-i18n";
+import { getMetadata } from "@/data/metadata";
 
 export async function generateMetadata({
   params,

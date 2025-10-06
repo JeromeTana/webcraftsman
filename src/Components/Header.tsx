@@ -9,7 +9,7 @@ import { ArrowRight, X } from "lucide-react";
 import { BookIcon } from "./Icons/BookIcon";
 import { DesignIcon } from "./Icons/DesignIcon";
 import { CodeIcon } from "./Icons/CodeIcon";
-import { getNavBarLinks } from "@/data/navigations-i18n";
+import { getNavBarLinks } from "@/data/navigations";
 import { Link } from "@/i18n/routing";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useLocale, useTranslations } from "next-intl";

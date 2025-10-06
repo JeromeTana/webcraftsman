@@ -1,7 +1,7 @@
 import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import ShinyText from "@/Components/ShinyText/ShinyText";
 import ServiceCard from "../ServiceCard";
-import { getServices } from "@/data/services-i18n";
+import { getServices } from "@/data/services";
 import { type Locale } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
 
