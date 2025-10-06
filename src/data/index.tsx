@@ -1,44 +1,37 @@
+// Re-export core data files
 export * from "./contact";
-export * from "./faqs";
-export * from "./metadata";
-export * from "./navigations";
-export * from "./plans";
 export * from "./portfolio";
-export * from "./process";
-export * from "./services";
-export * from "./testimonials";
-export * from "./trades";
 
-// Internationalized exports
+// Internationalized exports with backward compatibility
 export { 
-  getFaqs,
-  faqs as faqsLegacy 
+  getFaqs
 } from "./faqs-i18n";
+
 export { 
   getMetadata,
-  tagline as taglineLegacy,
-  description as descriptionLegacy,
-  siteUrl as siteUrlLegacy
+  // Backward compatibility exports for legacy imports
+  tagline,
+  description,
+  siteUrl
 } from "./metadata-i18n";
+
 export { 
   getNavBarLinks, 
-  getFooterLinks,
-  navBarLinks as navBarLinksLegacy,
-  footerLinks as footerLinksLegacy
+  getFooterLinks
 } from "./navigations-i18n";
+
 export { 
-  getProcess,
-  process as processLegacy 
+  getProcess
 } from "./process-i18n";
+
 export { 
-  getServices,
-  services as servicesLegacy 
+  getServices
 } from "./services-i18n";
+
 export { 
-  getTestimonials,
-  testimonials as testimonialsLegacy 
+  getTestimonials
 } from "./testimonials-i18n";
+
 export { 
-  getTrades,
-  tradeBusinesses as tradeBusinessesLegacy 
+  getTrades
 } from "./trades-i18n";
