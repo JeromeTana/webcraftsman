@@ -31,7 +31,7 @@ export default async function Footer({ locale }: FooterProps) {
                   <ul className="flex flex-col gap-4 text-(--paragraph)">
                     {section.links.map((link, linkIndex) => (
                       <li key={linkIndex}>
-                        <a href={link.url}>{link.title}</a>
+                        <Link href={link.url}>{link.title}</Link>
                       </li>
                     ))}
                   </ul>

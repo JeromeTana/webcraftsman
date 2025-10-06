@@ -10,7 +10,7 @@ import { type Locale } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 
 interface QuoteFormData {
-  service: string;
+  services: string[];
   websiteUrl?: string;
   businessDescription: string;
   timeline: string;
@@ -37,9 +37,9 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
   const step1Schema = useMemo(
     () =>
       z.object({
-        service: z
-          .string()
-          .min(1, t("errors.serviceRequired")),
+        services: z
+          .array(z.string())
+          .min(1, t("errors.servicesRequired")),
         websiteUrl: z.string().optional().default(""),
         businessDescription: z
           .string()
@@ -88,7 +88,7 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
     resolver: zodResolver(completeFormSchema),
     mode: "onChange" as const,
     defaultValues: {
-      service: "",
+      services: [],
       websiteUrl: "",
       businessDescription: "",
       timeline: "",
@@ -103,7 +103,7 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
 
   const validateStep1 = async (): Promise<boolean> => {
     const step1Fields = [
-      "service",
+      "services",
       "businessDescription",
       "timeline",
       "budget",
@@ -215,34 +215,45 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
           {/* Step 1: Project Details */}
           {/* Service Selection */}
           <div className="space-y-3">
-            <label
-              htmlFor="service"
-              className="block text-lg font-semibold text-gray-900"
-            >
-              {t("step1.serviceLabel")}
+            <label className="block text-lg font-semibold text-gray-900">
+              {t("step1.servicesLabel")}
             </label>
             <Controller
-              name="service"
+              name="services"
               control={control}
-              render={({ field }) => (
-                <select
-                  {...field}
-                  id="service"
-                  className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors text-gray-900 bg-white ${
-                    errors.service ? "border-red-500" : ""
-                  }`}
-                >
-                  <option value="">{t("step1.servicePlaceholder")}</option>
+              render={({ field: { value, onChange } }) => (
+                <div className="grid gap-3">
                   {services.map((service) => (
-                    <option key={service.title} value={service.title}>
-                      {service.title}
-                    </option>
+                    <label
+                      key={service.title}
+                      className={`flex items-center gap-3 p-4 border rounded-lg cursor-pointer transition-colors hover:bg-gray-50 ${
+                        value.includes(service.title)
+                          ? "border-primary bg-primary/5"
+                          : "border-gray-300"
+                      } ${errors.services ? "border-red-500" : ""}`}
+                    >
+                      <input
+                        type="checkbox"
+                        checked={value.includes(service.title)}
+                        onChange={(e) => {
+                          if (e.target.checked) {
+                            onChange([...value, service.title]);
+                          } else {
+                            onChange(value.filter((s) => s !== service.title));
+                          }
+                        }}
+                        className="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded"
+                      />
+                      <span className="text-gray-900 font-medium">
+                        {service.title}
+                      </span>
+                    </label>
                   ))}
-                </select>
+                </div>
               )}
             />
-            {errors.service && (
-              <p className="text-red-500 text-sm">{errors.service.message}</p>
+            {errors.services && (
+              <p className="text-red-500 text-sm">{errors.services.message}</p>
             )}
           </div>
 

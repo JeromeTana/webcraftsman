@@ -160,7 +160,7 @@
   "forms": {
     "quote": {
       "errors": {
-        "serviceRequired": "Please choose a service",
+        "servicesRequired": "Please choose at least one service",
         "businessDescriptionRequired": "Please describe your business",
         "timelineRequired": "Please select a timeline",
         "budgetRequired": "Please select a budget range",
@@ -183,8 +183,8 @@
         "$5,000 - $10,000"
       ],
       "step1": {
-        "serviceLabel": "Which service are you interested in?",
-        "servicePlaceholder": "Select a service...",
+        "servicesLabel": "Which services are you interested in?",
+        "servicePlaceholder": "Select services...",
         "websiteLabel": "Current website (optional)",
         "websitePlaceholder": "https://yourwebsite.com",
         "businessLabel": "Tell us about your business",

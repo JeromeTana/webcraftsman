@@ -160,7 +160,7 @@
   "forms": {
     "quote": {
       "errors": {
-        "serviceRequired": "กรุณาเลือกบริการที่สนใจ",
+        "servicesRequired": "กรุณาเลือกบริการอย่างน้อย 1 รายการ",
         "businessDescriptionRequired": "กรุณาอธิบายเกี่ยวกับธุรกิจของคุณคร่าว ๆ",
         "timelineRequired": "กรุณาเลือกระยะเวลา",
         "budgetRequired": "กรุณาเลือกช่วงงบประมาณ",
@@ -183,7 +183,7 @@
         "100,000 - 250,000 บาท"
       ],
       "step1": {
-        "serviceLabel": "สนใจรับบริการใด",
+        "servicesLabel": "สนใจรับบริการใด (เลือกได้หลายรายการ)",
         "servicePlaceholder": "เลือกบริการ...",
         "websiteLabel": "เว็บไซต์ปัจจุบัน (ถ้ามี)",
         "websitePlaceholder": "https://yourwebsite.com",
