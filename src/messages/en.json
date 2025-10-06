@@ -197,11 +197,11 @@
       "step2": {
         "heading": "Contact information",
         "fullNameLabel": "Full name",
-        "fullNamePlaceholder": "Jerome Tana",
+        "fullNamePlaceholder": "Firstname Lastname",
         "companyLabel": "Company (optional)",
         "companyPlaceholder": "Your company name",
         "emailLabel": "Email address",
-        "emailPlaceholder": "jerome@example.com",
+        "emailPlaceholder": "your@email.com",
         "phoneLabel": "Phone number",
         "phonePlaceholder": "+1 (555) 123-4567",
         "consent": "I consent to the processing of my personal data for the purpose of handling this quote request. I understand that I can withdraw my consent at any time by contacting you directly. My data will be handled in accordance with the <link>privacy policy</link>.",

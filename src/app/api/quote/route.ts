@@ -6,25 +6,38 @@ const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 export async function POST(request: Request) {
   try {
     const formData = await request.json();
+    console.log("Received form data:", formData); // Debug log
 
     // Validate required fields
-    if (!formData.fullName || !formData.email || !formData.service) {
+    if (!formData.fullName || !formData.email || !formData.services || !formData.businessDescription) {
+      console.error("Validation failed - missing fields:", {
+        hasFullName: !!formData.fullName,
+        hasEmail: !!formData.email,
+        hasServices: !!formData.services,
+        hasBusinessDescription: !!formData.businessDescription
+      });
       return Response.json(
-        { error: "Missing required fields" }, 
+        { error: "Missing required fields: fullName, email, services, and businessDescription are required" }, 
         { status: 400 }
       );
     }
 
-    // Format features for display
-    const featuresText = formData.features?.length > 0 
-      ? formData.features.join(", ")
-      : "No additional features selected";
+    // Format services for display
+    const servicesText = Array.isArray(formData.services) 
+      ? formData.services.join(", ")
+      : formData.services;
 
     const { data, error } = await resend.emails.send({
       from: "Jerome from WEBCRAFTSMAN <jerome@mail.webcraftsman.co>",
       to: ["jerome@webcraftsman.co"], // Your email where you want to receive form submissions
-      subject: `New Quote Request: ${formData.service} - ${formData.fullName}`,
-      react: QuoteFormTemplate({ formData: { ...formData, featuresText } }),
+      subject: `New Quote Request: ${servicesText} - ${formData.fullName}`,
+      react: QuoteFormTemplate({ 
+        formData: { 
+          ...formData, 
+          projectType: servicesText,
+          projectDescription: formData.businessDescription,
+        } 
+      }),
     });
 
     if (error) {
@@ -48,7 +61,7 @@ export async function POST(request: Request) {
               </p>
               
               <p style="color: #374151; font-size: 16px; line-height: 1.6; margin-bottom: 20px;">
-                We've successfully received your quote request for <strong>${formData.service}</strong>. 
+                We've successfully received your quote request for <strong>${servicesText}</strong>. 
                 Thank you for considering WEBCRAFTSMAN for your project!
               </p>
               

@@ -197,11 +197,11 @@
       "step2": {
         "heading": "ข้อมูลการติดต่อ",
         "fullNameLabel": "ชื่อ-นามสกุล",
-        "fullNamePlaceholder": "Jerome Tana",
+        "fullNamePlaceholder": "ชื่อ นามสกุล",
         "companyLabel": "บริษัท (ถ้ามี)",
         "companyPlaceholder": "ชื่อบริษัทของคุณ",
         "emailLabel": "ที่อยู่อีเมล",
-        "emailPlaceholder": "jerome@example.com",
+        "emailPlaceholder": "your@email.com",
         "phoneLabel": "หมายเลขโทรศัพท์",
         "phonePlaceholder": "+66 81 234 5678",
         "consent": "ฉันยอมรับการประมวลผลข้อมูลส่วนบุคคลเพื่อวัตถุประสงค์ในการจัดการคำขอใบเสนอราคานี้ ฉันเข้าใจว่าฉันสามารถถอนความยินยอมได้ตลอดเวลาโดยติดต่อคุณโดยตรง ข้อมูลของฉันจะถูกจัดการตาม<link>นโยบายความเป็นส่วนตัว</link>.",

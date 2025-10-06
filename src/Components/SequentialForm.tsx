@@ -33,7 +33,7 @@ const questions = [
     id: "name",
     title: "What's your name?",
     subtitle: "We'll personalize your analysis",
-    placeholder: "Jerome Tana",
+    placeholder: "Firstname Lastname",
     type: "text" as const,
   },
   {

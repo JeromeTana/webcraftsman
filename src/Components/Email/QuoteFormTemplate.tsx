@@ -5,7 +5,6 @@ export interface QuoteFormTemplateProps {
     projectDescription: string;
     timeline: string;
     budget: string;
-    featuresText: string;
     fullName: string;
     email: string;
     phone: string;
@@ -84,10 +83,6 @@ export function QuoteFormTemplate({ formData }: QuoteFormTemplateProps) {
           <tr>
             <td style={{ padding: '8px 0', fontWeight: 'bold', color: '#555', verticalAlign: 'top' }}>Budget:</td>
             <td style={{ padding: '8px 0', color: '#333' }}>{formData.budget}</td>
-          </tr>
-          <tr>
-            <td style={{ padding: '8px 0', fontWeight: 'bold', color: '#555', verticalAlign: 'top' }}>Additional Features:</td>
-            <td style={{ padding: '8px 0', color: '#333' }}>{formData.featuresText}</td>
           </tr>
         </table>
       </div>

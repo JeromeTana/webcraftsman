@@ -125,6 +125,8 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
   const onSubmit = async (data: QuoteFormData) => {
     setIsSubmitting(true);
     try {
+      console.log("Submitting form data:", data); // Debug log
+      
       const response = await fetch("/api/quote", {
         method: "POST",
         headers: {
@@ -139,9 +141,13 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
 
       if (!response.ok) {
         const errorData = await response.json();
+        console.error("API Error:", errorData); // Debug log
         throw new Error(errorData.error || "Failed to submit quote request");
       }
 
+      const result = await response.json();
+      console.log("Form submitted successfully:", result); // Debug log
+      
       setIsSubmitted(true);
 
       // Handle analytics tracking if available
@@ -170,7 +176,7 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
     }
 
     // For step 2, use react-hook-form's handleSubmit
-    await handleSubmit(onSubmit)();
+    handleSubmit(onSubmit)(e);
   };
 
   if (isSubmitted) {
