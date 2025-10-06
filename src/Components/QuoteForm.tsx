@@ -228,7 +228,7 @@ export default function QuoteForm({ locale, onSubmitted }: QuoteFormProps) {
               name="services"
               control={control}
               render={({ field: { value, onChange } }) => (
-                <div className="grid gap-3">
+                <div className="grid md:grid-cols-2 gap-3">
                   {services.map((service) => (
                     <label
                       key={service.title}
