@@ -16,6 +16,7 @@ import {
 import AnimatedContent from "@/Animations/AnimatedContent/AnimatedContent";
 import Image from "next/image";
 import { type Locale } from "@/i18n/routing";
+import BenefitSection from "@/Components/Sections/BenefitSection";
 
 interface ServiceDetailPageProps {
   params: Promise<{ slug: string; locale: Locale }>;
@@ -53,7 +54,7 @@ export async function generateMetadata({
 // Generate static params for static generation
 export async function generateStaticParams() {
   const { locales } = await import("@/i18n/routing");
-  
+
   const params = [];
   for (const locale of locales) {
     const services = getServices(locale);
@@ -64,7 +65,7 @@ export async function generateStaticParams() {
       });
     }
   }
-  
+
   return params;
 }
 
@@ -118,7 +119,7 @@ export default async function ServiceDetailPage({
         </div>
       </section>
       <IntegrationSection locale={locale} />
-      {service.content}
+      <BenefitSection locale={locale} />
       <TradeSection locale={locale} />
       <ShowcaseSection locale={locale} />
       <ProcessSection locale={locale} />

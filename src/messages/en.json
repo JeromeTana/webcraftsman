@@ -98,6 +98,11 @@
       "headline": "More than just websites. We focus on<br></br><highlight>growing your business</highlight>",
       "description": "We offer comprehensive digital solutions tailored to local businesses. Our expertise spans web development, SEO, and digital marketing to ensure your online success."
     },
+    "benefit": {
+      "label": "Benefits",
+      "headline": "What you will gain building a website with us",
+      "description": "Discover how our web development services can transform your online presence and drive business growth."
+    },
     "trade": {
       "headline": "We specialize in working with<br></br><highlight>local businesses</highlight>",
       "description": "Local businesses have unique needs and challenges. We understand your market and create solutions that resonate with your community."
