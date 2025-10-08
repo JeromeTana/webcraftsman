@@ -63,7 +63,7 @@ function getFooterLinks(locale: Locale): FooterSection[] {
       about: "About"
     },
     th: {
-      quickLinks: "ลิงก์ด่วน",
+      quickLinks: "Quick Links",
       services: "บริการ", 
       contact: "ติดต่อ",
       about: "เกี่ยวกับเรา"
