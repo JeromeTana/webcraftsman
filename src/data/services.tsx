@@ -227,7 +227,7 @@ const services: LocalizedService[] = [
     benefits: {
       en: [
         {
-          headline: "Maximize Revenue from Existing Traffic",
+          headline: "Maximize Revenue from Current Traffic",
           description: "Transform your website visitors into paying customers without needing more traffic. Our optimization strategies focus on improving conversion rates, meaning you'll generate more sales from the same number of visitors.",
           image: "/Conversion_Rate_Optimization_Service.png"
         },

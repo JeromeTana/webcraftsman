@@ -45,7 +45,7 @@ export default async function BenefitSection({
       : defaultBenefits;
   return (
     <section id="benefits" className="flex flex-col items-center gap-8">
-      <div className="flex flex-col items-center text-center mb-16">
+      <div className="flex flex-col items-center text-center mb-8">
         <div className="pill">
           <ShinyText text={t("label")} speed={5} />
         </div>
@@ -80,7 +80,7 @@ export default async function BenefitSection({
           >
             {index % 2 === 0 ? (
               <>
-                <div className="p-12 mb-32">
+                <div className="p-12 mb-8 md:mb-32">
                   <h3 className="text-2xl font-semibold mb-4">
                     {benefit.headline}
                   </h3>
@@ -101,7 +101,7 @@ export default async function BenefitSection({
                     backgroundImage: `url(${benefit.image})`,
                   }}
                 />
-                <div className="p-12 mb-32">
+                <div className="p-12 mb-8 md:mb-32">
                   <h3 className="text-2xl font-semibold mb-4">
                     {benefit.headline}
                   </h3>
