@@ -119,7 +119,7 @@ export default async function ServiceDetailPage({
         </div>
       </section>
       <IntegrationSection locale={locale} />
-      <BenefitSection locale={locale} />
+      <BenefitSection locale={locale} service={service}/>
       <TradeSection locale={locale} />
       <ShowcaseSection locale={locale} />
       <ProcessSection locale={locale} />
