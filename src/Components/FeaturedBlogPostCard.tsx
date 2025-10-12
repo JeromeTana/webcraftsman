@@ -1,23 +1,26 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import { BlogPost } from '@/sanity/lib/queries'
-import { urlFor } from '@/sanity/lib/image'
+import { Link } from "@/i18n/routing";
+import Image from "next/image";
+import { BlogPost } from "@/sanity/lib/queries";
+import { urlFor } from "@/sanity/lib/image";
 
 interface FeaturedBlogPostCardProps {
   post: BlogPost;
-  locale?: 'en-US' | 'th-TH';
+  locale?: "en-US" | "th-TH";
 }
 
-export default function FeaturedBlogPostCard({ post, locale = 'en-US' }: FeaturedBlogPostCardProps) {
-  const imageUrl = post.mainImage 
+export default function FeaturedBlogPostCard({
+  post,
+  locale = "en-US",
+}: FeaturedBlogPostCardProps) {
+  const imageUrl = post.mainImage
     ? urlFor(post.mainImage).width(1600).height(900).url()
-    : '/placeholder-image.svg'
+    : "/placeholder-image.svg";
 
   const publishedDate = new Date(post.publishedAt).toLocaleDateString(locale, {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  })
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
 
   return (
     <article className="group cursor-pointer mb-16 md:mb-32">
@@ -78,7 +81,7 @@ export default function FeaturedBlogPostCard({ post, locale = 'en-US' }: Feature
                       className="mr-3 rounded-full border-2 border-white"
                     />
                   )}
-                  <div className='flex flex-col w-full'>
+                  <div className="flex flex-col w-full">
                     <span className="font-medium text-gray-900">
                       {post.author?.name || "Anonymous"}
                     </span>

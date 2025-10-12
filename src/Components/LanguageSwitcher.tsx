@@ -1,7 +1,7 @@
 "use client";
 
 import { locales, type Locale, usePathname, useRouter } from "@/i18n/routing";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Globe } from "lucide-react";
 
 interface LanguageSwitcherProps {
   currentLocale: Locale;
@@ -19,19 +19,20 @@ export default function LanguageSwitcher({
 
   return (
     <div className="relative group">
-      <button className="flex items-center gap-2 p-2 rounded text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors">
+      <button className="flex items-center gap-2 p-4 cursor-pointer rounded-full text-sm font-medium text-gray-700 hover:bg-gray-200 transition-colors">
+        <Globe className="w-4 h-4" />
         {currentLocale.toUpperCase()}
-        <ChevronDown className="w-4 h-4" />
       </button>
-      <div className="absolute w-full top-full left-0 mt-1 bg-white border border-gray-200 rounded shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10">
+      <div className="absolute w-full top-full left-0 mt-1 bg-white border border-border rounded-full opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10">
         {locales
           .filter((locale) => locale !== currentLocale)
           .map((locale) => (
             <button
               key={locale}
               onClick={() => switchLanguage(locale)}
-              className="block w-full px-3 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 first:rounded-t last:rounded-b"
+              className="flex items-center gap-2 w-full p-4 text-left text-sm text-gray-700 hover:bg-gray-100 rounded-full transition-colors"
             >
+              <Globe className="w-4 h-4" />
               {locale.toUpperCase()}
             </button>
           ))}

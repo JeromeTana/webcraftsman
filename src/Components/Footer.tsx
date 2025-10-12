@@ -31,7 +31,9 @@ export default async function Footer({ locale }: FooterProps) {
                   <ul className="flex flex-col gap-4 text-(--paragraph)">
                     {section.links.map((link, linkIndex) => (
                       <li key={linkIndex}>
-                        <Link href={link.url}>{link.title}</Link>
+                        <Link href={link.url} className="hover:text-primary">
+                          {link.title}
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -43,11 +45,17 @@ export default async function Footer({ locale }: FooterProps) {
             <div>
               <p className="text-sm">
                 {`Copyright `}
-                <span className="font-semibold"> ©{year} WEBCRAFTSMAN</span>. {t("rights")}
+                <span className="font-semibold">
+                  {" "}
+                  ©{year} WEBCRAFTSMAN
+                </span>. {t("rights")}
               </p>
             </div>
             <div className="flex gap-8">
-              <Link href="/privacy-policy" className="text-sm hover:text-primary">
+              <Link
+                href="/privacy-policy"
+                className="text-sm hover:text-primary"
+              >
                 {t("privacyPolicy")}
               </Link>
               <Link href="/terms" className="text-sm hover:text-primary">
