@@ -175,7 +175,7 @@
         "servicesRequired": "Please choose at least one service",
         "businessDescriptionRequired": "Please describe your business",
         "timelineRequired": "Please select a timeline",
-        "budgetRequired": "Please select a budget range",
+        "budgetRequired": "Please select a budget range per month",
         "fullNameRequired": "Please enter your full name",
         "emailRequired": "Please enter an email address",
         "emailInvalid": "Please enter a valid email address",
@@ -203,8 +203,8 @@
         "businessPlaceholder": "Describe your business, target audience, goals, challenges, and any specific requirements...",
         "timelineLabel": "Project timeline",
         "timelinePlaceholder": "Select a timeline...",
-        "budgetLabel": "Budget range",
-        "budgetPlaceholder": "Select a budget range..."
+        "budgetLabel": "Budget range per month",
+        "budgetPlaceholder": "Select a budget range per month..."
       },
       "step2": {
         "heading": "Contact information",
