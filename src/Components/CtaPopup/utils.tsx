@@ -166,7 +166,7 @@ export const validateField = (
     case "timeline":
       return validateRequired(value as string, "ไทม์ไลน์");
     case "budget":
-      return validateRequired(value as string, "งบประมาณ");
+      return validateRequired(value as string, "งบประมาณต่อเดือน");
     case "monthlyRevenue":
       return validateRequired(value as string, "รายได้ต่อเดือน");
     // case 'contentReady':

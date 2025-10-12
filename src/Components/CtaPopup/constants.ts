@@ -47,7 +47,7 @@ export const FORM_STEPS: FormStep[] = [
   },
   {
     id: 3,
-    question: "งบประมาณสำหรับโฆษณาเท่าไร?",
+    question: "งบประมาณสำหรับโฆษณาต่อเดือนเท่าไร?",
     field: "budget",
     type: "select",
     required: true,
@@ -57,7 +57,7 @@ export const FORM_STEPS: FormStep[] = [
       "เดือนละ 100,000 - 500,000 บาท",
       "มากกว่าเดือนละ 500,000 บาท",
     ],
-    validation: (value: string) => validateRequired(value, "งบประมาณ"),
+    validation: (value: string) => validateRequired(value, "งบประมาณต่อเดือน"),
     helpText:
       "ข้อมูลงบประมาณช่วยให้ผมแนะนำแพ็คเกจและฟีเจอร์ที่ดี และเหมาะสมที่สุดได้ครับ",
   },
