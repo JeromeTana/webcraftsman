@@ -159,7 +159,7 @@
       "description": "Schedule a free consultation with us! We'll help you plan the perfect website strategy for your business"
     },
     "ctaForm": {
-      "availability": "Available for service in {month}",
+      "availability": "Available slots for {month}",
       "title": "Get started with our service easily today",
       "description": "Fill out the form to request a free quote or consult about your project",
       "bullets": [
