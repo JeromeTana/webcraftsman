@@ -17,7 +17,7 @@ const localizedProcess: LocalizedProcessStep[] = [
   {
     title: {
       en: "Consultation & Planning",
-      th: "พูดคุยให้คำปรึกษา"
+      th: "กรอกฟอร์มรับบริการ"
     },
     description: {
       en: "Fill out the form so we can contact you back and understand your goals to find the best approach.",
@@ -25,7 +25,7 @@ const localizedProcess: LocalizedProcessStep[] = [
     },
     block: (
       <Image
-        src="/DE_Call.png"
+        src="/Fill_quote_form.png"
         alt="Consultation meeting"
         width={500}
         height={500}

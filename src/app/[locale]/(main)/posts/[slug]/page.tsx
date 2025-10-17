@@ -156,7 +156,7 @@ const portableTextComponents = {
       );
     },
     normal: ({ children }: any) => (
-      <p className="mb-4 leading-10 text-gray-600">{children}</p>
+      <p className="mb-4 text-lg leading-loose text-gray-600">{children}</p>
     ),
     blockquote: ({ children }: any) => (
       <blockquote className="border-l-4 border-primary pl-6 my-6 italic text-gray-700">
@@ -513,7 +513,7 @@ export default async function BlogPostPage({
               src={imageUrl}
               alt={post.mainImage?.alt || post.title}
               fill
-              className="object-cover md:rounded-3xl border border-gray-300"
+              className="object-cover md:rounded-3xl border border-gray-300 bg-primary"
               priority
             />
           </div>

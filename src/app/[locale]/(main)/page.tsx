@@ -116,10 +116,10 @@ export default async function Home({
       <main>
         <HeroSection locale={locale} />
         <IntegrationSection locale={locale} />
+        <ShowcaseSection locale={locale} />
         <TradeSection locale={locale} />
         <ServiceSection locale={locale} />
         {/* <ComparisonSection locale={locale} /> */}
-        <ShowcaseSection locale={locale} />
         <ProcessSection locale={locale} />
         <TestimonialSection locale={locale} />
         <BlogSection locale={locale} />

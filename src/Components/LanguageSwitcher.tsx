@@ -30,7 +30,7 @@ export default function LanguageSwitcher({
             <button
               key={locale}
               onClick={() => switchLanguage(locale)}
-              className="flex items-center gap-2 w-full p-4 text-left text-sm text-gray-700 hover:bg-gray-100 rounded-full transition-colors"
+              className="flex items-center gap-2 w-full p-4 cursor-pointer text-left text-sm text-gray-700 hover:bg-gray-100 rounded-full transition-colors"
             >
               <Globe className="w-4 h-4" />
               {locale.toUpperCase()}
