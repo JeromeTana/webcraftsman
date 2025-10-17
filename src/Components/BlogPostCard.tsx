@@ -41,7 +41,7 @@ export default function BlogPostCard({ post, locale = 'en-US' }: BlogPostCardPro
                 {post.categories.map((category) => (
                   <span
                     key={category.slug.current}
-                    className="rounded-full bg-white/80 backdrop-blur-sm px-4 py-2 text-sm font-medium text-primary border border-primary/20"
+                    className="rounded-full bg-white backdrop-blur-sm px-4 py-2 text-sm font-medium text-primary border border-primary/20"
                   >
                     {category.title}
                   </span>

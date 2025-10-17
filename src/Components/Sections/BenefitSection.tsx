@@ -76,7 +76,7 @@ export default async function BenefitSection({
         {benefits.map((benefit, index) => (
           <div
             key={index}
-            className="bg-foreground rounded-3xl grid md:grid-cols-2 overflow-clip"
+            className="bg-foreground p-3 rounded-4xl grid md:grid-cols-2 overflow-clip"
           >
             {index % 2 === 0 ? (
               <>
@@ -87,7 +87,7 @@ export default async function BenefitSection({
                   <p className="text-paragraph/90">{benefit.description}</p>
                 </div>
                 <div
-                  className="bg-cover bg-center bg-no-repeat min-h-[300px]"
+                  className="bg-cover rounded-3xl bg-center bg-no-repeat min-h-[300px]"
                   style={{
                     backgroundImage: `url(${benefit.image})`,
                   }}
@@ -96,7 +96,7 @@ export default async function BenefitSection({
             ) : (
               <>
                 <div
-                  className="bg-cover bg-center bg-no-repeat min-h-[300px]"
+                  className="bg-cover rounded-3xl bg-center bg-no-repeat min-h-[300px]"
                   style={{
                     backgroundImage: `url(${benefit.image})`,
                   }}

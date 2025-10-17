@@ -171,7 +171,7 @@ body {
 
 .card {
   background: var(--foreground);
-  border-radius: 1.2rem;
+  border-radius: 2rem;
   padding: 2rem;
   border: none;
   overflow: clip;
