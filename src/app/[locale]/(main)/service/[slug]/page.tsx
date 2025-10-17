@@ -108,18 +108,18 @@ export default async function ServiceDetailPage({
             </div>
           </div>
         </div>
-        <div className="relative w-full h-full bg-primary">
+        <div className="relative w-full h-full bg-primary rounded-l-4xl">
           <Image
             src={service.thumbnail as string}
             alt={`${service.title} Thumbnail`}
             width={1000}
             height={1000}
-            className="h-full object-cover"
+            className="h-full object-cover rounded-l-4xl"
           />
         </div>
       </section>
       <IntegrationSection locale={locale} />
-      <BenefitSection locale={locale} service={service}/>
+      <BenefitSection locale={locale} service={service} />
       <TradeSection locale={locale} />
       <ShowcaseSection locale={locale} />
       <ProcessSection locale={locale} />
