@@ -34,7 +34,7 @@ export default async function BlogSection({ locale }: BlogSectionProps) {
         >
           <div className="flex flex-col items-center gap-4">
             <div className="flex items-center gap-2">
-              <h2 className="text-center text-5xl font-bold lg:text-6xl">
+              <h2 className="text-center text-4xl font-bold lg:text-5xl">
                 {t.rich("headline", {
                   highlight: (chunks) => (
                     <span className="text-primary highlight">{chunks}</span>

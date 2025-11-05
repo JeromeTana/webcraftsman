@@ -32,7 +32,7 @@ export default function ImageShowcaseSection({ locale: _locale }: ImageShowcaseS
           className="flex flex-col gap-4 -mt-32"
         >
           <Image
-            src={"/showcase6.webp"}
+            src={"/showcase2.png"}
             alt={""}
             width={1000}
             height={1000}
@@ -115,7 +115,7 @@ export default function ImageShowcaseSection({ locale: _locale }: ImageShowcaseS
             className={`w-full object-cover aspect-square border border-gray-200 object-top group-hover:scale-105 duration-300 md:rounded`}
           />
           <Image
-            src={"/showcase6.webp"}
+            src={"/showcase11.webp"}
             alt={""}
             width={1000}
             height={1000}

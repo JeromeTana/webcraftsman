@@ -6,7 +6,7 @@ export const portfolio = [
   },
   {
     img: "/showcase9.webp",
-    title: "Wealthery",
+    title: "ShinyCleaning",
     description: "",
   },
   {
@@ -37,6 +37,16 @@ export const portfolio = [
   {
     img: "/showcase5.webp",
     title: "FitDad",
+    description: "",
+  },
+  {
+    img: "/showcase11.webp",
+    title: "Ecsight",
+    description: "",
+  },
+  {
+    img: "/showcase7.webp",
+    title: "Solarize",
     description: "",
   },
 ];
