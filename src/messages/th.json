@@ -4,7 +4,7 @@
     "about": "เกี่ยวกับเรา",
     "service": "บริการ",
     "showcase": "ผลงาน",
-    "posts": "บล็อก",
+    "posts": "บทความ",
     "resources": "ทรัพยากร",
     "cta": "เริ่มรับบริการ",
     "contact": "ติดต่อ"
@@ -41,7 +41,7 @@
       ]
     },
     "megaMenu": {
-      "blogTitle": "บล็อก",
+      "blogTitle": "บทความ",
       "viewAll": "ดูทั้งหมด →"
     }
   },
@@ -65,7 +65,7 @@
     "services": "บริการ",
     "resources": "ทรัพยากร",
     "contact": "ติดต่อ",
-    "rights": "สงวนลิขสิทธิ์ทุกประการ",
+    "rights": "All rights reserved.",
     "privacyPolicy": "นโยบายความเป็นส่วนตัว",
     "terms": "ข้อกำหนดและเงื่อนไข"
   },

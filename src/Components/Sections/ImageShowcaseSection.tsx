@@ -23,7 +23,7 @@ export default function ImageShowcaseSection({ locale: _locale }: ImageShowcaseS
   const y4 = useTransform(scrollYProgress, [0, 1], [0, -100]);
   const y5 = useTransform(scrollYProgress, [0, 1], [-100, 200]);
   return (
-    <div ref={containerRef} className="relative mt-24 overflow-x-clip">
+    <div ref={containerRef} className="relative mt-24 overflow-x-clip ">
       {/* <div className="absolute bottom-0 left-0 bg-gradient-to-t from-white via-white/ to-transparent z-10 w-full h-full"/> */}
       <div className="min-w-2xl origin-top grid grid-cols-5 gap-4 scale-125">
         {/* {SHOWCASE_IMAGES.map((image, index) => ( */}
@@ -36,14 +36,14 @@ export default function ImageShowcaseSection({ locale: _locale }: ImageShowcaseS
             alt={""}
             width={1000}
             height={1000}
-            className={`w-full object-cover aspect-square border border-gray-200 object-top group-hover:scale-105 duration-300 md:rounded`}
+            className={`w-full object-cover aspect-square border border-gray-200 object-top group-hover:scale-105 duration-300 lg:rounded-xl`}
           />
           <Image
             src={"/showcase5.webp"}
             alt={""}
             width={1000}
             height={1000}
-            className={`w-full object-cover aspect-square border border-gray-200 object-top group-hover:scale-105 duration-300 md:rounded`}
+            className={`w-full object-cover aspect-square border border-gray-200 object-top group-hover:scale-105 duration-300 lg:rounded-xl`}
           />
         </motion.div>
         <motion.div 
@@ -55,14 +55,14 @@ export default function ImageShowcaseSection({ locale: _locale }: ImageShowcaseS
             alt={""}
             width={1000}
             height={1000}
-            className={`w-full object-cover aspect-square border border-gray-200 object-top group-hover:scale-105 duration-300 md:rounded`}
+            className={`w-full object-cover aspect-square border border-gray-200 object-top group-hover:scale-105 duration-300 lg:rounded-xl`}
           />
           <Image
             src={"/showcase7.webp"}
             alt={""}
             width={1000}
             height={1000}
-            className={`w-full object-cover aspect-square border border-gray-200 object-top group-hover:scale-105 duration-300 md:rounded`}
+            className={`w-full object-cover aspect-square border border-gray-200 object-top group-hover:scale-105 duration-300 lg:rounded-xl`}
           />
         </motion.div>
         <motion.div 
@@ -74,14 +74,14 @@ export default function ImageShowcaseSection({ locale: _locale }: ImageShowcaseS
             alt={""}
             width={1000}
             height={1000}
-            className={`w-full object-cover aspect-square border border-gray-200 object-top group-hover:scale-105 duration-300 md:rounded`}
+            className={`w-full object-cover aspect-square border border-gray-200 object-top group-hover:scale-105 duration-300 lg:rounded-xl`}
           />
           <Image
             src={"/showcase8.webp"}
             alt={""}
             width={1000}
             height={1000}
-            className={`w-full object-cover aspect-square border border-gray-200 object-top group-hover:scale-105 duration-300 md:rounded`}
+            className={`w-full object-cover aspect-square border border-gray-200 object-top group-hover:scale-105 duration-300 lg:rounded-xl`}
           />
         </motion.div>
         <motion.div 
@@ -93,14 +93,14 @@ export default function ImageShowcaseSection({ locale: _locale }: ImageShowcaseS
             alt={""}
             width={1000}
             height={1000}
-            className={`w-full object-cover aspect-square border border-gray-200 object-top group-hover:scale-105 duration-300 md:rounded`}
+            className={`w-full object-cover aspect-square border border-gray-200 object-top group-hover:scale-105 duration-300 lg:rounded-xl`}
           />
           <Image
             src={"/showcase9.webp"}
             alt={""}
             width={1000}
             height={1000}
-            className={`w-full object-cover aspect-square border border-gray-200 object-top group-hover:scale-105 duration-300 md:rounded`}
+            className={`w-full object-cover aspect-square border border-gray-200 object-top group-hover:scale-105 duration-300 lg:rounded-xl`}
           />
         </motion.div>
         <motion.div 
@@ -112,14 +112,14 @@ export default function ImageShowcaseSection({ locale: _locale }: ImageShowcaseS
             alt={""}
             width={1000}
             height={1000}
-            className={`w-full object-cover aspect-square border border-gray-200 object-top group-hover:scale-105 duration-300 md:rounded`}
+            className={`w-full object-cover aspect-square border border-gray-200 object-top group-hover:scale-105 duration-300 lg:rounded-xl`}
           />
           <Image
             src={"/showcase11.webp"}
             alt={""}
             width={1000}
             height={1000}
-            className={`w-full object-cover aspect-square border border-gray-200 object-top group-hover:scale-105 duration-300 md:rounded`}
+            className={`w-full object-cover aspect-square border border-gray-200 object-top group-hover:scale-105 duration-300 lg:rounded-xl`}
           />
         </motion.div>
       </div>

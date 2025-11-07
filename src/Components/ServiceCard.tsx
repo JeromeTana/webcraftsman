@@ -2,12 +2,13 @@ import React from "react";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import { Service } from "@/data/services";
+import { ArrowRight, ChevronRight } from "lucide-react";
 
 export default function ServiceCard({ service }: { service: Service }) {
   return (
     <Link
       href={service.url}
-      className="group bg-foreground p-2 h-full flex flex-col rounded-4xl justify-between"
+      className="group bg-foreground p-2 h-full flex flex-col rounded-4xl justify-between transition-transform hover:-translate-y-4"
     >
       <div className="w-full overflow-hidden rounded-3xl">
         <Image
@@ -24,12 +25,12 @@ export default function ServiceCard({ service }: { service: Service }) {
         {/* <div className="text-primary mb-8">{service.icon}</div> */}
         {/* <div className="flex mb-4">{renderStars(5)}</div> */}
         <h3 className="text-2xl mb-4">{service.title}</h3>
-        <p className="text-paragraph line-clamp-3">{service.description}</p>
+        <p className="text-paragraph line-clamp-3 flex-1">{service.description}</p>
+        <div className="mt-8 flex gap-2 items-center text-primary">
+          <p>View Details</p>
+          <ChevronRight />
+        </div>
       </div>
-      {/* <div className="mt-8 flex gap-2 items-center text-primary">
-        <p>ดูรายละเอียด</p>
-        <ArrowRight />
-      </div> */}
     </Link>
   );
 }

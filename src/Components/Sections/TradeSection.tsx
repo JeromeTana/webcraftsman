@@ -43,7 +43,7 @@ export default function TradeSection({ locale }: TradeSectionProps) {
 
   return (
     <section
-      className="flex flex-col items-center gap-8 !max-w-full"
+      className="flex flex-col items-center gap-8"
       ref={containerRef}
     >
       <div className="max-w-6xl text-center flex flex-col items-center mb-16">
@@ -74,9 +74,11 @@ export default function TradeSection({ locale }: TradeSectionProps) {
         </p>
       </div>
 
-      <div className="w-full h-full overflow-x-hidden space-y-8">
+      <div className="w-full h-fit overflow-x-hidden relative">
+        <div className="h-full bg-gradient-to-r from-white to-transparent md:w-80 absolute left-0 bottom-0 z-10"></div>
+        <div className="h-full bg-gradient-to-l from-white to-transparent md:w-80 absolute right-0 bottom-0 z-10"></div>
         {/* First Row - Moves Left */}
-        <div className="relative">
+        <div className="relative mb-8">
           <div
             className="flex gap-6 transition-transform duration-75 ease-linear"
             style={{
