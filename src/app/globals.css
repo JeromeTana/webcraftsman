@@ -269,6 +269,14 @@ label {
   transition: all 0.3s ease;
 }
 
+.showcase-swiper .swiper-button-next {
+  transform: translateX(50%) !important;
+}
+
+.showcase-swiper .swiper-button-prev {
+  transform: translateX(-50%) !important;
+}
+
 .swiper-navigation-icon {
   width: 24px !important;
   height: 24px !important;

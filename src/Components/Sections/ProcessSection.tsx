@@ -59,7 +59,7 @@ export default async function ProcessSection({ locale }: ProcessSectionProps) {
           ))}
         </div>
       </AnimatedContent>
-      <div className="mt-20">
+      <div className="mt-32">
         <CtaButton />
       </div>
     </section>

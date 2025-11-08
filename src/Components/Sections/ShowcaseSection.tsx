@@ -81,7 +81,7 @@ export default function ShowcaseSection(_: ShowcaseSectionProps) {
               spaceBetween: 32,
             },
           }}
-          className="showcase-swiper"
+          className="showcase-swiper !overflow-visible"
         >
           {portfolio.map((work, index) => (
             <SwiperSlide key={index}>
