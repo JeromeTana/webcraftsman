@@ -20,7 +20,7 @@ export default function ProcessItem({
     <div
       className={
         `bg-foreground rounded-4xl relative duration-200 hover:!border-border-highlight flex flex-col justify-between ` +
-        (index % 2 == 0 && "translate-y-8")
+        (index % 2 == 0 && "md:translate-y-8")
       }
     >
       <div className="space-y-4 p-8">

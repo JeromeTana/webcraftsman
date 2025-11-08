@@ -123,7 +123,7 @@ export default async function Home({
         <ProcessSection locale={locale} />
         <TestimonialSection locale={locale} />
         <BlogSection locale={locale} />
-        <FAQSection locale={locale} />
+        {/* <FAQSection locale={locale} /> */}
       </main>
     </div>
   );

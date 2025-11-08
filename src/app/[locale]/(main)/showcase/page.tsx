@@ -19,7 +19,7 @@ export default async function ShowcasePage({
       <ShowcaseSection locale={locale}/>
       <ProcessSection locale={locale} />
       <TestimonialSection locale={locale} />
-      <FAQSection locale={locale} />
+      {/* <FAQSection locale={locale} /> */}
     </main>
   );
 }

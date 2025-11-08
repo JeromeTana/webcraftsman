@@ -124,7 +124,7 @@ export default async function ServiceDetailPage({
       <ShowcaseSection locale={locale} />
       <ProcessSection locale={locale} />
       <TestimonialSection locale={locale} />
-      <FAQSection locale={locale} />
+      {/* <FAQSection locale={locale} /> */}
     </>
   );
 }
